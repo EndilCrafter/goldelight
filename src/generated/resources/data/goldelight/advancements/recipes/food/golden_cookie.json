@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_golden_cabbage_leaf": {
+    "has_golden_cocoa": {
       "conditions": {
         "items": [
           {
             "items": [
-              "goldelight:golden_cabbage_leaf"
+              "goldelight:golden_cocoa_beans"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "goldelight:cabbage_from_leaves"
+        "recipe": "goldelight:golden_cookie"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_golden_cabbage_leaf",
+      "has_golden_cocoa",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "goldelight:cabbage_from_leaves"
+      "goldelight:golden_cookie"
     ]
   },
   "sends_telemetry_event": false

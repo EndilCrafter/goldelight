@@ -179,15 +179,17 @@ public class ModRecipes extends RecipeProvider implements IConditionBuilder {
 
     private void registerFoodCrafting(Consumer<FinishedRecipe> consumer) {
         ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, GDModItems.GOLDEN_BREAD.get())
-                .pattern("www").define('m', GDModItems.GOLDEN_WHEAT.get())
-                .unlockedBy("has_golden_wheat", InventoryChangeTrigger.TriggerInstance.hasItems(GDModItems.GOLDEN_WHEAT.get()));
+                .pattern("www").define('w', GDModItems.GOLDEN_WHEAT.get())
+                .unlockedBy("has_golden_wheat", InventoryChangeTrigger.TriggerInstance.hasItems(GDModItems.GOLDEN_WHEAT.get()))
+                .save(consumer);
         ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, GDModItems.GOLDEN_MILK_BUCKET.get())
                 .requires(Items.BUCKET)
                 .requires(GDModItems.GOLDEN_MILK_BOTTLE.get())
                 .requires(GDModItems.GOLDEN_MILK_BOTTLE.get())
                 .requires(GDModItems.GOLDEN_MILK_BOTTLE.get())
                 .requires(GDModItems.GOLDEN_MILK_BOTTLE.get())
-                .unlockedBy("has_golden_milk_bottle", InventoryChangeTrigger.TriggerInstance.hasItems(GDModItems.GOLDEN_MILK_BOTTLE.get()));
+                .unlockedBy("has_golden_milk_bottle", InventoryChangeTrigger.TriggerInstance.hasItems(GDModItems.GOLDEN_MILK_BOTTLE.get()))
+                .save(consumer, new ResourceLocation(GolDelight.MOD_ID, "golden_milk_from_bottles"));
         ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, GDModItems.GOLDEN_CAKE.get())
                 .pattern("mmm")
                 .pattern("ses")
@@ -210,22 +212,26 @@ public class ModRecipes extends RecipeProvider implements IConditionBuilder {
                 .save(consumer, new ResourceLocation(GolDelight.MOD_ID, "golden_cake_from_slices"));
         ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, GDModItems.GOLDEN_COOKIE.get(), 8)
                 .pattern("wcw").define('w', GDModItems.GOLDEN_WHEAT.get()).define('c', GDModItems.GOLDEN_COCOA_BEANS.get())
-                .unlockedBy("has_golden_cocoa", InventoryChangeTrigger.TriggerInstance.hasItems(GDModItems.GOLDEN_COCOA_BEANS.get()));
+                .unlockedBy("has_golden_cocoa", InventoryChangeTrigger.TriggerInstance.hasItems(GDModItems.GOLDEN_COCOA_BEANS.get()))
+                .save(consumer);
         ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, GDModItems.GOLDEN_MUSHROOM_STEW.get())
                 .requires(GDModBlocks.GOLDEN_MUSHROOM.get().asItem())
                 .requires(GDModBlocks.GOLDEN_MUSHROOM.get().asItem())
                 .requires(Items.BOWL)
-                .unlockedBy("has_golden_mushroom", InventoryChangeTrigger.TriggerInstance.hasItems(GDModBlocks.GOLDEN_MUSHROOM.get().asItem()));
+                .unlockedBy("has_golden_mushroom", InventoryChangeTrigger.TriggerInstance.hasItems(GDModBlocks.GOLDEN_MUSHROOM.get().asItem()))
+                .save(consumer);
         ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, GDModItems.GOLDEN_RABBIT_STEW.get())
                 .requires(ItemRegistry.BAKED_GOLDEN_POTATO.get())
                 .requires(ItemRegistry.COOKED_GOLDEN_RABBIT.get())
                 .requires(Items.BOWL)
                 .requires(Items.GOLDEN_CARROT)
                 .requires(GDModBlocks.GOLDEN_MUSHROOM.get().asItem())
-                .unlockedBy("has_cooked_golden_rabbit", InventoryChangeTrigger.TriggerInstance.hasItems(ItemRegistry.COOKED_GOLDEN_RABBIT.get()));
+                .unlockedBy("has_cooked_golden_rabbit", InventoryChangeTrigger.TriggerInstance.hasItems(ItemRegistry.COOKED_GOLDEN_RABBIT.get()))
+                .save(consumer);
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, GDModBlocks.GOL_D_LANTERN.get())
                 .pattern("p").pattern("t").define('p', GDModBlocks.GOLDEN_CARVED_PUMPKIN.get()).define('t', Items.TORCH)
-                .unlockedBy("has_golden_carved_pumpkin", InventoryChangeTrigger.TriggerInstance.hasItems(GDModBlocks.GOLDEN_CARVED_PUMPKIN.get()));
+                .unlockedBy("has_golden_carved_pumpkin", InventoryChangeTrigger.TriggerInstance.hasItems(GDModBlocks.GOLDEN_CARVED_PUMPKIN.get()))
+                .save(consumer);
         ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, GDModItems.GOLDEN_MILK_BOTTLE.get(), 4)
                 .requires(GDModItems.GOLDEN_MILK_BUCKET.get())
                 .requires(Items.GLASS_BOTTLE)
@@ -280,7 +286,7 @@ public class ModRecipes extends RecipeProvider implements IConditionBuilder {
                 .requires(GDModItems.GOLDEN_CABBAGE_LEAF.get())
                 .requires(GDModItems.GOLDEN_CABBAGE_LEAF.get())
                 .unlockedBy("has_golden_cabbage_leaf", InventoryChangeTrigger.TriggerInstance.hasItems(GDModItems.GOLDEN_CABBAGE_LEAF.get()))
-                .save(consumer, new ResourceLocation(GolDelight.MOD_ID, "cabbage_from_leaves"));
+                .save(consumer, new ResourceLocation(GolDelight.MOD_ID, "golden_cabbage_from_leaves"));
         ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, GDModItems.GOLDEN_HORSE_FEED.get(), 1)
                 .requires(Ingredient.of(GDModBlocks.GOLDEN_HAY_BLOCK.get().asItem(), GDModBlocks.GOLDEN_RICE_BALE.get().asItem()))
                 .requires(Items.GOLDEN_APPLE)

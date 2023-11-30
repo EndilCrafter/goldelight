@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:bucket"
+    },
+    {
+      "item": "goldelight:golden_milk_bottle"
+    },
+    {
+      "item": "goldelight:golden_milk_bottle"
+    },
+    {
+      "item": "goldelight:golden_milk_bottle"
+    },
+    {
+      "item": "goldelight:golden_milk_bottle"
+    }
+  ],
+  "result": {
+    "item": "goldelight:golden_milk_bucket"
+  }
+}

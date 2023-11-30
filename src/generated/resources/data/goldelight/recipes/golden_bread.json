@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "w": {
+      "item": "goldelight:golden_wheat"
+    }
+  },
+  "pattern": [
+    "www"
+  ],
+  "result": {
+    "item": "goldelight:golden_bread"
+  },
+  "show_notification": true
+}

@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "c": {
+      "item": "goldelight:golden_cocoa_beans"
+    },
+    "w": {
+      "item": "goldelight:golden_wheat"
+    }
+  },
+  "pattern": [
+    "wcw"
+  ],
+  "result": {
+    "count": 8,
+    "item": "goldelight:golden_cookie"
+  },
+  "show_notification": true
+}
