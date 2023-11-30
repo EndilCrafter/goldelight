@@ -9,12 +9,15 @@ import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.AbstractCookingRecipe;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.ItemLike;
+import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 import vectorwing.farmersdelight.client.recipebook.CookingPotRecipeBookTab;
 import vectorwing.farmersdelight.common.registry.ModItems;
@@ -103,6 +106,22 @@ public class ModRecipes extends RecipeProvider implements IConditionBuilder {
         SimpleConversion(consumer, GDModItems.GOLDEN_RICE.get(), GDModItems.GOLDEN_RICE_PANICLE.get());
         CropToSeeds(consumer, GDModItems.GOLDEN_TOMATO_SEEDS.get(), GDModItems.GOLDEN_TOMATO.get());
         CropToSeeds(consumer, GDModItems.GOLDEN_TOMATO_SEEDS.get(), GDModItems.ROTTEN_GOLDEN_TOMATO.get());
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, GDModBlocks.GOLDEN_MUSHROOM.get())
+                .pattern("ggg").pattern("gmg").pattern("ggg")
+                .define('g', Items.GOLD_NUGGET).define('m', Tags.Items.MUSHROOMS)
+                .unlockedBy("has_mushrooms", InventoryChangeTrigger.TriggerInstance.hasItems(Items.BROWN_MUSHROOM, Items.RED_MUSHROOM))
+                .save(consumer, new ResourceLocation(GolDelight.MOD_ID, "golden_mushroom_from_nugget"));
+         ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, GDModBlocks.GOLDEN_FUNGUS.get())
+                .pattern("ggg").pattern("gfg").pattern("ggg")
+                .define('g', Items.GOLD_NUGGET).define('f', Items.CRIMSON_FUNGUS)
+                .unlockedBy("has_mushrooms", InventoryChangeTrigger.TriggerInstance.hasItems(Items.CRIMSON_FUNGUS, Items.WARPED_FUNGUS))
+                .save(consumer, new ResourceLocation(GolDelight.MOD_ID, "golden_fungus_from_crimson"));
+        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, GDModBlocks.GOLDEN_FUNGUS.get())
+                .pattern("ggg").pattern("gfg").pattern("ggg")
+                .define('g', Items.GOLD_NUGGET).define('f', Items.WARPED_FUNGUS)
+                .unlockedBy("has_mushrooms", InventoryChangeTrigger.TriggerInstance.hasItems(Items.CRIMSON_FUNGUS, Items.WARPED_FUNGUS))
+                .save(consumer, new ResourceLocation(GolDelight.MOD_ID, "golden_fungus_from_warped"));
     }
 
     private void registerSmelting(Consumer<FinishedRecipe> consumer) {

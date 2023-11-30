@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "f": {
+      "item": "minecraft:crimson_fungus"
+    },
+    "g": {
+      "item": "minecraft:gold_nugget"
+    }
+  },
+  "pattern": [
+    "ggg",
+    "gfg",
+    "ggg"
+  ],
+  "result": {
+    "item": "goldelight:golden_fungus"
+  },
+  "show_notification": true
+}

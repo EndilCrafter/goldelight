@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "g": {
+      "item": "minecraft:gold_nugget"
+    },
+    "m": {
+      "tag": "forge:mushrooms"
+    }
+  },
+  "pattern": [
+    "ggg",
+    "gmg",
+    "ggg"
+  ],
+  "result": {
+    "item": "goldelight:golden_mushroom"
+  },
+  "show_notification": true
+}
