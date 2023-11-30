@@ -1,0 +1,14 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 200,
+  "experience": 0.7,
+  "ingredients": [
+    {
+      "tag": "goldelight:golden_crops/rice"
+    }
+  ],
+  "recipe_book_tab": "misc",
+  "result": {
+    "item": "goldelight:cooked_golden_rice"
+  }
+}

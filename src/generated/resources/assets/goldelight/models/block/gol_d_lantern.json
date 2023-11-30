@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "goldelight:block/gol_d_lantern",
+    "side": "goldelight:block/golden_pumpkin_side",
+    "top": "goldelight:block/golden_pumpkin_top"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "goldelight:golden_crops/tomato"
+    },
+    {
+      "tag": "goldelight:golden_crops/onion"
+    },
+    [
+      {
+        "tag": "goldelight:cooked_golden_beef"
+      },
+      {
+        "tag": "goldelight:cooked_golden_pork"
+      },
+      {
+        "tag": "goldelight:cooked_golden_chicken"
+      },
+      {
+        "tag": "goldelight:cooked_golden_mutton"
+      },
+      {
+        "tag": "goldelight:cooked_golden_fishes"
+      },
+      {
+        "item": "midashunger:cooked_golden_rabbit"
+      }
+    ],
+    {
+      "item": "minecraft:stick"
+    }
+  ],
+  "result": {
+    "item": "goldelight:golden_barbecue_stick"
+  }
+}

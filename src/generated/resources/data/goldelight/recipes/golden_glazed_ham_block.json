@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "midashunger:sweet_golden_berries"
+    },
+    {
+      "item": "goldelight:golden_honey_bottle"
+    },
+    {
+      "item": "midashunger:sweet_golden_berries"
+    },
+    {
+      "item": "midashunger:sweet_golden_berries"
+    },
+    {
+      "item": "goldelight:smoked_golden_ham"
+    },
+    {
+      "item": "midashunger:sweet_golden_berries"
+    },
+    {
+      "item": "goldelight:cooked_golden_rice"
+    },
+    {
+      "item": "minecraft:bowl"
+    },
+    {
+      "item": "goldelight:cooked_golden_rice"
+    }
+  ],
+  "result": {
+    "item": "goldelight:golden_glazed_ham_block"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "goldelight:golden_kelp_roll_slice"
+    },
+    {
+      "item": "goldelight:golden_kelp_roll_slice"
+    },
+    {
+      "item": "goldelight:golden_kelp_roll_slice"
+    },
+    {
+      "item": "goldelight:golden_salmon_roll"
+    },
+    {
+      "item": "goldelight:golden_salmon_roll"
+    },
+    {
+      "item": "goldelight:golden_salmon_roll"
+    },
+    {
+      "item": "goldelight:golden_cod_roll"
+    },
+    {
+      "item": "minecraft:bowl"
+    },
+    {
+      "item": "goldelight:golden_cod_roll"
+    }
+  ],
+  "result": {
+    "item": "goldelight:golden_rice_roll_medley_block"
+  }
+}

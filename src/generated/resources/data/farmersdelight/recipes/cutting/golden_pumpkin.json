@@ -1,0 +1,17 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "goldelight:golden_pumpkin"
+    }
+  ],
+  "result": [
+    {
+      "count": 4,
+      "item": "goldelight:golden_pumpkin_slice"
+    }
+  ],
+  "tool": {
+    "tag": "forge:tools/knives"
+  }
+}

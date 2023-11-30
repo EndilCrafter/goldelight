@@ -1,0 +1,16 @@
+// 1.20.1	2023-11-30T21:24:16.9860186	Tags for minecraft:block mod id goldelight
+27cff937feed42642dc4caa69b17bcc9bfa3ebec data/farmersdelight/tags/blocks/compost_activators.json
+a2c4935651de21bc3233a881b56117d4ee9c7100 data/forge/tags/blocks/mineable/knife.json
+26c49ca79f11ccad55ce8f437d166ff246863f7f data/goldelight/tags/blocks/golden_crops.json
+c870c5f3f27c7e9022ac425d57839016bb62c6dc data/minecraft/tags/blocks/candle_cakes.json
+b068d520fc6567b96da6355934e6a7390659b5a4 data/minecraft/tags/blocks/cave_vines.json
+c7793753c1ee68201b0af7a99dcd54a53117fa16 data/minecraft/tags/blocks/climbable.json
+2dc23a27b756aa2551575597eb1e6a663cd6efd9 data/minecraft/tags/blocks/crops.json
+c83645062a355280b91282cecfa39d3216d3c0b9 data/minecraft/tags/blocks/mineable/axe.json
+f562da540e585966197f6810067229d44150e9d5 data/minecraft/tags/blocks/mineable/hoe.json
+780d7252be00a882c9463fd3cde1171a634d7984 data/minecraft/tags/blocks/wart_blocks.json
+e135297bf43fd97b7c1ff5941720c515fa246e2f data/sereneseasons/tags/blocks/autumn_crops.json
+c40e0502d423e903ddc87dbd3556a6f6e72cea79 data/sereneseasons/tags/blocks/spring_crops.json
+b792aca45bafa81ec51ee8ed7e6f49e29aa89bf1 data/sereneseasons/tags/blocks/summer_crops.json
+0da2c5f638080600ae73b6cb791e3c6c0a8e2c2d data/sereneseasons/tags/blocks/unbreakable_infertile_crops.json
+426800d5bde06a7b52ab53692687f02f85a6a07a data/sereneseasons/tags/blocks/winter_crops.json

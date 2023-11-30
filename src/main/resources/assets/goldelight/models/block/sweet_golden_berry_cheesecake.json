@@ -1,0 +1,9 @@
+{
+  "parent": "goldelight:block/pie",
+  "textures": {
+    "particle": "goldelight:block/sweet_golden_berry_cheesecake_top",
+    "bottom": "goldelight:block/golden_pie_bottom",
+    "side": "goldelight:block/golden_pie_side",
+    "top": "goldelight:block/sweet_golden_berry_cheesecake_top"
+  }
+}

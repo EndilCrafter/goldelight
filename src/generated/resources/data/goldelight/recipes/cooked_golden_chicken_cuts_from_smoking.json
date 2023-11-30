@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smoking",
+  "category": "food",
+  "cookingtime": 100,
+  "experience": 0.35,
+  "ingredient": {
+    "item": "goldelight:golden_chicken_cuts"
+  },
+  "result": "goldelight:cooked_golden_chicken_cuts"
+}

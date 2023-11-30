@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "midashunger:baked_golden_potato"
+    },
+    {
+      "tag": "goldelight:golden_milk"
+    },
+    {
+      "item": "midashunger:baked_golden_potato"
+    },
+    {
+      "tag": "goldelight:cooked_golden_mutton"
+    },
+    {
+      "tag": "goldelight:cooked_golden_mutton"
+    },
+    {
+      "tag": "goldelight:cooked_golden_mutton"
+    },
+    {
+      "tag": "goldelight:golden_crops/onion"
+    },
+    {
+      "item": "minecraft:bowl"
+    },
+    {
+      "tag": "goldelight:golden_crops/onion"
+    }
+  ],
+  "result": {
+    "item": "goldelight:golden_shepherds_pie_block"
+  }
+}

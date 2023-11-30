@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "goldelight:golden_cave_vines",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "berries": "true"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "goldelight:golden_glow_berries"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "goldelight:blocks/golden_cave_vines"
+}

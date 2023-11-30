@@ -1,0 +1,23 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 400,
+  "experience": 2.0,
+  "ingredients": [
+    {
+      "tag": "goldelight:raw_golden_chicken"
+    },
+    {
+      "item": "minecraft:golden_carrot"
+    },
+    {
+      "tag": "goldelight:golden_salad_ingredients"
+    },
+    {
+      "tag": "goldelight:golden_vegetables"
+    }
+  ],
+  "recipe_book_tab": "meals",
+  "result": {
+    "item": "goldelight:golden_chicken_soup"
+  }
+}

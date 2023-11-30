@@ -1,0 +1,836 @@
+package net.endil.goldelight.data;
+
+import accieo.midas.hunger.registry.ItemRegistry;
+import net.endil.goldelight.GolDelight;
+import net.endil.goldelight.common.registry.GDModBlocks;
+import net.endil.goldelight.common.registry.GDModItems;
+import net.endil.goldelight.common.registry.GDModTags;
+import net.minecraft.advancements.critereon.InventoryChangeTrigger;
+import net.minecraft.data.PackOutput;
+import net.minecraft.data.recipes.*;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.AbstractCookingRecipe;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.crafting.RecipeSerializer;
+import net.minecraft.world.level.ItemLike;
+import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
+import vectorwing.farmersdelight.client.recipebook.CookingPotRecipeBookTab;
+import vectorwing.farmersdelight.common.registry.ModItems;
+import vectorwing.farmersdelight.common.tag.ForgeTags;
+import vectorwing.farmersdelight.data.builder.CookingPotRecipeBuilder;
+import vectorwing.farmersdelight.data.builder.CuttingBoardRecipeBuilder;
+
+import javax.annotation.Nullable;
+import java.util.List;
+import java.util.function.Consumer;
+import java.util.stream.Stream;
+
+public class ModRecipes extends RecipeProvider implements IConditionBuilder {
+    public ModRecipes(PackOutput pOutput) {
+        super(pOutput);
+    }
+
+    public static final int FAST_COOKING = 200;      // 10 seconds
+    public static final int NORMAL_COOKING = 400;    // 20 seconds
+    public static final int SLOW_COOKING = 800;      // 40 seconds
+
+    public static final float SMALL_EXP = 0.7F;
+    public static final float MEDIUM_EXP = 2.0F;
+    public static final float LARGE_EXP = 4.0F;
+
+    @Override
+    protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
+        this.registerSimpleCrafting(consumer);
+        this.registerSmelting(consumer);
+        this.registerCutting(consumer);
+        this.registerFoodCrafting(consumer);
+        this.registerCooking(consumer);
+    }
+
+    private void registerSimpleCrafting(Consumer<FinishedRecipe> consumer) {
+        Golden(consumer, GDModItems.GOLDEN_BEEF.get(), Items.BEEF);
+        Golden(consumer, GDModItems.GOLDEN_BONE.get(), Items.BONE);
+        Golden(consumer, GDModItems.GOLDEN_CHICKEN.get(), Items.CHICKEN);
+        Golden(consumer, GDModItems.GOLDEN_COCOA_BEANS.get(), Items.COCOA_BEANS);
+        Golden(consumer, GDModItems.GOLDEN_COD.get(), Items.COD);
+        Golden(consumer, GDModItems.GOLDEN_EGG.get(), Items.EGG);
+        Golden(consumer, GDModItems.GOLDEN_GLOW_BERRIES.get(), Items.GLOW_BERRIES);
+        Golden(consumer, GDModItems.GOLDEN_HONEY_BOTTLE.get(), Items.HONEY_BOTTLE);
+        Golden(consumer, GDModItems.GOLDEN_INK_SAC.get(), Items.INK_SAC);
+        Golden(consumer, GDModItems.GOLDEN_MELON_SEEDS.get(), Items.MELON_SEEDS);
+        Golden(consumer, GDModItems.GOLDEN_MILK_BUCKET.get(), Items.MILK_BUCKET);
+        Golden(consumer, GDModItems.GOLDEN_MUTTON.get(), Items.MUTTON);
+        Golden(consumer, GDModItems.GOLDEN_PORKCHOP.get(), Items.PORKCHOP);
+        Golden(consumer, GDModItems.GOLDEN_POTATO.get(), Items.POTATO);
+        Golden(consumer, GDModItems.GOLDEN_PUFFERFISH.get(), Items.PUFFERFISH);
+        Golden(consumer, GDModItems.GOLDEN_PUMPKIN_SEEDS.get(), Items.PUMPKIN_SEEDS);
+        Golden(consumer, GDModItems.GOLDEN_RABBIT.get(), Items.RABBIT);
+        Golden(consumer, GDModItems.ROTTEN_GOLDEN_FLESH.get(), Items.ROTTEN_FLESH);
+        Golden(consumer, GDModItems.GOLDEN_SALMON.get(), Items.SALMON);
+        Golden(consumer, GDModItems.GOLDEN_SUGAR_CANE.get(), Items.SUGAR_CANE);
+        Golden(consumer, GDModItems.GOLDEN_TROPICAL_FISH.get(), Items.TROPICAL_FISH);
+        Golden(consumer, GDModItems.GOLDEN_WART.get(), Items.NETHER_WART);
+        Golden(consumer, GDModItems.GOLDEN_WHEAT_SEEDS.get(), Items.WHEAT_SEEDS);
+
+        Golden(consumer, GDModBlocks.GOLDEN_CACTUS.get(), Items.CACTUS);
+        Golden(consumer, GDModBlocks.GOLDEN_CHORUS_FLOWER.get(), Items.CHORUS_FLOWER);
+
+        Golden(consumer, GDModItems.GOLDEN_ONION.get(), ModItems.ONION.get());
+        Golden(consumer, GDModItems.GOLDEN_RICE.get(), ModItems.RICE.get());
+        Golden(consumer, GDModItems.GOLDEN_CABBAGE_SEEDS.get(), ModItems.CABBAGE_SEEDS.get());
+        Golden(consumer, GDModItems.GOLDEN_TOMATO_SEEDS.get(), ModItems.TOMATO_SEEDS.get());
+        Golden(consumer, GDModItems.GOLDEN_HAM.get(), ModItems.HAM.get());
+
+        Storage(consumer, GDModItems.GOLDEN_WHEAT.get(), GDModBlocks.GOLDEN_HAY_BLOCK.get());
+        Compact(consumer, GDModItems.GOLDEN_MELON_SLICE.get(), GDModBlocks.GOLDEN_MELON.get());
+        TwoByTwo(consumer, GDModItems.GOLDEN_PUMPKIN_SLICE.get(), GDModBlocks.GOLDEN_PUMPKIN.get());
+        Storage(consumer, Items.GOLDEN_CARROT, GDModBlocks.GOLDEN_CARROT_CRATE.get());
+        Storage(consumer, GDModItems.GOLDEN_POTATO.get(), GDModBlocks.GOLDEN_POTATO_CRATE.get());
+        Storage(consumer, ItemRegistry.GOLDEN_BEETROOT.get(), GDModBlocks.GOLDEN_BEETROOT_CRATE.get());
+        Storage(consumer, GDModItems.GOLDEN_CABBAGE.get(), GDModBlocks.GOLDEN_CABBAGE_CRATE.get());
+        Storage(consumer, GDModItems.GOLDEN_TOMATO.get(), GDModBlocks.GOLDEN_TOMATO_CRATE.get());
+        Storage(consumer, GDModItems.GOLDEN_ONION.get(), GDModBlocks.GOLDEN_ONION_CRATE.get());
+        Storage(consumer, GDModItems.GOLDEN_RICE_PANICLE.get(), GDModBlocks.GOLDEN_RICE_BALE.get());
+        Storage(consumer, GDModItems.GOLDEN_RICE.get(), GDModBlocks.GOLDEN_RICE_BAG.get());
+
+        Conversion(consumer, GDModItems.GOLDEN_MEAL.get(), GDModItems.GOLDEN_BONE.get(), 3);
+        CropToSeeds(consumer, GDModItems.GOLDEN_MELON_SEEDS.get(), GDModItems.GOLDEN_MELON_SLICE.get());
+        Conversion(consumer, GDModItems.GOLDEN_PUMPKIN_SEEDS.get(), GDModBlocks.GOLDEN_PUMPKIN.get(), 4);
+        CropToSeeds(consumer, GDModItems.GOLDEN_PUMPKIN_SEEDS.get(), GDModItems.GOLDEN_PUMPKIN_SLICE.get());
+        SimpleConversion(consumer, GDModItems.GOLDEN_SUGAR.get(), GDModItems.GOLDEN_SUGAR_CANE.get());
+        SimpleConversion(consumer, GDModItems.GOLDEN_RICE.get(), GDModItems.GOLDEN_RICE_PANICLE.get());
+        CropToSeeds(consumer, GDModItems.GOLDEN_TOMATO_SEEDS.get(), GDModItems.GOLDEN_TOMATO.get());
+        CropToSeeds(consumer, GDModItems.GOLDEN_TOMATO_SEEDS.get(), GDModItems.ROTTEN_GOLDEN_TOMATO.get());
+    }
+
+    private void registerSmelting(Consumer<FinishedRecipe> consumer) {
+        BasicCooking(consumer, List.of(GDModItems.GOLDEN_BEEF.get()), ItemRegistry.COOKED_GOLDEN_BEEF.get());
+        BasicCooking(consumer, List.of(GDModItems.GOLDEN_CHICKEN.get()), ItemRegistry.COOKED_GOLDEN_CHICKEN.get());
+        BasicCooking(consumer, List.of(GDModItems.GOLDEN_COD.get()), ItemRegistry.COOKED_GOLDEN_COD.get());
+        BasicCooking(consumer, List.of(GDModItems.GOLDEN_EGG.get()), GDModItems.FRIED_GOLDEN_EGG.get());
+        BasicCooking(consumer, List.of(GDModItems.GOLDEN_MUTTON.get()), ItemRegistry.COOKED_GOLDEN_MUTTON.get());
+        BasicCooking(consumer, List.of(GDModItems.GOLDEN_PORKCHOP.get()), ItemRegistry.COOKED_GOLDEN_PORKCHOP.get());
+        BasicCooking(consumer, List.of(GDModItems.GOLDEN_RABBIT.get()), ItemRegistry.COOKED_GOLDEN_RABBIT.get());
+        BasicCooking(consumer, List.of(GDModItems.GOLDEN_SALMON.get()), ItemRegistry.COOKED_GOLDEN_SALMON.get());
+        BasicCooking(consumer, List.of(GDModItems.MINCED_GOLDEN_BEEF.get()), GDModItems.GOLDEN_BEEF_PATTY.get());
+        BasicCooking(consumer, List.of(GDModItems.GOLDEN_CHICKEN_CUTS.get()), GDModItems.COOKED_GOLDEN_CHICKEN_CUTS.get());
+        BasicCooking(consumer, List.of(GDModItems.GOLDEN_BACON.get()), GDModItems.COOKED_GOLDEN_BACON.get());
+        BasicCooking(consumer, List.of(GDModItems.GOLDEN_COD_SLICE.get()), GDModItems.COOKED_GOLDEN_COD_SLICE.get());
+        BasicCooking(consumer, List.of(GDModItems.GOLDEN_SALMON_SLICE.get()), GDModItems.COOKED_GOLDEN_SALMON_SLICE.get());
+        BasicCooking(consumer, List.of(GDModItems.GOLDEN_MUTTON_CHOPS.get()), GDModItems.COOKED_GOLDEN_MUTTON_CHOPS.get());
+        BasicCooking(consumer, List.of(GDModItems.GOLDEN_WHEAT_DOUGH.get()), GDModItems.GOLDEN_BREAD.get());
+        Ham(consumer, List.of(GDModItems.GOLDEN_HAM.get()), GDModItems.SMOKED_GOLDEN_HAM.get());
+    }
+
+    private void registerCutting(Consumer<FinishedRecipe> consumer) {
+        CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(GDModItems.GOLDEN_BEEF.get()), Ingredient.of(ForgeTags.TOOLS_KNIVES), GDModItems.MINCED_GOLDEN_BEEF.get(), 2)
+                .build(consumer);
+        CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(GDModItems.GOLDEN_PORKCHOP.get()), Ingredient.of(ForgeTags.TOOLS_KNIVES), GDModItems.GOLDEN_BACON.get(), 2)
+                .build(consumer);
+        CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(GDModItems.GOLDEN_CHICKEN.get()), Ingredient.of(ForgeTags.TOOLS_KNIVES), GDModItems.GOLDEN_CHICKEN_CUTS.get(), 2)
+                .addResult(GDModItems.GOLDEN_MEAL.get())
+                .build(consumer);
+        CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(ItemRegistry.COOKED_GOLDEN_CHICKEN.get()), Ingredient.of(ForgeTags.TOOLS_KNIVES), GDModItems.COOKED_GOLDEN_CHICKEN_CUTS.get(), 2)
+                .addResult(GDModItems.GOLDEN_MEAL.get())
+                .build(consumer);
+        CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(GDModItems.GOLDEN_COD.get()), Ingredient.of(ForgeTags.TOOLS_KNIVES), GDModItems.GOLDEN_COD_SLICE.get(), 2)
+                .addResult(GDModItems.GOLDEN_MEAL.get())
+                .build(consumer);
+        CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(ItemRegistry.COOKED_GOLDEN_COD.get()), Ingredient.of(ForgeTags.TOOLS_KNIVES), GDModItems.COOKED_GOLDEN_COD_SLICE.get(), 2)
+                .addResult(GDModItems.GOLDEN_MEAL.get())
+                .build(consumer);
+        CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(GDModItems.GOLDEN_SALMON.get()), Ingredient.of(ForgeTags.TOOLS_KNIVES), GDModItems.GOLDEN_SALMON_SLICE.get(), 2)
+                .addResult(GDModItems.GOLDEN_MEAL.get())
+                .build(consumer);
+        CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(ItemRegistry.COOKED_GOLDEN_SALMON.get()), Ingredient.of(ForgeTags.TOOLS_KNIVES), GDModItems.COOKED_GOLDEN_SALMON_SLICE.get(), 2)
+                .addResult(GDModItems.GOLDEN_MEAL.get())
+                .build(consumer);
+        CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(GDModItems.GOLDEN_HAM.get()), Ingredient.of(ForgeTags.TOOLS_KNIVES), GDModItems.GOLDEN_PORKCHOP.get(), 2)
+                .addResult(GDModItems.GOLDEN_BONE.get())
+                .build(consumer);
+        CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(GDModItems.SMOKED_GOLDEN_HAM.get()), Ingredient.of(ForgeTags.TOOLS_KNIVES), ItemRegistry.COOKED_GOLDEN_PORKCHOP.get(), 2)
+                .addResult(GDModItems.GOLDEN_MEAL.get())
+                .build(consumer);
+        CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(GDModItems.GOLDEN_MUTTON.get()), Ingredient.of(ForgeTags.TOOLS_KNIVES), GDModItems.GOLDEN_MUTTON_CHOPS.get(), 2)
+                .build(consumer);
+        CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(ItemRegistry.COOKED_GOLDEN_MUTTON.get()), Ingredient.of(ForgeTags.TOOLS_KNIVES), GDModItems.COOKED_GOLDEN_MUTTON_CHOPS.get(), 2)
+                .build(consumer);
+        CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(GDModItems.GOLDEN_CAKE.get()), Ingredient.of(ForgeTags.TOOLS_KNIVES), GDModItems.GOLDEN_CAKE_SLICE.get(), 7)
+                .build(consumer);
+        CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(GDModItems.GOLDEN_APPLE_PIE.get()), Ingredient.of(ForgeTags.TOOLS_KNIVES), GDModItems.GOLDEN_APPLE_PIE_SLICE.get(), 4)
+                .build(consumer);
+        CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(GDModItems.SWEET_GOLDEN_BERRY_CHEESECAKE.get()), Ingredient.of(ForgeTags.TOOLS_KNIVES), GDModItems.SWEET_GOLDEN_BERRY_CHEESECAKE_SLICE.get(), 4)
+                .build(consumer);
+        CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(GDModItems.GOLDEN_CHOCOLATE_PIE.get()), Ingredient.of(ForgeTags.TOOLS_KNIVES), GDModItems.GOLDEN_CHOCOLATE_PIE_SLICE.get(), 4)
+                .build(consumer);
+        CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(GDModBlocks.GOLDEN_MELON.get()), Ingredient.of(ForgeTags.TOOLS_KNIVES), GDModItems.GOLDEN_MELON_SLICE.get(), 9)
+                .build(consumer);
+        CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(GDModBlocks.GOLDEN_PUMPKIN.get()), Ingredient.of(ForgeTags.TOOLS_KNIVES), GDModItems.GOLDEN_PUMPKIN_SLICE.get(), 4)
+                .build(consumer);
+        CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(GDModItems.GOLDEN_WHEAT_DOUGH.get()), Ingredient.of(ForgeTags.TOOLS_KNIVES), GDModItems.RAW_GOLDEN_PASTA.get(), 1)
+                .build(consumer);
+        CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(GDModItems.GOLDEN_KELP_ROLL.get()), Ingredient.of(ForgeTags.TOOLS_KNIVES), GDModItems.GOLDEN_KELP_ROLL_SLICE.get(), 3)
+                .build(consumer);
+        CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(GDModBlocks.GOLDEN_MUSHROOM_COLONY.get()), Ingredient.of(ForgeTags.TOOLS_KNIVES), GDModBlocks.GOLDEN_MUSHROOM.get(), 5)
+                .build(consumer);
+    }
+
+    private void registerFoodCrafting(Consumer<FinishedRecipe> consumer) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, GDModItems.GOLDEN_BREAD.get())
+                .pattern("www").define('m', GDModItems.GOLDEN_WHEAT.get())
+                .unlockedBy("has_golden_wheat", InventoryChangeTrigger.TriggerInstance.hasItems(GDModItems.GOLDEN_WHEAT.get()));
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, GDModItems.GOLDEN_MILK_BUCKET.get())
+                .requires(Items.BUCKET)
+                .requires(GDModItems.GOLDEN_MILK_BOTTLE.get())
+                .requires(GDModItems.GOLDEN_MILK_BOTTLE.get())
+                .requires(GDModItems.GOLDEN_MILK_BOTTLE.get())
+                .requires(GDModItems.GOLDEN_MILK_BOTTLE.get())
+                .unlockedBy("has_golden_milk_bottle", InventoryChangeTrigger.TriggerInstance.hasItems(GDModItems.GOLDEN_MILK_BOTTLE.get()));
+        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, GDModItems.GOLDEN_CAKE.get())
+                .pattern("mmm")
+                .pattern("ses")
+                .pattern("www")
+                .define('m', GDModTags.Items.GOLDEN_MILK)
+                .define('s', GDModItems.GOLDEN_SUGAR.get())
+                .define('e', GDModTags.Items.GOLDEN_EGGS)
+                .define('w', GDModItems.GOLDEN_WHEAT.get())
+                .unlockedBy("has_golden_egg", InventoryChangeTrigger.TriggerInstance.hasItems(GDModItems.GOLDEN_EGG.get()))
+                .save(consumer, new ResourceLocation(GolDelight.MOD_ID, "golden_cake_from_milk"));
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, GDModItems.GOLDEN_CAKE.get())
+                .requires(GDModItems.GOLDEN_CAKE_SLICE.get())
+                .requires(GDModItems.GOLDEN_CAKE_SLICE.get())
+                .requires(GDModItems.GOLDEN_CAKE_SLICE.get())
+                .requires(GDModItems.GOLDEN_CAKE_SLICE.get())
+                .requires(GDModItems.GOLDEN_CAKE_SLICE.get())
+                .requires(GDModItems.GOLDEN_CAKE_SLICE.get())
+                .requires(GDModItems.GOLDEN_CAKE_SLICE.get())
+                .unlockedBy("has_golden_cake_slice", InventoryChangeTrigger.TriggerInstance.hasItems(GDModItems.GOLDEN_CAKE_SLICE.get()))
+                .save(consumer, new ResourceLocation(GolDelight.MOD_ID, "golden_cake_from_slices"));
+        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, GDModItems.GOLDEN_COOKIE.get(), 8)
+                .pattern("wcw").define('w', GDModItems.GOLDEN_WHEAT.get()).define('c', GDModItems.GOLDEN_COCOA_BEANS.get())
+                .unlockedBy("has_golden_cocoa", InventoryChangeTrigger.TriggerInstance.hasItems(GDModItems.GOLDEN_COCOA_BEANS.get()));
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, GDModItems.GOLDEN_MUSHROOM_STEW.get())
+                .requires(GDModBlocks.GOLDEN_MUSHROOM.get().asItem())
+                .requires(GDModBlocks.GOLDEN_MUSHROOM.get().asItem())
+                .requires(Items.BOWL)
+                .unlockedBy("has_golden_mushroom", InventoryChangeTrigger.TriggerInstance.hasItems(GDModBlocks.GOLDEN_MUSHROOM.get().asItem()));
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, GDModItems.GOLDEN_RABBIT_STEW.get())
+                .requires(ItemRegistry.BAKED_GOLDEN_POTATO.get())
+                .requires(ItemRegistry.COOKED_GOLDEN_RABBIT.get())
+                .requires(Items.BOWL)
+                .requires(Items.GOLDEN_CARROT)
+                .requires(GDModBlocks.GOLDEN_MUSHROOM.get().asItem())
+                .unlockedBy("has_cooked_golden_rabbit", InventoryChangeTrigger.TriggerInstance.hasItems(ItemRegistry.COOKED_GOLDEN_RABBIT.get()));
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, GDModBlocks.GOL_D_LANTERN.get())
+                .pattern("p").pattern("t").define('p', GDModBlocks.GOLDEN_CARVED_PUMPKIN.get()).define('t', Items.TORCH)
+                .unlockedBy("has_golden_carved_pumpkin", InventoryChangeTrigger.TriggerInstance.hasItems(GDModBlocks.GOLDEN_CARVED_PUMPKIN.get()));
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, GDModItems.GOLDEN_MILK_BOTTLE.get(), 4)
+                .requires(GDModItems.GOLDEN_MILK_BUCKET.get())
+                .requires(Items.GLASS_BOTTLE)
+                .requires(Items.GLASS_BOTTLE)
+                .requires(Items.GLASS_BOTTLE)
+                .requires(Items.GLASS_BOTTLE)
+                .unlockedBy("has_golden_milk_bucket", InventoryChangeTrigger.TriggerInstance.hasItems(GDModItems.GOLDEN_MILK_BUCKET.get()))
+                .save(consumer);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, GDModItems.GOLDEN_MELON_JUICE.get(), 1)
+                .requires(GDModItems.GOLDEN_MELON_SLICE.get())
+                .requires(GDModItems.GOLDEN_MELON_SLICE.get())
+                .requires(GDModItems.GOLDEN_SUGAR.get())
+                .requires(GDModItems.GOLDEN_MELON_SLICE.get())
+                .requires(GDModItems.GOLDEN_MELON_SLICE.get())
+                .requires(Items.GLASS_BOTTLE)
+                .unlockedBy("has_golden_melon_slice", InventoryChangeTrigger.TriggerInstance.hasItems(GDModItems.GOLDEN_MELON_SLICE.get()))
+                .save(consumer);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, GDModItems.GOLDEN_WHEAT_DOUGH.get(), 3)
+                .requires(Items.WATER_BUCKET)
+                .requires(GDModItems.GOLDEN_WHEAT.get())
+                .requires(GDModItems.GOLDEN_WHEAT.get())
+                .requires(GDModItems.GOLDEN_WHEAT.get())
+                .unlockedBy("has_golden_wheat", InventoryChangeTrigger.TriggerInstance.hasItems(GDModItems.GOLDEN_WHEAT.get()))
+                .save(consumer, new ResourceLocation(GolDelight.MOD_ID, "golden_wheat_dough_from_water"));
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, GDModItems.GOLDEN_WHEAT_DOUGH.get(), 3)
+                .requires(GDModTags.Items.GOLDEN_EGGS)
+                .requires(GDModItems.GOLDEN_WHEAT.get())
+                .requires(GDModItems.GOLDEN_WHEAT.get())
+                .requires(GDModItems.GOLDEN_WHEAT.get())
+                .unlockedBy("has_golden_wheat", InventoryChangeTrigger.TriggerInstance.hasItems(GDModItems.GOLDEN_WHEAT.get()))
+                .save(consumer, new ResourceLocation(GolDelight.MOD_ID, "wheat_dough_from_eggs"));
+        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, GDModItems.GOLDEN_PIE_CRUST.get(), 1)
+                .pattern("wMw")
+                .pattern(" w ")
+                .define('w', GDModItems.GOLDEN_WHEAT.get())
+                .define('M', GDModTags.Items.GOLDEN_MILK)
+                .unlockedBy("has_golden_wheat", InventoryChangeTrigger.TriggerInstance.hasItems(GDModItems.GOLDEN_WHEAT.get()))
+                .save(consumer);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, GDModItems.SWEET_GOLDEN_BERRY_COOKIE.get(), 8)
+                .requires(ItemRegistry.SWEET_GOLDEN_BERRIES.get())
+                .requires(GDModItems.GOLDEN_WHEAT.get())
+                .requires(GDModItems.GOLDEN_WHEAT.get())
+                .unlockedBy("has_sweet_golden_berries", InventoryChangeTrigger.TriggerInstance.hasItems(ItemRegistry.SWEET_GOLDEN_BERRIES.get()))
+                .save(consumer);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, GDModItems.GOLDEN_HONEY_COOKIE.get(), 8)
+                .requires(GDModItems.GOLDEN_HONEY_BOTTLE.get())
+                .requires(GDModItems.GOLDEN_WHEAT.get())
+                .requires(GDModItems.GOLDEN_WHEAT.get())
+                .unlockedBy("has_golden_honey_bottle", InventoryChangeTrigger.TriggerInstance.hasItems(GDModItems.GOLDEN_HONEY_BOTTLE.get()))
+                .save(consumer);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, GDModItems.GOLDEN_CABBAGE.get())
+                .requires(GDModItems.GOLDEN_CABBAGE_LEAF.get())
+                .requires(GDModItems.GOLDEN_CABBAGE_LEAF.get())
+                .unlockedBy("has_golden_cabbage_leaf", InventoryChangeTrigger.TriggerInstance.hasItems(GDModItems.GOLDEN_CABBAGE_LEAF.get()))
+                .save(consumer, new ResourceLocation(GolDelight.MOD_ID, "cabbage_from_leaves"));
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, GDModItems.GOLDEN_HORSE_FEED.get(), 1)
+                .requires(Ingredient.of(GDModBlocks.GOLDEN_HAY_BLOCK.get().asItem(), GDModBlocks.GOLDEN_RICE_BALE.get().asItem()))
+                .requires(Items.GOLDEN_APPLE)
+                .requires(Items.GOLDEN_APPLE)
+                .requires(Items.GOLDEN_CARROT)
+                .unlockedBy("has_golden_carrot", InventoryChangeTrigger.TriggerInstance.hasItems(Items.GOLDEN_CARROT))
+                .save(consumer);
+        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, GDModItems.GOLDEN_POPSICLE.get(), 1)
+                .pattern(" mm")
+                .pattern("imm")
+                .pattern("-i ")
+                .define('m', GDModItems.GOLDEN_MELON_SLICE.get())
+                .define('i', Items.ICE)
+                .define('-', Items.STICK)
+                .unlockedBy("has_golden_melon", InventoryChangeTrigger.TriggerInstance.hasItems(GDModItems.GOLDEN_MELON_SLICE.get()))
+                .save(consumer);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, GDModItems.GOLDEN_FRUIT_SALAD.get(), 1)
+                .requires(Items.GOLDEN_APPLE)
+                .requires(GDModItems.GOLDEN_MELON_SLICE.get())
+                .requires(GDModItems.GOLDEN_MELON_SLICE.get())
+                .requires(GDModTags.Items.GOLDEN_BERRIES)
+                .requires(GDModTags.Items.GOLDEN_BERRIES)
+                .requires(GDModItems.GOLDEN_PUMPKIN_SLICE.get())
+                .requires(Items.BOWL)
+                .unlockedBy("has_golden_fruits", InventoryChangeTrigger.TriggerInstance.hasItems(GDModItems.GOLDEN_MELON_SLICE.get(), ItemRegistry.SWEET_GOLDEN_BERRIES.get(), Items.GOLDEN_APPLE, GDModItems.GOLDEN_PUMPKIN_SLICE.get()))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, GDModItems.GOLDEN_APPLE_PIE.get(), 1)
+                .pattern("###")
+                .pattern("aaa")
+                .pattern("xOx")
+                .define('#', GDModItems.GOLDEN_WHEAT.get())
+                .define('a', Items.GOLDEN_APPLE)
+                .define('x', GDModItems.GOLDEN_SUGAR.get())
+                .define('O', GDModItems.GOLDEN_PIE_CRUST.get())
+                .unlockedBy("has_golden_pie_crust", InventoryChangeTrigger.TriggerInstance.hasItems(GDModItems.GOLDEN_PIE_CRUST.get()))
+                .save(consumer);
+        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, GDModItems.GOLDEN_APPLE_PIE.get(), 1)
+                .pattern("##")
+                .pattern("##")
+                .define('#', GDModItems.GOLDEN_APPLE_PIE_SLICE.get())
+                .unlockedBy("has_golden_apple_pie_slice", InventoryChangeTrigger.TriggerInstance.hasItems(GDModItems.GOLDEN_APPLE_PIE_SLICE.get()))
+                .save(consumer, new ResourceLocation(GolDelight.MOD_ID, "golden_apple_pie_from_slices"));
+        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, GDModItems.SWEET_GOLDEN_BERRY_CHEESECAKE.get(), 1)
+                .pattern("sss")
+                .pattern("sss")
+                .pattern("mOm")
+                .define('s', ItemRegistry.SWEET_GOLDEN_BERRIES.get())
+                .define('m', GDModTags.Items.GOLDEN_MILK)
+                .define('O', GDModItems.GOLDEN_PIE_CRUST.get())
+                .unlockedBy("has_golden_pie_crust", InventoryChangeTrigger.TriggerInstance.hasItems(GDModItems.GOLDEN_PIE_CRUST.get()))
+                .save(consumer);
+        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, GDModItems.SWEET_GOLDEN_BERRY_CHEESECAKE.get(), 1)
+                .pattern("##")
+                .pattern("##")
+                .define('#', GDModItems.SWEET_GOLDEN_BERRY_CHEESECAKE_SLICE.get())
+                .unlockedBy("has_sweet_golden_berry_cheesecake_slice", InventoryChangeTrigger.TriggerInstance.hasItems(GDModItems.SWEET_GOLDEN_BERRY_CHEESECAKE_SLICE.get()))
+                .save(consumer, new ResourceLocation(GolDelight.MOD_ID, "sweet_golden_berry_cheesecake_from_slices"));
+        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, GDModItems.GOLDEN_CHOCOLATE_PIE.get(), 1)
+                .pattern("ccc")
+                .pattern("mmm")
+                .pattern("xOx")
+                .define('c', GDModItems.GOLDEN_COCOA_BEANS.get())
+                .define('m', GDModTags.Items.GOLDEN_MILK)
+                .define('x', GDModItems.GOLDEN_SUGAR.get())
+                .define('O', GDModItems.GOLDEN_PIE_CRUST.get())
+                .unlockedBy("has_golden_pie_crust", InventoryChangeTrigger.TriggerInstance.hasItems(GDModItems.GOLDEN_PIE_CRUST.get()))
+                .save(consumer);
+        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, GDModItems.GOLDEN_CHOCOLATE_PIE.get(), 1)
+                .pattern("##")
+                .pattern("##")
+                .define('#', GDModItems.GOLDEN_CHOCOLATE_PIE_SLICE.get())
+                .unlockedBy("has_golden_chocolate_pie_slice", InventoryChangeTrigger.TriggerInstance.hasItems(GDModItems.GOLDEN_CHOCOLATE_PIE_SLICE.get()))
+                .save(consumer, new ResourceLocation(GolDelight.MOD_ID, "golden_chocolate_pie_from_slices"));
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, GDModItems.MIXED_GOLDEN_SALAD.get())
+                .requires(GDModTags.Items.GOLDEN_SALAD_INGREDIENTS)
+                .requires(GDModTags.Items.GOLDEN_CROPS_TOMATO)
+                .requires(ItemRegistry.GOLDEN_BEETROOT.get())
+                .requires(Items.BOWL)
+                .unlockedBy("has_bowl", InventoryChangeTrigger.TriggerInstance.hasItems(Items.BOWL))
+                .save(consumer);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, GDModItems.GOLDEN_NETHER_SALAD.get())
+                .requires(GDModBlocks.GOLDEN_FUNGUS.get().asItem())
+                .requires(GDModBlocks.GOLDEN_FUNGUS.get().asItem())
+                .requires(Items.BOWL)
+                .unlockedBy("has_bowl", InventoryChangeTrigger.TriggerInstance.hasItems(Items.BOWL))
+                .save(consumer);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, GDModItems.GOLDEN_BARBECUE_STICK.get())
+                .requires(GDModTags.Items.GOLDEN_CROPS_TOMATO)
+                .requires(GDModTags.Items.GOLDEN_CROPS_ONION)
+                .requires(Ingredient.fromValues(Stream.of(
+                        new Ingredient.TagValue(GDModTags.Items.COOKED_GOLDEN_BEEF),
+                        new Ingredient.TagValue(GDModTags.Items.COOKED_GOLDEN_PORK),
+                        new Ingredient.TagValue(GDModTags.Items.COOKED_GOLDEN_CHICKEN),
+                        new Ingredient.TagValue(GDModTags.Items.COOKED_GOLDEN_MUTTON),
+                        new Ingredient.TagValue(GDModTags.Items.COOKED_GOLDEN_FISHES),
+                        new Ingredient.ItemValue(new ItemStack(ItemRegistry.COOKED_GOLDEN_RABBIT.get()))
+                )))
+                .requires(Items.STICK)
+                .unlockedBy("has_golden_tomato", InventoryChangeTrigger.TriggerInstance.hasItems(GDModItems.GOLDEN_TOMATO.get()))
+                .unlockedBy("has_golden_onion", InventoryChangeTrigger.TriggerInstance.hasItems(GDModItems.GOLDEN_ONION.get()))
+                .save(consumer);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, GDModItems.GOLDEN_EGG_SANDWICH.get())
+                .requires(GDModTags.Items.GOLDEN_BREAD)
+                .requires(GDModTags.Items.COOKED_GOLDEN_EGGS)
+                .requires(GDModTags.Items.COOKED_GOLDEN_EGGS)
+                .unlockedBy("has_fried_golden_egg", InventoryChangeTrigger.TriggerInstance.hasItems(GDModItems.FRIED_GOLDEN_EGG.get()))
+                .save(consumer);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, GDModItems.GOLDEN_CHICKEN_SANDWICH.get())
+                .requires(GDModTags.Items.GOLDEN_BREAD)
+                .requires(GDModTags.Items.COOKED_GOLDEN_CHICKEN)
+                .requires(GDModTags.Items.GOLDEN_SALAD_INGREDIENTS)
+                .requires(Items.GOLDEN_CARROT)
+                .unlockedBy("has_cooked_golden_chicken", InventoryChangeTrigger.TriggerInstance.hasItems(ItemRegistry.COOKED_GOLDEN_CHICKEN.get()))
+                .save(consumer);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, GDModItems.GOLDEN_HAMBURGER.get())
+                .requires(GDModTags.Items.GOLDEN_BREAD)
+                .requires(GDModItems.GOLDEN_BEEF_PATTY.get())
+                .requires(GDModTags.Items.GOLDEN_SALAD_INGREDIENTS)
+                .requires(GDModTags.Items.GOLDEN_CROPS_TOMATO)
+                .requires(GDModTags.Items.GOLDEN_CROPS_ONION)
+                .unlockedBy("has_golden_beef_patty", InventoryChangeTrigger.TriggerInstance.hasItems(GDModItems.GOLDEN_BEEF_PATTY.get()))
+                .save(consumer);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, GDModItems.GOLDEN_BACON_SANDWICH.get())
+                .requires(GDModTags.Items.GOLDEN_BREAD)
+                .requires(GDModTags.Items.COOKED_GOLDEN_BACON)
+                .requires(GDModTags.Items.GOLDEN_SALAD_INGREDIENTS)
+                .requires(GDModTags.Items.GOLDEN_CROPS_TOMATO)
+                .unlockedBy("has_golden_bacon", InventoryChangeTrigger.TriggerInstance.hasItems(GDModItems.COOKED_GOLDEN_BACON.get()))
+                .save(consumer);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, GDModItems.GOLDEN_WRAP.get())
+                .requires(GDModTags.Items.GOLDEN_BREAD)
+                .requires(GDModTags.Items.COOKED_GOLDEN_MUTTON)
+                .requires(GDModTags.Items.GOLDEN_SALAD_INGREDIENTS)
+                .requires(GDModTags.Items.GOLDEN_CROPS_ONION)
+                .unlockedBy("has_golden_mutton", InventoryChangeTrigger.TriggerInstance.hasItems(ItemRegistry.COOKED_GOLDEN_MUTTON.get()))
+                .save(consumer);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, GDModItems.STUFFED_GOLDEN_POTATO.get())
+                .requires(ItemRegistry.BAKED_GOLDEN_POTATO.get())
+                .requires(GDModTags.Items.COOKED_GOLDEN_BEEF)
+                .requires(GDModTags.Items.GOLDEN_MILK)
+                .unlockedBy("has_baked_golden_potato", InventoryChangeTrigger.TriggerInstance.hasItems(ItemRegistry.BAKED_GOLDEN_POTATO.get()))
+                .save(consumer);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, GDModItems.GOLDEN_SALMON_ROLL.get(), 2)
+                .requires(GDModItems.GOLDEN_SALMON_SLICE.get())
+                .requires(GDModItems.GOLDEN_SALMON_SLICE.get())
+                .requires(GDModItems.COOKED_GOLDEN_RICE.get())
+                .unlockedBy("has_golden_salmon_slice", InventoryChangeTrigger.TriggerInstance.hasItems(GDModItems.GOLDEN_SALMON_SLICE.get()))
+                .save(consumer);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, GDModItems.GOLDEN_COD_ROLL.get(), 2)
+                .requires(GDModItems.GOLDEN_COD_SLICE.get())
+                .requires(GDModItems.GOLDEN_COD_SLICE.get())
+                .requires(GDModItems.COOKED_GOLDEN_RICE.get())
+                .unlockedBy("has_golden_cod_slice", InventoryChangeTrigger.TriggerInstance.hasItems(GDModItems.GOLDEN_COD_SLICE.get()))
+                .save(consumer);
+        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, GDModItems.GOLDEN_KELP_ROLL.get(), 1)
+                .pattern("RXR")
+                .pattern("###")
+                .define('#', ItemRegistry.DRIED_GOLDEN_KELP.get())
+                .define('R', GDModItems.COOKED_GOLDEN_RICE.get())
+                .define('X', Items.GOLDEN_CARROT)
+                .unlockedBy("has_dried_golden_kelp", InventoryChangeTrigger.TriggerInstance.hasItems(ItemRegistry.DRIED_GOLDEN_KELP.get()))
+                .save(consumer);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, GDModItems.GRILLED_GOLDEN_SALMON.get())
+                .requires(GDModTags.Items.COOKED_GOLDEN_FISHES_SALMON)
+                .requires(ItemRegistry.SWEET_GOLDEN_BERRIES.get())
+                .requires(Items.BOWL)
+                .requires(GDModTags.Items.GOLDEN_CROPS_CABBAGE)
+                .requires(GDModTags.Items.GOLDEN_CROPS_ONION)
+                .unlockedBy("has_golden_salmon", InventoryChangeTrigger.TriggerInstance.hasItems(GDModItems.GOLDEN_SALMON.get()))
+                .save(consumer);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, GDModItems.GOLDEN_STEAK_AND_POTATOES.get())
+                .requires(ItemRegistry.BAKED_GOLDEN_POTATO.get())
+                .requires(ItemRegistry.COOKED_GOLDEN_BEEF.get())
+                .requires(Items.BOWL)
+                .requires(GDModTags.Items.GOLDEN_CROPS_ONION)
+                .requires(GDModItems.COOKED_GOLDEN_RICE.get())
+                .unlockedBy("has_baked_golden_potato", InventoryChangeTrigger.TriggerInstance.hasItems(ItemRegistry.BAKED_GOLDEN_POTATO.get()))
+                .save(consumer);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, GDModItems.ROASTED_GOLDEN_CHOPS.get())
+                .requires(GDModItems.COOKED_GOLDEN_MUTTON_CHOPS.get())
+                .requires(ItemRegistry.GOLDEN_BEETROOT.get())
+                .requires(Items.BOWL)
+                .requires(GDModItems.COOKED_GOLDEN_RICE.get())
+                .requires(GDModTags.Items.GOLDEN_CROPS_TOMATO)
+                .unlockedBy("has_golden_mutton", InventoryChangeTrigger.TriggerInstance.hasItems(ItemRegistry.COOKED_GOLDEN_MUTTON.get()))
+                .save(consumer);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, GDModItems.GOLDEN_BACON_AND_EGGS.get())
+                .requires(GDModItems.COOKED_GOLDEN_BACON.get())
+                .requires(GDModItems.COOKED_GOLDEN_BACON.get())
+                .requires(Items.BOWL)
+                .requires(GDModTags.Items.COOKED_GOLDEN_EGGS)
+                .requires(GDModTags.Items.COOKED_GOLDEN_EGGS)
+                .unlockedBy("has_golden_bacon", InventoryChangeTrigger.TriggerInstance.hasItems(GDModItems.COOKED_GOLDEN_BACON.get()))
+                .save(consumer);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, GDModItems.GOLDEN_ROAST_CHICKEN_BLOCK.get())
+                .requires(GDModTags.Items.GOLDEN_CROPS_ONION)
+                .requires(GDModTags.Items.GOLDEN_EGGS)
+                .requires(GDModItems.GOLDEN_BREAD.get())
+                .requires(Items.GOLDEN_CARROT)
+                .requires(ItemRegistry.COOKED_GOLDEN_CHICKEN.get())
+                .requires(ItemRegistry.BAKED_GOLDEN_POTATO.get())
+                .requires(Items.GOLDEN_CARROT)
+                .requires(Items.BOWL)
+                .requires(ItemRegistry.BAKED_GOLDEN_POTATO.get())
+                .unlockedBy("has_cooked_golden_chicken", InventoryChangeTrigger.TriggerInstance.hasItems(ItemRegistry.COOKED_GOLDEN_CHICKEN.get()))
+                .save(consumer);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, GDModItems.GOLDEN_SHEPHERDS_PIE_BLOCK.get())
+                .requires(ItemRegistry.BAKED_GOLDEN_POTATO.get())
+                .requires(GDModTags.Items.GOLDEN_MILK)
+                .requires(ItemRegistry.BAKED_GOLDEN_POTATO.get())
+                .requires(GDModTags.Items.COOKED_GOLDEN_MUTTON)
+                .requires(GDModTags.Items.COOKED_GOLDEN_MUTTON)
+                .requires(GDModTags.Items.COOKED_GOLDEN_MUTTON)
+                .requires(GDModTags.Items.GOLDEN_CROPS_ONION)
+                .requires(Items.BOWL)
+                .requires(GDModTags.Items.GOLDEN_CROPS_ONION)
+                .unlockedBy("has_cooked_golden_mutton", InventoryChangeTrigger.TriggerInstance.hasItems(ItemRegistry.COOKED_GOLDEN_MUTTON.get()))
+                .save(consumer);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, GDModItems.GOLDEN_GLAZED_HAM_BLOCK.get())
+                .requires(ItemRegistry.SWEET_GOLDEN_BERRIES.get())
+                .requires(GDModItems.GOLDEN_HONEY_BOTTLE.get())
+                .requires(ItemRegistry.SWEET_GOLDEN_BERRIES.get())
+                .requires(ItemRegistry.SWEET_GOLDEN_BERRIES.get())
+                .requires(GDModItems.SMOKED_GOLDEN_HAM.get())
+                .requires(ItemRegistry.SWEET_GOLDEN_BERRIES.get())
+                .requires(GDModItems.COOKED_GOLDEN_RICE.get())
+                .requires(Items.BOWL)
+                .requires(GDModItems.COOKED_GOLDEN_RICE.get())
+                .unlockedBy("has_smoked_golden_ham", InventoryChangeTrigger.TriggerInstance.hasItems(GDModItems.SMOKED_GOLDEN_HAM.get()))
+                .save(consumer);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, GDModItems.GOLDEN_RICE_ROLL_MEDLEY_BLOCK.get())
+                .requires(GDModItems.GOLDEN_KELP_ROLL_SLICE.get())
+                .requires(GDModItems.GOLDEN_KELP_ROLL_SLICE.get())
+                .requires(GDModItems.GOLDEN_KELP_ROLL_SLICE.get())
+                .requires(GDModItems.GOLDEN_SALMON_ROLL.get())
+                .requires(GDModItems.GOLDEN_SALMON_ROLL.get())
+                .requires(GDModItems.GOLDEN_SALMON_ROLL.get())
+                .requires(GDModItems.GOLDEN_COD_ROLL.get())
+                .requires(Items.BOWL)
+                .requires(GDModItems.GOLDEN_COD_ROLL.get())
+                .unlockedBy("has_golden_rice_roll", InventoryChangeTrigger.TriggerInstance.hasItems(GDModItems.GOLDEN_SALMON_ROLL.get(), GDModItems.GOLDEN_COD_ROLL.get(), GDModItems.GOLDEN_KELP_ROLL_SLICE.get()))
+                .save(consumer);
+    }
+
+    private void registerCooking(Consumer<FinishedRecipe> consumer) {
+        CookingPotRecipeBuilder.cookingPotRecipe(GDModItems.GOLDEN_HOT_COCOA.get(), 1, NORMAL_COOKING, MEDIUM_EXP)
+                .addIngredient(GDModTags.Items.GOLDEN_MILK)
+                .addIngredient(GDModItems.GOLDEN_SUGAR.get())
+                .addIngredient(GDModItems.GOLDEN_COCOA_BEANS.get())
+                .addIngredient(GDModItems.GOLDEN_COCOA_BEANS.get())
+                .unlockedByAnyIngredient(GDModItems.GOLDEN_COCOA_BEANS.get(), GDModItems.GOLDEN_MILK_BUCKET.get(), GDModItems.GOLDEN_MILK_BOTTLE.get())
+                .setRecipeBookTab(CookingPotRecipeBookTab.DRINKS)
+                .build(consumer);
+        CookingPotRecipeBuilder.cookingPotRecipe(GDModItems.GAPPLE_CIDER.get(), 1, NORMAL_COOKING, MEDIUM_EXP)
+                .addIngredient(Items.GOLDEN_APPLE)
+                .addIngredient(Items.GOLDEN_APPLE)
+                .addIngredient(GDModItems.GOLDEN_SUGAR.get())
+                .unlockedByItems("has_golden_apple", Items.GOLDEN_APPLE)
+                .setRecipeBookTab(CookingPotRecipeBookTab.DRINKS)
+                .build(consumer);
+        CookingPotRecipeBuilder.cookingPotRecipe(GDModItems.GOLDEN_TOMATO_SAUCE.get(), 1, FAST_COOKING, SMALL_EXP)
+                .addIngredient(GDModTags.Items.GOLDEN_CROPS_TOMATO)
+                .addIngredient(GDModTags.Items.GOLDEN_CROPS_TOMATO)
+                .unlockedByItems("has_golden_tomato", GDModItems.GOLDEN_TOMATO.get())
+                .setRecipeBookTab(CookingPotRecipeBookTab.MISC)
+                .build(consumer);
+        CookingPotRecipeBuilder.cookingPotRecipe(GDModItems.GOLDEN_DOG_FOOD.get(), 1, NORMAL_COOKING, MEDIUM_EXP)
+                .addIngredient(GDModItems.ROTTEN_GOLDEN_FLESH.get())
+                .addIngredient(GDModItems.GOLDEN_MEAL.get())
+                .addIngredient(GDModTags.Items.GOLDEN_WOLF_PREY)
+                .addIngredient(GDModTags.Items.GOLDEN_CROPS_RICE)
+                .unlockedByAnyIngredient(GDModItems.ROTTEN_GOLDEN_FLESH.get(), GDModItems.GOLDEN_MEAL.get(), GDModItems.GOLDEN_RICE.get())
+                .setRecipeBookTab(CookingPotRecipeBookTab.MISC)
+                .build(consumer);
+        CookingPotRecipeBuilder.cookingPotRecipe(GDModItems.GOLDEN_GLOW_BERRY_CUSTARD.get(), 1, NORMAL_COOKING, MEDIUM_EXP)
+                .addIngredient(GDModItems.GOLDEN_GLOW_BERRIES.get())
+                .addIngredient(GDModTags.Items.GOLDEN_MILK)
+                .addIngredient(GDModTags.Items.GOLDEN_EGGS)
+                .addIngredient(GDModItems.GOLDEN_SUGAR.get())
+                .unlockedByAnyIngredient(GDModItems.GOLDEN_GLOW_BERRIES.get(), GDModItems.GOLDEN_MILK_BUCKET.get(), GDModItems.GOLDEN_MILK_BOTTLE.get())
+                .setRecipeBookTab(CookingPotRecipeBookTab.MISC)
+                .build(consumer);
+
+        CookingPotRecipeBuilder.cookingPotRecipe(GDModItems.GOLDEN_MUSHROOM_STEW.get(), 1, NORMAL_COOKING, MEDIUM_EXP, Items.BOWL)
+                .addIngredient(GDModTags.Items.GOLDEN_MUSHROOMS)
+                .addIngredient(GDModBlocks.GOLDEN_MUSHROOM.get().asItem())
+                .unlockedByAnyIngredient(GDModBlocks.GOLDEN_MUSHROOM.get())
+                .setRecipeBookTab(CookingPotRecipeBookTab.MEALS)
+                .build(consumer);
+        CookingPotRecipeBuilder.cookingPotRecipe(ItemRegistry.GOLDEN_BEETROOT_SOUP.get(), 1, NORMAL_COOKING, MEDIUM_EXP, Items.BOWL)
+                .addIngredient(ItemRegistry.GOLDEN_BEETROOT.get())
+                .addIngredient(ItemRegistry.GOLDEN_BEETROOT.get())
+                .addIngredient(ItemRegistry.GOLDEN_BEETROOT.get())
+                .unlockedByItems("has_golden_beetroot", ItemRegistry.GOLDEN_BEETROOT.get())
+                .setRecipeBookTab(CookingPotRecipeBookTab.MEALS)
+                .build(consumer);
+        CookingPotRecipeBuilder.cookingPotRecipe(GDModItems.GOLDEN_RABBIT_STEW.get(), 1, NORMAL_COOKING, MEDIUM_EXP, Items.BOWL)
+                .addIngredient(ItemRegistry.BAKED_GOLDEN_POTATO.get())
+                .addIngredient(GDModItems.GOLDEN_RABBIT.get())
+                .addIngredient(Items.GOLDEN_CARROT)
+                .addIngredient(Ingredient.of(GDModBlocks.GOLDEN_MUSHROOM.get().asItem()))
+                .unlockedByAnyIngredient(GDModItems.GOLDEN_RABBIT.get(), GDModBlocks.GOLDEN_MUSHROOM.get().asItem(), Items.GOLDEN_CARROT, ItemRegistry.BAKED_GOLDEN_POTATO.get())
+                .setRecipeBookTab(CookingPotRecipeBookTab.MEALS)
+                .build(consumer);
+
+        CookingPotRecipeBuilder.cookingPotRecipe(GDModItems.GOLDEN_BAKED_COD_STEW.get(), 1, NORMAL_COOKING, MEDIUM_EXP)
+                .addIngredient(GDModTags.Items.RAW_GOLDEN_FISHES_COD)
+                .addIngredient(GDModItems.GOLDEN_POTATO.get())
+                .addIngredient(GDModTags.Items.GOLDEN_EGGS)
+                .addIngredient(GDModTags.Items.GOLDEN_CROPS_TOMATO)
+                .unlockedByAnyIngredient(GDModItems.GOLDEN_COD.get(), GDModItems.GOLDEN_POTATO.get(), GDModItems.GOLDEN_TOMATO.get(), GDModItems.GOLDEN_EGG.get())
+                .setRecipeBookTab(CookingPotRecipeBookTab.MEALS)
+                .build(consumer);
+        CookingPotRecipeBuilder.cookingPotRecipe(GDModItems.GOLDEN_BEEF_STEW.get(), 1, NORMAL_COOKING, MEDIUM_EXP)
+                .addIngredient(GDModTags.Items.RAW_GOLDEN_BEEF)
+                .addIngredient(Items.GOLDEN_CARROT)
+                .addIngredient(GDModItems.GOLDEN_POTATO.get())
+                .unlockedByAnyIngredient(GDModItems.GOLDEN_BEEF.get(), Items.GOLDEN_CARROT, GDModItems.GOLDEN_POTATO.get())
+                .setRecipeBookTab(CookingPotRecipeBookTab.MEALS)
+                .build(consumer);
+        CookingPotRecipeBuilder.cookingPotRecipe(GDModItems.GOLDEN_BROTH.get(), 1, NORMAL_COOKING, SMALL_EXP)
+                .addIngredient(GDModItems.GOLDEN_BONE.get())
+                .addIngredient(Ingredient.fromValues(Stream.of(
+                        new Ingredient.ItemValue(new ItemStack(GDModItems.GOLDEN_GLOW_BERRIES.get())),
+                        new Ingredient.TagValue(GDModTags.Items.GOLDEN_MUSHROOMS)
+                )))
+                .unlockedByItems("has_golden_bone", GDModItems.GOLDEN_BONE.get())
+                .setRecipeBookTab(CookingPotRecipeBookTab.MEALS)
+                .build(consumer);
+        CookingPotRecipeBuilder.cookingPotRecipe(GDModItems.GOLDEN_CABBAGE_ROLLS.get(), 1, FAST_COOKING, SMALL_EXP)
+                .addIngredient(GDModTags.Items.GOLDEN_CROPS_CABBAGE)
+                .addIngredient(GDModTags.Items.GOLDEN_CABBAGE_ROLL_INGREDIENTS)
+                .unlockedByAnyIngredient(GDModItems.GOLDEN_CABBAGE.get(), GDModItems.GOLDEN_CABBAGE_LEAF.get())
+                .setRecipeBookTab(CookingPotRecipeBookTab.MISC)
+                .build(consumer);
+        CookingPotRecipeBuilder.cookingPotRecipe(GDModItems.GOLDEN_CHICKEN_SOUP.get(), 1, NORMAL_COOKING, MEDIUM_EXP)
+                .addIngredient(GDModTags.Items.RAW_GOLDEN_CHICKEN)
+                .addIngredient(Items.GOLDEN_CARROT)
+                .addIngredient(GDModTags.Items.GOLDEN_SALAD_INGREDIENTS)
+                .addIngredient(GDModTags.Items.GOLDEN_VEGETABLES)
+                .unlockedByAnyIngredient(GDModItems.GOLDEN_CHICKEN.get(), Items.GOLDEN_CARROT)
+                .setRecipeBookTab(CookingPotRecipeBookTab.MEALS)
+                .build(consumer);
+        CookingPotRecipeBuilder.cookingPotRecipe(GDModItems.COOKED_GOLDEN_RICE.get(), 1, FAST_COOKING, SMALL_EXP)
+                .addIngredient(GDModTags.Items.GOLDEN_CROPS_RICE)
+                .unlockedByItems("has_golden_rice", GDModItems.GOLDEN_RICE.get())
+                .setRecipeBookTab(CookingPotRecipeBookTab.MISC)
+                .build(consumer);
+        CookingPotRecipeBuilder.cookingPotRecipe(GDModItems.GUMPLINGS.get(), 2, NORMAL_COOKING, MEDIUM_EXP)
+                .addIngredient(GDModTags.Items.GOLDEN_DOUGH)
+                .addIngredient(GDModTags.Items.GOLDEN_CROPS_CABBAGE)
+                .addIngredient(GDModTags.Items.GOLDEN_CROPS_ONION)
+                .addIngredient(Ingredient.fromValues(Stream.of(
+                        new Ingredient.TagValue(GDModTags.Items.RAW_GOLDEN_CHICKEN),
+                        new Ingredient.TagValue(GDModTags.Items.RAW_GOLDEN_PORK),
+                        new Ingredient.TagValue(GDModTags.Items.RAW_GOLDEN_BEEF),
+                        new Ingredient.ItemValue(new ItemStack(GDModBlocks.GOLDEN_MUSHROOM.get().asItem()))
+                )))
+                .unlockedByAnyIngredient(GDModItems.GOLDEN_WHEAT_DOUGH.get(), GDModItems.GOLDEN_CABBAGE.get(), GDModItems.GOLDEN_ONION.get())
+                .setRecipeBookTab(CookingPotRecipeBookTab.MISC)
+                .build(consumer);
+        CookingPotRecipeBuilder.cookingPotRecipe(GDModItems.GOLDEN_FISH_STEW.get(), 1, NORMAL_COOKING, MEDIUM_EXP)
+                .addIngredient(GDModTags.Items.RAW_GOLDEN_FISHES)
+                .addIngredient(GDModItems.GOLDEN_TOMATO_SAUCE.get())
+                .addIngredient(GDModTags.Items.GOLDEN_CROPS_ONION)
+                .unlockedByAnyIngredient(GDModItems.GOLDEN_SALMON.get(), GDModItems.GOLDEN_COD.get(), GDModItems.GOLDEN_TROPICAL_FISH.get(), GDModItems.GOLDEN_TOMATO_SAUCE.get(), GDModItems.GOLDEN_ONION.get())
+                .setRecipeBookTab(CookingPotRecipeBookTab.MEALS)
+                .build(consumer);
+        CookingPotRecipeBuilder.cookingPotRecipe(GDModItems.FRIED_GOLDEN_RICE.get(), 1, NORMAL_COOKING, MEDIUM_EXP)
+                .addIngredient(GDModTags.Items.GOLDEN_CROPS_RICE)
+                .addIngredient(GDModTags.Items.GOLDEN_EGGS)
+                .addIngredient(Items.GOLDEN_CARROT)
+                .addIngredient(GDModTags.Items.GOLDEN_CROPS_ONION)
+                .unlockedByAnyIngredient(GDModItems.GOLDEN_RICE.get(), GDModItems.GOLDEN_EGG.get(), Items.GOLDEN_CARROT, GDModItems.GOLDEN_ONION.get())
+                .setRecipeBookTab(CookingPotRecipeBookTab.MEALS)
+                .build(consumer);
+        CookingPotRecipeBuilder.cookingPotRecipe(GDModItems.GOLDEN_MUSHROOM_RICE.get(), 1, NORMAL_COOKING, MEDIUM_EXP)
+                .addIngredient(GDModTags.Items.GOLDEN_MUSHROOMS)
+                .addIngredient(GDModBlocks.GOLDEN_MUSHROOM.get().asItem())
+                .addIngredient(GDModTags.Items.GOLDEN_CROPS_RICE)
+                .addIngredient(Ingredient.of(Items.GOLDEN_CARROT, GDModItems.GOLDEN_POTATO.get()))
+                .unlockedByAnyIngredient(GDModBlocks.GOLDEN_MUSHROOM.get(), GDModItems.GOLDEN_RICE.get())
+                .setRecipeBookTab(CookingPotRecipeBookTab.MEALS)
+                .build(consumer);
+        CookingPotRecipeBuilder.cookingPotRecipe(GDModItems.GOLDEN_NOODLE_SOUP.get(), 1, NORMAL_COOKING, MEDIUM_EXP)
+                .addIngredient(GDModTags.Items.GOLDEN_PASTA)
+                .addIngredient(GDModTags.Items.COOKED_GOLDEN_EGGS)
+                .addIngredient(ItemRegistry.DRIED_GOLDEN_KELP.get())
+                .addIngredient(GDModTags.Items.RAW_GOLDEN_PORK)
+                .unlockedByAnyIngredient(GDModItems.RAW_GOLDEN_PASTA.get(), ItemRegistry.DRIED_GOLDEN_KELP.get(), GDModItems.GOLDEN_PORKCHOP.get())
+                .setRecipeBookTab(CookingPotRecipeBookTab.MEALS)
+                .build(consumer);
+        CookingPotRecipeBuilder.cookingPotRecipe(GDModItems.GOLDEN_PASTA_WITH_MEATBALLS.get(), 1, NORMAL_COOKING, MEDIUM_EXP)
+                .addIngredient(GDModItems.MINCED_GOLDEN_BEEF.get())
+                .addIngredient(GDModTags.Items.GOLDEN_PASTA)
+                .addIngredient(GDModItems.GOLDEN_TOMATO_SAUCE.get())
+                .unlockedByAnyIngredient(GDModItems.RAW_GOLDEN_PASTA.get(), GDModItems.GOLDEN_BEEF.get(), GDModItems.GOLDEN_TOMATO_SAUCE.get())
+                .setRecipeBookTab(CookingPotRecipeBookTab.MEALS)
+                .build(consumer);
+        CookingPotRecipeBuilder.cookingPotRecipe(GDModItems.GOLDEN_PASTA_WITH_MUTTON_CHOP.get(), 1, NORMAL_COOKING, MEDIUM_EXP)
+                .addIngredient(GDModTags.Items.RAW_GOLDEN_MUTTON)
+                .addIngredient(GDModTags.Items.GOLDEN_PASTA)
+                .addIngredient(GDModItems.GOLDEN_TOMATO_SAUCE.get())
+                .unlockedByAnyIngredient(GDModItems.RAW_GOLDEN_PASTA.get(), GDModItems.GOLDEN_MUTTON.get(), GDModItems.GOLDEN_TOMATO_SAUCE.get())
+                .setRecipeBookTab(CookingPotRecipeBookTab.MEALS)
+                .build(consumer);
+        CookingPotRecipeBuilder.cookingPotRecipe(GDModItems.GOLDEN_PUMPKIN_SOUP.get(), 1, NORMAL_COOKING, MEDIUM_EXP)
+                .addIngredient(GDModItems.GOLDEN_PUMPKIN_SLICE.get())
+                .addIngredient(GDModTags.Items.GOLDEN_SALAD_INGREDIENTS)
+                .addIngredient(GDModTags.Items.RAW_GOLDEN_PORK)
+                .addIngredient(GDModTags.Items.GOLDEN_MILK)
+                .unlockedByAnyIngredient(GDModBlocks.GOLDEN_PUMPKIN.get().asItem(), GDModItems.GOLDEN_PUMPKIN_SLICE.get(), GDModItems.GOLDEN_PORKCHOP.get(), GDModItems.GOLDEN_MILK_BUCKET.get(), GDModItems.GOLDEN_MILK_BOTTLE.get())
+                .setRecipeBookTab(CookingPotRecipeBookTab.MEALS)
+                .build(consumer);
+        CookingPotRecipeBuilder.cookingPotRecipe(GDModItems.GOLDEN_RATATOUILLE.get(), 1, NORMAL_COOKING, MEDIUM_EXP)
+                .addIngredient(GDModTags.Items.GOLDEN_CROPS_TOMATO)
+                .addIngredient(GDModTags.Items.GOLDEN_CROPS_ONION)
+                .addIngredient(ItemRegistry.GOLDEN_BEETROOT.get())
+                .addIngredient(GDModTags.Items.GOLDEN_VEGETABLES)
+                .unlockedByAnyIngredient(GDModItems.GOLDEN_TOMATO.get(), GDModItems.GOLDEN_ONION.get(), ItemRegistry.GOLDEN_BEETROOT.get())
+                .setRecipeBookTab(CookingPotRecipeBookTab.MEALS)
+                .build(consumer);
+        CookingPotRecipeBuilder.cookingPotRecipe(GDModItems.GOLDEN_INK_PASTA.get(), 1, NORMAL_COOKING, MEDIUM_EXP)
+                .addIngredient(GDModTags.Items.RAW_GOLDEN_FISHES)
+                .addIngredient(GDModTags.Items.GOLDEN_PASTA)
+                .addIngredient(GDModTags.Items.GOLDEN_CROPS_TOMATO)
+                .addIngredient(GDModItems.GOLDEN_INK_SAC.get())
+                .unlockedByAnyIngredient(GDModItems.RAW_GOLDEN_PASTA.get(), GDModItems.GOLDEN_INK_SAC.get(), GDModItems.GOLDEN_TOMATO.get())
+                .setRecipeBookTab(CookingPotRecipeBookTab.MEALS)
+                .build(consumer);
+        CookingPotRecipeBuilder.cookingPotRecipe(GDModItems.STUFFED_GOLDEN_PUMPKIN_BLOCK.get(), 1, SLOW_COOKING, LARGE_EXP, GDModBlocks.GOLDEN_PUMPKIN.get().asItem())
+                .addIngredient(GDModTags.Items.GOLDEN_CROPS_RICE)
+                .addIngredient(GDModTags.Items.GOLDEN_CROPS_ONION)
+                .addIngredient(GDModTags.Items.GOLDEN_MUSHROOMS)
+                .addIngredient(GDModItems.GOLDEN_POTATO.get())
+                .addIngredient(GDModTags.Items.GOLDEN_BERRIES)
+                .addIngredient(GDModTags.Items.GOLDEN_VEGETABLES)
+                .unlockedByItems("has_golden_pumpkin", GDModBlocks.GOLDEN_PUMPKIN.get())
+                .setRecipeBookTab(CookingPotRecipeBookTab.MEALS)
+                .build(consumer);
+        CookingPotRecipeBuilder.cookingPotRecipe(GDModItems.GOLDEN_VEGETABLE_NOODLES.get(), 1, NORMAL_COOKING, MEDIUM_EXP)
+                .addIngredient(Items.GOLDEN_CARROT)
+                .addIngredient(GDModTags.Items.GOLDEN_MUSHROOMS)
+                .addIngredient(GDModTags.Items.GOLDEN_PASTA)
+                .addIngredient(GDModTags.Items.GOLDEN_SALAD_INGREDIENTS)
+                .addIngredient(GDModTags.Items.GOLDEN_VEGETABLES)
+                .unlockedByAnyIngredient(GDModItems.RAW_GOLDEN_PASTA.get(), GDModBlocks.GOLDEN_MUSHROOM.get().asItem(), Items.GOLDEN_CARROT)
+                .setRecipeBookTab(CookingPotRecipeBookTab.MEALS)
+                .build(consumer);
+        CookingPotRecipeBuilder.cookingPotRecipe(GDModItems.GOLDEN_VEGETABLE_SOUP.get(), 1, NORMAL_COOKING, MEDIUM_EXP)
+                .addIngredient(Items.GOLDEN_CARROT)
+                .addIngredient(GDModItems.GOLDEN_POTATO.get())
+                .addIngredient(ItemRegistry.GOLDEN_BEETROOT.get())
+                .addIngredient(GDModTags.Items.GOLDEN_SALAD_INGREDIENTS)
+                .unlockedByAnyIngredient(Items.GOLDEN_CARROT, GDModItems.GOLDEN_ONION.get(), ItemRegistry.GOLDEN_BEETROOT.get())
+                .setRecipeBookTab(CookingPotRecipeBookTab.MEALS)
+                .build(consumer);
+    }
+
+
+    protected static void Storage(Consumer<FinishedRecipe> consumer, ItemLike itemIng, ItemLike blockIng) {
+        StorageBuilder(consumer, itemIng, blockIng, getSimpleRecipeName(blockIng), null, getSimpleRecipeName(itemIng), null);
+    }
+
+    protected static void Compact(Consumer<FinishedRecipe> consumer, ItemLike ingredient, ItemLike result) {
+        CompactBuilder(consumer, ingredient, result, getSimpleRecipeName(result), null);
+    }
+
+    protected static void TwoByTwo(Consumer<FinishedRecipe> consumer, ItemLike ingredient, ItemLike result) {
+        TwoByTwoBuilder(consumer, ingredient, result, getSimpleRecipeName(result), null);
+    }
+
+    protected static void Golden(Consumer<FinishedRecipe> consumer, ItemLike result, ItemLike ingredient) {
+        GoldenBuilder(result, Ingredient.of(ingredient)).unlockedBy(getHasName(ingredient), has(ingredient)).save(consumer, new ResourceLocation(GolDelight.MOD_ID, getItemName(result) + "_from_nugget"));
+    }
+
+    protected static void Enchanted(Consumer<FinishedRecipe> consumer, ItemLike result, ItemLike ingredient) {
+        EnchantedGoldenBuilder(result, Ingredient.of(ingredient)).unlockedBy(getHasName(ingredient), has(ingredient)).save(consumer, new ResourceLocation(GolDelight.MOD_ID, getItemName(result)));
+    }
+
+    public static void BasicCooking(Consumer<FinishedRecipe> consumer, List<ItemLike> ingredient, ItemLike result) {
+        Smelting(consumer, ingredient, result);
+        Smoking(consumer, ingredient, result);
+        Campfire(consumer, ingredient, result);
+    }
+
+    protected static void Smelting(Consumer<FinishedRecipe> consumer, List<ItemLike> ingredient, ItemLike result) {
+        SmeltingBuilder(consumer, RecipeSerializer.SMELTING_RECIPE, ingredient, result, 200, null, "_from_smelting");
+    }
+    protected static void Smoking(Consumer<FinishedRecipe> consumer, List<ItemLike> ingredient, ItemLike result) {
+        SmeltingBuilder(consumer, RecipeSerializer.SMOKING_RECIPE, ingredient, result, 100, null, "_from_smoking");
+    }
+    protected static void Campfire(Consumer<FinishedRecipe> consumer, List<ItemLike> ingredient, ItemLike result) {
+        SmeltingBuilder(consumer, RecipeSerializer.CAMPFIRE_COOKING_RECIPE, ingredient, result, 600, null, "_from_campfire_cooking");
+    }
+
+    protected static void Ham(Consumer<FinishedRecipe> consumer, List<ItemLike> ingredient, ItemLike result) {
+        SmeltingBuilder(consumer, RecipeSerializer.SMOKING_RECIPE, ingredient, result, 200, null, "_from_smoking");
+    }
+
+    protected static void SimpleConversion(Consumer<FinishedRecipe> consumer, ItemLike result, ItemLike ingredient) {
+        ConversionBuilder(result, Ingredient.of(ingredient), 1).unlockedBy(getHasName(ingredient), has(ingredient)).save(consumer, new ResourceLocation(GolDelight.MOD_ID, getItemName(result)));
+    }
+
+    protected static void Conversion(Consumer<FinishedRecipe> consumer, ItemLike result, ItemLike ingredient, int count) {
+        ConversionBuilder(result, Ingredient.of(ingredient), count).unlockedBy(getHasName(ingredient), has(ingredient)).save(consumer, new ResourceLocation(GolDelight.MOD_ID, getItemName(result)));
+    }
+
+    protected static void CropToSeeds(Consumer<FinishedRecipe> consumer, ItemLike result, ItemLike ingredient) {
+        ConversionBuilder(result, Ingredient.of(ingredient), 1).unlockedBy(getHasName(ingredient), has(ingredient)).save(consumer, new ResourceLocation(GolDelight.MOD_ID, getItemName(result) + "_from_" + getItemName(ingredient)));
+    }
+
+    protected static void StorageBuilder(Consumer<FinishedRecipe> consumer, ItemLike itemIng, ItemLike blockIng, String block, @Nullable String blockGroup, String item, @Nullable String itemGroup) {
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, itemIng, 9).requires(blockIng).group(itemGroup).unlockedBy(getHasName(blockIng), has(blockIng))
+                .save(consumer, new ResourceLocation(GolDelight.MOD_ID, item) + "_from_" + block);
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, blockIng).define('#', itemIng).pattern("###").pattern("###").pattern("###").group(blockGroup)
+                .unlockedBy(getHasName(itemIng), has(itemIng)).save(consumer, new ResourceLocation(GolDelight.MOD_ID, block));
+    }
+
+    protected static void CompactBuilder(Consumer<FinishedRecipe> consumer, ItemLike ingredient, ItemLike result, String block, @Nullable String blockGroup) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, result).define('#', ingredient).pattern("###").pattern("###").pattern("###").group(blockGroup)
+                .unlockedBy(getHasName(ingredient), has(ingredient)).save(consumer, new ResourceLocation(GolDelight.MOD_ID, block));
+    }
+    protected static void TwoByTwoBuilder(Consumer<FinishedRecipe> consumer, ItemLike ingredient, ItemLike result, String block, @Nullable String blockGroup) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, result).define('#', ingredient).pattern("##").pattern("##").group(blockGroup)
+                .unlockedBy(getHasName(ingredient), has(ingredient)).save(consumer, new ResourceLocation(GolDelight.MOD_ID, block));
+    }
+
+    protected static RecipeBuilder GoldenBuilder(ItemLike result, Ingredient ingredient) {
+        return ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, result).define('#', ingredient).define('G', Ingredient.of(Items.GOLD_NUGGET))
+                .pattern("GGG").pattern("G#G").pattern("GGG");
+    }
+
+    protected static RecipeBuilder EnchantedGoldenBuilder(ItemLike result, Ingredient ingredient) {
+        return ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, result).define('#', ingredient).define('G', Ingredient.of(Items.GOLD_BLOCK))
+                .pattern("GGG").pattern("G#G").pattern("GGG");
+    }
+
+    protected static void SmeltingBuilder(Consumer<FinishedRecipe> consumer, RecipeSerializer<? extends AbstractCookingRecipe> serializer, List<ItemLike> ingredient, ItemLike result, int time, String group, String recipe) {
+        for(ItemLike ing : ingredient) {
+            SimpleCookingRecipeBuilder.generic(Ingredient.of(ing), RecipeCategory.FOOD, result, 0.35f, time, serializer)
+                    .group(group).unlockedBy(getHasName(ing), has(ing))
+                    .save(consumer, new ResourceLocation(GolDelight.MOD_ID, getItemName(result)) + recipe);
+        }
+    }
+
+    protected static RecipeBuilder ConversionBuilder(ItemLike result, Ingredient ingredient, int count) {
+        return ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, result, count).requires(ingredient);
+    }
+
+}

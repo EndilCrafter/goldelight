@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "goldelight:golden_beetroot_crate"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "midashunger:golden_beetroot"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "goldelight:block/golden_rice_bale_bottom",
+    "side": "goldelight:block/golden_rice_bale_side",
+    "top": "goldelight:block/golden_rice_bale_top"
+  }
+}

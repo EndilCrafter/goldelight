@@ -1,0 +1,23 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 400,
+  "experience": 2.0,
+  "ingredients": [
+    {
+      "item": "minecraft:golden_carrot"
+    },
+    {
+      "item": "goldelight:golden_potato"
+    },
+    {
+      "item": "midashunger:golden_beetroot"
+    },
+    {
+      "tag": "goldelight:golden_salad_ingredients"
+    }
+  ],
+  "recipe_book_tab": "meals",
+  "result": {
+    "item": "goldelight:golden_vegetable_soup"
+  }
+}

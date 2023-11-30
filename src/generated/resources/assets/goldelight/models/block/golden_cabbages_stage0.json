@@ -1,0 +1,7 @@
+{
+  "parent": "goldelight:block/crop_cross",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "cross": "goldelight:block/golden_cabbages_stage0"
+  }
+}

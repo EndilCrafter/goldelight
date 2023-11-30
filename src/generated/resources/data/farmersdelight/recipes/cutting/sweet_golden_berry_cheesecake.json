@@ -1,0 +1,17 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "goldelight:sweet_golden_berry_cheesecake"
+    }
+  ],
+  "result": [
+    {
+      "count": 4,
+      "item": "goldelight:sweet_golden_berry_cheesecake_slice"
+    }
+  ],
+  "tool": {
+    "tag": "forge:tools/knives"
+  }
+}

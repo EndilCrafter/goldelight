@@ -1,0 +1,23 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 400,
+  "experience": 2.0,
+  "ingredients": [
+    {
+      "item": "goldelight:rotten_golden_flesh"
+    },
+    {
+      "item": "goldelight:golden_meal"
+    },
+    {
+      "tag": "goldelight:golden_wolf_prey"
+    },
+    {
+      "tag": "goldelight:golden_crops/rice"
+    }
+  ],
+  "recipe_book_tab": "misc",
+  "result": {
+    "item": "goldelight:golden_dog_food"
+  }
+}

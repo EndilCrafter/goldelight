@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "goldelight:golden_cod_slice"
+    },
+    {
+      "item": "goldelight:golden_cod_slice"
+    },
+    {
+      "item": "goldelight:cooked_golden_rice"
+    }
+  ],
+  "result": {
+    "count": 2,
+    "item": "goldelight:golden_cod_roll"
+  }
+}

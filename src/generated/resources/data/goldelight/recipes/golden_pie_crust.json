@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "M": {
+      "tag": "goldelight:golden_milk"
+    },
+    "w": {
+      "item": "goldelight:golden_wheat"
+    }
+  },
+  "pattern": [
+    "wMw",
+    " w "
+  ],
+  "result": {
+    "item": "goldelight:golden_pie_crust"
+  },
+  "show_notification": true
+}

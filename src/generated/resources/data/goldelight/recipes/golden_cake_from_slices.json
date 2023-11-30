@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "goldelight:golden_cake_slice"
+    },
+    {
+      "item": "goldelight:golden_cake_slice"
+    },
+    {
+      "item": "goldelight:golden_cake_slice"
+    },
+    {
+      "item": "goldelight:golden_cake_slice"
+    },
+    {
+      "item": "goldelight:golden_cake_slice"
+    },
+    {
+      "item": "goldelight:golden_cake_slice"
+    },
+    {
+      "item": "goldelight:golden_cake_slice"
+    }
+  ],
+  "result": {
+    "item": "goldelight:golden_cake"
+  }
+}

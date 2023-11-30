@@ -1,0 +1,23 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 400,
+  "experience": 2.0,
+  "ingredients": [
+    {
+      "tag": "goldelight:golden_crops/rice"
+    },
+    {
+      "tag": "goldelight:golden_eggs"
+    },
+    {
+      "item": "minecraft:golden_carrot"
+    },
+    {
+      "tag": "goldelight:golden_crops/onion"
+    }
+  ],
+  "recipe_book_tab": "meals",
+  "result": {
+    "item": "goldelight:fried_golden_rice"
+  }
+}

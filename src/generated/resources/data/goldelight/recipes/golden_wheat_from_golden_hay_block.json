@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "goldelight:golden_hay_block"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "goldelight:golden_wheat"
+  }
+}

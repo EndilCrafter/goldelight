@@ -1,0 +1,32 @@
+{
+  "type": "farmersdelight:cooking",
+  "container": {
+    "item": "goldelight:golden_pumpkin"
+  },
+  "cookingtime": 800,
+  "experience": 4.0,
+  "ingredients": [
+    {
+      "tag": "goldelight:golden_crops/rice"
+    },
+    {
+      "tag": "goldelight:golden_crops/onion"
+    },
+    {
+      "tag": "goldelight:golden_mushrooms"
+    },
+    {
+      "item": "goldelight:golden_potato"
+    },
+    {
+      "tag": "goldelight:golden_berries"
+    },
+    {
+      "tag": "goldelight:golden_vegetables"
+    }
+  ],
+  "recipe_book_tab": "meals",
+  "result": {
+    "item": "goldelight:stuffed_golden_pumpkin_block"
+  }
+}

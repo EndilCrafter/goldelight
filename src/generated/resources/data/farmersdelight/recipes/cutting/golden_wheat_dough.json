@@ -1,0 +1,16 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "goldelight:golden_wheat_dough"
+    }
+  ],
+  "result": [
+    {
+      "item": "goldelight:raw_golden_pasta"
+    }
+  ],
+  "tool": {
+    "tag": "forge:tools/knives"
+  }
+}

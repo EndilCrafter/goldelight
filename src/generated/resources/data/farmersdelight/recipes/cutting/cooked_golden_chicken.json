@@ -1,0 +1,20 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "midashunger:cooked_golden_chicken"
+    }
+  ],
+  "result": [
+    {
+      "count": 2,
+      "item": "goldelight:cooked_golden_chicken_cuts"
+    },
+    {
+      "item": "goldelight:golden_meal"
+    }
+  ],
+  "tool": {
+    "tag": "forge:tools/knives"
+  }
+}

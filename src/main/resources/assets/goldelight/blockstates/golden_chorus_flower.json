@@ -1,0 +1,22 @@
+{
+  "variants": {
+    "age=0": {
+      "model": "goldelight:block/golden_chorus_flower"
+    },
+    "age=1": {
+      "model": "goldelight:block/golden_chorus_flower"
+    },
+    "age=2": {
+      "model": "goldelight:block/golden_chorus_flower"
+    },
+    "age=3": {
+      "model": "goldelight:block/golden_chorus_flower"
+    },
+    "age=4": {
+      "model": "goldelight:block/golden_chorus_flower"
+    },
+    "age=5": {
+      "model": "goldelight:block/golden_chorus_flower_dead"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "midashunger:baked_golden_potato"
+    },
+    {
+      "item": "midashunger:cooked_golden_beef"
+    },
+    {
+      "item": "minecraft:bowl"
+    },
+    {
+      "tag": "goldelight:golden_crops/onion"
+    },
+    {
+      "item": "goldelight:cooked_golden_rice"
+    }
+  ],
+  "result": {
+    "item": "goldelight:golden_steak_and_potatoes"
+  }
+}

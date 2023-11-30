@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:water_bucket"
+    },
+    {
+      "item": "goldelight:golden_wheat"
+    },
+    {
+      "item": "goldelight:golden_wheat"
+    },
+    {
+      "item": "goldelight:golden_wheat"
+    }
+  ],
+  "result": {
+    "count": 3,
+    "item": "goldelight:golden_wheat_dough"
+  }
+}

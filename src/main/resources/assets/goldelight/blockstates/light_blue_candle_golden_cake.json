@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=false": {
+      "model": "goldelight:block/light_blue_candle_golden_cake"
+    },
+    "lit=true": {
+      "model": "goldelight:block/light_blue_candle_golden_cake_lit"
+    }
+  }
+}

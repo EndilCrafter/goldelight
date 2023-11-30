@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "goldelight:golden_pumpkin"
+    },
+    {
+      "item": "goldelight:golden_sugar"
+    },
+    {
+      "item": "goldelight:golden_egg"
+    }
+  ],
+  "result": {
+    "item": "midashunger:golden_pumpkin_pie"
+  }
+}

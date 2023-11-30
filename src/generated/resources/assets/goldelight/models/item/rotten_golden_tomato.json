@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "goldelight:item/rotten_golden_tomato"
+  }
+}

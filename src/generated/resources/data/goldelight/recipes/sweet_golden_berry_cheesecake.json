@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "O": {
+      "item": "goldelight:golden_pie_crust"
+    },
+    "m": {
+      "tag": "goldelight:golden_milk"
+    },
+    "s": {
+      "item": "midashunger:sweet_golden_berries"
+    }
+  },
+  "pattern": [
+    "sss",
+    "sss",
+    "mOm"
+  ],
+  "result": {
+    "item": "goldelight:sweet_golden_berry_cheesecake"
+  },
+  "show_notification": true
+}

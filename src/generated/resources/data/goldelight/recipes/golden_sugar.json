@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "goldelight:golden_sugar_cane"
+    }
+  ],
+  "result": {
+    "item": "goldelight:golden_sugar"
+  }
+}

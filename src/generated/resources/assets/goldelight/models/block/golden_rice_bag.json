@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "goldelight:block/bag_bottom",
+    "east": "goldelight:block/bag_side",
+    "north": "goldelight:block/bag_side_tied",
+    "particle": "goldelight:block/golden_rice_bag_top",
+    "south": "goldelight:block/bag_side_tied",
+    "up": "goldelight:block/golden_rice_bag_top",
+    "west": "goldelight:block/bag_side"
+  }
+}

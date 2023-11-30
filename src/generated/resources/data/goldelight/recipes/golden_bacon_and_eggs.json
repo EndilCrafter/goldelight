@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "goldelight:cooked_golden_bacon"
+    },
+    {
+      "item": "goldelight:cooked_golden_bacon"
+    },
+    {
+      "item": "minecraft:bowl"
+    },
+    {
+      "tag": "goldelight:cooked_golden_eggs"
+    },
+    {
+      "tag": "goldelight:cooked_golden_eggs"
+    }
+  ],
+  "result": {
+    "item": "goldelight:golden_bacon_and_eggs"
+  }
+}

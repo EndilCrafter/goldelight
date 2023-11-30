@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "goldelight:block/golden_rice_bale",
+      "x": 180
+    },
+    "facing=east": {
+      "model": "goldelight:block/golden_rice_bale",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north": {
+      "model": "goldelight:block/golden_rice_bale",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "goldelight:block/golden_rice_bale",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up": {
+      "model": "goldelight:block/golden_rice_bale"
+    },
+    "facing=west": {
+      "model": "goldelight:block/golden_rice_bale",
+      "x": 90,
+      "y": 270
+    }
+  }
+}

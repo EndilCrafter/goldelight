@@ -1,0 +1,52 @@
+modLoader="javafml"
+
+loaderVersion="${loader_version_range}"
+
+license="${mod_license}"
+
+[[mods]]
+
+modId="goldelight"
+
+version="${mod_version}"
+
+displayName="${mod_name}"
+
+authors="${mod_authors}"
+
+
+description='''${mod_description}'''
+
+[[dependencies.goldelight]]
+
+    modId="forge"
+
+    mandatory=true
+
+    versionRange="${forge_version_range}"
+
+    ordering="NONE"
+
+    side="BOTH"
+
+[[dependencies.goldelight]]
+    modId="minecraft"
+    mandatory=true
+
+    versionRange="${minecraft_version_range}"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.goldelight]]
+modId="farmersdelight"
+mandatory=true
+versionRange="[1.2.3,)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.goldelight]]
+modId="midashunger"
+mandatory=true
+versionRange="[2.2.1,)"
+ordering="NONE"
+side="BOTH"

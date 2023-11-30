@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "goldelight:block/golden_carved_pumpkin",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "goldelight:block/golden_carved_pumpkin"
+    },
+    "facing=south": {
+      "model": "goldelight:block/golden_carved_pumpkin",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "goldelight:block/golden_carved_pumpkin",
+      "y": 270
+    }
+  }
+}

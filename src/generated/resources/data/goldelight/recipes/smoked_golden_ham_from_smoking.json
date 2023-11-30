@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smoking",
+  "category": "food",
+  "cookingtime": 200,
+  "experience": 0.35,
+  "ingredient": {
+    "item": "goldelight:golden_ham"
+  },
+  "result": "goldelight:smoked_golden_ham"
+}

@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "goldelight:golden_cabbage_leaf"
+    },
+    {
+      "item": "goldelight:golden_cabbage_leaf"
+    }
+  ],
+  "result": {
+    "item": "goldelight:golden_cabbage"
+  }
+}

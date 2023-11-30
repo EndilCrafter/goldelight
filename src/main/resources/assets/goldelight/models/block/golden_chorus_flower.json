@@ -1,0 +1,6 @@
+{
+  "parent": "goldelight:block/template_golden_chorus_flower",
+  "textures": {
+    "texture": "goldelight:block/golden_chorus_flower"
+  }
+}

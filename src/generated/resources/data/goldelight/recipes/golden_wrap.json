@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "goldelight:golden_bread"
+    },
+    {
+      "tag": "goldelight:cooked_golden_mutton"
+    },
+    {
+      "tag": "goldelight:golden_salad_ingredients"
+    },
+    {
+      "tag": "goldelight:golden_crops/onion"
+    }
+  ],
+  "result": {
+    "item": "goldelight:golden_wrap"
+  }
+}

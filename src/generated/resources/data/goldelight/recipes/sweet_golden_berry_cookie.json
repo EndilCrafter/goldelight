@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "midashunger:sweet_golden_berries"
+    },
+    {
+      "item": "goldelight:golden_wheat"
+    },
+    {
+      "item": "goldelight:golden_wheat"
+    }
+  ],
+  "result": {
+    "count": 8,
+    "item": "goldelight:sweet_golden_berry_cookie"
+  }
+}

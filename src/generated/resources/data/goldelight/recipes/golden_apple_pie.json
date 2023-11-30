@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "goldelight:golden_wheat"
+    },
+    "O": {
+      "item": "goldelight:golden_pie_crust"
+    },
+    "a": {
+      "item": "minecraft:golden_apple"
+    },
+    "x": {
+      "item": "goldelight:golden_sugar"
+    }
+  },
+  "pattern": [
+    "###",
+    "aaa",
+    "xOx"
+  ],
+  "result": {
+    "item": "goldelight:golden_apple_pie"
+  },
+  "show_notification": true
+}

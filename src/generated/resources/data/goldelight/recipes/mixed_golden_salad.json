@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "goldelight:golden_salad_ingredients"
+    },
+    {
+      "tag": "goldelight:golden_crops/tomato"
+    },
+    {
+      "item": "midashunger:golden_beetroot"
+    },
+    {
+      "item": "minecraft:bowl"
+    }
+  ],
+  "result": {
+    "item": "goldelight:mixed_golden_salad"
+  }
+}

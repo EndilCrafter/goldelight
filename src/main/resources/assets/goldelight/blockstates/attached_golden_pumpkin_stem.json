@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "goldelight:block/attached_golden_pumpkin_stem",
+      "y": 180
+    },
+    "facing=north": {
+      "model": "goldelight:block/attached_golden_pumpkin_stem",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "goldelight:block/attached_golden_pumpkin_stem",
+      "y": 270
+    },
+    "facing=west": {
+      "model": "goldelight:block/attached_golden_pumpkin_stem"
+    }
+  }
+}

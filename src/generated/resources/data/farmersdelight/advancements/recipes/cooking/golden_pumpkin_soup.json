@@ -1,0 +1,39 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_any_ingredient": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "goldelight:golden_pumpkin",
+              "goldelight:golden_pumpkin_slice",
+              "goldelight:golden_porkchop",
+              "goldelight:golden_milk_bucket",
+              "goldelight:golden_milk_bottle"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "farmersdelight:cooking/golden_pumpkin_soup"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_any_ingredient",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "farmersdelight:cooking/golden_pumpkin_soup"
+    ]
+  },
+  "sends_telemetry_event": true
+}

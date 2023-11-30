@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_dried_golden_kelp": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "midashunger:dried_golden_kelp"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "goldelight:golden_kelp_roll"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_dried_golden_kelp",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "goldelight:golden_kelp_roll"
+    ]
+  },
+  "sends_telemetry_event": false
+}

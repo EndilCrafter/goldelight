@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:golden_apple"
+    },
+    {
+      "item": "goldelight:golden_melon_slice"
+    },
+    {
+      "item": "goldelight:golden_melon_slice"
+    },
+    {
+      "tag": "goldelight:golden_berries"
+    },
+    {
+      "tag": "goldelight:golden_berries"
+    },
+    {
+      "item": "goldelight:golden_pumpkin_slice"
+    },
+    {
+      "item": "minecraft:bowl"
+    }
+  ],
+  "result": {
+    "item": "goldelight:golden_fruit_salad"
+  }
+}

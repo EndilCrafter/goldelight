@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "goldelight:golden_honey_bottle"
+    },
+    {
+      "item": "goldelight:golden_wheat"
+    },
+    {
+      "item": "goldelight:golden_wheat"
+    }
+  ],
+  "result": {
+    "count": 8,
+    "item": "goldelight:golden_honey_cookie"
+  }
+}

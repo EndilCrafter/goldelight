@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "category": "food",
+  "cookingtime": 200,
+  "experience": 0.35,
+  "ingredient": {
+    "item": "goldelight:golden_mutton_chops"
+  },
+  "result": "goldelight:cooked_golden_mutton_chops"
+}

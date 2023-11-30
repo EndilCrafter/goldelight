@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "berries=false": {
+      "model": "goldelight:block/golden_cave_vines_plant"
+    },
+    "berries=true": {
+      "model": "goldelight:block/golden_cave_vines_plant_lit"
+    }
+  }
+}

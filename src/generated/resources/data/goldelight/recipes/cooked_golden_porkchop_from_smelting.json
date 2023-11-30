@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "category": "food",
+  "cookingtime": 200,
+  "experience": 0.35,
+  "ingredient": {
+    "item": "goldelight:golden_porkchop"
+  },
+  "result": "midashunger:cooked_golden_porkchop"
+}

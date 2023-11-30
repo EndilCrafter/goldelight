@@ -1,0 +1,10 @@
+{
+  "parent": "minecraft:block/template_cake_with_candle",
+  "textures": {
+    "bottom": "goldelight:block/golden_cake_bottom",
+    "candle": "minecraft:block/white_candle_lit",
+    "particle": "goldelight:block/golden_cake_side",
+    "side": "goldelight:block/golden_cake_side",
+    "top": "goldelight:block/golden_cake_top"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "goldelight:golden_tomato"
+    }
+  ],
+  "result": {
+    "item": "goldelight:golden_tomato_seeds"
+  }
+}

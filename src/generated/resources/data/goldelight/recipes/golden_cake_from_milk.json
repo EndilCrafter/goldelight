@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "e": {
+      "tag": "goldelight:golden_eggs"
+    },
+    "m": {
+      "tag": "goldelight:golden_milk"
+    },
+    "s": {
+      "item": "goldelight:golden_sugar"
+    },
+    "w": {
+      "item": "goldelight:golden_wheat"
+    }
+  },
+  "pattern": [
+    "mmm",
+    "ses",
+    "www"
+  ],
+  "result": {
+    "item": "goldelight:golden_cake"
+  },
+  "show_notification": true
+}

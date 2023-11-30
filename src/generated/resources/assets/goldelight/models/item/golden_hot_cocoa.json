@@ -1,0 +1,6 @@
+{
+  "parent": "goldelight:item/mug",
+  "textures": {
+    "layer0": "goldelight:item/golden_hot_cocoa"
+  }
+}

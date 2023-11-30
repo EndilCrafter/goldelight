@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "midashunger:dried_golden_kelp"
+    },
+    "R": {
+      "item": "goldelight:cooked_golden_rice"
+    },
+    "X": {
+      "item": "minecraft:golden_carrot"
+    }
+  },
+  "pattern": [
+    "RXR",
+    "###"
+  ],
+  "result": {
+    "item": "goldelight:golden_kelp_roll"
+  },
+  "show_notification": true
+}

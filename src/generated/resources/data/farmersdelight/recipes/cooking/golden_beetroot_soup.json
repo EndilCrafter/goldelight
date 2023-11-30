@@ -1,0 +1,23 @@
+{
+  "type": "farmersdelight:cooking",
+  "container": {
+    "item": "minecraft:bowl"
+  },
+  "cookingtime": 400,
+  "experience": 2.0,
+  "ingredients": [
+    {
+      "item": "midashunger:golden_beetroot"
+    },
+    {
+      "item": "midashunger:golden_beetroot"
+    },
+    {
+      "item": "midashunger:golden_beetroot"
+    }
+  ],
+  "recipe_book_tab": "meals",
+  "result": {
+    "item": "midashunger:golden_beetroot_soup"
+  }
+}

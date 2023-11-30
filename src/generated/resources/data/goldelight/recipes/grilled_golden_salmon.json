@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "goldelight:cooked_golden_fishes/salmon"
+    },
+    {
+      "item": "midashunger:sweet_golden_berries"
+    },
+    {
+      "item": "minecraft:bowl"
+    },
+    {
+      "tag": "goldelight:golden_crops/cabbage"
+    },
+    {
+      "tag": "goldelight:golden_crops/onion"
+    }
+  ],
+  "result": {
+    "item": "goldelight:grilled_golden_salmon"
+  }
+}

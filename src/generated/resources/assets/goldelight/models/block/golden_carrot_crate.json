@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "goldelight:block/crate_bottom",
+    "side": "goldelight:block/golden_carrot_crate_side",
+    "top": "goldelight:block/golden_carrot_crate_top"
+  }
+}

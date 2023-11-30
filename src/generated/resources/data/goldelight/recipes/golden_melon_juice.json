@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "goldelight:golden_melon_slice"
+    },
+    {
+      "item": "goldelight:golden_melon_slice"
+    },
+    {
+      "item": "goldelight:golden_sugar"
+    },
+    {
+      "item": "goldelight:golden_melon_slice"
+    },
+    {
+      "item": "goldelight:golden_melon_slice"
+    },
+    {
+      "item": "minecraft:glass_bottle"
+    }
+  ],
+  "result": {
+    "item": "goldelight:golden_melon_juice"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "goldelight:golden_bread"
+    },
+    {
+      "tag": "goldelight:cooked_golden_chicken"
+    },
+    {
+      "tag": "goldelight:golden_salad_ingredients"
+    },
+    {
+      "item": "minecraft:golden_carrot"
+    }
+  ],
+  "result": {
+    "item": "goldelight:golden_chicken_sandwich"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_smoked_golden_ham": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "goldelight:smoked_golden_ham"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "goldelight:golden_glazed_ham_block"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_smoked_golden_ham",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "goldelight:golden_glazed_ham_block"
+    ]
+  },
+  "sends_telemetry_event": false
+}

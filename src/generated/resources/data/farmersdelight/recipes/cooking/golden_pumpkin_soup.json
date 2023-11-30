@@ -1,0 +1,23 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 400,
+  "experience": 2.0,
+  "ingredients": [
+    {
+      "item": "goldelight:golden_pumpkin_slice"
+    },
+    {
+      "tag": "goldelight:golden_salad_ingredients"
+    },
+    {
+      "tag": "goldelight:raw_golden_pork"
+    },
+    {
+      "tag": "goldelight:golden_milk"
+    }
+  ],
+  "recipe_book_tab": "meals",
+  "result": {
+    "item": "goldelight:golden_pumpkin_soup"
+  }
+}

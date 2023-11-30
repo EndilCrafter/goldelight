@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "goldelight:cooked_golden_mutton_chops"
+    },
+    {
+      "item": "midashunger:golden_beetroot"
+    },
+    {
+      "item": "minecraft:bowl"
+    },
+    {
+      "item": "goldelight:cooked_golden_rice"
+    },
+    {
+      "tag": "goldelight:golden_crops/tomato"
+    }
+  ],
+  "result": {
+    "item": "goldelight:roasted_golden_chops"
+  }
+}

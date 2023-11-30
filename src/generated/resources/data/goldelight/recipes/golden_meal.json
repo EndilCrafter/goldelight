@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "goldelight:golden_bone"
+    }
+  ],
+  "result": {
+    "count": 3,
+    "item": "goldelight:golden_meal"
+  }
+}
