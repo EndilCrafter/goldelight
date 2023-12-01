@@ -33,6 +33,7 @@ public class GoldenWartBlock extends BushBlock {
         return SHAPE_BY_AGE[pState.getValue(AGE)];
     }
 
+    @Override
     protected boolean mayPlaceOn(BlockState pState, BlockGetter pLevel, BlockPos pPos) {
         return pState.is(Blocks.SOUL_SAND);
     }

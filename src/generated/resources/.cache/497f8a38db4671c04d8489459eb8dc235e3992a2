@@ -1,4 +1,4 @@
-// 1.20.1	2023-11-30T20:22:22.920706	Block States: goldelight
+// 1.20.1	2023-12-01T16:45:59.2644576	Block States: goldelight
 75b8aa1b36746e1e3c260d1da0136dbe5c003dd0 assets/goldelight/blockstates/budding_golden_tomatoes.json
 c719ae06c167fd531cafe96cfd735dd497d15c8c assets/goldelight/blockstates/golden_apple_pie.json
 2579bd76ce644db66e76eb13c9612135cebeb8a0 assets/goldelight/blockstates/golden_beetroot_crate.json
@@ -23,6 +23,7 @@ aedfb52815aef9ecf9300dfcb1a97bfc17253029 assets/goldelight/blockstates/golden_ri
 a79ccbe2d979271b387b2a63e3f90b0548be8ccc assets/goldelight/blockstates/golden_rice_roll_medley_block.json
 78d4dbed88cb0951623d59b268e5e57251bc369e assets/goldelight/blockstates/golden_roast_chicken_block.json
 62326dfeffa54fa3eb8bd320a459b87481aba3e1 assets/goldelight/blockstates/golden_shepherds_pie_block.json
+565693c3bb1d24deb6e57c7086e0f34c36066399 assets/goldelight/blockstates/golden_soil.json
 c80538c7ed33c0674c4b9ab7eaa87fcbc7a5f6f4 assets/goldelight/blockstates/golden_sugar_cane.json
 5187d57c3ec0703e667c5239ced8e911c8e1e177 assets/goldelight/blockstates/golden_tomato_crate.json
 5f448d3146002e46ba440501243d569dd0e0e624 assets/goldelight/blockstates/golden_wart_block.json
@@ -68,6 +69,7 @@ cd4685a42fc40c93b78da6ef8a7eba53ea7c0143 assets/goldelight/models/block/golden_p
 e3abb2cc9ed00fd457bd316d09aa28ebb3564a36 assets/goldelight/models/block/golden_rice_panicles_stage1.json
 9b9e6f707dc0deacb07ad2fab739dc46665d3240 assets/goldelight/models/block/golden_rice_panicles_stage2.json
 e73ee91b0c3f4b119efad30c0fba0f5f932575e0 assets/goldelight/models/block/golden_rice_panicles_stage3.json
+795454daacfa8f24c69cf7de5d7df0c45f54cd53 assets/goldelight/models/block/golden_soil.json
 c6e515a5c4ee71fa99937ca18e2f520c98ceab12 assets/goldelight/models/block/golden_sugar_cane.json
 a47c1e77c24f8a34f53693d885686f4e67c49445 assets/goldelight/models/block/golden_tomato_crate.json
 73169322b28f30fd6b9e3baf750a38850170f339 assets/goldelight/models/block/golden_wart_block.json
@@ -85,6 +87,7 @@ db88e7e4accae3ea36899da45511ae741c90c03e assets/goldelight/models/item/golden_on
 4f80a698d6d65b4cfaa96402bac54fa252053959 assets/goldelight/models/item/golden_pumpkin.json
 f378fccaa69fbe1498e1394addf7b1b7b684b57b assets/goldelight/models/item/golden_rice_bag.json
 e0730b06cd1b79cbfa68e96562932591b8fb85b2 assets/goldelight/models/item/golden_rice_bale.json
+87c0fc2d6df6f16c996b4f22be34926b6a0bf036 assets/goldelight/models/item/golden_soil.json
 bde06235272500700e689b1e3c2e939a0392b16a assets/goldelight/models/item/golden_tomato_crate.json
 9a9b14030b78a2c983e035b4fdedcc735b36634a assets/goldelight/models/item/golden_wart_block.json
 33b34debcf7ee38ec15b357d7e061926cd775b62 assets/goldelight/models/item/gol_d_lantern.json

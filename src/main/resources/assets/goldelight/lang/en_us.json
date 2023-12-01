@@ -188,6 +188,9 @@
   "block.goldelight.golden_glazed_ham_block": "Golden Glazed Ham",
   "block.goldelight.golden_shepherds_pie_block": "Golden Shepherd's Pie",
   "block.goldelight.golden_rice_roll_medley_block": "Golden Rice Roll Medley",
+  "block.goldelight.golden_compost": "Golden Compost",
+  "block.goldelight.golden_soil": "Golden Soil",
+  "block.goldelight.golden_soil_farmland": "Golden Soil Farmland",
 
   "farmersdelight.tooltip.golden_dog_food.when_feeding": "When fed to a tamed Wolf:",
   "farmersdelight.tooltip.golden_horse_feed.when_feeding": "When fed to a tamed mount:",

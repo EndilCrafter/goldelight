@@ -10,8 +10,9 @@ import net.minecraft.world.level.block.Block;
 
 public class GDModTags {
     public static class Blocks {
-        //Minecraft
         public static final TagKey<Block> GOLDEN_CROPS = tag("golden_crops");
+        public static final TagKey<Block> GOLDEN_MUSHROOM_GROW_BLOCK = tag("golden_mushroom_grow_block");
+        public static final TagKey<Block> GOLDEN_COMPOST_ACTIVATORS = tag("golden_compost_activators");
         private static TagKey<Block> tag(String name) {
             return BlockTags.create(new ResourceLocation(GolDelight.MOD_ID, name));
         }

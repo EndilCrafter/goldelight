@@ -181,6 +181,9 @@ public class GDModTabs {
                         pOutput.accept(GDModBlocks.GOLDEN_RICE_BALE.get());
                         pOutput.accept(GDModBlocks.GOLDEN_RICE_BAG.get());
                         // pOutput.accept(GDModBlocks.NETHER_BRICK_STOVE.get());
+                        pOutput.accept(GDModBlocks.GOLDEN_SOIL.get());
+                        pOutput.accept(GDModBlocks.GOLDEN_SOIL_FARMLAND.get());
+                        pOutput.accept(GDModBlocks.GOLDEN_COMPOST.get());
 
 
                         //MidasHunger

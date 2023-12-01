@@ -188,6 +188,9 @@
   "block.goldelight.golden_glazed_ham_block": "ゴールデングレイズドハム",
   "block.goldelight.golden_shepherds_pie_block": "金のシェパーズパイ",
   "block.goldelight.golden_rice_roll_medley_block": "金の寿司の盛り合わせ",
+  "block.goldelight.golden_compost": "黄金コンポスト",
+  "block.goldelight.golden_soil": "光輝な土",
+  "block.goldelight.golden_soil_farmland": "光輝な農地",
 
   "farmersdelight.tooltip.golden_dog_food.when_feeding": "飼い慣らされたオオカミに与えたとき:",
   "farmersdelight.tooltip.golden_horse_feed.when_feeding": "飼い慣らされたウマに与えたとき:",

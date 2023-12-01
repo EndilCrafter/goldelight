@@ -155,6 +155,8 @@ public class ModBlockStates extends BlockStateProvider {
         feastBlock((FeastBlock) GDModBlocks.GOLDEN_GLAZED_HAM_BLOCK.get());
         feastBlock((FeastBlock) GDModBlocks.GOLDEN_SHEPHERDS_PIE_BLOCK.get());
         feastBlock((FeastBlock) GDModBlocks.GOLDEN_RICE_ROLL_MEDLEY_BLOCK.get());
+
+        blockWithItem(GDModBlocks.GOLDEN_SOIL);
     }
 
     private void blockWithItem(RegistryObject<Block> blockRegistryObject) {

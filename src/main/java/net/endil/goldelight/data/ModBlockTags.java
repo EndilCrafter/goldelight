@@ -10,6 +10,7 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.Items;
+import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
@@ -54,6 +55,8 @@ public class ModBlockTags extends BlockTagsProvider {
                         GDModBlocks.GOLDEN_SHEPHERDS_PIE_BLOCK.get(), GDModBlocks.GOLDEN_RICE_ROLL_MEDLEY_BLOCK.get());
     }
     private void registerMinecraftTags() {
+        this.tag(BlockTags.DIRT).add(GDModBlocks.GOLDEN_SOIL.get());
+        this.tag(BlockTags.MUSHROOM_GROW_BLOCK).addTag(GDModTags.Blocks.GOLDEN_MUSHROOM_GROW_BLOCK);
         this.tag(BlockTags.WART_BLOCKS).add(GDModBlocks.GOLDEN_WART_BLOCK.get());
         this.tag(BlockTags.CROPS).addTag(GDModTags.Blocks.GOLDEN_CROPS);
         this.tag(BlockTags.CLIMBABLE).add(GDModBlocks.GOLDEN_TOMATO_CROP.get());
@@ -79,7 +82,9 @@ public class ModBlockTags extends BlockTagsProvider {
     }
 
     private void registerFDTags() {
-        this.tag(ModTags.COMPOST_ACTIVATORS).add(GDModBlocks.GOLDEN_MUSHROOM.get());
+        this.tag(ModTags.COMPOST_ACTIVATORS).addTag(GDModTags.Blocks.GOLDEN_COMPOST_ACTIVATORS);
+        this.tag(ModTags.UNAFFECTED_BY_RICH_SOIL).add(GDModBlocks.GOLDEN_MUSHROOM_COLONY.get());
+        this.tag(ModTags.MUSHROOM_COLONY_GROWABLE_ON).add(GDModBlocks.GOLDEN_SOIL.get());
     }
 
     private void registerGDModTags() {
@@ -88,6 +93,10 @@ public class ModBlockTags extends BlockTagsProvider {
                         GDModBlocks.GOLDEN_WHEAT.get(), GDModBlocks.GOLDEN_MELON_STEM.get(), GDModBlocks.GOLDEN_PUMPKIN_STEM.get(),
                         GDModBlocks.GOLDEN_CABBAGE_CROP.get(), GDModBlocks.GOLDEN_ONION_CROP.get(), GDModBlocks.GOLDEN_RICE_CROP_PANICLES.get(),
                         GDModBlocks.BUDDING_GOLDEN_TOMATO_CROP.get(), GDModBlocks.GOLDEN_TOMATO_CROP.get());
+        this.tag(GDModTags.Blocks.GOLDEN_COMPOST_ACTIVATORS)
+                .add(GDModBlocks.GOLDEN_MUSHROOM.get(), GDModBlocks.GOLDEN_MUSHROOM_COLONY.get(),
+                        GDModBlocks.GOLDEN_SOIL.get(), GDModBlocks.GOLDEN_SOIL_FARMLAND.get(), GDModBlocks.GOLDEN_COMPOST.get());
+        this.tag(GDModTags.Blocks.GOLDEN_MUSHROOM_GROW_BLOCK).add(GDModBlocks.GOLDEN_SOIL.get(), GDModBlocks.GOLDEN_COMPOST.get());
     }
 
     private void registerCompatTags() {

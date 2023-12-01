@@ -1,0 +1,52 @@
+{
+    "variants": {
+      "composting=0": [
+        { "model": "goldelight:block/golden_compost_0" },
+        { "model": "goldelight:block/golden_compost_0", "y": 90 },
+        { "model": "goldelight:block/golden_compost_0", "y": 180 },
+        { "model": "goldelight:block/golden_compost_0", "y": 270 }
+      ],
+      "composting=1": [
+        { "model": "goldelight:block/golden_compost_1" },
+        { "model": "goldelight:block/golden_compost_1", "y": 90 },
+        { "model": "goldelight:block/golden_compost_1", "y": 180 },
+        { "model": "goldelight:block/golden_compost_1", "y": 270 }
+      ],
+      "composting=2": [
+        { "model": "goldelight:block/golden_compost_2" },
+        { "model": "goldelight:block/golden_compost_2", "y": 90 },
+        { "model": "goldelight:block/golden_compost_2", "y": 180 },
+        { "model": "goldelight:block/golden_compost_2", "y": 270 }
+      ],
+      "composting=3": [
+        { "model": "goldelight:block/golden_compost_3" },
+        { "model": "goldelight:block/golden_compost_3", "y": 90 },
+        { "model": "goldelight:block/golden_compost_3", "y": 180 },
+        { "model": "goldelight:block/golden_compost_3", "y": 270 }
+      ],
+      "composting=4": [
+        { "model": "goldelight:block/golden_compost_4" },
+        { "model": "goldelight:block/golden_compost_4", "y": 90 },
+        { "model": "goldelight:block/golden_compost_4", "y": 180 },
+        { "model": "goldelight:block/golden_compost_4", "y": 270 }
+      ],
+      "composting=5": [
+        { "model": "goldelight:block/golden_compost_5" },
+        { "model": "goldelight:block/golden_compost_5", "y": 90 },
+        { "model": "goldelight:block/golden_compost_5", "y": 180 },
+        { "model": "goldelight:block/golden_compost_5", "y": 270 }
+      ],
+      "composting=6": [
+        { "model": "goldelight:block/golden_compost_6" },
+        { "model": "goldelight:block/golden_compost_6", "y": 90 },
+        { "model": "goldelight:block/golden_compost_6", "y": 180 },
+        { "model": "goldelight:block/golden_compost_6", "y": 270 }
+      ],
+      "composting=7": [
+        { "model": "goldelight:block/golden_compost_7" },
+        { "model": "goldelight:block/golden_compost_7", "y": 90 },
+        { "model": "goldelight:block/golden_compost_7", "y": 180 },
+        { "model": "goldelight:block/golden_compost_7", "y": 270 }
+      ]
+    }
+  }

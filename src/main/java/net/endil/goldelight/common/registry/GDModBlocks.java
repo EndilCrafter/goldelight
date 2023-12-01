@@ -125,7 +125,7 @@ public class GDModBlocks {
                     BlockBehaviour.Properties.copy(Blocks.ATTACHED_MELON_STEM)));
 
     public static final RegistryObject<Block> GOLDEN_MUSHROOM = registerBlock("golden_mushroom",
-            () -> new GoldenMushroomBlock(BlockBehaviour.Properties.copy(Blocks.RED_MUSHROOM)));
+            () -> new GoldenMushroomBlock(BlockBehaviour.Properties.copy(Blocks.RED_MUSHROOM).randomTicks()));
 
     public static final RegistryObject<Block> GOLDEN_FUNGUS = registerBlock("golden_fungus",
             () -> new GoldenFungusBlock(BlockBehaviour.Properties.copy(Blocks.WARPED_FUNGUS)));
@@ -197,6 +197,14 @@ public class GDModBlocks {
     public static final RegistryObject<Block> GOLDEN_MUSHROOM_COLONY = BLOCKS.register("golden_mushroom_colony",
             () -> new MushroomColonyBlock(BlockBehaviour.Properties.copy(GDModBlocks.GOLDEN_MUSHROOM.get()), () -> GDModBlocks.GOLDEN_MUSHROOM.get().asItem()));
 
+    public static final RegistryObject<Block> GOLDEN_SOIL = registerBlock("golden_soil",
+            () -> new GoldenSoilBlock(BlockBehaviour.Properties.copy(ModBlocks.RICH_SOIL.get())));
+
+    public static final RegistryObject<Block> GOLDEN_SOIL_FARMLAND = registerBlock("golden_soil_farmland",
+            () -> new GoldenSoilFarmlandBlock(BlockBehaviour.Properties.copy(ModBlocks.RICH_SOIL_FARMLAND.get())));
+
+    public static final RegistryObject<Block> GOLDEN_COMPOST = registerBlock("golden_compost",
+            () -> new GoldenCompostBlock(BlockBehaviour.Properties.copy(ModBlocks.ORGANIC_COMPOST.get())));
 
     //FD: Pastries
 

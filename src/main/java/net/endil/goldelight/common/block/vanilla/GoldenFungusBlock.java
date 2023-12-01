@@ -1,5 +1,6 @@
 package net.endil.goldelight.common.block.vanilla;
 
+import net.endil.goldelight.common.registry.GDModTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.BlockGetter;
@@ -20,6 +21,6 @@ public class GoldenFungusBlock extends BushBlock {
     }
 
     protected boolean mayPlaceOn(BlockState pState, BlockGetter pLevel, BlockPos pPos) {
-        return pState.is(BlockTags.NYLIUM) || pState.is(Blocks.MYCELIUM) || pState.is(Blocks.SOUL_SOIL) || super.mayPlaceOn(pState, pLevel, pPos);
+        return pState.is(GDModTags.Blocks.GOLDEN_MUSHROOM_GROW_BLOCK)|| super.mayPlaceOn(pState, pLevel, pPos);
     }
 }

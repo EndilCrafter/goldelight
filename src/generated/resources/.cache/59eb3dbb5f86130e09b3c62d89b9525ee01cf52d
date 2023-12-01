@@ -1,4 +1,4 @@
-// 1.20.1	2023-11-30T20:22:22.908707	Loot Tables
+// 1.20.1	2023-12-01T16:45:59.259899	Loot Tables
 5b825b80bf98c5a6e72c23fd47983d2daa0f2aa6 data/goldelight/loot_tables/blocks/attached_golden_melon_stem.json
 3d6f9e5a61005dd3005332ea6c71b93a181ab8f7 data/goldelight/loot_tables/blocks/attached_golden_pumpkin_stem.json
 f092bcf28fea0d78a1cf229177901c226411dd3b data/goldelight/loot_tables/blocks/black_candle_golden_cake.json
@@ -19,6 +19,7 @@ f9ce5f55336beed3907b408f97b4e27d60f02d9f data/goldelight/loot_tables/blocks/gold
 f0756fc6b9c562d9f4e564ceff6276d36c3dd6f1 data/goldelight/loot_tables/blocks/golden_chorus_flower.json
 b7a35b568cd10085c1107eb2308941272196b053 data/goldelight/loot_tables/blocks/golden_chorus_plant.json
 a1ffc765473ae0b5f696c3a1166afd7050fd0868 data/goldelight/loot_tables/blocks/golden_cocoa.json
+1bc6a4a397751326188b583e2770be6afbf2802b data/goldelight/loot_tables/blocks/golden_compost.json
 a86584f5ccee080767d977462c505edb1d1eedae data/goldelight/loot_tables/blocks/golden_fungus.json
 435674f18bb5299ef9c2a88921995c05f875c60b data/goldelight/loot_tables/blocks/golden_hay_block.json
 e70edc7c57a9e77752fd54c761726bb5b86c17dc data/goldelight/loot_tables/blocks/golden_melon.json
@@ -35,6 +36,8 @@ f15806a191879276bf5c1e6bb95bb396980815cf data/goldelight/loot_tables/blocks/gold
 33a98de8c0c0572f2fc43643cd176032bf22a12a data/goldelight/loot_tables/blocks/golden_rice.json
 f68513af17cb6beb7fc07b20a83e4cecfbeee5e8 data/goldelight/loot_tables/blocks/golden_rice_bag.json
 1e76dc8efeb9537ca3ca1708c0b2bb18b63327e5 data/goldelight/loot_tables/blocks/golden_rice_bale.json
+0fd0ae9af20ad88df474e60d202f919642fddc5e data/goldelight/loot_tables/blocks/golden_soil.json
+637e6b128198cc8fe2e13821a7e374178e4c26cd data/goldelight/loot_tables/blocks/golden_soil_farmland.json
 7d13c72e52fdeac925fa8f6928a84ed6dd718ca7 data/goldelight/loot_tables/blocks/golden_sugar_cane.json
 562a12869bf867d43a55d2ecd019e14220f4f1b4 data/goldelight/loot_tables/blocks/golden_tomato_crate.json
 09a9c47eab076ccc8824cbfbe0ca1cedc2526b4e data/goldelight/loot_tables/blocks/golden_wart.json
