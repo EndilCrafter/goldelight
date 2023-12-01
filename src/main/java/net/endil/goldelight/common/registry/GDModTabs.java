@@ -1,5 +1,6 @@
 package net.endil.goldelight.common.registry;
 
+import accieo.midas.hunger.registry.ItemRegistry;
 import net.endil.goldelight.GolDelight;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
@@ -15,7 +16,7 @@ public class GDModTabs {
             DeferredRegister.create(Registries.CREATIVE_MODE_TAB, GolDelight.MOD_ID);
 
     public static final RegistryObject<CreativeModeTab> GOLDELIHT_TAB = TABS.register("goldelight_tab",
-            () -> CreativeModeTab.builder().icon(() -> new ItemStack(GDModItems.GOLDEN_BEEF.get()))
+            () -> CreativeModeTab.builder().icon(() -> new ItemStack(GDModBlocks.NETHER_BRICK_STOVE.get()))
                     .title(Component.translatable("itemgroup.goldelight"))
                     .displayItems(((pParameters, pOutput) -> {
                         //Minecraft
@@ -53,13 +54,13 @@ public class GDModTabs {
                         pOutput.accept(GDModItems.GOLDEN_SUGAR.get());
                         pOutput.accept(GDModItems.GOLDEN_SUGAR_CANE.get());
                         pOutput.accept(GDModItems.GOLDEN_TROPICAL_FISH.get());
-                        pOutput.accept(GDModItems.GOLDEN_WART.get());
+                        // pOutput.accept(GDModItems.GOLDEN_WART.get());
                         pOutput.accept(GDModItems.GOLDEN_WHEAT.get());
                         pOutput.accept(GDModItems.GOLDEN_WHEAT_SEEDS.get());
 
                         //GolDelight Blocks
                         pOutput.accept(GDModBlocks.GOL_D_LANTERN.get());
-                        pOutput.accept(GDModBlocks.GOLDEN_CACTUS.get());
+                        // pOutput.accept(GDModBlocks.GOLDEN_CACTUS.get());
                         pOutput.accept(GDModBlocks.GOLDEN_CARVED_PUMPKIN.get());
                         pOutput.accept(GDModBlocks.GOLDEN_CHORUS_FLOWER.get());
                         pOutput.accept(GDModBlocks.GOLDEN_CHORUS_PLANT.get());
@@ -67,13 +68,15 @@ public class GDModTabs {
                         pOutput.accept(GDModBlocks.GOLDEN_MELON.get());
                         pOutput.accept(GDModBlocks.GOLDEN_MUSHROOM.get());
                         pOutput.accept(GDModBlocks.GOLDEN_FUNGUS.get());
-                        pOutput.accept(GDModBlocks.GOLDEN_MUSHROOM_BLOCK.get());
-                        pOutput.accept(GDModBlocks.GOLDEN_MUSHROOM_STEM.get());
+                        /*
+                         pOutput.accept(GDModBlocks.GOLDEN_MUSHROOM_BLOCK.get());
+                         pOutput.accept(GDModBlocks.GOLDEN_MUSHROOM_STEM.get());
+                        */
                         pOutput.accept(GDModBlocks.GOLDEN_PUMPKIN.get());
-                        pOutput.accept(GDModBlocks.GOLDEN_WART_BLOCK.get());
+                        // pOutput.accept(GDModBlocks.GOLDEN_WART_BLOCK.get());
 
                         //Farmer's Delight Items
-                        pOutput.accept(GDModItems.GOLDEN_COOKING_POT.get());
+                        // pOutput.accept(GDModItems.GOLDEN_COOKING_POT.get());
                         pOutput.accept(GDModItems.GOLDEN_MUSHROOM_COLONY.get());
                         pOutput.accept(GDModItems.GOLDEN_CABBAGE.get());
                         pOutput.accept(GDModItems.GOLDEN_TOMATO.get());
@@ -177,7 +180,30 @@ public class GDModTabs {
                         pOutput.accept(GDModBlocks.GOLDEN_ONION_CRATE.get());
                         pOutput.accept(GDModBlocks.GOLDEN_RICE_BALE.get());
                         pOutput.accept(GDModBlocks.GOLDEN_RICE_BAG.get());
-                        pOutput.accept(GDModBlocks.NETHER_BRICK_STOVE.get());
+                        // pOutput.accept(GDModBlocks.NETHER_BRICK_STOVE.get());
+
+
+                        //MidasHunger
+                        pOutput.accept(ItemRegistry.BAKED_GOLDEN_POTATO.get());
+                        pOutput.accept(ItemRegistry.COOKED_GOLDEN_BEEF.get());
+                        pOutput.accept(ItemRegistry.COOKED_GOLDEN_CHICKEN.get());
+                        pOutput.accept(ItemRegistry.COOKED_GOLDEN_COD.get());
+                        pOutput.accept(ItemRegistry.COOKED_GOLDEN_MUTTON.get());
+                        pOutput.accept(ItemRegistry.COOKED_GOLDEN_PORKCHOP.get());
+                        pOutput.accept(ItemRegistry.COOKED_GOLDEN_RABBIT.get());
+                        pOutput.accept(ItemRegistry.COOKED_GOLDEN_SALMON.get());
+                        pOutput.accept(ItemRegistry.DRIED_GOLDEN_KELP.get());
+                        pOutput.accept(ItemRegistry.DRIED_GOLDEN_KELP_BLOCK.get());
+                        pOutput.accept(ItemRegistry.ENCHANTED_GOLDEN_CARROT.get());
+                        pOutput.accept(ItemRegistry.GOLDEN_BEETROOT.get());
+                        pOutput.accept(ItemRegistry.GOLDEN_BEETROOT_SEEDS.get());
+                        pOutput.accept(ItemRegistry.GOLDEN_BEETROOT_SOUP.get());
+                        pOutput.accept(ItemRegistry.GOLDEN_CHORUS_FRUIT.get());
+                        pOutput.accept(ItemRegistry.GOLDEN_KELP.get());
+                        pOutput.accept(ItemRegistry.GOLDEN_PUMPKIN_PIE.get());
+                        pOutput.accept(ItemRegistry.GOLDEN_TURTLE_EGG.get());
+                        pOutput.accept(ItemRegistry.POISONOUS_GOLDEN_POTATO.get());
+                        pOutput.accept(ItemRegistry.SWEET_GOLDEN_BERRIES.get());
                     }))
                     .build());
 

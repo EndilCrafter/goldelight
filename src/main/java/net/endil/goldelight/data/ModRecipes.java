@@ -140,6 +140,7 @@ public class ModRecipes extends RecipeProvider implements IConditionBuilder {
         BasicCooking(consumer, List.of(GDModItems.GOLDEN_SALMON_SLICE.get()), GDModItems.COOKED_GOLDEN_SALMON_SLICE.get());
         BasicCooking(consumer, List.of(GDModItems.GOLDEN_MUTTON_CHOPS.get()), GDModItems.COOKED_GOLDEN_MUTTON_CHOPS.get());
         BasicCooking(consumer, List.of(GDModItems.GOLDEN_WHEAT_DOUGH.get()), GDModItems.GOLDEN_BREAD.get());
+        BasicCooking(consumer, List.of(GDModItems.GOLDEN_POTATO.get()), ItemRegistry.BAKED_GOLDEN_POTATO.get());
         Ham(consumer, List.of(GDModItems.GOLDEN_HAM.get()), GDModItems.SMOKED_GOLDEN_HAM.get());
     }
 
