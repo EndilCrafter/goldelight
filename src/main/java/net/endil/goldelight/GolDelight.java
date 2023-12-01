@@ -38,6 +38,8 @@ public class GolDelight
 
         GDModBlockEntityTypes.register(modEventBus);
 
+        GDModLootModifier.register(modEventBus);
+
         GDModTabs.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);

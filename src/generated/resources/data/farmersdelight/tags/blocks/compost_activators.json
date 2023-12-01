@@ -1,8 +1,5 @@
 {
   "values": [
-    "goldelight:golden_mushroom",
-    "goldelight:golden_mushroom_colony",
-    "goldelight:golden_soil",
-    "goldelight:golden_soil_farmland"
+    "#goldelight:golden_compost_activators"
   ]
 }

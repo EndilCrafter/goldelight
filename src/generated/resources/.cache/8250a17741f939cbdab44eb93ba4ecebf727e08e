@@ -1,9 +1,9 @@
-// 1.20.1	2023-12-01T16:45:59.2558988	Tags for minecraft:block mod id goldelight
-ce80d5723ee18cfa8600b4056b1e990cd86cbe42 data/farmersdelight/tags/blocks/compost_activators.json
+// 1.20.1	2023-12-01T17:16:24.758451	Tags for minecraft:block mod id goldelight
+8584df75c3a4c3e2a02ad01dd437b5103a2252c8 data/farmersdelight/tags/blocks/compost_activators.json
 0f30f62c6c8689d15db405cf5b98b0277c6af698 data/farmersdelight/tags/blocks/mushroom_colony_growable_on.json
 0bf20b47bb9b0cc3c2a5f4e397a22824c8c157d8 data/farmersdelight/tags/blocks/unaffected_by_rich_soil.json
 a2c4935651de21bc3233a881b56117d4ee9c7100 data/forge/tags/blocks/mineable/knife.json
-ce80d5723ee18cfa8600b4056b1e990cd86cbe42 data/goldelight/tags/blocks/golden_compost_activators.json
+eb085c5adc57d19d9fe3d38ec706971f48931a24 data/goldelight/tags/blocks/golden_compost_activators.json
 26c49ca79f11ccad55ce8f437d166ff246863f7f data/goldelight/tags/blocks/golden_crops.json
 e0e24b649a2917c14e4302744a92f25a473ef87c data/goldelight/tags/blocks/golden_mushroom_grow_block.json
 c870c5f3f27c7e9022ac425d57839016bb62c6dc data/minecraft/tags/blocks/candle_cakes.json

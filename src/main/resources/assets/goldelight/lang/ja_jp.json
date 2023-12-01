@@ -198,5 +198,6 @@
   "farmersdelight.tooltip.golden_hot_cocoa": "1つの有害なエフェクトを消去する",
   "farmersdelight.tooltip.golden_melon_juice": "軽い即時回復",
 
-  "effect.goldelight.immunity": "免疫 [未完成]"
+  "effect.goldelight.immunity": "免疫 [未完成]",
+  "enchantment.goldelight.midas_touch": "ミダスタッチ"
 }
