@@ -24,6 +24,15 @@
       }
     },
     {
+      "condition": "minecraft:entity_properties",
+      "entity": "this",
+      "predicate": {
+        "flags": {
+          "is_on_fire": true
+        }
+      }
+    },
+    {
       "condition": "minecraft:any_of",
       "terms": [
         {
@@ -43,14 +52,9 @@
       ]
     },
     {
-      "condition": "minecraft:entity_properties",
-      "entity": "this",
-      "predicate": {
-        "flags": {
-          "is_on_fire": false
-        }
-      }
+      "condition": "minecraft:random_chance",
+      "chance": 0.2
     }
   ],
-  "item": "goldelight:golden_beef"
+  "item": "midashunger:cooked_golden_beef"
 }

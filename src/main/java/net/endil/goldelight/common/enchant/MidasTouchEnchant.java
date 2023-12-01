@@ -5,10 +5,11 @@ import net.minecraft.world.item.enchantment.Enchantment;
 import vectorwing.farmersdelight.common.registry.ModEnchantments;
 
 public class MidasTouchEnchant extends Enchantment {
-    //20%の確率で金の食べ物がドロップ
+    //確率で金の食べ物がドロップ
     public MidasTouchEnchant() {
         super(Rarity.RARE, ModEnchantments.KNIFE, new EquipmentSlot[]{EquipmentSlot.MAINHAND});
     }
+
     @Override
     public int getMinCost(int enchantmentLevel) {
         return enchantmentLevel * 10;

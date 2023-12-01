@@ -132,6 +132,10 @@ public class GDModItems {
     public static final RegistryObject<Item> GOLDEN_CARROT = VANILLA_ITEMS.register("golden_carrot",
             () -> new ItemNameBlockItem(GDModBlocks.GOLDEN_CARROTS.get(), foodItem(Foods.GOLDEN_CARROT)));
 
+    //Original
+
+    public static final RegistryObject<Item> MIDAS_KNIFE = ITEMS.register("midas_knife",
+            () -> new KnifeItem(Tiers.NETHERITE, 0.5F, -2.0F, basicItem().fireResistant().rarity(Rarity.EPIC)));
 
     //Farmer's Delight Composting, Util
 

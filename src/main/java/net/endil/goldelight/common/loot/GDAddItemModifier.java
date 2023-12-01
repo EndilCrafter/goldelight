@@ -29,7 +29,6 @@ public class GDAddItemModifier extends LootModifier {
     protected @NotNull ObjectArrayList<ItemStack> doApply(ObjectArrayList<ItemStack> generatedLoot, LootContext context) {
 
         generatedLoot.add(new ItemStack(this.item));
-
         return generatedLoot;
     }
 

@@ -54,6 +54,7 @@ public class ModItemModels extends ItemModelProvider {
         ItemGeneratedModel(GDModItems.GOLDEN_WART);
         ItemGeneratedModel(GDModItems.GOLDEN_WHEAT);
         ItemGeneratedModel(GDModItems.GOLDEN_WHEAT_SEEDS);
+        HandheldModel(GDModItems.MIDAS_KNIFE);
 
 
         //Farmer's Delight

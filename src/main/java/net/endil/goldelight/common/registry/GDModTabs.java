@@ -57,6 +57,7 @@ public class GDModTabs {
                         // pOutput.accept(GDModItems.GOLDEN_WART.get());
                         pOutput.accept(GDModItems.GOLDEN_WHEAT.get());
                         pOutput.accept(GDModItems.GOLDEN_WHEAT_SEEDS.get());
+                        pOutput.accept(GDModItems.MIDAS_KNIFE.get());
 
                         //GolDelight Blocks
                         pOutput.accept(GDModBlocks.GOL_D_LANTERN.get());

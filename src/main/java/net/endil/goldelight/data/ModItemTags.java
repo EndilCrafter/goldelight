@@ -131,6 +131,7 @@ public class ModItemTags extends ItemTagsProvider {
 
     }
     private void registerFDModTags() {
+        this.tag(ModTags.KNIVES).add(GDModItems.MIDAS_KNIFE.get());
         this.tag(ModTags.WOLF_PREY).addTag(GDModTags.Items.GOLDEN_WOLF_PREY);
         this.tag(ForgeTags.BERRIES).addTag(GDModTags.Items.GOLDEN_BERRIES);
         this.tag(ForgeTags.BREAD).addTag(GDModTags.Items.GOLDEN_BREAD);

@@ -40,6 +40,8 @@ public class GolDelight
 
         GDModLootModifier.register(modEventBus);
 
+        GDModEnchantments.register(modEventBus);
+
         GDModTabs.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
