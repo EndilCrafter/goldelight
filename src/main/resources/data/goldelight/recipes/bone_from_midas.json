@@ -1,0 +1,11 @@
+{
+  "type": "goldelight:midas_touching",
+  "ingredients": [
+    {
+      "item": "minecraft:bone"
+    }
+  ],
+  "result": {
+    "item": "goldelight:golden_bone"
+  }
+}

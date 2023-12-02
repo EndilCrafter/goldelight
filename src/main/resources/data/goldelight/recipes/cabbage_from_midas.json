@@ -1,0 +1,11 @@
+{
+  "type": "goldelight:midas_touching",
+  "ingredients": [
+    {
+      "item": "farmersdelight:cabbage"
+    }
+  ],
+  "result": {
+    "item": "goldelight:golden_cabbage"
+  }
+}

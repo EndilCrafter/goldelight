@@ -1,0 +1,11 @@
+{
+  "type": "goldelight:midas_touching",
+  "ingredients": [
+    {
+      "item": "minecraft:sweet_berries"
+    }
+  ],
+  "result": {
+    "item": "midashunger:sweet_golden_berries"
+  }
+}

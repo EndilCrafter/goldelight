@@ -183,6 +183,7 @@ public class ModItemTags extends ItemTagsProvider {
     private void registerForgeTags() {
         this.tag(Tags.Items.BONES).add(GDModItems.GOLDEN_BONE.get());
         this.tag(Tags.Items.CROPS).addTag(GDModTags.Items.GOLDEN_CROPS);
+        this.tag(ForgeTags.TOOLS_KNIVES).add(GDModItems.MIDAS_KNIFE.get());
     }
     private void registerCompatTags() {
         this.tag(GDCompatTags.DIET_FRUITS)

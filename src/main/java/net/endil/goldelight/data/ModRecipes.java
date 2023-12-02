@@ -195,6 +195,8 @@ public class ModRecipes extends RecipeProvider implements IConditionBuilder {
                 .build(consumer);
         CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(GDModBlocks.GOLDEN_MUSHROOM_COLONY.get()), Ingredient.of(ForgeTags.TOOLS_KNIVES), GDModBlocks.GOLDEN_MUSHROOM.get(), 5)
                 .build(consumer);
+        CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(GDModItems.GOLDEN_RICE_PANICLE.get()), Ingredient.of(ForgeTags.TOOLS_KNIVES), GDModItems.GOLDEN_RICE.get(), 1).addResult(ModItems.STRAW.get())
+                .build(consumer);
     }
 
     private void registerFoodCrafting(Consumer<FinishedRecipe> consumer) {
@@ -592,7 +594,7 @@ public class ModRecipes extends RecipeProvider implements IConditionBuilder {
                 .setRecipeBookTab(CookingPotRecipeBookTab.MISC)
                 .build(consumer);
 
-        CookingPotRecipeBuilder.cookingPotRecipe(GDModItems.GOLDEN_MUSHROOM_STEW.get(), 1, NORMAL_COOKING, MEDIUM_EXP, Items.BOWL)
+        CookingPotRecipeBuilder.cookingPotRecipe(GDModItems.GOLDEN_MUSHROOM_STEW.get(), 1, NORMAL_COOKING, MEDIUM_EXP)
                 .addIngredient(GDModTags.Items.GOLDEN_MUSHROOMS)
                 .addIngredient(GDModBlocks.GOLDEN_MUSHROOM.get().asItem())
                 .unlockedByAnyIngredient(GDModBlocks.GOLDEN_MUSHROOM.get())
@@ -614,7 +616,7 @@ public class ModRecipes extends RecipeProvider implements IConditionBuilder {
                 .setRecipeBookTab(CookingPotRecipeBookTab.MEALS)
                 .build(consumer);
 
-        CookingPotRecipeBuilder.cookingPotRecipe(GDModItems.GOLDEN_BAKED_COD_STEW.get(), 1, NORMAL_COOKING, MEDIUM_EXP)
+        CookingPotRecipeBuilder.cookingPotRecipe(GDModItems.GOLDEN_BAKED_COD_STEW.get(), 1, NORMAL_COOKING, MEDIUM_EXP, Items.BOWL)
                 .addIngredient(GDModTags.Items.RAW_GOLDEN_FISHES_COD)
                 .addIngredient(GDModItems.GOLDEN_POTATO.get())
                 .addIngredient(GDModTags.Items.GOLDEN_EGGS)
@@ -622,14 +624,14 @@ public class ModRecipes extends RecipeProvider implements IConditionBuilder {
                 .unlockedByAnyIngredient(GDModItems.GOLDEN_COD.get(), GDModItems.GOLDEN_POTATO.get(), GDModItems.GOLDEN_TOMATO.get(), GDModItems.GOLDEN_EGG.get())
                 .setRecipeBookTab(CookingPotRecipeBookTab.MEALS)
                 .build(consumer);
-        CookingPotRecipeBuilder.cookingPotRecipe(GDModItems.GOLDEN_BEEF_STEW.get(), 1, NORMAL_COOKING, MEDIUM_EXP)
+        CookingPotRecipeBuilder.cookingPotRecipe(GDModItems.GOLDEN_BEEF_STEW.get(), 1, NORMAL_COOKING, MEDIUM_EXP, Items.BOWL)
                 .addIngredient(GDModTags.Items.RAW_GOLDEN_BEEF)
                 .addIngredient(Items.GOLDEN_CARROT)
                 .addIngredient(GDModItems.GOLDEN_POTATO.get())
                 .unlockedByAnyIngredient(GDModItems.GOLDEN_BEEF.get(), Items.GOLDEN_CARROT, GDModItems.GOLDEN_POTATO.get())
                 .setRecipeBookTab(CookingPotRecipeBookTab.MEALS)
                 .build(consumer);
-        CookingPotRecipeBuilder.cookingPotRecipe(GDModItems.GOLDEN_BROTH.get(), 1, NORMAL_COOKING, SMALL_EXP)
+        CookingPotRecipeBuilder.cookingPotRecipe(GDModItems.GOLDEN_BROTH.get(), 1, NORMAL_COOKING, SMALL_EXP, Items.BOWL)
                 .addIngredient(GDModItems.GOLDEN_BONE.get())
                 .addIngredient(Ingredient.fromValues(Stream.of(
                         new Ingredient.ItemValue(new ItemStack(GDModItems.GOLDEN_GLOW_BERRIES.get())),
@@ -644,7 +646,7 @@ public class ModRecipes extends RecipeProvider implements IConditionBuilder {
                 .unlockedByAnyIngredient(GDModItems.GOLDEN_CABBAGE.get(), GDModItems.GOLDEN_CABBAGE_LEAF.get())
                 .setRecipeBookTab(CookingPotRecipeBookTab.MISC)
                 .build(consumer);
-        CookingPotRecipeBuilder.cookingPotRecipe(GDModItems.GOLDEN_CHICKEN_SOUP.get(), 1, NORMAL_COOKING, MEDIUM_EXP)
+        CookingPotRecipeBuilder.cookingPotRecipe(GDModItems.GOLDEN_CHICKEN_SOUP.get(), 1, NORMAL_COOKING, MEDIUM_EXP, Items.BOWL)
                 .addIngredient(GDModTags.Items.RAW_GOLDEN_CHICKEN)
                 .addIngredient(Items.GOLDEN_CARROT)
                 .addIngredient(GDModTags.Items.GOLDEN_SALAD_INGREDIENTS)
@@ -652,7 +654,7 @@ public class ModRecipes extends RecipeProvider implements IConditionBuilder {
                 .unlockedByAnyIngredient(GDModItems.GOLDEN_CHICKEN.get(), Items.GOLDEN_CARROT)
                 .setRecipeBookTab(CookingPotRecipeBookTab.MEALS)
                 .build(consumer);
-        CookingPotRecipeBuilder.cookingPotRecipe(GDModItems.COOKED_GOLDEN_RICE.get(), 1, FAST_COOKING, SMALL_EXP)
+        CookingPotRecipeBuilder.cookingPotRecipe(GDModItems.COOKED_GOLDEN_RICE.get(), 1, FAST_COOKING, SMALL_EXP, Items.BOWL)
                 .addIngredient(GDModTags.Items.GOLDEN_CROPS_RICE)
                 .unlockedByItems("has_golden_rice", GDModItems.GOLDEN_RICE.get())
                 .setRecipeBookTab(CookingPotRecipeBookTab.MISC)

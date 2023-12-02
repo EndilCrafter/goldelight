@@ -1,0 +1,11 @@
+{
+  "type": "goldelight:midas_touching",
+  "ingredients": [
+    {
+      "item": "farmersdelight:ham"
+    }
+  ],
+  "result": {
+    "item": "goldelight:golden_ham"
+  }
+}

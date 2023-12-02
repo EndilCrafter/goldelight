@@ -1,5 +1,8 @@
 {
   "type": "farmersdelight:cooking",
+  "container": {
+    "item": "minecraft:bowl"
+  },
   "cookingtime": 400,
   "experience": 0.7,
   "ingredients": [

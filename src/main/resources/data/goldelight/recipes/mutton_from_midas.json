@@ -1,0 +1,11 @@
+{
+  "type": "goldelight:midas_touching",
+  "ingredients": [
+    {
+      "item": "minecraft:mutton"
+    }
+  ],
+  "result": {
+    "item": "goldelight:golden_mutton"
+  }
+}

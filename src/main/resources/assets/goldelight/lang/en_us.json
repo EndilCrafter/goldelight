@@ -199,6 +199,11 @@
   "farmersdelight.tooltip.golden_hot_cocoa": "Clears 1 Harmful Effect",
   "farmersdelight.tooltip.golden_melon_juice": "Minor Instant Health",
 
-  "effect.goldelight.immunity": "Immunity [WIP]",
+  "effect.goldelight.immunity": "Immunity",
+  "effect.goldelight.immunity.description": "Clears Harmful Effect",
+  "effect.goldelight.immunity.desc": "Clears Harmful Effect",
+  "effect.goldelight.mildness": "Mildness",
+  "effect.goldelight.mildness_description": "description",
+  "effect.goldelight.mildness_desc": "description",
   "enchantment.goldelight.midas_touch": "Midas Touch"
 }
