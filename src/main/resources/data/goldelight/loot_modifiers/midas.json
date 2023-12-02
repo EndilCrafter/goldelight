@@ -1,0 +1,20 @@
+{
+  "type": "goldelight:midas_touching",
+  "conditions": [
+    {
+      "condition": "minecraft:entity_properties",
+      "entity": "killer",
+      "predicate": {
+        "equipment": {
+          "mainhand": {
+            "items": ["goldelight:midas_knife"]
+          }
+        }
+      }
+    },
+    {
+      "condition": "minecraft:random_chance",
+      "chance": 0.3
+    }
+  ]
+}

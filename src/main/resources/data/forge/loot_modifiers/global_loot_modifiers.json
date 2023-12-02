@@ -1,7 +1,8 @@
 {
   "replace": false,
   "entries": [
-    "goldelight:beef",
-    "goldelight:beef_by_enchanted_midas_knife"
+    "goldelight:normal_midas",
+    "goldelight:midas",
+    "goldelight:enchanted_midas"
   ]
 }

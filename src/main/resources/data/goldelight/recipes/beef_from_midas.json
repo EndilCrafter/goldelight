@@ -1,0 +1,11 @@
+{
+  "type": "goldelight:midas_touching",
+  "ingredients": [
+    {
+      "item": "minecraft:beef"
+    }
+  ],
+  "result": {
+    "item": "goldelight:golden_beef"
+  }
+}

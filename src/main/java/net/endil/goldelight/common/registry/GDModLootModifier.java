@@ -3,6 +3,7 @@ package net.endil.goldelight.common.registry;
 import com.mojang.serialization.Codec;
 import net.endil.goldelight.GolDelight;
 import net.endil.goldelight.common.loot.GDAddItemModifier;
+import net.endil.goldelight.common.loot.GDMidasTouchingModifier;
 import net.minecraftforge.common.loot.IGlobalLootModifier;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -15,6 +16,9 @@ public class GDModLootModifier {
 
     public static final RegistryObject<Codec<? extends IGlobalLootModifier>> ADD_ITEM =
             LOOT_MODIFIER_SERIALIZERS.register("add_item", GDAddItemModifier.CODEC);
+
+    public static final RegistryObject<Codec<? extends IGlobalLootModifier>> MIDAS_TOUCHING =
+            LOOT_MODIFIER_SERIALIZERS.register("midas_touching", GDMidasTouchingModifier.CODEC);
 
     public static void register(IEventBus eventBus) {
         LOOT_MODIFIER_SERIALIZERS.register(eventBus);
