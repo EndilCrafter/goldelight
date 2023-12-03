@@ -29,7 +29,7 @@ public class MidasTouchingRecipe implements Recipe<SimpleContainer> {
     @Override
     public boolean matches(SimpleContainer pContainer, Level pLevel) {
         if (pLevel.isClientSide()) {
-        return false;
+            return false;
         }
         return inputItems.get(0).test(pContainer.getItem(0));
     }
@@ -63,6 +63,7 @@ public class MidasTouchingRecipe implements Recipe<SimpleContainer> {
     public RecipeType<?> getType() {
         return Type.INSTANCE;
     }
+
     public static class Type implements RecipeType<MidasTouchingRecipe> {
         public static final Type INSTANCE = new Type();
         public static final String ID = "midas_touching";
@@ -71,6 +72,7 @@ public class MidasTouchingRecipe implements Recipe<SimpleContainer> {
     public static class Serializer implements RecipeSerializer<MidasTouchingRecipe> {
         public static final Serializer INSTANCE = new Serializer();
         public static final ResourceLocation ID = new ResourceLocation(GolDelight.MOD_ID, "midas_touching");
+
         @Override
         public MidasTouchingRecipe fromJson(ResourceLocation pRecipeId, JsonObject pSerializedRecipe) {
             ItemStack output = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(pSerializedRecipe, "result"));

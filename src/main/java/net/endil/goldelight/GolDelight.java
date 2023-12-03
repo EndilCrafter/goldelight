@@ -19,15 +19,13 @@ import org.slf4j.Logger;
 
 
 @Mod(GolDelight.MOD_ID)
-public class GolDelight
-{
+public class GolDelight {
 
     public static final String MOD_ID = "goldelight";
 
     private static final Logger LOGGER = LogUtils.getLogger();
 
-    public GolDelight()
-    {
+    public GolDelight() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         GDModItems.register(modEventBus);
@@ -53,13 +51,11 @@ public class GolDelight
         modEventBus.addListener(this::addCreative);
     }
 
-    private void commonSetup(final FMLCommonSetupEvent event)
-    {
+    private void commonSetup(final FMLCommonSetupEvent event) {
 
     }
 
-    private void addCreative(BuildCreativeModeTabContentsEvent event)
-    {
+    private void addCreative(BuildCreativeModeTabContentsEvent event) {
         if (event.getTabKey() == CreativeModeTabs.FOOD_AND_DRINKS) {
             event.accept(GDModItems.GOLDEN_BEEF);
             event.accept(GDModItems.GOLDEN_BREAD);
@@ -84,28 +80,14 @@ public class GolDelight
     }
 
     @SubscribeEvent
-    public void onServerStarting(ServerStartingEvent event)
-    {
+    public void onServerStarting(ServerStartingEvent event) {
 
     }
 
     @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
-    public static class ClientModEvents
-    {
+    public static class ClientModEvents {
         @SubscribeEvent
-        public static void onClientSetup(FMLClientSetupEvent event)
-        {
-            ItemBlockRenderTypes.setRenderLayer(GDModBlocks.ATTACHED_GOLDEN_MELON_STEM.get(), RenderType.cutout());
-            ItemBlockRenderTypes.setRenderLayer(GDModBlocks.ATTACHED_GOLDEN_PUMPKIN_STEM.get(), RenderType.cutout());
-            ItemBlockRenderTypes.setRenderLayer(GDModBlocks.GOLDEN_CARROTS.get(), RenderType.cutout());
-            ItemBlockRenderTypes.setRenderLayer(GDModBlocks.GOLDEN_CAVE_VINES.get(), RenderType.cutout());
-            ItemBlockRenderTypes.setRenderLayer(GDModBlocks.GOLDEN_CAVE_VINES_PLANT.get(), RenderType.cutout());
-            ItemBlockRenderTypes.setRenderLayer(GDModBlocks.GOLDEN_COCOA.get(), RenderType.cutout());
-            ItemBlockRenderTypes.setRenderLayer(GDModBlocks.GOLDEN_MELON_STEM.get(), RenderType.cutout());
-            ItemBlockRenderTypes.setRenderLayer(GDModBlocks.GOLDEN_POTATOES.get(), RenderType.cutout());
-            ItemBlockRenderTypes.setRenderLayer(GDModBlocks.GOLDEN_PUMPKIN_STEM.get(), RenderType.cutout());
-            ItemBlockRenderTypes.setRenderLayer(GDModBlocks.GOLDEN_WART.get(), RenderType.cutout());
-            ItemBlockRenderTypes.setRenderLayer(GDModBlocks.GOLDEN_WHEAT.get(), RenderType.cutout());
+        public static void onClientSetup(FMLClientSetupEvent event) {
         }
     }
 }

@@ -16,5 +16,7 @@ public class GDModEffects {
 
     public static final RegistryObject<MobEffect> MILDNESS = EFFECTS.register("mildness", MildnessEffect::new);
 
-    public static void register(IEventBus eventBus) {EFFECTS.register(eventBus);}
+    public static void register(IEventBus eventBus) {
+        EFFECTS.register(eventBus);
+    }
 }

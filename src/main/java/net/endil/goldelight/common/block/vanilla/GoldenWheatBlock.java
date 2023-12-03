@@ -8,6 +8,7 @@ public class GoldenWheatBlock extends CropBlock {
     public GoldenWheatBlock(Properties pProperties) {
         super(pProperties);
     }
+
     protected ItemLike getBaseSeedId() {
         return GDModItems.GOLDEN_WHEAT_SEEDS.get();
     }

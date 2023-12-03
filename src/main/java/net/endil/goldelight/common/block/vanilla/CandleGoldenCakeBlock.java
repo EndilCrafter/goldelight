@@ -15,7 +15,9 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
-import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.AbstractCandleBlock;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
@@ -44,6 +46,20 @@ public class CandleGoldenCakeBlock extends AbstractCandleBlock {
         BY_CANDLE.put(pCandleBlock, this);
     }
 
+    private static boolean candleHit(BlockHitResult pHit) {
+        return pHit.getLocation().y - (double) pHit.getBlockPos().getY() > 0.5D;
+    }
+
+    public static BlockState byCandle(Block pCandleBlock) {
+        return BY_CANDLE.get(pCandleBlock).defaultBlockState();
+    }
+
+    public static boolean canLight(BlockState pState) {
+        return pState.is(BlockTags.CANDLE_CAKES, (p_152896_) -> {
+            return p_152896_.hasProperty(LIT) && !pState.getValue(LIT);
+        });
+    }
+
     protected Iterable<Vec3> getParticleOffsets(BlockState pState) {
         return PARTICLE_OFFSETS;
     }
@@ -69,10 +85,6 @@ public class CandleGoldenCakeBlock extends AbstractCandleBlock {
         } else {
             return InteractionResult.PASS;
         }
-    }
-
-    private static boolean candleHit(BlockHitResult pHit) {
-        return pHit.getLocation().y - (double)pHit.getBlockPos().getY() > 0.5D;
     }
 
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
@@ -119,15 +131,5 @@ public class CandleGoldenCakeBlock extends AbstractCandleBlock {
 
     public boolean isPathfindable(BlockState pState, BlockGetter pLevel, BlockPos pPos, PathComputationType pType) {
         return false;
-    }
-
-    public static BlockState byCandle(Block pCandleBlock) {
-        return BY_CANDLE.get(pCandleBlock).defaultBlockState();
-    }
-
-    public static boolean canLight(BlockState pState) {
-        return pState.is(BlockTags.CANDLE_CAKES, (p_152896_) -> {
-            return p_152896_.hasProperty(LIT) && !pState.getValue(LIT);
-        });
     }
 }

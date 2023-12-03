@@ -4,13 +4,10 @@ import accieo.midas.hunger.registry.BlockRegistry;
 import net.endil.goldelight.GolDelight;
 import net.endil.goldelight.common.registry.GDCompatTags;
 import net.endil.goldelight.common.registry.GDModBlocks;
-import net.endil.goldelight.common.registry.GDModItems;
 import net.endil.goldelight.common.registry.GDModTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.world.item.Items;
-import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
@@ -32,6 +29,7 @@ public class ModBlockTags extends BlockTagsProvider {
         this.registerGDModTags();
         this.registerCompatTags();
     }
+
     private void registerMineable() {
         this.tag(BlockTags.MINEABLE_WITH_AXE)
                 .add(GDModBlocks.ATTACHED_GOLDEN_MELON_STEM.get(), GDModBlocks.ATTACHED_GOLDEN_PUMPKIN_STEM.get(), BlockRegistry.GOLDEN_BEETROOTS.get(),
@@ -54,6 +52,7 @@ public class ModBlockTags extends BlockTagsProvider {
                         GDModBlocks.GOLDEN_CHOCOLATE_PIE.get(), GDModBlocks.GOLDEN_ROAST_CHICKEN_BLOCK.get(), GDModBlocks.GOLDEN_GLAZED_HAM_BLOCK.get(),
                         GDModBlocks.GOLDEN_SHEPHERDS_PIE_BLOCK.get(), GDModBlocks.GOLDEN_RICE_ROLL_MEDLEY_BLOCK.get());
     }
+
     private void registerMinecraftTags() {
         this.tag(BlockTags.DIRT).add(GDModBlocks.GOLDEN_SOIL.get());
         this.tag(BlockTags.MUSHROOM_GROW_BLOCK).addTag(GDModTags.Blocks.GOLDEN_MUSHROOM_GROW_BLOCK);

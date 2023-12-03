@@ -7,7 +7,6 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.state.BlockState;
 import vectorwing.farmersdelight.common.block.RicePaniclesBlock;
-import vectorwing.farmersdelight.common.registry.ModItems;
 
 public class GoldenRicePaniclesBlock extends RicePaniclesBlock {
     public GoldenRicePaniclesBlock(Properties properties) {

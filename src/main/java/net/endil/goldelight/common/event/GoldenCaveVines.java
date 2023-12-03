@@ -22,7 +22,7 @@ public interface GoldenCaveVines extends CaveVines {
         if (pState.getValue(BERRIES)) {
             Block.popResource(pLevel, pPos, new ItemStack(GDModItems.GOLDEN_GLOW_BERRIES.get(), 1));
             float f = Mth.randomBetween(pLevel.random, 0.8F, 1.2F);
-            pLevel.playSound((Player)null, pPos, SoundEvents.CAVE_VINES_PICK_BERRIES, SoundSource.BLOCKS, 1.0F, f);
+            pLevel.playSound(null, pPos, SoundEvents.CAVE_VINES_PICK_BERRIES, SoundSource.BLOCKS, 1.0F, f);
             BlockState blockstate = pState.setValue(BERRIES, Boolean.valueOf(false));
             pLevel.setBlock(pPos, blockstate, 2);
             pLevel.gameEvent(GameEvent.BLOCK_CHANGE, pPos, GameEvent.Context.of(pEntity, blockstate));

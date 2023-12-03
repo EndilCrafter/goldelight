@@ -20,6 +20,7 @@ public class GDAddItemModifier extends LootModifier {
             () -> RecordCodecBuilder.create(inst -> codecStart(inst).and(ForgeRegistries.ITEMS.getCodec()
                     .fieldOf("item").forGetter(m -> m.item)).apply(inst, GDAddItemModifier::new)));
     private final Item item;
+
     public GDAddItemModifier(LootItemCondition[] conditionsIn, Item item) {
         super(conditionsIn);
         this.item = item;

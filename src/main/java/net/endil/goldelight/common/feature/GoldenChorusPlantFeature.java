@@ -14,6 +14,7 @@ public class GoldenChorusPlantFeature extends ChorusPlantFeature {
     public GoldenChorusPlantFeature(Codec<NoneFeatureConfiguration> codec) {
         super(codec);
     }
+
     public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> p_159521_) {
         WorldGenLevel worldgenlevel = p_159521_.level();
         BlockPos blockpos = p_159521_.origin();

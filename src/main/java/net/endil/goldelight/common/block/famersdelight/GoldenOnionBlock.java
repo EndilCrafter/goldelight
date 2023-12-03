@@ -5,16 +5,14 @@ import net.endil.goldelight.common.registry.GDModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.ItemLike;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import vectorwing.farmersdelight.common.block.OnionBlock;
-import vectorwing.farmersdelight.common.registry.ModBlocks;
-import vectorwing.farmersdelight.common.registry.ModItems;
 
 public class GoldenOnionBlock extends OnionBlock {
     public GoldenOnionBlock(Properties properties) {
         super(properties);
     }
+
     public BlockState getPlant(BlockGetter world, BlockPos pos) {
         return GDModBlocks.GOLDEN_ONION_CROP.get().defaultBlockState();
     }

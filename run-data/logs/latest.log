@@ -1,35 +1,35 @@
-[0212月2023 15:12:34.031] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgedatauserdev, --assetIndex, 5, --assetsDir, C:\Users\shiro\.gradle\caches\forge_gradle\assets, --gameDir, ., --fml.forgeVersion, 47.2.0, --fml.mcVersion, 1.20.1, --fml.forgeGroup, net.minecraftforge, --fml.mcpVersion, 20230612.114412, --mod, goldelight, --all, --output, C:\Users\shiro\Desktop\自分用\自作mod\goldelight\src\generated\resources, --existing, C:\Users\shiro\Desktop\自分用\自作mod\goldelight\src\main\resources]
-[0212月2023 15:12:34.060] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 10.0.9+10.0.9+main.dcd20f30 starting: java version 17.0.9 by JetBrains s.r.o.; OS Windows 11 arch amd64 version 10.0
-[0212月2023 15:12:34.209] [main/INFO] [net.minecraftforge.fml.loading.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgedatauserdev
-[0212月2023 15:12:34.275] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.5 Source=union:/C:/Users/shiro/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.5/9d1c0c3a304ae6697ecd477218fa61b850bf57fc/mixin-0.8.5.jar%23128!/ Service=ModLauncher Env=CLIENT
-[0212月2023 15:12:34.595] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\shiro\.gradle\caches\modules-2\files-2.1\net.minecraftforge\javafmllanguage\1.20.1-47.2.0\7f9181f85acc66547685a72020713fc8cbde98\javafmllanguage-1.20.1-47.2.0.jar is missing mods.toml file
-[0212月2023 15:12:34.600] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\shiro\.gradle\caches\modules-2\files-2.1\net.minecraftforge\lowcodelanguage\1.20.1-47.2.0\7872f5205685fdd26fae39b1be79b0e60ca5b7bd\lowcodelanguage-1.20.1-47.2.0.jar is missing mods.toml file
-[0212月2023 15:12:34.604] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\shiro\.gradle\caches\modules-2\files-2.1\net.minecraftforge\mclanguage\1.20.1-47.2.0\d501d161cabed08b3c139a2c6217b02a39f3c3e9\mclanguage-1.20.1-47.2.0.jar is missing mods.toml file
-[0212月2023 15:12:34.608] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\shiro\.gradle\caches\modules-2\files-2.1\net.minecraftforge\fmlcore\1.20.1-47.2.0\ffd3c6debac0a388c9e33ac43c9f5eafb91cb466\fmlcore-1.20.1-47.2.0.jar is missing mods.toml file
-[0212月2023 15:12:34.749] [main/INFO] [net.minecraftforge.fml.loading.moddiscovery.JarInJarDependencyLocator/]: No dependencies to load found. Skipping!
-[0212月2023 15:12:36.377] [main/INFO] [mixin/]: Compatibility level set to JAVA_17
-[0212月2023 15:12:36.387] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgedatauserdev' with arguments [--gameDir, ., --assetsDir, C:\Users\shiro\.gradle\caches\forge_gradle\assets, --assetIndex, 5, --mod, goldelight, --all, --output, C:\Users\shiro\Desktop\自分用\自作mod\goldelight\src\generated\resources, --existing, C:\Users\shiro\Desktop\自分用\自作mod\goldelight\src\main\resources]
-[0212月2023 15:12:36.724] [main/INFO] [mixin/]: Remapping refMap farmersdelight.refmap.json using C:\Users\shiro\Desktop\自分用\自作mod\goldelight\build\createSrgToMcp\output.srg
-[0212月2023 15:12:36.725] [main/INFO] [mixin/]: Remapping refMap midashunger.refmap.json using C:\Users\shiro\Desktop\自分用\自作mod\goldelight\build\createSrgToMcp\output.srg
-[0212月2023 15:12:36.727] [main/INFO] [mixin/]: Remapping refMap jade.refmap.json using C:\Users\shiro\Desktop\自分用\自作mod\goldelight\build\createSrgToMcp\output.srg
-[0212月2023 15:12:37.188] [main/INFO] [net.minecraftforge.data.loading.DatagenModLoader/]: Initializing Data Gatherer for mods [goldelight]
-[0212月2023 15:12:42.319] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 47.2.0, for MC 1.20.1 with MCP 20230612.114412
-[0212月2023 15:12:42.321] [modloading-worker-0/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v47.2.0 Initialized
-[0212月2023 15:12:42.754] [modloading-worker-0/INFO] [mezz.jei.library.load.PluginCaller/]: Sending ConfigManager...
-[0212月2023 15:12:42.762] [modloading-worker-0/INFO] [mezz.jei.library.load.PluginCaller/]: Sending ConfigManager took 5.989 ms
-[0212月2023 15:12:43.275] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/shiro/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.2.0_mapped_parchment_2023.09.03-1.20.1/forge-1.20.1-47.2.0_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23191!/assets/.mcassetsroot' uses unexpected schema
-[0212月2023 15:12:43.275] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/shiro/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.2.0_mapped_parchment_2023.09.03-1.20.1/forge-1.20.1-47.2.0_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23191!/data/.mcassetsroot' uses unexpected schema
-[0212月2023 15:12:43.464] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Recipes
-[0212月2023 15:12:43.571] [main/INFO] [net.minecraft.data.DataGenerator/]: Recipes finished after 105 ms
-[0212月2023 15:12:43.571] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Loot Tables
-[0212月2023 15:12:43.723] [main/INFO] [net.minecraft.data.DataGenerator/]: Loot Tables finished after 151 ms
-[0212月2023 15:12:43.723] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Item Models: goldelight
-[0212月2023 15:12:43.800] [main/INFO] [net.minecraft.data.DataGenerator/]: Item Models: goldelight finished after 76 ms
-[0212月2023 15:12:43.800] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:block mod id goldelight
-[0212月2023 15:12:43.817] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:block mod id goldelight finished after 16 ms
-[0212月2023 15:12:43.817] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:item mod id goldelight
-[0212月2023 15:12:43.825] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:item mod id goldelight finished after 8 ms
-[0212月2023 15:12:43.825] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Block States: goldelight
-[0212月2023 15:12:44.004] [main/INFO] [net.minecraft.data.DataGenerator/]: Block States: goldelight finished after 179 ms
-[0212月2023 15:12:44.005] [main/INFO] [net.minecraft.data.DataGenerator/]: All providers took: 540 ms
-[0212月2023 15:12:44.081] [main/INFO] [net.minecraft.data.HashCache/]: Caching: total files: 810, old count: 809, new count: 811, removed stale: 0, written: 7
+[0312月2023 17:23:06.465] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgedatauserdev, --assetIndex, 5, --assetsDir, C:\Users\shiro\.gradle\caches\forge_gradle\assets, --gameDir, ., --fml.forgeVersion, 47.2.0, --fml.mcVersion, 1.20.1, --fml.forgeGroup, net.minecraftforge, --fml.mcpVersion, 20230612.114412, --mod, goldelight, --all, --output, C:\Users\shiro\Desktop\自分用\自作mod\goldelight\src\generated\resources, --existing, C:\Users\shiro\Desktop\自分用\自作mod\goldelight\src\main\resources]
+[0312月2023 17:23:06.498] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 10.0.9+10.0.9+main.dcd20f30 starting: java version 17.0.9 by JetBrains s.r.o.; OS Windows 11 arch amd64 version 10.0
+[0312月2023 17:23:06.759] [main/INFO] [net.minecraftforge.fml.loading.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgedatauserdev
+[0312月2023 17:23:06.913] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.5 Source=union:/C:/Users/shiro/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.5/9d1c0c3a304ae6697ecd477218fa61b850bf57fc/mixin-0.8.5.jar%23128!/ Service=ModLauncher Env=CLIENT
+[0312月2023 17:23:07.269] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\shiro\.gradle\caches\modules-2\files-2.1\net.minecraftforge\javafmllanguage\1.20.1-47.2.0\7f9181f85acc66547685a72020713fc8cbde98\javafmllanguage-1.20.1-47.2.0.jar is missing mods.toml file
+[0312月2023 17:23:07.272] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\shiro\.gradle\caches\modules-2\files-2.1\net.minecraftforge\lowcodelanguage\1.20.1-47.2.0\7872f5205685fdd26fae39b1be79b0e60ca5b7bd\lowcodelanguage-1.20.1-47.2.0.jar is missing mods.toml file
+[0312月2023 17:23:07.275] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\shiro\.gradle\caches\modules-2\files-2.1\net.minecraftforge\mclanguage\1.20.1-47.2.0\d501d161cabed08b3c139a2c6217b02a39f3c3e9\mclanguage-1.20.1-47.2.0.jar is missing mods.toml file
+[0312月2023 17:23:07.278] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\shiro\.gradle\caches\modules-2\files-2.1\net.minecraftforge\fmlcore\1.20.1-47.2.0\ffd3c6debac0a388c9e33ac43c9f5eafb91cb466\fmlcore-1.20.1-47.2.0.jar is missing mods.toml file
+[0312月2023 17:23:07.427] [main/INFO] [net.minecraftforge.fml.loading.moddiscovery.JarInJarDependencyLocator/]: No dependencies to load found. Skipping!
+[0312月2023 17:23:09.330] [main/INFO] [mixin/]: Compatibility level set to JAVA_17
+[0312月2023 17:23:09.340] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgedatauserdev' with arguments [--gameDir, ., --assetsDir, C:\Users\shiro\.gradle\caches\forge_gradle\assets, --assetIndex, 5, --mod, goldelight, --all, --output, C:\Users\shiro\Desktop\自分用\自作mod\goldelight\src\generated\resources, --existing, C:\Users\shiro\Desktop\自分用\自作mod\goldelight\src\main\resources]
+[0312月2023 17:23:09.696] [main/INFO] [mixin/]: Remapping refMap farmersdelight.refmap.json using C:\Users\shiro\Desktop\自分用\自作mod\goldelight\build\createSrgToMcp\output.srg
+[0312月2023 17:23:09.698] [main/INFO] [mixin/]: Remapping refMap midashunger.refmap.json using C:\Users\shiro\Desktop\自分用\自作mod\goldelight\build\createSrgToMcp\output.srg
+[0312月2023 17:23:09.700] [main/INFO] [mixin/]: Remapping refMap jade.refmap.json using C:\Users\shiro\Desktop\自分用\自作mod\goldelight\build\createSrgToMcp\output.srg
+[0312月2023 17:23:10.169] [main/INFO] [net.minecraftforge.data.loading.DatagenModLoader/]: Initializing Data Gatherer for mods [goldelight]
+[0312月2023 17:23:15.390] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 47.2.0, for MC 1.20.1 with MCP 20230612.114412
+[0312月2023 17:23:15.391] [modloading-worker-0/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v47.2.0 Initialized
+[0312月2023 17:23:15.762] [modloading-worker-0/INFO] [mezz.jei.library.load.PluginCaller/]: Sending ConfigManager...
+[0312月2023 17:23:15.767] [modloading-worker-0/INFO] [mezz.jei.library.load.PluginCaller/]: Sending ConfigManager took 3.862 ms
+[0312月2023 17:23:16.261] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/shiro/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.2.0_mapped_parchment_2023.09.03-1.20.1/forge-1.20.1-47.2.0_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23191!/assets/.mcassetsroot' uses unexpected schema
+[0312月2023 17:23:16.262] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/shiro/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.2.0_mapped_parchment_2023.09.03-1.20.1/forge-1.20.1-47.2.0_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23191!/data/.mcassetsroot' uses unexpected schema
+[0312月2023 17:23:16.473] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Recipes
+[0312月2023 17:23:16.554] [main/INFO] [net.minecraft.data.DataGenerator/]: Recipes finished after 80 ms
+[0312月2023 17:23:16.554] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Loot Tables
+[0312月2023 17:23:16.708] [main/INFO] [net.minecraft.data.DataGenerator/]: Loot Tables finished after 153 ms
+[0312月2023 17:23:16.708] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Item Models: goldelight
+[0312月2023 17:23:16.768] [main/INFO] [net.minecraft.data.DataGenerator/]: Item Models: goldelight finished after 59 ms
+[0312月2023 17:23:16.768] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:block mod id goldelight
+[0312月2023 17:23:16.797] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:block mod id goldelight finished after 28 ms
+[0312月2023 17:23:16.797] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:item mod id goldelight
+[0312月2023 17:23:16.808] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:item mod id goldelight finished after 10 ms
+[0312月2023 17:23:16.809] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Block States: goldelight
+[0312月2023 17:23:16.974] [main/INFO] [net.minecraft.data.DataGenerator/]: Block States: goldelight finished after 165 ms
+[0312月2023 17:23:16.974] [main/INFO] [net.minecraft.data.DataGenerator/]: All providers took: 501 ms
+[0312月2023 17:23:17.032] [main/INFO] [net.minecraft.data.HashCache/]: Caching: total files: 811, old count: 810, new count: 812, removed stale: 0, written: 1

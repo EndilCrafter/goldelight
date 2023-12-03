@@ -157,6 +157,7 @@ public class ModItemModels extends ItemModelProvider {
                 new ResourceLocation("item/generated")).texture("layer0",
                 new ResourceLocation(GolDelight.MOD_ID, "item/" + item.getId().getPath()));
     }
+
     private ItemModelBuilder MugModel(RegistryObject<Item> mug) {
         return withExistingParent(mug.getId().getPath(),
                 new ResourceLocation(GolDelight.MOD_ID, "item/mug")).texture("layer0",

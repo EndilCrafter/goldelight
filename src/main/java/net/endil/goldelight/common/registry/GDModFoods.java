@@ -1,30 +1,11 @@
 package net.endil.goldelight.common.registry;
 
-import accieo.midas.hunger.registry.ItemRegistry;
-import com.google.common.collect.ImmutableMap;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
-import net.minecraft.world.item.Item;
 import vectorwing.farmersdelight.common.registry.ModEffects;
 
-import java.util.Map;
-
 public class GDModFoods {
-    private static FoodProperties.Builder rawMeat(int pNutrition) {
-        return (new FoodProperties.Builder()).nutrition(pNutrition).saturationMod(0.3F).meat();
-    }
-    private static FoodProperties.Builder rawFish(int pNutrition) {
-        return (new FoodProperties.Builder()).nutrition(pNutrition).saturationMod(0.1F);
-    }
-    private static FoodProperties.Builder rawCut(int pNutrition) {
-        return rawMeat(pNutrition).fast();
-    }
-    private static FoodProperties.Builder rawSlice(int pNutrition) {
-        return rawFish(pNutrition).fast();
-    }
-
-
     //Minecraft
     public static final FoodProperties GOLDEN_BEEF = rawMeat(4).build();
     public static final FoodProperties GOLDEN_BREAD = new FoodProperties.Builder()
@@ -66,53 +47,38 @@ public class GDModFoods {
     public static final FoodProperties GOLDEN_SALMON = rawFish(3).build();
     public static final FoodProperties GOLDEN_TROPICAL_FISH = rawFish(2)
             .effect(() -> new MobEffectInstance(MobEffects.JUMP, 1200), 1.0F).build();
-
-    //Farmer's Delight
-
     public static final FoodProperties GOLDEN_CABBAGE = new FoodProperties.Builder()
             .nutrition(4).saturationMod(0.5f).build();
-
     public static final FoodProperties GOLDEN_TOMATO = new FoodProperties.Builder()
             .nutrition(3).saturationMod(0.5f).build();
-
     public static final FoodProperties GOLDEN_ONION = new FoodProperties.Builder()
             .nutrition(4).saturationMod(0.5f).build();
-
     public static final FoodProperties GAPPLE_CIDER = (new FoodProperties.Builder()).alwaysEat()
             .effect(() -> new MobEffectInstance(MobEffects.ABSORPTION, 1200, 1), 1.0F)
             .effect(() -> new MobEffectInstance(MobEffects.DIG_SPEED, 720), 1.0F).build();
 
+    //Farmer's Delight
     public static final FoodProperties FRIED_GOLDEN_EGG = (new FoodProperties.Builder()).nutrition(8).saturationMod(0.4F)
             .effect(() -> new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 400), 1.0F).build();
-
     public static final FoodProperties GOLDEN_TOMATO_SAUCE = (new FoodProperties.Builder()).nutrition(8).saturationMod(0.6F).build();
-
     public static final FoodProperties GOLDEN_WHEAT_DOUGH = (new FoodProperties.Builder()).nutrition(3).saturationMod(0.3F)
             .effect(() -> new MobEffectInstance(MobEffects.HUNGER, 300, 0), 0.15F).build();
-
     public static final FoodProperties RAW_GOLDEN_PASTA = (new FoodProperties.Builder()).nutrition(3).saturationMod(0.3F)
             .effect(() -> new MobEffectInstance(MobEffects.HUNGER, 300, 0), 0.15F).build();
-
     public static final FoodProperties GOLDEN_PIE_CRUST = (new FoodProperties.Builder()).nutrition(3).saturationMod(0.2F).build();
-
     public static final FoodProperties GOLDEN_PUMPKIN_SLICE = (new FoodProperties.Builder()).nutrition(5).saturationMod(0.3F)
             .effect(() -> new MobEffectInstance(MobEffects.NIGHT_VISION, 900), 1.0F).build();
-
     public static final FoodProperties GOLDEN_CABBAGE_LEAF = new FoodProperties.Builder()
             .nutrition(2).saturationMod(0.4f).fast().build();
-
     public static final FoodProperties MINCED_GOLDEN_BEEF = rawCut(2).build();
-
     public static final FoodProperties GOLDEN_BEEF_PATTY = new FoodProperties.Builder()
             .nutrition(5).saturationMod(0.8f).meat().fast().build();
-
     public static final FoodProperties GOLDEN_CHICKEN_CUTS = rawCut(2)
             .effect(() -> new MobEffectInstance(MobEffects.HUNGER, 300, 0), 0.15F).build();
     public static final FoodProperties COOKED_GOLDEN_CHICKEN_CUTS = (new FoodProperties.Builder())
             .nutrition(4).saturationMod(0.6F).meat().fast()
             .effect(() -> new MobEffectInstance(MobEffects.SLOW_FALLING, 600), 1.0F).build();
     public static final FoodProperties GOLDEN_BACON = rawCut(2).build();
-
     public static final FoodProperties COOKED_GOLDEN_BACON = (new FoodProperties.Builder()).nutrition(5).saturationMod(0.8F).meat().fast().build();
     public static final FoodProperties GOLDEN_COD_SLICE = rawSlice(2).build();
     public static final FoodProperties COOKED_GOLDEN_COD_SLICE = (new FoodProperties.Builder())
@@ -155,48 +121,34 @@ public class GDModFoods {
     public static final FoodProperties GOLDEN_COD_ROLL = (new FoodProperties.Builder()).nutrition(9).saturationMod(0.6F).build();
     public static final FoodProperties GOLDEN_KELP_ROLL = (new FoodProperties.Builder()).nutrition(14).saturationMod(0.6F).build();
     public static final FoodProperties GOLDEN_KELP_ROLL_SLICE = (new FoodProperties.Builder()).nutrition(7).saturationMod(0.5F).fast().build();
-    public static final FoodProperties COOKED_GOLDEN_RICE = (new FoodProperties.Builder()).nutrition(8).saturationMod(0.4F).effect(() -> {
-        return new MobEffectInstance(ModEffects.COMFORT.get(), 900, 0);
-    }, 1.0F).build();
-    public static final FoodProperties GOLDEN_BROTH = (new FoodProperties.Builder()).nutrition(10).saturationMod(0.7F).effect(() -> {
-        return new MobEffectInstance(ModEffects.COMFORT.get(), 1800, 0);
-    }, 1.0F).build();
-    public static final FoodProperties GOLDEN_BEEF_STEW = (new FoodProperties.Builder()).nutrition(15).saturationMod(0.8F).effect(() -> {
-        return new MobEffectInstance(ModEffects.COMFORT.get(), 5400, 0);
-    }, 1.0F).build();
-    public static final FoodProperties GOLDEN_VEGETABLE_SOUP = (new FoodProperties.Builder()).nutrition(15).saturationMod(0.8F).effect(() -> {
-        return new MobEffectInstance(ModEffects.COMFORT.get(), 5400, 0);
-    }, 1.0F).build();
-    public static final FoodProperties GOLDEN_FISH_STEW = (new FoodProperties.Builder()).nutrition(15).saturationMod(0.8F).effect(() -> {
-        return new MobEffectInstance(ModEffects.COMFORT.get(), 5400, 0);
-    }, 1.0F).build();
-    public static final FoodProperties GOLDEN_CHICKEN_SOUP = (new FoodProperties.Builder()).nutrition(18).saturationMod(0.75F).effect(() -> {
-        return new MobEffectInstance(ModEffects.COMFORT.get(), 9000, 0);
-    }, 1.0F).build();
-    public static final FoodProperties FRIED_GOLDEN_RICE = (new FoodProperties.Builder()).nutrition(18).saturationMod(0.75F).effect(() -> {
-        return new MobEffectInstance(ModEffects.COMFORT.get(), 9000, 0);
-    }, 1.0F).build();
-    public static final FoodProperties GOLDEN_PUMPKIN_SOUP = (new FoodProperties.Builder()).nutrition(18).saturationMod(0.75F).effect(() -> {
-        return new MobEffectInstance(ModEffects.COMFORT.get(), 9000, 0);
-    }, 1.0F).build();
-    public static final FoodProperties GOLDEN_BAKED_COD_STEW = (new FoodProperties.Builder()).nutrition(18).saturationMod(0.75F).effect(() -> {
-        return new MobEffectInstance(ModEffects.COMFORT.get(), 9000, 0);
-    }, 1.0F).build();
-    public static final FoodProperties GOLDEN_NOODLE_SOUP = (new FoodProperties.Builder()).nutrition(18).saturationMod(0.75F).effect(() -> {
-        return new MobEffectInstance(ModEffects.COMFORT.get(), 9000, 0);
-    }, 1.0F).build();
-    public static final FoodProperties GOLDEN_BACON_AND_EGGS = (new FoodProperties.Builder()).nutrition(13).saturationMod(0.6F).effect(() -> {
-        return new MobEffectInstance(ModEffects.NOURISHMENT.get(), 1800, 0);
-    }, 1.0F).build();
-    public static final FoodProperties GOLDEN_RATATOUILLE = (new FoodProperties.Builder()).nutrition(13).saturationMod(0.6F).effect(() -> {
-        return new MobEffectInstance(ModEffects.NOURISHMENT.get(), 1800, 0);
-    }, 1.0F).build();
-    public static final FoodProperties GOLDEN_STEAK_AND_POTATOES = (new FoodProperties.Builder()).nutrition(14).saturationMod(0.8F).effect(() -> {
-        return new MobEffectInstance(ModEffects.NOURISHMENT.get(), 5400, 0);
-    }, 1.0F).build();
-    public static final FoodProperties GOLDEN_PASTA_WITH_MEATBALLS = (new FoodProperties.Builder()).nutrition(15).saturationMod(0.8F).effect(() -> {
-        return new MobEffectInstance(ModEffects.NOURISHMENT.get(), 5400, 0);
-    }, 1.0F).build();
+    public static final FoodProperties COOKED_GOLDEN_RICE = (new FoodProperties.Builder()).nutrition(8).saturationMod(0.4F)
+            .effect(() -> new MobEffectInstance(ModEffects.COMFORT.get(), 900, 0), 1.0F).build();
+    public static final FoodProperties GOLDEN_BROTH = (new FoodProperties.Builder()).nutrition(10).saturationMod(0.7F)
+            .effect(() -> new MobEffectInstance(ModEffects.COMFORT.get(), 1800, 0), 1.0F).build();
+    public static final FoodProperties GOLDEN_BEEF_STEW = (new FoodProperties.Builder()).nutrition(15).saturationMod(0.8F)
+            .effect(() -> new MobEffectInstance(ModEffects.COMFORT.get(), 5400, 0), 1.0F).build();
+    public static final FoodProperties GOLDEN_VEGETABLE_SOUP = (new FoodProperties.Builder()).nutrition(15).saturationMod(0.8F)
+            .effect(() -> new MobEffectInstance(ModEffects.COMFORT.get(), 5400, 0), 1.0F).build();
+    public static final FoodProperties GOLDEN_FISH_STEW = (new FoodProperties.Builder()).nutrition(15).saturationMod(0.8F)
+            .effect(() -> new MobEffectInstance(ModEffects.COMFORT.get(), 5400, 0), 1.0F).build();
+    public static final FoodProperties GOLDEN_CHICKEN_SOUP = (new FoodProperties.Builder()).nutrition(18).saturationMod(0.75F)
+            .effect(() -> new MobEffectInstance(ModEffects.COMFORT.get(), 9000, 0), 1.0F).build();
+    public static final FoodProperties FRIED_GOLDEN_RICE = (new FoodProperties.Builder()).nutrition(18).saturationMod(0.75F)
+            .effect(() -> new MobEffectInstance(ModEffects.COMFORT.get(), 9000, 0), 1.0F).build();
+    public static final FoodProperties GOLDEN_PUMPKIN_SOUP = (new FoodProperties.Builder()).nutrition(18).saturationMod(0.75F)
+            .effect(() -> new MobEffectInstance(ModEffects.COMFORT.get(), 9000, 0), 1.0F).build();
+    public static final FoodProperties GOLDEN_BAKED_COD_STEW = (new FoodProperties.Builder()).nutrition(18).saturationMod(0.75F)
+            .effect(() -> new MobEffectInstance(ModEffects.COMFORT.get(), 9000, 0), 1.0F).build();
+    public static final FoodProperties GOLDEN_NOODLE_SOUP = (new FoodProperties.Builder()).nutrition(18).saturationMod(0.75F)
+            .effect(() -> new MobEffectInstance(ModEffects.COMFORT.get(), 9000, 0), 1.0F).build();
+    public static final FoodProperties GOLDEN_BACON_AND_EGGS = (new FoodProperties.Builder()).nutrition(13).saturationMod(0.6F)
+            .effect(() -> new MobEffectInstance(ModEffects.NOURISHMENT.get(), 1800, 0), 1.0F).build();
+    public static final FoodProperties GOLDEN_RATATOUILLE = (new FoodProperties.Builder()).nutrition(13).saturationMod(0.6F)
+            .effect(() -> new MobEffectInstance(ModEffects.NOURISHMENT.get(), 1800, 0), 1.0F).build();
+    public static final FoodProperties GOLDEN_STEAK_AND_POTATOES = (new FoodProperties.Builder()).nutrition(14).saturationMod(0.8F)
+            .effect(() -> new MobEffectInstance(ModEffects.NOURISHMENT.get(), 5400, 0), 1.0F).build();
+    public static final FoodProperties GOLDEN_PASTA_WITH_MEATBALLS = (new FoodProperties.Builder()).nutrition(15).saturationMod(0.8F)
+            .effect(() -> new MobEffectInstance(ModEffects.NOURISHMENT.get(), 5400, 0), 1.0F).build();
     public static final FoodProperties GOLDEN_PASTA_WITH_MUTTON_CHOP = (new FoodProperties.Builder()).nutrition(15).saturationMod(0.8F)
             .effect(() -> new MobEffectInstance(ModEffects.NOURISHMENT.get(), 5400, 0), 1.0F).build();
     public static final FoodProperties GOLDEN_MUSHROOM_RICE = (new FoodProperties.Builder()).nutrition(15).saturationMod(0.8F)
@@ -207,20 +159,31 @@ public class GDModFoods {
             .effect(() -> new MobEffectInstance(ModEffects.NOURISHMENT.get(), 9000, 0), 1.0F).build();
     public static final FoodProperties GOLDEN_INK_PASTA = (new FoodProperties.Builder()).nutrition(15).saturationMod(0.75F)
             .effect(() -> new MobEffectInstance(ModEffects.NOURISHMENT.get(), 9000, 0), 1.0F).build();
-    public static final FoodProperties GRILLED_GOLDEN_SALMON = (new FoodProperties.Builder()).nutrition(15).saturationMod(0.75F).effect(() -> {
-        return new MobEffectInstance(ModEffects.NOURISHMENT.get(), 5400, 0);
-    }, 1.0F).build();
-    public static final FoodProperties GOLDEN_ROAST_CHICKEN = (new FoodProperties.Builder()).nutrition(20).saturationMod(0.75F).effect(() -> {
-        return new MobEffectInstance(ModEffects.NOURISHMENT.get(), 9000, 0);
-    }, 1.0F).build();
-    public static final FoodProperties STUFFED_GOLDEN_PUMPKIN = (new FoodProperties.Builder()).nutrition(20).saturationMod(0.75F).effect(() -> {
-        return new MobEffectInstance(ModEffects.NOURISHMENT.get(), 9000, 0);
-    }, 1.0F).build();
-    public static final FoodProperties GOLDEN_GLAZED_HAM = (new FoodProperties.Builder()).nutrition(20).saturationMod(0.75F).effect(() -> {
-        return new MobEffectInstance(ModEffects.NOURISHMENT.get(), 9000, 0);
-    }, 1.0F).build();
-    public static final FoodProperties GOLDEN_SHEPHERDS_PIE = (new FoodProperties.Builder()).nutrition(20).saturationMod(0.75F).effect(() -> {
-        return new MobEffectInstance(ModEffects.NOURISHMENT.get(), 9000, 0);
-    }, 1.0F).build();
+    public static final FoodProperties GRILLED_GOLDEN_SALMON = (new FoodProperties.Builder()).nutrition(15).saturationMod(0.75F)
+            .effect(() -> new MobEffectInstance(ModEffects.NOURISHMENT.get(), 5400, 0), 1.0F).build();
+    public static final FoodProperties GOLDEN_ROAST_CHICKEN = (new FoodProperties.Builder()).nutrition(20).saturationMod(0.75F)
+            .effect(() -> new MobEffectInstance(ModEffects.NOURISHMENT.get(), 9000, 0), 1.0F).build();
+    public static final FoodProperties STUFFED_GOLDEN_PUMPKIN = (new FoodProperties.Builder()).nutrition(20).saturationMod(0.75F)
+            .effect(() -> new MobEffectInstance(ModEffects.NOURISHMENT.get(), 9000, 0), 1.0F).build();
+    public static final FoodProperties GOLDEN_GLAZED_HAM = (new FoodProperties.Builder()).nutrition(20).saturationMod(0.75F)
+            .effect(() -> new MobEffectInstance(ModEffects.NOURISHMENT.get(), 9000, 0), 1.0F).build();
+    public static final FoodProperties GOLDEN_SHEPHERDS_PIE = (new FoodProperties.Builder()).nutrition(20).saturationMod(0.75F)
+            .effect(() -> new MobEffectInstance(ModEffects.NOURISHMENT.get(), 9000, 0), 1.0F).build();
     public static final FoodProperties GOLDEN_DOG_FOOD = (new FoodProperties.Builder()).nutrition(6).saturationMod(0.2F).meat().build();
+
+    private static FoodProperties.Builder rawMeat(int pNutrition) {
+        return (new FoodProperties.Builder()).nutrition(pNutrition).saturationMod(0.3F).meat();
+    }
+
+    private static FoodProperties.Builder rawFish(int pNutrition) {
+        return (new FoodProperties.Builder()).nutrition(pNutrition).saturationMod(0.1F);
+    }
+
+    private static FoodProperties.Builder rawCut(int pNutrition) {
+        return rawMeat(pNutrition).fast();
+    }
+
+    private static FoodProperties.Builder rawSlice(int pNutrition) {
+        return rawFish(pNutrition).fast();
+    }
 }

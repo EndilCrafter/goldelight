@@ -32,6 +32,63 @@ public class GoldenChorusFlowerBlock extends Block {
         this.registerDefaultState(this.stateDefinition.any().setValue(AGE, Integer.valueOf(0)));
     }
 
+    private static boolean allNeighborsEmpty(LevelReader pLevel, BlockPos pPos, @Nullable Direction pExcludingSide) {
+        for (Direction direction : Direction.Plane.HORIZONTAL) {
+            if (direction != pExcludingSide && !pLevel.isEmptyBlock(pPos.relative(direction))) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    public static void generatePlant(LevelAccessor pLevel, BlockPos pPos, RandomSource pRandom, int pMaxHorizontalDistance) {
+        pLevel.setBlock(pPos, ((GoldenChorusPlantBlock) GDModBlocks.GOLDEN_CHORUS_PLANT.get()).getStateForPlacement(pLevel, pPos), 2);
+        growTreeRecursive(pLevel, pPos, pRandom, pPos, pMaxHorizontalDistance, 0);
+    }
+
+    private static void growTreeRecursive(LevelAccessor pLevel, BlockPos pBranchPos, RandomSource pRandom, BlockPos pOriginalBranchPos, int pMaxHorizontalDistance, int pIterations) {
+        GoldenChorusPlantBlock plantBlock = (GoldenChorusPlantBlock) GDModBlocks.GOLDEN_CHORUS_PLANT.get();
+        int i = pRandom.nextInt(4) + 1;
+        if (pIterations == 0) {
+            ++i;
+        }
+
+        for (int j = 0; j < i; ++j) {
+            BlockPos blockpos = pBranchPos.above(j + 1);
+            if (!allNeighborsEmpty(pLevel, blockpos, null)) {
+                return;
+            }
+
+            pLevel.setBlock(blockpos, plantBlock.getStateForPlacement(pLevel, blockpos), 2);
+            pLevel.setBlock(blockpos.below(), plantBlock.getStateForPlacement(pLevel, blockpos.below()), 2);
+        }
+
+        boolean flag = false;
+        if (pIterations < 4) {
+            int l = pRandom.nextInt(4);
+            if (pIterations == 0) {
+                ++l;
+            }
+
+            for (int k = 0; k < l; ++k) {
+                Direction direction = Direction.Plane.HORIZONTAL.getRandomDirection(pRandom);
+                BlockPos blockpos1 = pBranchPos.above(i).relative(direction);
+                if (Math.abs(blockpos1.getX() - pOriginalBranchPos.getX()) < pMaxHorizontalDistance && Math.abs(blockpos1.getZ() - pOriginalBranchPos.getZ()) < pMaxHorizontalDistance && pLevel.isEmptyBlock(blockpos1) && pLevel.isEmptyBlock(blockpos1.below()) && allNeighborsEmpty(pLevel, blockpos1, direction.getOpposite())) {
+                    flag = true;
+                    pLevel.setBlock(blockpos1, plantBlock.getStateForPlacement(pLevel, blockpos1), 2);
+                    pLevel.setBlock(blockpos1.relative(direction.getOpposite()), plantBlock.getStateForPlacement(pLevel, blockpos1.relative(direction.getOpposite())), 2);
+                    growTreeRecursive(pLevel, blockpos1, pRandom, pOriginalBranchPos, pMaxHorizontalDistance, pIterations + 1);
+                }
+            }
+        }
+
+        if (!flag) {
+            pLevel.setBlock(pBranchPos.above(i), GDModBlocks.GOLDEN_CHORUS_FLOWER.get().defaultBlockState().setValue(AGE, Integer.valueOf(5)), 2);
+        }
+
+    }
+
     public void tick(BlockState pState, ServerLevel pLevel, BlockPos pPos, RandomSource pRandom) {
         if (!pState.canSurvive(pLevel, pPos)) {
             pLevel.destroyBlock(pPos, true);
@@ -56,7 +113,7 @@ public class GoldenChorusFlowerBlock extends Block {
                 } else if (blockstate.is(this.plant)) {
                     int j = 1;
 
-                    for(int k = 0; k < 4; ++k) {
+                    for (int k = 0; k < 4; ++k) {
                         BlockState blockstate1 = pLevel.getBlockState(pPos.below(j + 1));
                         if (!blockstate1.is(this.plant)) {
                             if (blockstate1.is(Blocks.END_STONE)) {
@@ -75,7 +132,7 @@ public class GoldenChorusFlowerBlock extends Block {
                     flag = true;
                 }
 
-                if (flag && allNeighborsEmpty(pLevel, blockpos, (Direction)null) && pLevel.isEmptyBlock(pPos.above(2))) {
+                if (flag && allNeighborsEmpty(pLevel, blockpos, null) && pLevel.isEmptyBlock(pPos.above(2))) {
                     pLevel.setBlock(pPos, this.plant.getStateForPlacement(pLevel, pPos), 2);
                     this.placeGrownFlower(pLevel, blockpos, i);
                 } else if (i < 4) {
@@ -86,7 +143,7 @@ public class GoldenChorusFlowerBlock extends Block {
 
                     boolean flag2 = false;
 
-                    for(int i1 = 0; i1 < l; ++i1) {
+                    for (int i1 = 0; i1 < l; ++i1) {
                         Direction direction = Direction.Plane.HORIZONTAL.getRandomDirection(pRandom);
                         BlockPos blockpos1 = pPos.relative(direction);
                         if (pLevel.isEmptyBlock(blockpos1) && pLevel.isEmptyBlock(blockpos1.below()) && allNeighborsEmpty(pLevel, blockpos1, direction.getOpposite())) {
@@ -118,16 +175,6 @@ public class GoldenChorusFlowerBlock extends Block {
         pLevel.levelEvent(1034, pPos, 0);
     }
 
-    private static boolean allNeighborsEmpty(LevelReader pLevel, BlockPos pPos, @Nullable Direction pExcludingSide) {
-        for(Direction direction : Direction.Plane.HORIZONTAL) {
-            if (direction != pExcludingSide && !pLevel.isEmptyBlock(pPos.relative(direction))) {
-                return false;
-            }
-        }
-
-        return true;
-    }
-
     public BlockState updateShape(BlockState pState, Direction pFacing, BlockState pFacingState, LevelAccessor pLevel, BlockPos pCurrentPos, BlockPos pFacingPos) {
         if (pFacing != Direction.UP && !pState.canSurvive(pLevel, pCurrentPos)) {
             pLevel.scheduleTick(pCurrentPos, this, 1);
@@ -144,7 +191,7 @@ public class GoldenChorusFlowerBlock extends Block {
             } else {
                 boolean flag = false;
 
-                for(Direction direction : Direction.Plane.HORIZONTAL) {
+                for (Direction direction : Direction.Plane.HORIZONTAL) {
                     BlockState blockstate1 = pLevel.getBlockState(pPos.relative(direction));
                     if (blockstate1.is(this.plant)) {
                         if (flag) {
@@ -166,53 +213,6 @@ public class GoldenChorusFlowerBlock extends Block {
 
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
         pBuilder.add(AGE);
-    }
-
-    public static void generatePlant(LevelAccessor pLevel, BlockPos pPos, RandomSource pRandom, int pMaxHorizontalDistance) {
-        pLevel.setBlock(pPos, ((GoldenChorusPlantBlock) GDModBlocks.GOLDEN_CHORUS_PLANT.get()).getStateForPlacement(pLevel, pPos), 2);
-        growTreeRecursive(pLevel, pPos, pRandom, pPos, pMaxHorizontalDistance, 0);
-    }
-
-    private static void growTreeRecursive(LevelAccessor pLevel, BlockPos pBranchPos, RandomSource pRandom, BlockPos pOriginalBranchPos, int pMaxHorizontalDistance, int pIterations) {
-        GoldenChorusPlantBlock plantBlock = (GoldenChorusPlantBlock) GDModBlocks.GOLDEN_CHORUS_PLANT.get();
-        int i = pRandom.nextInt(4) + 1;
-        if (pIterations == 0) {
-            ++i;
-        }
-
-        for(int j = 0; j < i; ++j) {
-            BlockPos blockpos = pBranchPos.above(j + 1);
-            if (!allNeighborsEmpty(pLevel, blockpos, (Direction)null)) {
-                return;
-            }
-
-            pLevel.setBlock(blockpos, plantBlock.getStateForPlacement(pLevel, blockpos), 2);
-            pLevel.setBlock(blockpos.below(), plantBlock.getStateForPlacement(pLevel, blockpos.below()), 2);
-        }
-
-        boolean flag = false;
-        if (pIterations < 4) {
-            int l = pRandom.nextInt(4);
-            if (pIterations == 0) {
-                ++l;
-            }
-
-            for(int k = 0; k < l; ++k) {
-                Direction direction = Direction.Plane.HORIZONTAL.getRandomDirection(pRandom);
-                BlockPos blockpos1 = pBranchPos.above(i).relative(direction);
-                if (Math.abs(blockpos1.getX() - pOriginalBranchPos.getX()) < pMaxHorizontalDistance && Math.abs(blockpos1.getZ() - pOriginalBranchPos.getZ()) < pMaxHorizontalDistance && pLevel.isEmptyBlock(blockpos1) && pLevel.isEmptyBlock(blockpos1.below()) && allNeighborsEmpty(pLevel, blockpos1, direction.getOpposite())) {
-                    flag = true;
-                    pLevel.setBlock(blockpos1, plantBlock.getStateForPlacement(pLevel, blockpos1), 2);
-                    pLevel.setBlock(blockpos1.relative(direction.getOpposite()), plantBlock.getStateForPlacement(pLevel, blockpos1.relative(direction.getOpposite())), 2);
-                    growTreeRecursive(pLevel, blockpos1, pRandom, pOriginalBranchPos, pMaxHorizontalDistance, pIterations + 1);
-                }
-            }
-        }
-
-        if (!flag) {
-            pLevel.setBlock(pBranchPos.above(i), GDModBlocks.GOLDEN_CHORUS_FLOWER.get().defaultBlockState().setValue(AGE, Integer.valueOf(5)), 2);
-        }
-
     }
 
     public void onProjectileHit(Level pLevel, BlockState pState, BlockHitResult pHit, Projectile pProjectile) {

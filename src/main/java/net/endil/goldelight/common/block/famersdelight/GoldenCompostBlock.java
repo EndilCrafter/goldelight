@@ -9,12 +9,12 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.level.block.state.BlockState;
 import vectorwing.farmersdelight.common.block.OrganicCompostBlock;
-import vectorwing.farmersdelight.common.tag.ModTags;
 
 public class GoldenCompostBlock extends OrganicCompostBlock {
     public GoldenCompostBlock(Properties properties) {
         super(properties);
     }
+
     @Override
     public void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
         if (!level.isClientSide) {

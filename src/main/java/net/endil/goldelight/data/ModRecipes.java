@@ -9,8 +9,6 @@ import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.BlockTags;
-import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.AbstractCookingRecipe;
@@ -31,17 +29,108 @@ import java.util.function.Consumer;
 import java.util.stream.Stream;
 
 public class ModRecipes extends RecipeProvider implements IConditionBuilder {
+    public static final int FAST_COOKING = 200;      // 10 seconds
+    public static final int NORMAL_COOKING = 400;    // 20 seconds
+    public static final int SLOW_COOKING = 800;      // 40 seconds
+    public static final float SMALL_EXP = 0.7F;
+    public static final float MEDIUM_EXP = 2.0F;
+    public static final float LARGE_EXP = 4.0F;
     public ModRecipes(PackOutput pOutput) {
         super(pOutput);
     }
 
-    public static final int FAST_COOKING = 200;      // 10 seconds
-    public static final int NORMAL_COOKING = 400;    // 20 seconds
-    public static final int SLOW_COOKING = 800;      // 40 seconds
+    protected static void Storage(Consumer<FinishedRecipe> consumer, ItemLike itemIng, ItemLike blockIng) {
+        StorageBuilder(consumer, itemIng, blockIng, getSimpleRecipeName(blockIng), null, getSimpleRecipeName(itemIng), null);
+    }
 
-    public static final float SMALL_EXP = 0.7F;
-    public static final float MEDIUM_EXP = 2.0F;
-    public static final float LARGE_EXP = 4.0F;
+    protected static void Compact(Consumer<FinishedRecipe> consumer, ItemLike ingredient, ItemLike result) {
+        CompactBuilder(consumer, ingredient, result, getSimpleRecipeName(result), null);
+    }
+
+    protected static void TwoByTwo(Consumer<FinishedRecipe> consumer, ItemLike ingredient, ItemLike result) {
+        TwoByTwoBuilder(consumer, ingredient, result, getSimpleRecipeName(result), null);
+    }
+
+    protected static void Golden(Consumer<FinishedRecipe> consumer, ItemLike result, ItemLike ingredient) {
+        GoldenBuilder(result, Ingredient.of(ingredient)).unlockedBy(getHasName(ingredient), has(ingredient)).save(consumer, new ResourceLocation(GolDelight.MOD_ID, getItemName(result) + "_from_nugget"));
+    }
+
+    protected static void Enchanted(Consumer<FinishedRecipe> consumer, ItemLike result, ItemLike ingredient) {
+        EnchantedGoldenBuilder(result, Ingredient.of(ingredient)).unlockedBy(getHasName(ingredient), has(ingredient)).save(consumer, new ResourceLocation(GolDelight.MOD_ID, getItemName(result)));
+    }
+
+    public static void BasicCooking(Consumer<FinishedRecipe> consumer, List<ItemLike> ingredient, ItemLike result) {
+        Smelting(consumer, ingredient, result);
+        Smoking(consumer, ingredient, result);
+        Campfire(consumer, ingredient, result);
+    }
+
+    protected static void Smelting(Consumer<FinishedRecipe> consumer, List<ItemLike> ingredient, ItemLike result) {
+        SmeltingBuilder(consumer, RecipeSerializer.SMELTING_RECIPE, ingredient, result, 200, null, "_from_smelting");
+    }
+
+    protected static void Smoking(Consumer<FinishedRecipe> consumer, List<ItemLike> ingredient, ItemLike result) {
+        SmeltingBuilder(consumer, RecipeSerializer.SMOKING_RECIPE, ingredient, result, 100, null, "_from_smoking");
+    }
+
+    protected static void Campfire(Consumer<FinishedRecipe> consumer, List<ItemLike> ingredient, ItemLike result) {
+        SmeltingBuilder(consumer, RecipeSerializer.CAMPFIRE_COOKING_RECIPE, ingredient, result, 600, null, "_from_campfire_cooking");
+    }
+
+    protected static void Ham(Consumer<FinishedRecipe> consumer, List<ItemLike> ingredient, ItemLike result) {
+        SmeltingBuilder(consumer, RecipeSerializer.SMOKING_RECIPE, ingredient, result, 200, null, "_from_smoking");
+    }
+
+    protected static void SimpleConversion(Consumer<FinishedRecipe> consumer, ItemLike result, ItemLike ingredient) {
+        ConversionBuilder(result, Ingredient.of(ingredient), 1).unlockedBy(getHasName(ingredient), has(ingredient)).save(consumer, new ResourceLocation(GolDelight.MOD_ID, getItemName(result)));
+    }
+
+    protected static void Conversion(Consumer<FinishedRecipe> consumer, ItemLike result, ItemLike ingredient, int count) {
+        ConversionBuilder(result, Ingredient.of(ingredient), count).unlockedBy(getHasName(ingredient), has(ingredient)).save(consumer, new ResourceLocation(GolDelight.MOD_ID, getItemName(result)));
+    }
+
+    protected static void CropToSeeds(Consumer<FinishedRecipe> consumer, ItemLike result, ItemLike ingredient) {
+        ConversionBuilder(result, Ingredient.of(ingredient), 1).unlockedBy(getHasName(ingredient), has(ingredient)).save(consumer, new ResourceLocation(GolDelight.MOD_ID, getItemName(result) + "_from_" + getItemName(ingredient)));
+    }
+
+    protected static void StorageBuilder(Consumer<FinishedRecipe> consumer, ItemLike itemIng, ItemLike blockIng, String block, @Nullable String blockGroup, String item, @Nullable String itemGroup) {
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, itemIng, 9).requires(blockIng).group(itemGroup).unlockedBy(getHasName(blockIng), has(blockIng))
+                .save(consumer, new ResourceLocation(GolDelight.MOD_ID, item) + "_from_" + block);
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, blockIng).define('#', itemIng).pattern("###").pattern("###").pattern("###").group(blockGroup)
+                .unlockedBy(getHasName(itemIng), has(itemIng)).save(consumer, new ResourceLocation(GolDelight.MOD_ID, block));
+    }
+
+    protected static void CompactBuilder(Consumer<FinishedRecipe> consumer, ItemLike ingredient, ItemLike result, String block, @Nullable String blockGroup) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, result).define('#', ingredient).pattern("###").pattern("###").pattern("###").group(blockGroup)
+                .unlockedBy(getHasName(ingredient), has(ingredient)).save(consumer, new ResourceLocation(GolDelight.MOD_ID, block));
+    }
+
+    protected static void TwoByTwoBuilder(Consumer<FinishedRecipe> consumer, ItemLike ingredient, ItemLike result, String block, @Nullable String blockGroup) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, result).define('#', ingredient).pattern("##").pattern("##").group(blockGroup)
+                .unlockedBy(getHasName(ingredient), has(ingredient)).save(consumer, new ResourceLocation(GolDelight.MOD_ID, block));
+    }
+
+    protected static RecipeBuilder GoldenBuilder(ItemLike result, Ingredient ingredient) {
+        return ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, result).define('#', ingredient).define('G', Ingredient.of(Items.GOLD_NUGGET))
+                .pattern("GGG").pattern("G#G").pattern("GGG");
+    }
+
+    protected static RecipeBuilder EnchantedGoldenBuilder(ItemLike result, Ingredient ingredient) {
+        return ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, result).define('#', ingredient).define('G', Ingredient.of(Items.GOLD_BLOCK))
+                .pattern("GGG").pattern("G#G").pattern("GGG");
+    }
+
+    protected static void SmeltingBuilder(Consumer<FinishedRecipe> consumer, RecipeSerializer<? extends AbstractCookingRecipe> serializer, List<ItemLike> ingredient, ItemLike result, int time, String group, String recipe) {
+        for (ItemLike ing : ingredient) {
+            SimpleCookingRecipeBuilder.generic(Ingredient.of(ing), RecipeCategory.FOOD, result, 0.35f, time, serializer)
+                    .group(group).unlockedBy(getHasName(ing), has(ing))
+                    .save(consumer, new ResourceLocation(GolDelight.MOD_ID, getItemName(result)) + recipe);
+        }
+    }
+
+    protected static RecipeBuilder ConversionBuilder(ItemLike result, Ingredient ingredient, int count) {
+        return ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, result, count).requires(ingredient);
+    }
 
     @Override
     protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
@@ -112,7 +201,7 @@ public class ModRecipes extends RecipeProvider implements IConditionBuilder {
                 .define('g', Items.GOLD_NUGGET).define('m', Tags.Items.MUSHROOMS)
                 .unlockedBy("has_mushrooms", InventoryChangeTrigger.TriggerInstance.hasItems(Items.BROWN_MUSHROOM, Items.RED_MUSHROOM))
                 .save(consumer, new ResourceLocation(GolDelight.MOD_ID, "golden_mushroom_from_nugget"));
-         ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, GDModBlocks.GOLDEN_FUNGUS.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, GDModBlocks.GOLDEN_FUNGUS.get())
                 .pattern("ggg").pattern("gfg").pattern("ggg")
                 .define('g', Items.GOLD_NUGGET).define('f', Items.CRIMSON_FUNGUS)
                 .unlockedBy("has_mushrooms", InventoryChangeTrigger.TriggerInstance.hasItems(Items.CRIMSON_FUNGUS, Items.WARPED_FUNGUS))
@@ -768,97 +857,6 @@ public class ModRecipes extends RecipeProvider implements IConditionBuilder {
                 .unlockedByAnyIngredient(Items.GOLDEN_CARROT, GDModItems.GOLDEN_ONION.get(), ItemRegistry.GOLDEN_BEETROOT.get())
                 .setRecipeBookTab(CookingPotRecipeBookTab.MEALS)
                 .build(consumer);
-    }
-
-
-    protected static void Storage(Consumer<FinishedRecipe> consumer, ItemLike itemIng, ItemLike blockIng) {
-        StorageBuilder(consumer, itemIng, blockIng, getSimpleRecipeName(blockIng), null, getSimpleRecipeName(itemIng), null);
-    }
-
-    protected static void Compact(Consumer<FinishedRecipe> consumer, ItemLike ingredient, ItemLike result) {
-        CompactBuilder(consumer, ingredient, result, getSimpleRecipeName(result), null);
-    }
-
-    protected static void TwoByTwo(Consumer<FinishedRecipe> consumer, ItemLike ingredient, ItemLike result) {
-        TwoByTwoBuilder(consumer, ingredient, result, getSimpleRecipeName(result), null);
-    }
-
-    protected static void Golden(Consumer<FinishedRecipe> consumer, ItemLike result, ItemLike ingredient) {
-        GoldenBuilder(result, Ingredient.of(ingredient)).unlockedBy(getHasName(ingredient), has(ingredient)).save(consumer, new ResourceLocation(GolDelight.MOD_ID, getItemName(result) + "_from_nugget"));
-    }
-
-    protected static void Enchanted(Consumer<FinishedRecipe> consumer, ItemLike result, ItemLike ingredient) {
-        EnchantedGoldenBuilder(result, Ingredient.of(ingredient)).unlockedBy(getHasName(ingredient), has(ingredient)).save(consumer, new ResourceLocation(GolDelight.MOD_ID, getItemName(result)));
-    }
-
-    public static void BasicCooking(Consumer<FinishedRecipe> consumer, List<ItemLike> ingredient, ItemLike result) {
-        Smelting(consumer, ingredient, result);
-        Smoking(consumer, ingredient, result);
-        Campfire(consumer, ingredient, result);
-    }
-
-    protected static void Smelting(Consumer<FinishedRecipe> consumer, List<ItemLike> ingredient, ItemLike result) {
-        SmeltingBuilder(consumer, RecipeSerializer.SMELTING_RECIPE, ingredient, result, 200, null, "_from_smelting");
-    }
-    protected static void Smoking(Consumer<FinishedRecipe> consumer, List<ItemLike> ingredient, ItemLike result) {
-        SmeltingBuilder(consumer, RecipeSerializer.SMOKING_RECIPE, ingredient, result, 100, null, "_from_smoking");
-    }
-    protected static void Campfire(Consumer<FinishedRecipe> consumer, List<ItemLike> ingredient, ItemLike result) {
-        SmeltingBuilder(consumer, RecipeSerializer.CAMPFIRE_COOKING_RECIPE, ingredient, result, 600, null, "_from_campfire_cooking");
-    }
-
-    protected static void Ham(Consumer<FinishedRecipe> consumer, List<ItemLike> ingredient, ItemLike result) {
-        SmeltingBuilder(consumer, RecipeSerializer.SMOKING_RECIPE, ingredient, result, 200, null, "_from_smoking");
-    }
-
-    protected static void SimpleConversion(Consumer<FinishedRecipe> consumer, ItemLike result, ItemLike ingredient) {
-        ConversionBuilder(result, Ingredient.of(ingredient), 1).unlockedBy(getHasName(ingredient), has(ingredient)).save(consumer, new ResourceLocation(GolDelight.MOD_ID, getItemName(result)));
-    }
-
-    protected static void Conversion(Consumer<FinishedRecipe> consumer, ItemLike result, ItemLike ingredient, int count) {
-        ConversionBuilder(result, Ingredient.of(ingredient), count).unlockedBy(getHasName(ingredient), has(ingredient)).save(consumer, new ResourceLocation(GolDelight.MOD_ID, getItemName(result)));
-    }
-
-    protected static void CropToSeeds(Consumer<FinishedRecipe> consumer, ItemLike result, ItemLike ingredient) {
-        ConversionBuilder(result, Ingredient.of(ingredient), 1).unlockedBy(getHasName(ingredient), has(ingredient)).save(consumer, new ResourceLocation(GolDelight.MOD_ID, getItemName(result) + "_from_" + getItemName(ingredient)));
-    }
-
-    protected static void StorageBuilder(Consumer<FinishedRecipe> consumer, ItemLike itemIng, ItemLike blockIng, String block, @Nullable String blockGroup, String item, @Nullable String itemGroup) {
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, itemIng, 9).requires(blockIng).group(itemGroup).unlockedBy(getHasName(blockIng), has(blockIng))
-                .save(consumer, new ResourceLocation(GolDelight.MOD_ID, item) + "_from_" + block);
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, blockIng).define('#', itemIng).pattern("###").pattern("###").pattern("###").group(blockGroup)
-                .unlockedBy(getHasName(itemIng), has(itemIng)).save(consumer, new ResourceLocation(GolDelight.MOD_ID, block));
-    }
-
-    protected static void CompactBuilder(Consumer<FinishedRecipe> consumer, ItemLike ingredient, ItemLike result, String block, @Nullable String blockGroup) {
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, result).define('#', ingredient).pattern("###").pattern("###").pattern("###").group(blockGroup)
-                .unlockedBy(getHasName(ingredient), has(ingredient)).save(consumer, new ResourceLocation(GolDelight.MOD_ID, block));
-    }
-    protected static void TwoByTwoBuilder(Consumer<FinishedRecipe> consumer, ItemLike ingredient, ItemLike result, String block, @Nullable String blockGroup) {
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, result).define('#', ingredient).pattern("##").pattern("##").group(blockGroup)
-                .unlockedBy(getHasName(ingredient), has(ingredient)).save(consumer, new ResourceLocation(GolDelight.MOD_ID, block));
-    }
-
-    protected static RecipeBuilder GoldenBuilder(ItemLike result, Ingredient ingredient) {
-        return ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, result).define('#', ingredient).define('G', Ingredient.of(Items.GOLD_NUGGET))
-                .pattern("GGG").pattern("G#G").pattern("GGG");
-    }
-
-    protected static RecipeBuilder EnchantedGoldenBuilder(ItemLike result, Ingredient ingredient) {
-        return ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, result).define('#', ingredient).define('G', Ingredient.of(Items.GOLD_BLOCK))
-                .pattern("GGG").pattern("G#G").pattern("GGG");
-    }
-
-    protected static void SmeltingBuilder(Consumer<FinishedRecipe> consumer, RecipeSerializer<? extends AbstractCookingRecipe> serializer, List<ItemLike> ingredient, ItemLike result, int time, String group, String recipe) {
-        for(ItemLike ing : ingredient) {
-            SimpleCookingRecipeBuilder.generic(Ingredient.of(ing), RecipeCategory.FOOD, result, 0.35f, time, serializer)
-                    .group(group).unlockedBy(getHasName(ing), has(ing))
-                    .save(consumer, new ResourceLocation(GolDelight.MOD_ID, getItemName(result)) + recipe);
-        }
-    }
-
-    protected static RecipeBuilder ConversionBuilder(ItemLike result, Ingredient ingredient, int count) {
-        return ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, result, count).requires(ingredient);
     }
 
 }

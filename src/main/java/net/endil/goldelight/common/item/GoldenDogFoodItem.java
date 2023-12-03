@@ -36,10 +36,19 @@ import java.util.Iterator;
 import java.util.List;
 
 public class GoldenDogFoodItem extends DogFoodItem {
+    public static final List<MobEffectInstance> EFFECTS;
+
+    static {
+        EFFECTS = Lists.newArrayList(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 12000, 2),
+                new MobEffectInstance(MobEffects.DAMAGE_BOOST, 12000, 2),
+                new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 12000, 2),
+                new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 12000, 0),
+                new MobEffectInstance(MobEffects.REGENERATION, 12000, 0));
+    }
+
     public GoldenDogFoodItem(Properties properties) {
         super(properties);
     }
-    public static final List<MobEffectInstance> EFFECTS;
 
     @OnlyIn(Dist.CLIENT)
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltip, TooltipFlag isAdvanced) {
@@ -49,8 +58,8 @@ public class GoldenDogFoodItem extends DogFoodItem {
 
             MutableComponent effectDescription;
             MobEffect effect;
-            for(Iterator var6 = EFFECTS.iterator(); var6.hasNext(); tooltip.add(effectDescription.withStyle(effect.getCategory().getTooltipFormatting()))) {
-                MobEffectInstance effectInstance = (MobEffectInstance)var6.next();
+            for (Iterator var6 = EFFECTS.iterator(); var6.hasNext(); tooltip.add(effectDescription.withStyle(effect.getCategory().getTooltipFormatting()))) {
+                MobEffectInstance effectInstance = (MobEffectInstance) var6.next();
                 effectDescription = Component.literal(" ");
                 MutableComponent effectName = Component.translatable(effectInstance.getDescriptionId());
                 effectDescription.append(effectName);
@@ -65,14 +74,6 @@ public class GoldenDogFoodItem extends DogFoodItem {
             }
 
         }
-    }
-
-    static {
-        EFFECTS = Lists.newArrayList(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 12000, 2),
-                new MobEffectInstance(MobEffects.DAMAGE_BOOST, 12000, 2),
-                new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 12000, 2),
-                new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 12000, 0),
-                new MobEffectInstance(MobEffects.REGENERATION, 12000, 0));
     }
 
     @Mod.EventBusSubscriber(
@@ -91,18 +92,18 @@ public class GoldenDogFoodItem extends DogFoodItem {
             if (target instanceof LivingEntity entity) {
                 if (target.getType().is(ModTags.DOG_FOOD_USERS)) {
                     boolean isTameable = entity instanceof TamableAnimal;
-                    if (entity.isAlive() && (!isTameable || ((TamableAnimal)entity).isTame()) && itemStack.getItem().equals(GDModItems.GOLDEN_DOG_FOOD.get())) {
+                    if (entity.isAlive() && (!isTameable || ((TamableAnimal) entity).isTame()) && itemStack.getItem().equals(GDModItems.GOLDEN_DOG_FOOD.get())) {
                         entity.setHealth(entity.getMaxHealth());
                         Iterator var6 = GoldenDogFoodItem.EFFECTS.iterator();
 
-                        while(var6.hasNext()) {
-                            MobEffectInstance effect = (MobEffectInstance)var6.next();
+                        while (var6.hasNext()) {
+                            MobEffectInstance effect = (MobEffectInstance) var6.next();
                             entity.addEffect(new MobEffectInstance(effect));
                         }
 
                         entity.level().playSound(null, target.blockPosition(), SoundEvents.GENERIC_EAT, SoundSource.PLAYERS, 0.8F, 0.8F);
 
-                        for(int i = 0; i < 5; ++i) {
+                        for (int i = 0; i < 5; ++i) {
                             double xSpeed = MathUtils.RAND.nextGaussian() * 0.02;
                             double ySpeed = MathUtils.RAND.nextGaussian() * 0.02;
                             double zSpeed = MathUtils.RAND.nextGaussian() * 0.02;

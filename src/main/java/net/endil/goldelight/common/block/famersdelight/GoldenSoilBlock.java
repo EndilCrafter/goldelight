@@ -25,6 +25,7 @@ public class GoldenSoilBlock extends RichSoilBlock {
     public GoldenSoilBlock(Properties pProperties) {
         super(pProperties);
     }
+
     public void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource rand) {
         if (!level.isClientSide) {
             BlockPos abovePos = pos.above();

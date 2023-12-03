@@ -8,6 +8,7 @@ public class BuddingGoldenBushBlock extends BuddingBushBlock {
     public BuddingGoldenBushBlock(Properties properties) {
         super(properties);
     }
+
     protected ItemLike getBaseSeedId() {
         return ModItems.TOMATO_SEEDS.get();
     }

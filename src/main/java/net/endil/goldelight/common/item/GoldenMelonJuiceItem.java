@@ -9,6 +9,7 @@ public class GoldenMelonJuiceItem extends MelonJuiceItem {
     public GoldenMelonJuiceItem(Properties properties) {
         super(properties);
     }
+
     public void affectConsumer(ItemStack stack, Level level, LivingEntity consumer) {
         consumer.heal(4.0F);
     }

@@ -10,12 +10,10 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.tags.ItemTags;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.fml.common.Mod;
 import org.jetbrains.annotations.Nullable;
 import vectorwing.farmersdelight.common.registry.ModItems;
 import vectorwing.farmersdelight.common.tag.ForgeTags;
@@ -37,6 +35,7 @@ public class ModItemTags extends ItemTagsProvider {
         this.registerForgeTags();
         this.registerCompatTags();
     }
+
     private void registerGDModTags() {
         //Minecraft
         this.tag(GDModTags.Items.GOLDEN_FISHES).addTag(GDModTags.Items.RAW_GOLDEN_FISHES).addTag(GDModTags.Items.COOKED_GOLDEN_FISHES);
@@ -117,6 +116,7 @@ public class ModItemTags extends ItemTagsProvider {
         this.tag(GDModTags.Items.GOLDEN_VEGETABLES_POTATO).add(GDModItems.GOLDEN_POTATO.get());
         this.tag(GDModTags.Items.GOLDEN_VEGETABLES_TOMATO).add(GDModItems.GOLDEN_TOMATO.get());
     }
+
     private void registerMinecraftTags() {
         this.tag(ItemTags.PIGLIN_LOVED)
                 .addTag(GDModTags.Items.GOLDEN_CROPS);
@@ -130,6 +130,7 @@ public class ModItemTags extends ItemTagsProvider {
         this.tag(ItemTags.FISHES).addTag(GDModTags.Items.GOLDEN_FISHES);
 
     }
+
     private void registerFDModTags() {
         this.tag(ModTags.KNIVES).add(GDModItems.MIDAS_KNIFE.get());
         this.tag(ModTags.WOLF_PREY).addTag(GDModTags.Items.GOLDEN_WOLF_PREY);
@@ -180,11 +181,13 @@ public class ModItemTags extends ItemTagsProvider {
         this.tag(ForgeTags.VEGETABLES_POTATO).addTag(GDModTags.Items.GOLDEN_VEGETABLES_POTATO);
         this.tag(ForgeTags.VEGETABLES_TOMATO).addTag(GDModTags.Items.GOLDEN_VEGETABLES_TOMATO);
     }
+
     private void registerForgeTags() {
         this.tag(Tags.Items.BONES).add(GDModItems.GOLDEN_BONE.get());
         this.tag(Tags.Items.CROPS).addTag(GDModTags.Items.GOLDEN_CROPS);
         this.tag(ForgeTags.TOOLS_KNIVES).add(GDModItems.MIDAS_KNIFE.get());
     }
+
     private void registerCompatTags() {
         this.tag(GDCompatTags.DIET_FRUITS)
                 .addTag(ForgeTags.BERRIES).add(ItemRegistry.GOLDEN_CHORUS_FRUIT.get(), GDModBlocks.GOLDEN_MELON.get().asItem(), GDModItems.GOLDEN_MELON_SLICE.get());
@@ -236,6 +239,6 @@ public class ModItemTags extends ItemTagsProvider {
 
         this.tag(GDCompatTags.SERENE_SEASONS_WINTER_CROPS)
                 .add(GDModBlocks.GOLDEN_MUSHROOM.get().asItem(), GDModItems.GOLDEN_WART.get(), ItemRegistry.DRIED_GOLDEN_KELP.get(),
-                GDModItems.GOLDEN_GLOW_BERRIES.get(), GDModItems.GOLDEN_CABBAGE_SEEDS.get());
+                        GDModItems.GOLDEN_GLOW_BERRIES.get(), GDModItems.GOLDEN_CABBAGE_SEEDS.get());
     }
 }

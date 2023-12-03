@@ -17,7 +17,8 @@ import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantments;
-import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.CocoaBlock;
 import net.minecraft.world.level.storage.loot.IntRange;
 import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.LootPool;
@@ -26,19 +27,27 @@ import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
 import net.minecraft.world.level.storage.loot.functions.LimitCount;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
-import net.minecraft.world.level.storage.loot.predicates.*;
+import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
+import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
+import net.minecraft.world.level.storage.loot.predicates.LootItemEntityPropertyCondition;
+import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCondition;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
-import net.minecraftforge.registries.RegistryObject;
 
 import java.util.HashSet;
 import java.util.Set;
 
 public class ModBlockLootTables extends BlockLootSubProvider {
+    private final Set<Block> generatedLootTables = new HashSet<>();
+
     protected ModBlockLootTables() {
         super(Set.of(), FeatureFlags.REGISTRY.allFlags());
     }
-    private final Set<Block> generatedLootTables = new HashSet<>();
+
+    protected static LootTable.Builder createGoldenCaveVinesDrop(Block pBlock) {
+        return LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(GDModItems.GOLDEN_GLOW_BERRIES.get()))
+                .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(GoldenCaveVines.BERRIES, true))));
+    }
 
     @Override
     protected void generate() {
@@ -150,12 +159,12 @@ public class ModBlockLootTables extends BlockLootSubProvider {
                         .add(LootItem.lootTableItem(GDModItems.GOLDEN_ONION.get()).apply(ApplyBonusCount.addBonusBinomialDistributionCount(Enchantments.BLOCK_FORTUNE, 0.5714286F, 3))))));
 
         this.add(GDModBlocks.BUDDING_GOLDEN_TOMATO_CROP.get(),
-                        block -> applyExplosionDecay(GDModBlocks.BUDDING_GOLDEN_TOMATO_CROP.get(),
-                                LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(GDModItems.GOLDEN_TOMATO_SEEDS.get())))));
+                block -> applyExplosionDecay(GDModBlocks.BUDDING_GOLDEN_TOMATO_CROP.get(),
+                        LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(GDModItems.GOLDEN_TOMATO_SEEDS.get())))));
 
         this.add(GDModBlocks.GOLDEN_RICE_CROP.get(),
-                        block -> applyExplosionDecay(GDModBlocks.GOLDEN_RICE_CROP.get(),
-                                LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(GDModItems.GOLDEN_RICE.get())))));
+                block -> applyExplosionDecay(GDModBlocks.GOLDEN_RICE_CROP.get(),
+                        LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(GDModItems.GOLDEN_RICE.get())))));
 
         this.dropSelf(GDModBlocks.NETHER_BRICK_STOVE.get());
 
@@ -167,11 +176,6 @@ public class ModBlockLootTables extends BlockLootSubProvider {
                         .apply(SetItemCountFunction.setCount(UniformGenerator.between(3.0F, 7.0F)))
                         .apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE))))
                 .apply(LimitCount.limitCount(IntRange.upperBound(9)));
-    }
-
-    protected static LootTable.Builder createGoldenCaveVinesDrop(Block pBlock) {
-        return LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(GDModItems.GOLDEN_GLOW_BERRIES.get()))
-                .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(GoldenCaveVines.BERRIES, true))));
     }
 
     protected void add(Block block, LootTable.Builder builder) {

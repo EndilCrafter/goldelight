@@ -19,6 +19,7 @@ public class MidasTouchEnchant extends Enchantment {
     public int getMaxCost(int enchantmentLevel) {
         return this.getMinCost(enchantmentLevel) + 30;
     }
+
     public boolean isTreasureOnly() {
         return true;
     }

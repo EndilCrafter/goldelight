@@ -7,12 +7,12 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.state.BlockState;
 import vectorwing.farmersdelight.common.block.CabbageBlock;
-import vectorwing.farmersdelight.common.registry.ModItems;
 
 public class GoldenCabbageBlock extends CabbageBlock {
     public GoldenCabbageBlock(Properties properties) {
         super(properties);
     }
+
     public BlockState getPlant(BlockGetter level, BlockPos pos) {
         return GDModBlocks.GOLDEN_CABBAGE_CROP.get().defaultBlockState();
     }

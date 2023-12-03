@@ -7,11 +7,8 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import vectorwing.farmersdelight.common.block.BuddingTomatoBlock;
-import vectorwing.farmersdelight.common.block.TomatoVineBlock;
-import vectorwing.farmersdelight.common.registry.ModBlocks;
 
 public class BuddingGoldenTomatoBlock extends BuddingTomatoBlock {
     public BuddingGoldenTomatoBlock(Properties properties) {

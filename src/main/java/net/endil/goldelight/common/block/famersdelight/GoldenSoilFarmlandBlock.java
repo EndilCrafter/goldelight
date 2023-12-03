@@ -26,6 +26,7 @@ public class GoldenSoilFarmlandBlock extends RichSoilFarmlandBlock {
     public GoldenSoilFarmlandBlock(Properties properties) {
         super(properties);
     }
+
     private static boolean hasWater(LevelReader level, BlockPos pos) {
         Iterator var2 = BlockPos.betweenClosed(pos.offset(-4, 0, -4), pos.offset(4, 1, 4)).iterator();
 
@@ -35,14 +36,16 @@ public class GoldenSoilFarmlandBlock extends RichSoilFarmlandBlock {
                 return FarmlandWaterManager.hasBlockWaterTicket(level, pos);
             }
 
-            nearbyPos = (BlockPos)var2.next();
-        } while(!level.getFluidState(nearbyPos).is(FluidTags.WATER));
+            nearbyPos = (BlockPos) var2.next();
+        } while (!level.getFluidState(nearbyPos).is(FluidTags.WATER));
 
         return true;
     }
+
     public static void turnToRichSoil(BlockState state, Level level, BlockPos pos) {
         level.setBlockAndUpdate(pos, pushEntitiesUp(state, GDModBlocks.GOLDEN_SOIL.get().defaultBlockState(), level, pos));
     }
+
     public boolean isFertile(BlockState state, BlockGetter world, BlockPos pos) {
         if (state.is(GDModBlocks.GOLDEN_SOIL_FARMLAND.get())) {
             return state.getValue(MOISTURE) > 0;
@@ -50,12 +53,14 @@ public class GoldenSoilFarmlandBlock extends RichSoilFarmlandBlock {
             return false;
         }
     }
+
     public void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource rand) {
         if (!state.canSurvive(level, pos)) {
             turnToRichSoil(state, level, pos);
         }
 
     }
+
     public void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
         int moisture = state.getValue(MOISTURE);
         if (!hasWater(level, pos) && !level.isRainingAt(pos.above())) {
@@ -88,6 +93,7 @@ public class GoldenSoilFarmlandBlock extends RichSoilFarmlandBlock {
         }
 
     }
+
     public BlockState getStateForPlacement(BlockPlaceContext context) {
         return !this.defaultBlockState().canSurvive(context.getLevel(), context.getClickedPos()) ? GDModBlocks.GOLDEN_SOIL.get().defaultBlockState() : super.getStateForPlacement(context);
     }

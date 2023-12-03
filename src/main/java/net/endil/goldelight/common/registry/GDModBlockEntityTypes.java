@@ -10,5 +10,7 @@ public class GDModBlockEntityTypes {
     public static final DeferredRegister<BlockEntityType<?>> TILES =
             DeferredRegister.create(ForgeRegistries.BLOCK_ENTITY_TYPES, GolDelight.MOD_ID);
 
-    public static void register(IEventBus eventBus) {TILES.register(eventBus);}
+    public static void register(IEventBus eventBus) {
+        TILES.register(eventBus);
+    }
 }

@@ -13,10 +13,12 @@ public class GDModTags {
         public static final TagKey<Block> GOLDEN_CROPS = tag("golden_crops");
         public static final TagKey<Block> GOLDEN_MUSHROOM_GROW_BLOCK = tag("golden_mushroom_grow_block");
         public static final TagKey<Block> GOLDEN_COMPOST_ACTIVATORS = tag("golden_compost_activators");
+
         private static TagKey<Block> tag(String name) {
             return BlockTags.create(new ResourceLocation(GolDelight.MOD_ID, name));
         }
     }
+
     public static class Items {
         //Original
         public static final TagKey<Item> MIDAS_TOUCHABLE = tag("midas_touchable");
@@ -90,8 +92,9 @@ public class GDModTags {
         public static final TagKey<Item> GOLDEN_VEGETABLES_ONION = tag("golden_vegetables/onion");
         public static final TagKey<Item> GOLDEN_VEGETABLES_POTATO = tag("golden_vegetables/potato");
         public static final TagKey<Item> GOLDEN_VEGETABLES_TOMATO = tag("golden_vegetables/tomato");
+
         private static TagKey<Item> tag(String name) {
-        return ItemTags.create(new ResourceLocation(GolDelight.MOD_ID, name));
-    }
+            return ItemTags.create(new ResourceLocation(GolDelight.MOD_ID, name));
+        }
     }
 }

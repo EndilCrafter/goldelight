@@ -7,15 +7,11 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.ForgeHooks;
 import vectorwing.farmersdelight.common.block.RiceBlock;
-import vectorwing.farmersdelight.common.block.RicePaniclesBlock;
-import vectorwing.farmersdelight.common.registry.ModBlocks;
-import vectorwing.farmersdelight.common.registry.ModItems;
 
 public class GoldenRiceBlock extends RiceBlock {
     public GoldenRiceBlock(Properties properties) {
@@ -29,7 +25,7 @@ public class GoldenRiceBlock extends RiceBlock {
                 int age = this.getAge(state);
                 if (age <= this.getMaxAge()) {
                     float chance = 10.0F;
-                    if (ForgeHooks.onCropsGrowPre(level, pos, state, random.nextInt((int)(25.0F / chance) + 1) == 0)) {
+                    if (ForgeHooks.onCropsGrowPre(level, pos, state, random.nextInt((int) (25.0F / chance) + 1) == 0)) {
                         if (age == this.getMaxAge()) {
                             GoldenRicePaniclesBlock riceUpper = (GoldenRicePaniclesBlock) GDModBlocks.GOLDEN_RICE_CROP_PANICLES.get();
                             if (riceUpper.defaultBlockState().canSurvive(level, pos.above()) && level.isEmptyBlock(pos.above())) {
@@ -58,7 +54,7 @@ public class GoldenRiceBlock extends RiceBlock {
     public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, BlockState state, boolean isClient) {
         BlockState upperState = level.getBlockState(pos.above());
         if (upperState.getBlock() instanceof GoldenRicePaniclesBlock) {
-            return !((GoldenRicePaniclesBlock)upperState.getBlock()).isMaxAge(upperState);
+            return !((GoldenRicePaniclesBlock) upperState.getBlock()).isMaxAge(upperState);
         } else {
             return true;
         }
@@ -71,7 +67,7 @@ public class GoldenRiceBlock extends RiceBlock {
         } else {
             BlockState top = level.getBlockState(pos.above());
             if (top.getBlock() == GDModBlocks.GOLDEN_RICE_CROP_PANICLES.get()) {
-                BonemealableBlock growable = (BonemealableBlock)level.getBlockState(pos.above()).getBlock();
+                BonemealableBlock growable = (BonemealableBlock) level.getBlockState(pos.above()).getBlock();
                 if (growable.isValidBonemealTarget(level, pos.above(), top, false)) {
                     growable.performBonemeal(level, level.random, pos.above(), top);
                 }

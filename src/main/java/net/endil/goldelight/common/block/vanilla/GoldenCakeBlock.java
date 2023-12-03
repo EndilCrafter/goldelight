@@ -9,7 +9,6 @@ import net.minecraft.stats.Stats;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -44,6 +43,31 @@ public class GoldenCakeBlock extends Block {
     public GoldenCakeBlock(BlockBehaviour.Properties pProperties) {
         super(pProperties);
         this.registerDefaultState(this.stateDefinition.any().setValue(BITES, Integer.valueOf(0)));
+    }
+
+    protected static InteractionResult eat(LevelAccessor pLevel, BlockPos pPos, BlockState pState, Player pPlayer) {
+
+        if (!pPlayer.canEat(false)) {
+            return InteractionResult.PASS;
+        } else {
+            pPlayer.awardStat(Stats.EAT_CAKE_SLICE);
+            pPlayer.getFoodData().eat(4, 0.2F);
+            pPlayer.heal(2);
+            int i = pState.getValue(BITES);
+            pLevel.gameEvent(pPlayer, GameEvent.EAT, pPos);
+            if (i < 6) {
+                pLevel.setBlock(pPos, pState.setValue(BITES, Integer.valueOf(i + 1)), 3);
+            } else {
+                pLevel.removeBlock(pPos, false);
+                pLevel.gameEvent(pPlayer, GameEvent.BLOCK_DESTROY, pPos);
+            }
+
+            return InteractionResult.SUCCESS;
+        }
+    }
+
+    public static int getOutputSignal(int pEaten) {
+        return (7 - pEaten) * 2;
     }
 
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
@@ -97,27 +121,6 @@ public class GoldenCakeBlock extends Block {
         return eat(pLevel, pPos, pState, pPlayer);
     }
 
-    protected static InteractionResult eat(LevelAccessor pLevel, BlockPos pPos, BlockState pState, Player pPlayer) {
-
-        if (!pPlayer.canEat(false)) {
-            return InteractionResult.PASS;
-        } else {
-            pPlayer.awardStat(Stats.EAT_CAKE_SLICE);
-            pPlayer.getFoodData().eat(4, 0.2F);
-            pPlayer.heal(2);
-            int i = pState.getValue(BITES);
-            pLevel.gameEvent(pPlayer, GameEvent.EAT, pPos);
-            if (i < 6) {
-                pLevel.setBlock(pPos, pState.setValue(BITES, Integer.valueOf(i + 1)), 3);
-            } else {
-                pLevel.removeBlock(pPos, false);
-                pLevel.gameEvent(pPlayer, GameEvent.BLOCK_DESTROY, pPos);
-            }
-
-            return InteractionResult.SUCCESS;
-        }
-    }
-
     /**
      * Update the provided state given the provided neighbor direction and neighbor state, returning a new state.
      * For example, fences make their connections to the passed in state if possible, and wet concrete powder immediately
@@ -145,10 +148,6 @@ public class GoldenCakeBlock extends Block {
      */
     public int getAnalogOutputSignal(BlockState pBlockState, Level pLevel, BlockPos pPos) {
         return getOutputSignal(pBlockState.getValue(BITES));
-    }
-
-    public static int getOutputSignal(int pEaten) {
-        return (7 - pEaten) * 2;
     }
 
     /**
