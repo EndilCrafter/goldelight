@@ -14,6 +14,9 @@ displayName="${mod_name}"
 
 authors="${mod_authors}"
 
+logoFile = "logo.png"
+
+logoBlur = false
 
 description='''${mod_description}'''
 

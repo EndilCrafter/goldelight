@@ -1,12 +1,15 @@
 package net.endil.goldelight.common.block.vanilla;
 
+import net.endil.goldelight.common.registry.GDModBlocks;
 import net.endil.goldelight.common.registry.GDModItems;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.BushBlock;
@@ -18,45 +21,23 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import org.jetbrains.annotations.NotNull;
 
-public class GoldenWartBlock extends BushBlock {
-    public static final int MAX_AGE = 3;
-    public static final IntegerProperty AGE = BlockStateProperties.AGE_3;
-    private static final VoxelShape[] SHAPE_BY_AGE = new VoxelShape[]{Block.box(0.0D, 0.0D, 0.0D, 16.0D, 5.0D, 16.0D), Block.box(0.0D, 0.0D, 0.0D, 16.0D, 8.0D, 16.0D), Block.box(0.0D, 0.0D, 0.0D, 16.0D, 11.0D, 16.0D), Block.box(0.0D, 0.0D, 0.0D, 16.0D, 14.0D, 16.0D)};
-
+public class GoldenWartBlock extends NetherWartBlock {
     public GoldenWartBlock(BlockBehaviour.Properties pProperties) {
         super(pProperties);
-        this.registerDefaultState(this.stateDefinition.any().setValue(AGE, Integer.valueOf(0)));
-    }
-
-    public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        return SHAPE_BY_AGE[pState.getValue(AGE)];
     }
 
     @Override
     protected boolean mayPlaceOn(BlockState pState, BlockGetter pLevel, BlockPos pPos) {
-        return pState.is(Blocks.SOUL_SAND);
+        return pState.is(GDModBlocks.GOLDEN_SOIL.get());
+    }
+    public boolean canSurvive(BlockState pState, LevelReader pLevel, BlockPos pPos) {
+        BlockPos blockpos = pPos.below();
+            return pLevel.getBlockState(blockpos).is(GDModBlocks.GOLDEN_SOIL.get());
     }
 
-    public boolean isRandomlyTicking(BlockState pState) {
-        return pState.getValue(AGE) < 3;
-    }
-
-    public void randomTick(BlockState pState, ServerLevel pLevel, BlockPos pPos, RandomSource pRandom) {
-        int i = pState.getValue(AGE);
-        if (i < 3 && net.minecraftforge.common.ForgeHooks.onCropsGrowPre(pLevel, pPos, pState, pRandom.nextInt(10) == 0)) {
-            pState = pState.setValue(AGE, Integer.valueOf(i + 1));
-            pLevel.setBlock(pPos, pState, 2);
-            net.minecraftforge.common.ForgeHooks.onCropsGrowPost(pLevel, pPos, pState);
-        }
-
-    }
-
-    public ItemStack getCloneItemStack(BlockGetter pLevel, BlockPos pPos, BlockState pState) {
+    public @NotNull ItemStack getCloneItemStack(BlockGetter pLevel, BlockPos pPos, BlockState pState) {
         return new ItemStack(GDModItems.GOLDEN_WART.get());
-    }
-
-    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
-        pBuilder.add(AGE);
     }
 }

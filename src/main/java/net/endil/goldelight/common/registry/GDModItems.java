@@ -23,6 +23,9 @@ public class GDModItems {
     public static final DeferredRegister<Item> VANILLA_ITEMS =
             DeferredRegister.create(ForgeRegistries.ITEMS, "minecraft");
 
+    public static final DeferredRegister<Item> MIDAS_ITEMS =
+            DeferredRegister.create(ForgeRegistries.ITEMS, "midashunger");
+
     private static Item.Properties basicItem() {
         return new Item.Properties();
     }
@@ -431,5 +434,6 @@ public class GDModItems {
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
         VANILLA_ITEMS.register(eventBus);
+        MIDAS_ITEMS.register(eventBus);
     }
 }

@@ -38,55 +38,55 @@ public class GDModBlocks {
             () -> new GoldenCakeBlock(BlockBehaviour.Properties.copy(Blocks.CAKE).noLootTable()
                     .mapColor(MapColor.COLOR_YELLOW)));
 
-    public static final RegistryObject<Block> CANDLE_GOLDEN_CAKE = registerBlock("candle_golden_cake",
+    public static final RegistryObject<Block> CANDLE_GOLDEN_CAKE = BLOCKS.register("candle_golden_cake",
             () -> new CandleGoldenCakeBlock(Blocks.CANDLE, BlockBehaviour.Properties.copy(Blocks.CANDLE_CAKE).mapColor(MapColor.COLOR_YELLOW)));
 
-    public static final RegistryObject<Block> BLACK_CANDLE_GOLDEN_CAKE = registerBlock("black_candle_golden_cake",
+    public static final RegistryObject<Block> BLACK_CANDLE_GOLDEN_CAKE = BLOCKS.register("black_candle_golden_cake",
             () -> new CandleGoldenCakeBlock(Blocks.BLACK_CANDLE, BlockBehaviour.Properties.copy(GDModBlocks.CANDLE_GOLDEN_CAKE.get())));
 
-    public static final RegistryObject<Block> BLUE_CANDLE_GOLDEN_CAKE = registerBlock("blue_candle_golden_cake",
+    public static final RegistryObject<Block> BLUE_CANDLE_GOLDEN_CAKE = BLOCKS.register("blue_candle_golden_cake",
             () -> new CandleGoldenCakeBlock(Blocks.BLUE_CANDLE, BlockBehaviour.Properties.copy(GDModBlocks.CANDLE_GOLDEN_CAKE.get())));
 
-    public static final RegistryObject<Block> BROWN_CANDLE_GOLDEN_CAKE = registerBlock("brown_candle_golden_cake",
+    public static final RegistryObject<Block> BROWN_CANDLE_GOLDEN_CAKE = BLOCKS.register("brown_candle_golden_cake",
             () -> new CandleGoldenCakeBlock(Blocks.BROWN_CANDLE, BlockBehaviour.Properties.copy(GDModBlocks.CANDLE_GOLDEN_CAKE.get())));
 
-    public static final RegistryObject<Block> CYAN_CANDLE_GOLDEN_CAKE = registerBlock("cyan_candle_golden_cake",
+    public static final RegistryObject<Block> CYAN_CANDLE_GOLDEN_CAKE = BLOCKS.register("cyan_candle_golden_cake",
             () -> new CandleGoldenCakeBlock(Blocks.CYAN_CANDLE, BlockBehaviour.Properties.copy(GDModBlocks.CANDLE_GOLDEN_CAKE.get())));
 
-    public static final RegistryObject<Block> GRAY_CANDLE_GOLDEN_CAKE = registerBlock("gray_candle_golden_cake",
+    public static final RegistryObject<Block> GRAY_CANDLE_GOLDEN_CAKE = BLOCKS.register("gray_candle_golden_cake",
             () -> new CandleGoldenCakeBlock(Blocks.GRAY_CANDLE, BlockBehaviour.Properties.copy(GDModBlocks.CANDLE_GOLDEN_CAKE.get())));
 
-    public static final RegistryObject<Block> GREEN_CANDLE_GOLDEN_CAKE = registerBlock("green_candle_golden_cake",
+    public static final RegistryObject<Block> GREEN_CANDLE_GOLDEN_CAKE = BLOCKS.register("green_candle_golden_cake",
             () -> new CandleGoldenCakeBlock(Blocks.GREEN_CANDLE, BlockBehaviour.Properties.copy(GDModBlocks.CANDLE_GOLDEN_CAKE.get())));
 
-    public static final RegistryObject<Block> LIGHT_BLUE_CANDLE_GOLDEN_CAKE = registerBlock("light_blue_candle_golden_cake",
+    public static final RegistryObject<Block> LIGHT_BLUE_CANDLE_GOLDEN_CAKE = BLOCKS.register("light_blue_candle_golden_cake",
             () -> new CandleGoldenCakeBlock(Blocks.LIGHT_BLUE_CANDLE, BlockBehaviour.Properties.copy(GDModBlocks.CANDLE_GOLDEN_CAKE.get())));
 
-    public static final RegistryObject<Block> LIGHT_GRAY_CANDLE_GOLDEN_CAKE = registerBlock("light_gray_candle_golden_cake",
+    public static final RegistryObject<Block> LIGHT_GRAY_CANDLE_GOLDEN_CAKE = BLOCKS.register("light_gray_candle_golden_cake",
             () -> new CandleGoldenCakeBlock(Blocks.LIGHT_GRAY_CANDLE, BlockBehaviour.Properties.copy(GDModBlocks.CANDLE_GOLDEN_CAKE.get())));
 
-    public static final RegistryObject<Block> LIME_CANDLE_GOLDEN_CAKE = registerBlock("lime_candle_golden_cake",
+    public static final RegistryObject<Block> LIME_CANDLE_GOLDEN_CAKE = BLOCKS.register("lime_candle_golden_cake",
             () -> new CandleGoldenCakeBlock(Blocks.LIME_CANDLE, BlockBehaviour.Properties.copy(GDModBlocks.CANDLE_GOLDEN_CAKE.get())));
 
-    public static final RegistryObject<Block> MAGENTA_CANDLE_GOLDEN_CAKE = registerBlock("magenta_candle_golden_cake",
+    public static final RegistryObject<Block> MAGENTA_CANDLE_GOLDEN_CAKE = BLOCKS.register("magenta_candle_golden_cake",
             () -> new CandleGoldenCakeBlock(Blocks.MAGENTA_CANDLE, BlockBehaviour.Properties.copy(GDModBlocks.CANDLE_GOLDEN_CAKE.get())));
 
-    public static final RegistryObject<Block> ORANGE_CANDLE_GOLDEN_CAKE = registerBlock("orange_candle_golden_cake",
+    public static final RegistryObject<Block> ORANGE_CANDLE_GOLDEN_CAKE = BLOCKS.register("orange_candle_golden_cake",
             () -> new CandleGoldenCakeBlock(Blocks.ORANGE_CANDLE, BlockBehaviour.Properties.copy(GDModBlocks.CANDLE_GOLDEN_CAKE.get())));
 
-    public static final RegistryObject<Block> PINK_CANDLE_GOLDEN_CAKE = registerBlock("pink_candle_golden_cake",
+    public static final RegistryObject<Block> PINK_CANDLE_GOLDEN_CAKE = BLOCKS.register("pink_candle_golden_cake",
             () -> new CandleGoldenCakeBlock(Blocks.PINK_CANDLE, BlockBehaviour.Properties.copy(GDModBlocks.CANDLE_GOLDEN_CAKE.get())));
 
-    public static final RegistryObject<Block> PURPLE_CANDLE_GOLDEN_CAKE = registerBlock("purple_candle_golden_cake",
+    public static final RegistryObject<Block> PURPLE_CANDLE_GOLDEN_CAKE = BLOCKS.register("purple_candle_golden_cake",
             () -> new CandleGoldenCakeBlock(Blocks.PURPLE_CANDLE, BlockBehaviour.Properties.copy(GDModBlocks.CANDLE_GOLDEN_CAKE.get())));
 
-    public static final RegistryObject<Block> RED_CANDLE_GOLDEN_CAKE = registerBlock("red_candle_golden_cake",
+    public static final RegistryObject<Block> RED_CANDLE_GOLDEN_CAKE = BLOCKS.register("red_candle_golden_cake",
             () -> new CandleGoldenCakeBlock(Blocks.RED_CANDLE, BlockBehaviour.Properties.copy(GDModBlocks.CANDLE_GOLDEN_CAKE.get())));
 
-    public static final RegistryObject<Block> WHITE_CANDLE_GOLDEN_CAKE = registerBlock("white_candle_golden_cake",
+    public static final RegistryObject<Block> WHITE_CANDLE_GOLDEN_CAKE = BLOCKS.register("white_candle_golden_cake",
             () -> new CandleGoldenCakeBlock(Blocks.WHITE_CANDLE, BlockBehaviour.Properties.copy(GDModBlocks.CANDLE_GOLDEN_CAKE.get())));
 
-    public static final RegistryObject<Block> YELLOW_CANDLE_GOLDEN_CAKE = registerBlock("yellow_candle_golden_cake",
+    public static final RegistryObject<Block> YELLOW_CANDLE_GOLDEN_CAKE = BLOCKS.register("yellow_candle_golden_cake",
             () -> new CandleGoldenCakeBlock(Blocks.YELLOW_CANDLE, BlockBehaviour.Properties.copy(GDModBlocks.CANDLE_GOLDEN_CAKE.get())));
 
     public static final RegistryObject<Block> GOLDEN_CARROTS = BLOCKS.register("golden_carrots",

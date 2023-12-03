@@ -1,5 +1,6 @@
 package net.endil.goldelight.common.block.vanilla;
 
+import net.endil.goldelight.common.registry.GDModBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
@@ -23,25 +24,9 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.common.IPlantable;
 
-public class GoldenCactusBlock extends Block implements IPlantable {
-
-    public static final IntegerProperty AGE = BlockStateProperties.AGE_15;
-    public static final int MAX_AGE = 15;
-    protected static final int AABB_OFFSET = 1;
-    protected static final VoxelShape COLLISION_SHAPE = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 15.0D, 15.0D);
-    protected static final VoxelShape OUTLINE_SHAPE = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 16.0D, 15.0D);
-
+public class GoldenCactusBlock extends CactusBlock {
     public GoldenCactusBlock(BlockBehaviour.Properties pProperties) {
         super(pProperties);
-        this.registerDefaultState(this.stateDefinition.any().setValue(AGE, Integer.valueOf(0)));
-    }
-
-    public void tick(BlockState pState, ServerLevel pLevel, BlockPos pPos, RandomSource pRandom) {
-        if (!pLevel.isAreaLoaded(pPos, 1)) return;
-        if (!pState.canSurvive(pLevel, pPos)) {
-            pLevel.destroyBlock(pPos, true);
-        }
-
     }
     public void randomTick(BlockState pState, ServerLevel pLevel, BlockPos pPos, RandomSource pRandom) {
         BlockPos blockpos = pPos.above();
@@ -67,21 +52,6 @@ public class GoldenCactusBlock extends Block implements IPlantable {
         }
     }
 
-    public VoxelShape getCollisionShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        return COLLISION_SHAPE;
-    }
-
-    public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        return OUTLINE_SHAPE;
-    }
-    public BlockState updateShape(BlockState pState, Direction pFacing, BlockState pFacingState, LevelAccessor pLevel, BlockPos pCurrentPos, BlockPos pFacingPos) {
-        if (!pState.canSurvive(pLevel, pCurrentPos)) {
-            pLevel.scheduleTick(pCurrentPos, this, 1);
-        }
-
-        return super.updateShape(pState, pFacing, pFacingState, pLevel, pCurrentPos, pFacingPos);
-    }
-
     public boolean canSurvive(BlockState pState, LevelReader pLevel, BlockPos pPos) {
         for(Direction direction : Direction.Plane.HORIZONTAL) {
             BlockState blockstate = pLevel.getBlockState(pPos.relative(direction));
@@ -91,28 +61,10 @@ public class GoldenCactusBlock extends Block implements IPlantable {
         }
 
         BlockState blockstate1 = pLevel.getBlockState(pPos.below());
-        return blockstate1.canSustainPlant(pLevel, pPos, Direction.UP, this) && !pLevel.getBlockState(pPos.above()).liquid();
+        return (blockstate1.canSustainPlant(pLevel, pPos, Direction.UP, this) || blockstate1.is(GDModBlocks.GOLDEN_CACTUS.get())) && !pLevel.getBlockState(pPos.above()).liquid();
     }
 
     public void entityInside(BlockState pState, Level pLevel, BlockPos pPos, Entity pEntity) {
         pEntity.hurt(pLevel.damageSources().cactus(), 3.0F);
-    }
-
-    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
-        pBuilder.add(AGE);
-    }
-
-    public boolean isPathfindable(BlockState pState, BlockGetter pLevel, BlockPos pPos, PathComputationType pType) {
-        return false;
-    }
-
-    @Override
-    public net.minecraftforge.common.PlantType getPlantType(BlockGetter world, BlockPos pos) {
-        return net.minecraftforge.common.PlantType.DESERT;
-    }
-
-    @Override
-    public BlockState getPlant(BlockGetter world, BlockPos pos) {
-        return defaultBlockState();
     }
 }
