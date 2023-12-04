@@ -9,6 +9,8 @@ import net.minecraft.stats.Stats;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -51,8 +53,9 @@ public class GoldenCakeBlock extends Block {
             return InteractionResult.PASS;
         } else {
             pPlayer.awardStat(Stats.EAT_CAKE_SLICE);
-            pPlayer.getFoodData().eat(4, 0.2F);
-            pPlayer.heal(2);
+            pPlayer.getFoodData().eat(4, 0.1F);
+            pPlayer.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 700, 1, false, false));
+            pPlayer.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 370, 0, false, false));
             int i = pState.getValue(BITES);
             pLevel.gameEvent(pPlayer, GameEvent.EAT, pPos);
             if (i < 6) {

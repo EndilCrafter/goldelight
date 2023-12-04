@@ -48,18 +48,54 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         return LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(GDModItems.GOLDEN_GLOW_BERRIES.get()))
                 .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(GoldenCaveVines.BERRIES, true))));
     }
+    LootItemCondition.Builder goldenWheat = LootItemBlockStatePropertyCondition.hasBlockStateProperties(GDModBlocks.GOLDEN_WHEAT.get()).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(GoldenWheatBlock.AGE, 7));
+    LootItemCondition.Builder goldenCarrot = LootItemBlockStatePropertyCondition.hasBlockStateProperties(GDModBlocks.GOLDEN_CARROTS.get()).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(GoldenCarrotBlock.AGE, 7));
+    LootItemCondition.Builder goldenPotato = LootItemBlockStatePropertyCondition.hasBlockStateProperties(GDModBlocks.GOLDEN_POTATOES.get()).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(GoldenPotatoBlock.AGE, 7));
+    LootItemCondition.Builder goldenCabbage = LootItemBlockStatePropertyCondition.hasBlockStateProperties(GDModBlocks.GOLDEN_CABBAGE_CROP.get()).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(GoldenCabbageBlock.AGE, 7));
+    LootItemCondition.Builder goldenOnion = LootItemBlockStatePropertyCondition.hasBlockStateProperties(GDModBlocks.GOLDEN_ONION_CROP.get()).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(GoldenOnionBlock.AGE, 7));
+    LootItemCondition.Builder goldenTomato = LootItemBlockStatePropertyCondition.hasBlockStateProperties(GDModBlocks.GOLDEN_TOMATO_CROP.get()).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(GoldenTomatoVineBlock.AGE, 7));
 
     @Override
     protected void generate() {
-        LootItemCondition.Builder goldenWheat = LootItemBlockStatePropertyCondition.hasBlockStateProperties(GDModBlocks.GOLDEN_WHEAT.get()).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(GoldenWheatBlock.AGE, 7));
-        LootItemCondition.Builder goldenCarrot = LootItemBlockStatePropertyCondition.hasBlockStateProperties(GDModBlocks.GOLDEN_CARROTS.get()).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(GoldenCarrotBlock.AGE, 7));
-        LootItemCondition.Builder goldenPotato = LootItemBlockStatePropertyCondition.hasBlockStateProperties(GDModBlocks.GOLDEN_POTATOES.get()).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(GoldenPotatoBlock.AGE, 7));
-        LootItemCondition.Builder goldenCabbage = LootItemBlockStatePropertyCondition.hasBlockStateProperties(GDModBlocks.GOLDEN_CABBAGE_CROP.get()).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(GoldenCabbageBlock.AGE, 7));
-        LootItemCondition.Builder goldenOnion = LootItemBlockStatePropertyCondition.hasBlockStateProperties(GDModBlocks.GOLDEN_ONION_CROP.get()).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(GoldenOnionBlock.AGE, 7));
-        LootItemCondition.Builder goldenTomato = LootItemBlockStatePropertyCondition.hasBlockStateProperties(GDModBlocks.GOLDEN_TOMATO_CROP.get()).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(GoldenTomatoVineBlock.AGE, 7));
+        this.registerMinecraftBuildings();
+        this.registerMinecraftCrops();
+        this.registerFD();
+    }
 
-
+    private void registerMinecraftBuildings() {
+        this.dropSelf(GDModBlocks.CHISELED_GOLDEN_NETHER_BRICKS.get());
+        this.dropSelf(GDModBlocks.CRACKED_GOLDEN_NETHER_BRICKS.get());
         this.dropSelf(GDModBlocks.GOL_D_LANTERN.get());
+        this.dropSelf(GDModBlocks.GOLDEN_BONE_BLOCK.get());
+        this.dropSelf(GDModBlocks.GOLDEN_BUTTON.get());
+        this.dropSelf(GDModBlocks.GOLDEN_CARVED_PUMPKIN.get());
+        this.add(GDModBlocks.GOLDEN_DOOR.get(), block -> createDoorTable(GDModBlocks.GOLDEN_DOOR.get()));
+        this.dropSelf(GDModBlocks.GOLDEN_FENCE.get());
+        this.dropSelf(GDModBlocks.GOLDEN_FENCE_GATE.get());
+        this.dropSelf(GDModBlocks.GOLDEN_HANGING_SIGN.get());
+        this.dropSelf(GDModBlocks.GOLDEN_HYPHAE.get());
+        this.add(GDModBlocks.GOLDEN_MUSHROOM_BLOCK.get(), block -> createMushroomBlockDrop(block, GDModBlocks.GOLDEN_MUSHROOM.get()));
+        this.dropWhenSilkTouch(GDModBlocks.GOLDEN_MUSHROOM_STEM.get());
+        this.dropSelf(GDModBlocks.GOLDEN_NETHER_BRICKS.get());
+        this.dropSelf(GDModBlocks.GOLDEN_NETHER_BRICK_FENCE.get());
+        this.add(GDModBlocks.GOLDEN_NETHER_BRICK_SLAB.get(), block -> createSlabItemTable(GDModBlocks.GOLDEN_NETHER_BRICK_SLAB.get()));
+        this.dropSelf(GDModBlocks.GOLDEN_NETHER_BRICK_STAIRS.get());
+        this.dropSelf(GDModBlocks.GOLDEN_PLANKS.get());
+        this.dropSelf(GDModBlocks.GOLDEN_PRESSURE_PLATE.get());
+        this.dropSelf(GDModBlocks.GOLDEN_SIGN.get());
+        this.add(GDModBlocks.GOLDEN_SLAB.get(), block -> createSlabItemTable(GDModBlocks.GOLDEN_SLAB.get()));
+        this.dropSelf(GDModBlocks.GOLDEN_STAIRS.get());
+        this.dropSelf(GDModBlocks.GOLDEN_STEM.get());
+        this.dropSelf(GDModBlocks.GOLDEN_TRAPDOOR.get());
+        this.dropSelf(GDModBlocks.GROOMLIGHT.get());
+        this.dropSelf(GDModBlocks.STRIPPED_GOLDEN_STEM.get());
+        this.dropSelf(GDModBlocks.STRIPPED_GOLDEN_HYPHAE.get());
+        this.dropSelf(GDModBlocks.GOLDEN_WART_BLOCK.get());
+        this.dropOther(GDModBlocks.GOLDEN_WALL_SIGN.get(), GDModBlocks.GOLDEN_SIGN.get());
+        this.dropOther(GDModBlocks.GOLDEN_WALL_HANGING_SIGN.get(), GDModBlocks.GOLDEN_HANGING_SIGN.get());
+    }
+
+    private void registerMinecraftCrops() {
         this.dropSelf(GDModBlocks.GOLDEN_CACTUS.get());
         this.dropOther(GDModBlocks.CANDLE_GOLDEN_CAKE.get(), Items.CANDLE);
         this.dropOther(GDModBlocks.BLACK_CANDLE_GOLDEN_CAKE.get(), Items.BLACK_CANDLE);
@@ -78,16 +114,10 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropOther(GDModBlocks.RED_CANDLE_GOLDEN_CAKE.get(), Items.RED_CANDLE);
         this.dropOther(GDModBlocks.WHITE_CANDLE_GOLDEN_CAKE.get(), Items.WHITE_CANDLE);
         this.dropOther(GDModBlocks.YELLOW_CANDLE_GOLDEN_CAKE.get(), Items.YELLOW_CANDLE);
-        this.dropSelf(GDModBlocks.GOLDEN_CARVED_PUMPKIN.get());
         this.dropSelf(GDModBlocks.GOLDEN_HAY_BLOCK.get());
         this.add(GDModBlocks.GOLDEN_MELON.get(),
                 block -> createCropBlock(GDModBlocks.GOLDEN_MELON.get(), GDModItems.GOLDEN_MELON_SLICE.get()));
-        this.add(GDModBlocks.GOLDEN_MUSHROOM_BLOCK.get(), block -> createMushroomBlockDrop(block, GDModBlocks.GOLDEN_MUSHROOM.get()));
-        this.dropWhenSilkTouch(GDModBlocks.GOLDEN_MUSHROOM_STEM.get());
         this.dropSelf(GDModBlocks.GOLDEN_PUMPKIN.get());
-        this.dropSelf(GDModBlocks.GOLDEN_WART_BLOCK.get());
-
-        //Minecraft Crops
         this.add(GDModBlocks.ATTACHED_GOLDEN_MELON_STEM.get(),
                 block -> createAttachedStemDrops(GDModBlocks.ATTACHED_GOLDEN_MELON_STEM.get(), GDModItems.GOLDEN_MELON_SEEDS.get()));
 
@@ -134,10 +164,9 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.add(GDModBlocks.GOLDEN_WART.get(),
                 block -> LootTable.lootTable().withPool(this.applyExplosionDecay(block, LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).add(LootItem.lootTableItem(GDModItems.GOLDEN_WART.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(2.0F, 4.0F)).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(GoldenWartBlock.AGE, 3)))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(GoldenWartBlock.AGE, 3))))))));
 
+    }
 
-        //Farmer's Delight
-
-
+    private void registerFD() {
         this.dropSelf(GDModBlocks.GOLDEN_CARROT_CRATE.get());
         this.dropSelf(GDModBlocks.GOLDEN_POTATO_CRATE.get());
         this.dropSelf(GDModBlocks.GOLDEN_BEETROOT_CRATE.get());
@@ -167,7 +196,6 @@ public class ModBlockLootTables extends BlockLootSubProvider {
                         LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(GDModItems.GOLDEN_RICE.get())))));
 
         this.dropSelf(GDModBlocks.NETHER_BRICK_STOVE.get());
-
     }
 
     protected LootTable.Builder createCropBlock(Block pBlock, Item pItem) {

@@ -97,11 +97,16 @@ public class GDModFoods {
             .effect(() -> new MobEffectInstance(MobEffects.WATER_BREATHING, 960), 1.0F).build();
     public static final FoodProperties GOLDEN_COOKIES = (new FoodProperties.Builder()).nutrition(3).saturationMod(0.1F).fast().build();
     public static final FoodProperties GOLDEN_CAKE_SLICE = (new FoodProperties.Builder()).nutrition(4).saturationMod(0.1F).fast()
-            .effect(() -> new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 400, 1, false, false), 1.0F).build();
+            .effect(() -> new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 700, 1, false, false), 1.0F)
+            .effect(() -> new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 370, 0, false, false), 1.0F).build();
     public static final FoodProperties GOLDEN_PIE_SLICE = (new FoodProperties.Builder()).nutrition(6).saturationMod(0.3F).fast()
             .effect(() -> new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 600, 1, false, false), 1.0F).build();
     public static final FoodProperties GOLDEN_FRUIT_SALAD = (new FoodProperties.Builder()).nutrition(8).saturationMod(0.6F)
-            .effect(() -> new MobEffectInstance(MobEffects.REGENERATION, 100, 1), 1.0F).build();
+            .effect(() -> new MobEffectInstance(MobEffects.REGENERATION, 340, 1), 1.0F)
+            .effect(() -> new MobEffectInstance(MobEffects.NIGHT_VISION, 1560, 0), 1.0F)
+            .effect(() -> new MobEffectInstance(MobEffects.ABSORPTION, 720, 0), 1.0F)
+            .effect(() -> new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 480, 0), 1.0F)
+            .effect(() -> new MobEffectInstance(MobEffects.WATER_BREATHING, 480, 0), 1.0F).build();
     public static final FoodProperties GOLDEN_GLOW_BERRY_CUSTARD = (new FoodProperties.Builder()).nutrition(10).saturationMod(0.6F).alwaysEat()
             .effect(() -> new MobEffectInstance(MobEffects.GLOWING, 50, 0), 0.5F).build();
     public static final FoodProperties MIXED_GOLDEN_SALAD = (new FoodProperties.Builder()).nutrition(8).saturationMod(0.6F)
@@ -170,6 +175,9 @@ public class GDModFoods {
     public static final FoodProperties GOLDEN_SHEPHERDS_PIE = (new FoodProperties.Builder()).nutrition(20).saturationMod(0.75F)
             .effect(() -> new MobEffectInstance(ModEffects.NOURISHMENT.get(), 9000, 0), 1.0F).build();
     public static final FoodProperties GOLDEN_DOG_FOOD = (new FoodProperties.Builder()).nutrition(6).saturationMod(0.2F).meat().build();
+    public static final FoodProperties GOLDEN_APPLE = (new FoodProperties.Builder()).nutrition(4).saturationMod(1.2F)
+            .effect(() -> new MobEffectInstance(MobEffects.REGENERATION, 200, 0), 1.0F)
+            .effect(() -> new MobEffectInstance(MobEffects.ABSORPTION, 600, 0), 1.0F).alwaysEat().build();
 
     private static FoodProperties.Builder rawMeat(int pNutrition) {
         return (new FoodProperties.Builder()).nutrition(pNutrition).saturationMod(0.3F).meat();

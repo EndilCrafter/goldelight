@@ -21,8 +21,6 @@ public class GDModItems {
     public static final DeferredRegister<Item> VANILLA_ITEMS =
             DeferredRegister.create(ForgeRegistries.ITEMS, "minecraft");
 
-    public static final DeferredRegister<Item> MIDAS_ITEMS =
-            DeferredRegister.create(ForgeRegistries.ITEMS, "midashunger");
     //Minecraft
     public static final RegistryObject<Item> GOLDEN_BEEF = ITEMS.register("golden_beef",
             () -> new Item(foodItem(GDModFoods.GOLDEN_BEEF)));
@@ -85,27 +83,31 @@ public class GDModItems {
     public static final RegistryObject<Item> GOLDEN_WHEAT = ITEMS.register("golden_wheat", () -> new Item(basicItem()));
     public static final RegistryObject<Item> GOLDEN_WHEAT_SEEDS = ITEMS.register("golden_wheat_seeds",
             () -> new ItemNameBlockItem(GDModBlocks.GOLDEN_WHEAT.get(), basicItem()));
+    public static final RegistryObject<Item> GOLDEN_SIGN = ITEMS.register("golden_sign",
+            () -> new SignItem(basicItem().stacksTo(16), GDModBlocks.GOLDEN_SIGN.get(), GDModBlocks.GOLDEN_WALL_SIGN.get()));
+    public static final RegistryObject<Item> GOLDEN_HANGING_SIGN = ITEMS.register("golden_hanging_sign",
+            () -> new HangingSignItem(GDModBlocks.GOLDEN_HANGING_SIGN.get(), GDModBlocks.GOLDEN_WALL_HANGING_SIGN.get(), basicItem().stacksTo(16)));
+
+    //Vanilla Changes + Original
+    public static final RegistryObject<Item> GOLDEN_APPLE = VANILLA_ITEMS.register("golden_apple",
+            () -> new Item(foodItem(GDModFoods.GOLDEN_APPLE)));
     public static final RegistryObject<Item> GOLDEN_CARROT = VANILLA_ITEMS.register("golden_carrot",
             () -> new ItemNameBlockItem(GDModBlocks.GOLDEN_CARROTS.get(), foodItem(Foods.GOLDEN_CARROT)));
     public static final RegistryObject<Item> MIDAS_KNIFE = ITEMS.register("midas_knife",
             () -> new KnifeItem(Tiers.NETHERITE, 0.5F, -2.0F, basicItem().fireResistant().rarity(Rarity.EPIC)));
+
+    //Farmer's Delight
     public static final RegistryObject<Item> GOLDEN_MUSHROOM_COLONY = ITEMS.register("golden_mushroom_colony",
             () -> new MushroomColonyItem(GDModBlocks.GOLDEN_MUSHROOM_COLONY.get(), basicItem()));
     public static final RegistryObject<Item> GOLDEN_COOKING_POT = ITEMS.register("golden_cooking_pot",
             () -> new BlockItem(GDModBlocks.GOLDEN_COOKING_POT.get(), basicItem().stacksTo(1)));
     public static final RegistryObject<Item> GOLDEN_CABBAGE = ITEMS.register("golden_cabbage",
             () -> new Item(foodItem(GDModFoods.GOLDEN_CABBAGE)));
-
-    //Original
     public static final RegistryObject<Item> GOLDEN_TOMATO = ITEMS.register("golden_tomato",
             () -> new Item(foodItem(GDModFoods.GOLDEN_TOMATO)));
-
-    //Farmer's Delight Composting, Util
     public static final RegistryObject<Item> GOLDEN_ONION = ITEMS.register("golden_onion",
             () -> new ItemNameBlockItem(GDModBlocks.GOLDEN_ONION_CROP.get(), foodItem(GDModFoods.GOLDEN_ONION)));
     public static final RegistryObject<Item> GOLDEN_RICE_PANICLE = ITEMS.register("golden_rice_panicle", () -> new Item(basicItem()));
-
-    //FD: Basic Crops
     public static final RegistryObject<Item> GOLDEN_RICE = ITEMS.register("golden_rice",
             () -> new RiceItem(GDModBlocks.GOLDEN_RICE_CROP.get(), basicItem()));
     public static final RegistryObject<Item> GOLDEN_CABBAGE_SEEDS = ITEMS.register("golden_cabbage_seeds",
@@ -122,9 +124,6 @@ public class GDModItems {
             () -> new HotCocoaItem(drinkItem()));
     public static final RegistryObject<Item> GAPPLE_CIDER = ITEMS.register("gapple_cider",
             () -> new DrinkableItem(drinkItem().food(GDModFoods.GAPPLE_CIDER), true, false));
-
-
-    //FD: Foodstuffs
     public static final RegistryObject<Item> GOLDEN_MELON_JUICE = ITEMS.register("golden_melon_juice",
             () -> new GoldenMelonJuiceItem(drinkItem()));
     public static final RegistryObject<Item> GOLDEN_TOMATO_SAUCE = ITEMS.register("golden_tomato_sauce",
@@ -173,9 +172,6 @@ public class GDModItems {
             () -> new BlockItem(GDModBlocks.SWEET_GOLDEN_BERRY_CHEESECAKE.get(), basicItem()));
     public static final RegistryObject<Item> GOLDEN_CHOCOLATE_PIE = ITEMS.register("golden_chocolate_pie",
             () -> new BlockItem(GDModBlocks.GOLDEN_CHOCOLATE_PIE.get(), basicItem()));
-
-
-    //FD: Sweets
     public static final RegistryObject<Item> GOLDEN_CAKE_SLICE = ITEMS.register("golden_cake_slice",
             () -> new Item(foodItem(GDModFoods.GOLDEN_CAKE_SLICE)));
     public static final RegistryObject<Item> GOLDEN_APPLE_PIE_SLICE = ITEMS.register("golden_apple_pie_slice",
@@ -306,6 +302,5 @@ public class GDModItems {
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
         VANILLA_ITEMS.register(eventBus);
-        MIDAS_ITEMS.register(eventBus);
     }
 }

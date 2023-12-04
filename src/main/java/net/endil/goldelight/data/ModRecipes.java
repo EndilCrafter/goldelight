@@ -186,6 +186,8 @@ public class ModRecipes extends RecipeProvider implements IConditionBuilder {
         Storage(consumer, GDModItems.GOLDEN_ONION.get(), GDModBlocks.GOLDEN_ONION_CRATE.get());
         Storage(consumer, GDModItems.GOLDEN_RICE_PANICLE.get(), GDModBlocks.GOLDEN_RICE_BALE.get());
         Storage(consumer, GDModItems.GOLDEN_RICE.get(), GDModBlocks.GOLDEN_RICE_BAG.get());
+        Compact(consumer, GDModItems.GOLDEN_WART.get(), GDModBlocks.GOLDEN_WART_BLOCK.get());
+        Storage(consumer, GDModItems.GOLDEN_MEAL.get(), GDModBlocks.GOLDEN_BONE_BLOCK.get());
 
         Conversion(consumer, GDModItems.GOLDEN_MEAL.get(), GDModItems.GOLDEN_BONE.get(), 3);
         CropToSeeds(consumer, GDModItems.GOLDEN_MELON_SEEDS.get(), GDModItems.GOLDEN_MELON_SLICE.get());
@@ -195,6 +197,7 @@ public class ModRecipes extends RecipeProvider implements IConditionBuilder {
         SimpleConversion(consumer, GDModItems.GOLDEN_RICE.get(), GDModItems.GOLDEN_RICE_PANICLE.get());
         CropToSeeds(consumer, GDModItems.GOLDEN_TOMATO_SEEDS.get(), GDModItems.GOLDEN_TOMATO.get());
         CropToSeeds(consumer, GDModItems.GOLDEN_TOMATO_SEEDS.get(), GDModItems.ROTTEN_GOLDEN_TOMATO.get());
+        Conversion(consumer, GDModItems.GOLDEN_HONEY_BOTTLE.get(), GDModItems.GOLDEN_SUGAR.get(), 3);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, GDModBlocks.GOLDEN_MUSHROOM.get())
                 .pattern("ggg").pattern("gmg").pattern("ggg")
@@ -285,6 +288,8 @@ public class ModRecipes extends RecipeProvider implements IConditionBuilder {
         CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(GDModBlocks.GOLDEN_MUSHROOM_COLONY.get()), Ingredient.of(ForgeTags.TOOLS_KNIVES), GDModBlocks.GOLDEN_MUSHROOM.get(), 5)
                 .build(consumer);
         CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(GDModItems.GOLDEN_RICE_PANICLE.get()), Ingredient.of(ForgeTags.TOOLS_KNIVES), GDModItems.GOLDEN_RICE.get(), 1).addResult(ModItems.STRAW.get())
+                .build(consumer);
+        CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(GDModItems.GOLDEN_CABBAGE.get()), Ingredient.of(ForgeTags.TOOLS_KNIVES), GDModItems.GOLDEN_CABBAGE_LEAF.get(), 2)
                 .build(consumer);
     }
 
@@ -859,4 +864,7 @@ public class ModRecipes extends RecipeProvider implements IConditionBuilder {
                 .build(consumer);
     }
 
+    private void registerBuilding(Consumer<FinishedRecipe> consumer) {
+
+    }
 }

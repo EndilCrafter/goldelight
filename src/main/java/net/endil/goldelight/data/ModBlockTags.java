@@ -78,6 +78,20 @@ public class ModBlockTags extends BlockTagsProvider {
                 .add(GDModBlocks.WHITE_CANDLE_GOLDEN_CAKE.get())
                 .add(GDModBlocks.YELLOW_CANDLE_GOLDEN_CAKE.get());
         this.tag(BlockTags.CAVE_VINES).add(GDModBlocks.GOLDEN_CAVE_VINES_PLANT.get(), GDModBlocks.GOLDEN_CAVE_VINES.get());
+        this.tag(BlockTags.WOODEN_BUTTONS).add(GDModBlocks.GOLDEN_BUTTON.get());
+        this.tag(BlockTags.WOODEN_DOORS).add(GDModBlocks.GOLDEN_DOOR.get());
+        this.tag(BlockTags.WOODEN_FENCES).add(GDModBlocks.GOLDEN_FENCE.get());
+        this.tag(BlockTags.FENCE_GATES).add(GDModBlocks.GOLDEN_FENCE_GATE.get());
+        this.tag(BlockTags.WOODEN_STAIRS).add(GDModBlocks.GOLDEN_STAIRS.get());
+        this.tag(BlockTags.WOODEN_SLABS).add(GDModBlocks.GOLDEN_SLAB.get());
+        this.tag(BlockTags.WOODEN_PRESSURE_PLATES).add(GDModBlocks.GOLDEN_PRESSURE_PLATE.get());
+        this.tag(BlockTags.WOODEN_TRAPDOORS).add(GDModBlocks.GOLDEN_TRAPDOOR.get());
+        this.tag(BlockTags.LOGS).addTag(GDModTags.Blocks.GOLDEN_STEMS);
+        this.tag(BlockTags.FENCES).add(GDModBlocks.GOLDEN_NETHER_BRICK_FENCE.get());
+        this.tag(BlockTags.STANDING_SIGNS).add(GDModBlocks.GOLDEN_SIGN.get());
+        this.tag(BlockTags.WALL_SIGNS).add(GDModBlocks.GOLDEN_WALL_SIGN.get());
+        this.tag(BlockTags.CEILING_HANGING_SIGNS).add(GDModBlocks.GOLDEN_HANGING_SIGN.get());
+        this.tag(BlockTags.WALL_HANGING_SIGNS).add(GDModBlocks.GOLDEN_WALL_HANGING_SIGN.get());
     }
 
     private void registerFDTags() {
@@ -96,6 +110,8 @@ public class ModBlockTags extends BlockTagsProvider {
                 .add(GDModBlocks.GOLDEN_MUSHROOM.get(), GDModBlocks.GOLDEN_MUSHROOM_COLONY.get(),
                         GDModBlocks.GOLDEN_SOIL.get(), GDModBlocks.GOLDEN_SOIL_FARMLAND.get(), GDModBlocks.GOLDEN_COMPOST.get());
         this.tag(GDModTags.Blocks.GOLDEN_MUSHROOM_GROW_BLOCK).add(GDModBlocks.GOLDEN_SOIL.get(), GDModBlocks.GOLDEN_COMPOST.get());
+        this.tag(GDModTags.Blocks.GOLDEN_STEMS).add(GDModBlocks.GOLDEN_STEM.get(), GDModBlocks.GOLDEN_HYPHAE.get(),
+                GDModBlocks.STRIPPED_GOLDEN_STEM.get(), GDModBlocks.STRIPPED_GOLDEN_HYPHAE.get());
     }
 
     private void registerCompatTags() {

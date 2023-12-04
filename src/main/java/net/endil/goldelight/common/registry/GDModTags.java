@@ -13,7 +13,7 @@ public class GDModTags {
         public static final TagKey<Block> GOLDEN_CROPS = tag("golden_crops");
         public static final TagKey<Block> GOLDEN_MUSHROOM_GROW_BLOCK = tag("golden_mushroom_grow_block");
         public static final TagKey<Block> GOLDEN_COMPOST_ACTIVATORS = tag("golden_compost_activators");
-
+        public static final TagKey<Block> GOLDEN_STEMS = tag("golden_stems");
         private static TagKey<Block> tag(String name) {
             return BlockTags.create(new ResourceLocation(GolDelight.MOD_ID, name));
         }
@@ -25,6 +25,7 @@ public class GDModTags {
 
         //Minecraft
         public static final TagKey<Item> GOLDEN_FISHES = tag("golden_fishes");
+        public static final TagKey<Item> GOLDEN_STEMS = tag("golden_stems");
 
         //Forge
         public static final TagKey<Item> GOLDEN_CROPS = tag("golden_crops");

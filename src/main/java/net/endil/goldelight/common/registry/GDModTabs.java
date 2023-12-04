@@ -54,14 +54,14 @@ public class GDModTabs {
                         pOutput.accept(GDModItems.GOLDEN_SUGAR.get());
                         pOutput.accept(GDModItems.GOLDEN_SUGAR_CANE.get());
                         pOutput.accept(GDModItems.GOLDEN_TROPICAL_FISH.get());
-                        // pOutput.accept(GDModItems.GOLDEN_WART.get());
+                        pOutput.accept(GDModItems.GOLDEN_WART.get());
                         pOutput.accept(GDModItems.GOLDEN_WHEAT.get());
                         pOutput.accept(GDModItems.GOLDEN_WHEAT_SEEDS.get());
                         pOutput.accept(GDModItems.MIDAS_KNIFE.get());
 
                         //GolDelight Blocks
                         pOutput.accept(GDModBlocks.GOL_D_LANTERN.get());
-                        // pOutput.accept(GDModBlocks.GOLDEN_CACTUS.get());
+                        pOutput.accept(GDModBlocks.GOLDEN_CACTUS.get());
                         pOutput.accept(GDModBlocks.GOLDEN_CARVED_PUMPKIN.get());
                         pOutput.accept(GDModBlocks.GOLDEN_CHORUS_FLOWER.get());
                         pOutput.accept(GDModBlocks.GOLDEN_CHORUS_PLANT.get());
@@ -69,12 +69,35 @@ public class GDModTabs {
                         pOutput.accept(GDModBlocks.GOLDEN_MELON.get());
                         pOutput.accept(GDModBlocks.GOLDEN_MUSHROOM.get());
                         pOutput.accept(GDModBlocks.GOLDEN_FUNGUS.get());
+                        pOutput.accept(GDModBlocks.GOLDEN_BONE_BLOCK.get());
+                        pOutput.accept(GDModBlocks.GOLDEN_NETHER_BRICKS.get());
+                        pOutput.accept(GDModBlocks.CHISELED_GOLDEN_NETHER_BRICKS.get());
+                        pOutput.accept(GDModBlocks.CRACKED_GOLDEN_NETHER_BRICKS.get());
+                        pOutput.accept(GDModBlocks.GOLDEN_NETHER_BRICK_SLAB.get());
+                        pOutput.accept(GDModBlocks.GOLDEN_NETHER_BRICK_STAIRS.get());
+                        pOutput.accept(GDModBlocks.GOLDEN_NETHER_BRICK_FENCE.get());
+                        pOutput.accept(GDModBlocks.GROOMLIGHT.get());
+                        pOutput.accept(GDModBlocks.GOLDEN_STEM.get());
+                        pOutput.accept(GDModBlocks.GOLDEN_HYPHAE.get());
+                        pOutput.accept(GDModBlocks.STRIPPED_GOLDEN_STEM.get());
+                        pOutput.accept(GDModBlocks.STRIPPED_GOLDEN_HYPHAE.get());
+                        pOutput.accept(GDModBlocks.GOLDEN_PLANKS.get());
+                        pOutput.accept(GDModBlocks.GOLDEN_SLAB.get());
+                        pOutput.accept(GDModBlocks.GOLDEN_STAIRS.get());
+                        pOutput.accept(GDModBlocks.GOLDEN_PRESSURE_PLATE.get());
+                        pOutput.accept(GDModBlocks.GOLDEN_BUTTON.get());
+                        pOutput.accept(GDModBlocks.GOLDEN_FENCE.get());
+                        pOutput.accept(GDModBlocks.GOLDEN_FENCE_GATE.get());
+                        pOutput.accept(GDModBlocks.GOLDEN_DOOR.get());
+                        pOutput.accept(GDModBlocks.GOLDEN_TRAPDOOR.get());
+                        pOutput.accept(GDModBlocks.GOLDEN_SIGN.get());
+                        pOutput.accept(GDModBlocks.GOLDEN_HANGING_SIGN.get());
                         /*
                          pOutput.accept(GDModBlocks.GOLDEN_MUSHROOM_BLOCK.get());
                          pOutput.accept(GDModBlocks.GOLDEN_MUSHROOM_STEM.get());
                         */
                         pOutput.accept(GDModBlocks.GOLDEN_PUMPKIN.get());
-                        // pOutput.accept(GDModBlocks.GOLDEN_WART_BLOCK.get());
+                        pOutput.accept(GDModBlocks.GOLDEN_WART_BLOCK.get());
 
                         //Farmer's Delight Items
                         // pOutput.accept(GDModItems.GOLDEN_COOKING_POT.get());
@@ -181,7 +204,7 @@ public class GDModTabs {
                         pOutput.accept(GDModBlocks.GOLDEN_ONION_CRATE.get());
                         pOutput.accept(GDModBlocks.GOLDEN_RICE_BALE.get());
                         pOutput.accept(GDModBlocks.GOLDEN_RICE_BAG.get());
-                        // pOutput.accept(GDModBlocks.NETHER_BRICK_STOVE.get());
+                        pOutput.accept(GDModBlocks.NETHER_BRICK_STOVE.get());
                         pOutput.accept(GDModBlocks.GOLDEN_SOIL.get());
                         pOutput.accept(GDModBlocks.GOLDEN_SOIL_FARMLAND.get());
                         pOutput.accept(GDModBlocks.GOLDEN_COMPOST.get());

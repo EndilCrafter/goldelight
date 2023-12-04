@@ -7,6 +7,7 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -122,19 +123,19 @@ public class GDModBlocks {
                     BlockBehaviour.Properties.copy(Blocks.ATTACHED_MELON_STEM)));
 
     public static final RegistryObject<Block> GOLDEN_MUSHROOM = registerBlock("golden_mushroom",
-            () -> new GoldenMushroomBlock(BlockBehaviour.Properties.copy(Blocks.RED_MUSHROOM).randomTicks()));
+            () -> new GoldenMushroomBlock(BlockBehaviour.Properties.copy(Blocks.RED_MUSHROOM).randomTicks().mapColor(MapColor.GOLD)));
     public static final RegistryObject<Block> GOLDEN_MUSHROOM_COLONY = BLOCKS.register("golden_mushroom_colony",
             () -> new MushroomColonyBlock(BlockBehaviour.Properties.copy(GDModBlocks.GOLDEN_MUSHROOM.get()), () -> GDModBlocks.GOLDEN_MUSHROOM.get().asItem()));
     public static final RegistryObject<Block> GOLDEN_FUNGUS = registerBlock("golden_fungus",
-            () -> new GoldenFungusBlock(BlockBehaviour.Properties.copy(Blocks.WARPED_FUNGUS)));
+            () -> new GoldenFungusBlock(BlockBehaviour.Properties.copy(Blocks.WARPED_FUNGUS).mapColor(MapColor.GOLD)));
     public static final RegistryObject<Block> GOLDEN_MUSHROOM_BLOCK = registerBlock("golden_mushroom_block",
-            () -> new HugeMushroomBlock(BlockBehaviour.Properties.copy(Blocks.RED_MUSHROOM_BLOCK).mapColor(MapColor.COLOR_YELLOW)));
+            () -> new HugeMushroomBlock(BlockBehaviour.Properties.copy(Blocks.RED_MUSHROOM_BLOCK).mapColor(MapColor.GOLD)));
     public static final RegistryObject<Block> GOLDEN_MUSHROOM_STEM = registerBlock("golden_mushroom_stem",
             () -> new HugeMushroomBlock(BlockBehaviour.Properties.copy(Blocks.MUSHROOM_STEM).mapColor(MapColor.COLOR_BROWN)));
     public static final RegistryObject<Block> GOLDEN_POTATOES = BLOCKS.register("golden_potatoes",
-            () -> new GoldenPotatoBlock(BlockBehaviour.Properties.copy(Blocks.POTATOES)));
+            () -> new GoldenPotatoBlock(BlockBehaviour.Properties.copy(Blocks.POTATOES).mapColor(MapColor.GOLD)));
     public static final RegistryObject<Block> GOLDEN_PUMPKIN = registerBlock("golden_pumpkin",
-            () -> new GoldenPumpkinBlock(BlockBehaviour.Properties.copy(Blocks.PUMPKIN).mapColor(MapColor.COLOR_YELLOW)));
+            () -> new GoldenPumpkinBlock(BlockBehaviour.Properties.copy(Blocks.PUMPKIN).mapColor(MapColor.GOLD)));
     public static final RegistryObject<Block> GOLDEN_PUMPKIN_STEM = BLOCKS.register("golden_pumpkin_stem",
             () -> new StemBlock((StemGrownBlock) GDModBlocks.GOLDEN_PUMPKIN.get(), GDModItems.GOLDEN_PUMPKIN_SEEDS,
                     BlockBehaviour.Properties.copy(Blocks.PUMPKIN_STEM)));
@@ -142,43 +143,92 @@ public class GDModBlocks {
             () -> new AttachedStemBlock((StemGrownBlock) GDModBlocks.GOLDEN_PUMPKIN.get(), GDModItems.GOLDEN_PUMPKIN_SEEDS,
                     BlockBehaviour.Properties.copy(Blocks.ATTACHED_PUMPKIN_STEM)));
     public static final RegistryObject<Block> GOLDEN_SUGAR_CANE = BLOCKS.register("golden_sugar_cane",
-            () -> new SugarCaneBlock(BlockBehaviour.Properties.copy(Blocks.SUGAR_CANE)));
+            () -> new SugarCaneBlock(BlockBehaviour.Properties.copy(Blocks.SUGAR_CANE).mapColor(MapColor.GOLD)));
     public static final RegistryObject<Block> GOLDEN_WART = BLOCKS.register("golden_wart",
-            () -> new GoldenWartBlock(BlockBehaviour.Properties.copy(Blocks.NETHER_WART)));
+            () -> new GoldenWartBlock(BlockBehaviour.Properties.copy(Blocks.NETHER_WART).mapColor(MapColor.GOLD)));
     public static final RegistryObject<Block> GOLDEN_WART_BLOCK = registerBlock("golden_wart_block",
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.NETHER_WART_BLOCK).mapColor(MapColor.COLOR_YELLOW)));
-
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.NETHER_WART_BLOCK).mapColor(MapColor.GOLD)));
+    public static final RegistryObject<Block> GOLDEN_BONE_BLOCK = registerBlock("golden_bone_block",
+            () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.BONE_BLOCK).mapColor(MapColor.GOLD)));
+    public static final RegistryObject<Block> GOLDEN_NETHER_BRICKS = registerBlock("golden_nether_bricks",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.NETHER_BRICKS).mapColor(MapColor.GOLD)));
+    public static final RegistryObject<Block> CRACKED_GOLDEN_NETHER_BRICKS = registerBlock("cracked_golden_nether_bricks",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.CRACKED_NETHER_BRICKS).mapColor(MapColor.GOLD)));
+    public static final RegistryObject<Block> CHISELED_GOLDEN_NETHER_BRICKS = registerBlock("chiseled_golden_nether_bricks",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.CHISELED_NETHER_BRICKS).mapColor(MapColor.GOLD)));
+    public static final RegistryObject<Block> GOLDEN_NETHER_BRICK_SLAB = registerBlock("golden_nether_brick_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.NETHER_BRICK_SLAB).mapColor(MapColor.GOLD)));
+    public static final RegistryObject<Block> GOLDEN_NETHER_BRICK_STAIRS = registerBlock("golden_nether_brick_stairs",
+            () -> new StairBlock(GDModBlocks.GOLDEN_NETHER_BRICKS.get().defaultBlockState(), BlockBehaviour.Properties.copy(GDModBlocks.GOLDEN_NETHER_BRICKS.get())));
+    public static final RegistryObject<Block> GOLDEN_NETHER_BRICK_FENCE = registerBlock("golden_nether_brick_fence",
+            () -> new FenceBlock(BlockBehaviour.Properties.copy(Blocks.NETHER_BRICK_FENCE).mapColor(MapColor.GOLD)));
+    public static final RegistryObject<Block> GROOMLIGHT = registerBlock("groomlight",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.SHROOMLIGHT).mapColor(MapColor.GOLD)));
+    public static final RegistryObject<Block> GOLDEN_STEM = registerBlock("golden_stem",
+            () -> new GoldenStemBlock(BlockBehaviour.Properties.copy(Blocks.CRIMSON_STEM).mapColor(MapColor.GOLD)));
+    public static final RegistryObject<Block> GOLDEN_HYPHAE = registerBlock("golden_hyphae",
+            () -> new GoldenStemBlock(BlockBehaviour.Properties.copy(Blocks.CRIMSON_HYPHAE).mapColor(MapColor.GOLD)));
+    public static final RegistryObject<Block> STRIPPED_GOLDEN_STEM = registerBlock("stripped_golden_stem",
+            () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.STRIPPED_CRIMSON_STEM).mapColor(MapColor.GOLD)));
+    public static final RegistryObject<Block> STRIPPED_GOLDEN_HYPHAE = registerBlock("stripped_golden_hyphae",
+            () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.STRIPPED_CRIMSON_HYPHAE).mapColor(MapColor.GOLD)));
+    public static final RegistryObject<Block> GOLDEN_PLANKS = registerBlock("golden_planks",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.CRIMSON_PLANKS).mapColor(MapColor.GOLD)));
+    public static final RegistryObject<Block> GOLDEN_SLAB = registerBlock("golden_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.CRIMSON_SLAB).mapColor(MapColor.GOLD)));
+    public static final RegistryObject<Block> GOLDEN_STAIRS = registerBlock("golden_stairs",
+            () -> new StairBlock(GDModBlocks.GOLDEN_PLANKS.get().defaultBlockState(), BlockBehaviour.Properties.copy(GDModBlocks.GOLDEN_PLANKS.get())));
+    public static final RegistryObject<Block> GOLDEN_PRESSURE_PLATE = registerBlock("golden_pressure_plate",
+            () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.MOBS, BlockBehaviour.Properties.copy(Blocks.CRIMSON_PRESSURE_PLATE).mapColor(MapColor.GOLD), GDModBlockSetTypes.GOLDEN));
+    public static final RegistryObject<Block> GOLDEN_BUTTON = registerBlock("golden_button",
+            () -> new ButtonBlock(BlockBehaviour.Properties.copy(Blocks.CRIMSON_BUTTON).mapColor(MapColor.GOLD), GDModBlockSetTypes.GOLDEN, 10, false));
+    public static final RegistryObject<Block> GOLDEN_FENCE = registerBlock("golden_fence",
+            () -> new FenceBlock(BlockBehaviour.Properties.copy(Blocks.CRIMSON_FENCE).mapColor(MapColor.GOLD)));
+     public static final RegistryObject<Block> GOLDEN_FENCE_GATE = registerBlock("golden_fence_gate",
+            () -> new FenceGateBlock(BlockBehaviour.Properties.copy(Blocks.CRIMSON_FENCE_GATE).mapColor(MapColor.GOLD), GDModWoodTypes.GOLDEN));
+     public static final RegistryObject<Block> GOLDEN_DOOR = registerBlock("golden_door",
+            () -> new DoorBlock(BlockBehaviour.Properties.copy(Blocks.CRIMSON_DOOR).mapColor(MapColor.GOLD), GDModBlockSetTypes.GOLDEN));
+     public static final RegistryObject<Block> GOLDEN_TRAPDOOR = registerBlock("golden_trapdoor",
+            () -> new TrapDoorBlock(BlockBehaviour.Properties.copy(Blocks.CRIMSON_TRAPDOOR).mapColor(MapColor.GOLD), GDModBlockSetTypes.GOLDEN));
+     public static final RegistryObject<Block> GOLDEN_SIGN = BLOCKS.register("golden_sign",
+             () -> new GDModStandingSignBlock(BlockBehaviour.Properties.copy(Blocks.CRIMSON_SIGN).mapColor(MapColor.GOLD), GDModWoodTypes.GOLDEN));
+     public static final RegistryObject<Block> GOLDEN_WALL_SIGN = BLOCKS.register("golden_wall_sign",
+             () -> new GDModWallSignBlock(BlockBehaviour.Properties.copy(Blocks.CRIMSON_WALL_SIGN).mapColor(MapColor.GOLD), GDModWoodTypes.GOLDEN));
+    public static final RegistryObject<Block> GOLDEN_HANGING_SIGN = BLOCKS.register("golden_hanging_sign",
+            () -> new GDModCeilingHangingSignBlock(BlockBehaviour.Properties.copy(Blocks.CRIMSON_HANGING_SIGN).mapColor(MapColor.GOLD), GDModWoodTypes.GOLDEN));
+    public static final RegistryObject<Block> GOLDEN_WALL_HANGING_SIGN = BLOCKS.register("golden_wall_hanging_sign",
+            () -> new GDModWallHangingSignBlock(BlockBehaviour.Properties.copy(Blocks.CRIMSON_WALL_HANGING_SIGN).mapColor(MapColor.GOLD), GDModWoodTypes.GOLDEN));
 
     //Farmer's Delight: Crop Storage
     public static final RegistryObject<Block> GOLDEN_WHEAT = BLOCKS.register("golden_wheat",
-            () -> new GoldenWheatBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT)));
+            () -> new GoldenWheatBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT).mapColor(MapColor.GOLD)));
     public static final RegistryObject<Block> GOLDEN_CARROT_CRATE = registerBlock("golden_carrot_crate",
-            () -> new Block(BlockBehaviour.Properties.copy(ModBlocks.CARROT_CRATE.get())));
+            () -> new Block(BlockBehaviour.Properties.copy(ModBlocks.CARROT_CRATE.get()).mapColor(MapColor.GOLD)));
     public static final RegistryObject<Block> GOLDEN_POTATO_CRATE = registerBlock("golden_potato_crate",
-            () -> new Block(BlockBehaviour.Properties.copy(ModBlocks.POTATO_CRATE.get())));
+            () -> new Block(BlockBehaviour.Properties.copy(ModBlocks.POTATO_CRATE.get()).mapColor(MapColor.GOLD)));
     public static final RegistryObject<Block> GOLDEN_BEETROOT_CRATE = registerBlock("golden_beetroot_crate",
-            () -> new Block(BlockBehaviour.Properties.copy(ModBlocks.BEETROOT_CRATE.get())));
+            () -> new Block(BlockBehaviour.Properties.copy(ModBlocks.BEETROOT_CRATE.get()).mapColor(MapColor.GOLD)));
     public static final RegistryObject<Block> GOLDEN_CABBAGE_CRATE = registerBlock("golden_cabbage_crate",
-            () -> new Block(BlockBehaviour.Properties.copy(ModBlocks.CABBAGE_CRATE.get())));
+            () -> new Block(BlockBehaviour.Properties.copy(ModBlocks.CABBAGE_CRATE.get()).mapColor(MapColor.GOLD)));
     public static final RegistryObject<Block> GOLDEN_TOMATO_CRATE = registerBlock("golden_tomato_crate",
-            () -> new Block(BlockBehaviour.Properties.copy(ModBlocks.TOMATO_CRATE.get())));
+            () -> new Block(BlockBehaviour.Properties.copy(ModBlocks.TOMATO_CRATE.get()).mapColor(MapColor.GOLD)));
     public static final RegistryObject<Block> GOLDEN_ONION_CRATE = registerBlock("golden_onion_crate",
-            () -> new Block(BlockBehaviour.Properties.copy(ModBlocks.ONION_CRATE.get())));
+            () -> new Block(BlockBehaviour.Properties.copy(ModBlocks.ONION_CRATE.get()).mapColor(MapColor.GOLD)));
     public static final RegistryObject<Block> GOLDEN_RICE_BALE = registerBlock("golden_rice_bale",
-            () -> new RiceBaleBlock(BlockBehaviour.Properties.copy(ModBlocks.RICE_BALE.get())));
+            () -> new RiceBaleBlock(BlockBehaviour.Properties.copy(ModBlocks.RICE_BALE.get()).mapColor(MapColor.GOLD)));
 
 
     //FD: Composting
     public static final RegistryObject<Block> GOLDEN_RICE_BAG = registerBlock("golden_rice_bag",
-            () -> new Block(BlockBehaviour.Properties.copy(ModBlocks.RICE_BAG.get())));
+            () -> new Block(BlockBehaviour.Properties.copy(ModBlocks.RICE_BAG.get()).mapColor(MapColor.GOLD)));
     public static final RegistryObject<Block> GOLDEN_SOIL = registerBlock("golden_soil",
-            () -> new GoldenSoilBlock(BlockBehaviour.Properties.copy(ModBlocks.RICH_SOIL.get())));
+            () -> new GoldenSoilBlock(BlockBehaviour.Properties.copy(ModBlocks.RICH_SOIL.get()).mapColor(MapColor.GOLD)));
 
     public static final RegistryObject<Block> GOLDEN_SOIL_FARMLAND = registerBlock("golden_soil_farmland",
-            () -> new GoldenSoilFarmlandBlock(BlockBehaviour.Properties.copy(ModBlocks.RICH_SOIL_FARMLAND.get())));
+            () -> new GoldenSoilFarmlandBlock(BlockBehaviour.Properties.copy(ModBlocks.RICH_SOIL_FARMLAND.get()).mapColor(MapColor.GOLD)));
 
     public static final RegistryObject<Block> GOLDEN_COMPOST = registerBlock("golden_compost",
-            () -> new GoldenCompostBlock(BlockBehaviour.Properties.copy(ModBlocks.ORGANIC_COMPOST.get())));
+            () -> new GoldenCompostBlock(BlockBehaviour.Properties.copy(ModBlocks.ORGANIC_COMPOST.get()).mapColor(MapColor.GOLD)));
 
     //FD: Pastries
 
@@ -237,7 +287,7 @@ public class GDModBlocks {
 
 
     public static final RegistryObject<Block> NETHER_BRICK_STOVE = registerBlock("nether_brick_stove",
-            () -> new StoveBlock(BlockBehaviour.Properties.copy(ModBlocks.STOVE.get())));
+            () -> new NetherBrickStoveBlock(BlockBehaviour.Properties.copy(ModBlocks.STOVE.get())));
 
     public static final RegistryObject<Block> GOLDEN_COOKING_POT = BLOCKS.register("golden_cooking_pot",
             () -> new CookingPotBlock(BlockBehaviour.Properties.copy(ModBlocks.COOKING_POT.get())));

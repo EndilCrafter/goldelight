@@ -39,6 +39,8 @@ public class ModItemTags extends ItemTagsProvider {
     private void registerGDModTags() {
         //Minecraft
         this.tag(GDModTags.Items.GOLDEN_FISHES).addTag(GDModTags.Items.RAW_GOLDEN_FISHES).addTag(GDModTags.Items.COOKED_GOLDEN_FISHES);
+        this.tag(GDModTags.Items.GOLDEN_STEMS).add(GDModBlocks.GOLDEN_STEM.get().asItem(), GDModBlocks.GOLDEN_HYPHAE.get().asItem(),
+                GDModBlocks.STRIPPED_GOLDEN_STEM.get().asItem(), GDModBlocks.STRIPPED_GOLDEN_HYPHAE.get().asItem());
         //Forge
         this.tag(GDModTags.Items.GOLDEN_CROPS)
                 .addTag(GDModTags.Items.GOLDEN_CROPS_BEETROOT).addTag(GDModTags.Items.GOLDEN_CROPS_CARROT).addTag(GDModTags.Items.GOLDEN_CROPS_WART)
@@ -128,7 +130,8 @@ public class ModItemTags extends ItemTagsProvider {
                 .add(GDModItems.SMOKED_GOLDEN_HAM.get());
         this.tag(ItemTags.FOX_FOOD).add(GDModItems.GOLDEN_GLOW_BERRIES.get());
         this.tag(ItemTags.FISHES).addTag(GDModTags.Items.GOLDEN_FISHES);
-
+        this.tag(ItemTags.SIGNS).add(GDModBlocks.GOLDEN_SIGN.get().asItem());
+        this.tag(ItemTags.HANGING_SIGNS).add(GDModBlocks.GOLDEN_HANGING_SIGN.get().asItem());
     }
 
     private void registerFDModTags() {
