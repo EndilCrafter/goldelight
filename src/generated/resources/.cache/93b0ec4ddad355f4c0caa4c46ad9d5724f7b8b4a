@@ -1,4 +1,4 @@
-// 1.20.1	2023-12-03T17:23:16.9755564	Tags for minecraft:item mod id goldelight
+// 1.20.1	2023-12-04T19:58:43.6253377	Tags for minecraft:item mod id goldelight
 e1654010e1267ee9932a44b56fe3d70d05282e0f data/diet/tags/items/fruits.json
 0127eb845e986e02bfa20d20c47133979d9516f5 data/diet/tags/items/grains.json
 6494309212f7f0b7d71a07e375f8b750078e6451 data/diet/tags/items/proteins.json
@@ -102,6 +102,7 @@ a7b1137ab49e10a75392d009c7753abdeddafad0 data/goldelight/tags/items/golden_seeds
 24990180a67d52120c40b7d591250dd224e095ca data/goldelight/tags/items/golden_seeds/rice.json
 344148161bd5132fd4f0ed88d4580f070d5ca916 data/goldelight/tags/items/golden_seeds/tomato.json
 d7b1652c88f1affea170868b189b04f21b16435b data/goldelight/tags/items/golden_seeds/wheat.json
+968fd89b4656dc7a09632afab540f7c4348914d6 data/goldelight/tags/items/golden_stems.json
 6e7b1dca56c82d0287c58ba05e3399421914e434 data/goldelight/tags/items/golden_vegetables.json
 3edf2d3dad8e5b44a9aa9ccc6c362b3df5733712 data/goldelight/tags/items/golden_vegetables/beetroot.json
 cd5800ed49fc5b0c8ea29ea2ef55dc7b98f3808b data/goldelight/tags/items/golden_vegetables/carrot.json
@@ -120,8 +121,10 @@ b87a9abab31c1428d28340d39077776310e12ed0 data/goldelight/tags/items/raw_golden_f
 effc47353cae3861824afb8d2c2c7a2a0283e3e9 data/goldelight/tags/items/raw_golden_pork.json
 ce0bdbab138ccbecb0eeee3f4e156f17b8976ac9 data/minecraft/tags/items/fishes.json
 cd1d9d25cd71695deefb5bd5ee0904f62f084cc5 data/minecraft/tags/items/fox_food.json
+f151dc955f056ec3791ceebb2fa500439e7072f4 data/minecraft/tags/items/hanging_signs.json
 ec0702cb85b79448b6621e8410414d5628dd04c6 data/minecraft/tags/items/piglin_food.json
 2dc23a27b756aa2551575597eb1e6a663cd6efd9 data/minecraft/tags/items/piglin_loved.json
+30b7f5ff737c0f859f437debf8b5e94eeafb1580 data/minecraft/tags/items/signs.json
 cbb807fcf9c795ac9ff925d14697b8b25353a27a data/sereneseasons/tags/items/autumn_crops.json
 ffd22286166c954f1eec7670d4754f08754b3559 data/sereneseasons/tags/items/spring_crops.json
 9fd7a8916a9c8727286873893c09b9f527da62d4 data/sereneseasons/tags/items/summer_crops.json

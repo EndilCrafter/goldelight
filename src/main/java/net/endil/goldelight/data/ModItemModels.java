@@ -10,6 +10,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 public class ModItemModels extends ItemModelProvider {
@@ -55,7 +56,14 @@ public class ModItemModels extends ItemModelProvider {
         ItemGeneratedModel(GDModItems.GOLDEN_WHEAT);
         ItemGeneratedModel(GDModItems.GOLDEN_WHEAT_SEEDS);
         HandheldModel(GDModItems.MIDAS_KNIFE);
-
+        SpriteModel(GDModBlocks.GOLDEN_DOOR);
+        SpriteModel(GDModBlocks.GOLDEN_SIGN);
+        SpriteModel(GDModBlocks.GOLDEN_HANGING_SIGN);
+        FenceModel(GDModBlocks.GOLDEN_FENCE, GDModBlocks.GOLDEN_PLANKS);
+        FenceModel(GDModBlocks.GOLDEN_NETHER_BRICK_FENCE, GDModBlocks.GOLDEN_NETHER_BRICKS);
+        ButtonModel(GDModBlocks.GOLDEN_BUTTON, GDModBlocks.GOLDEN_PLANKS);
+        ItemGeneratedModel(GDModItems.GOLDEN_SIGN);
+        ItemGeneratedModel(GDModItems.GOLDEN_HANGING_SIGN);
 
         //Farmer's Delight
         ItemGeneratedModel(GDModItems.GOLDEN_CABBAGE);
@@ -180,5 +188,22 @@ public class ModItemModels extends ItemModelProvider {
         return withExistingParent(plant.getId().getPath(),
                 new ResourceLocation("item/generated")).texture("layer0",
                 new ResourceLocation(GolDelight.MOD_ID, "block/" + plant.getId().getPath()));
+    }
+
+    private void FenceModel(RegistryObject<Block> block, RegistryObject<Block> base) {
+        this.withExistingParent(ForgeRegistries.BLOCKS.getKey(block.get()).getPath(), mcLoc("block/fence_inventory"))
+                .texture("texture", new ResourceLocation(GolDelight.MOD_ID, "block/" + ForgeRegistries.BLOCKS.getKey(base.get()).getPath()));
+    }
+    private void ButtonModel(RegistryObject<Block> block, RegistryObject<Block> base) {
+        this.withExistingParent(ForgeRegistries.BLOCKS.getKey(block.get()).getPath(), mcLoc("block/button_inventory"))
+                .texture("texture", new ResourceLocation(GolDelight.MOD_ID, "block/" + ForgeRegistries.BLOCKS.getKey(base.get()).getPath()));
+    }
+    public void BuildingModel(RegistryObject<Block> block) {
+        this.withExistingParent(GolDelight.MOD_ID + ":" + ForgeRegistries.BLOCKS.getKey(block.get()).getPath(),
+                modLoc("block/" + ForgeRegistries.BLOCKS.getKey(block.get()).getPath()));
+    }
+    private void TrapdoorItem(RegistryObject<Block> block) {
+        this.withExistingParent(ForgeRegistries.BLOCKS.getKey(block.get()).getPath(),
+                modLoc("block/" + ForgeRegistries.BLOCKS.getKey(block.get()).getPath() + "_bottom"));
     }
 }

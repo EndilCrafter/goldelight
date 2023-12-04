@@ -9,22 +9,22 @@ import net.endil.goldelight.common.registry.GDModBlocks;
 import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.RotatedPillarBlock;
+import net.minecraft.world.entity.ai.behavior.warden.SetRoarTarget;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
+import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.event.level.PistonEvent;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
-import vectorwing.farmersdelight.common.block.FeastBlock;
-import vectorwing.farmersdelight.common.block.MushroomColonyBlock;
-import vectorwing.farmersdelight.common.block.PieBlock;
-import vectorwing.farmersdelight.common.block.StoveBlock;
+import org.apache.logging.log4j.core.jmx.RingBufferAdmin;
+import vectorwing.farmersdelight.common.block.*;
 
 import javax.annotation.Nullable;
 import java.util.ArrayList;
@@ -94,6 +94,42 @@ public class ModBlockStates extends BlockStateProvider {
 
         plantBlock(GDModBlocks.GOLDEN_SUGAR_CANE);
 
+        blockWithItem(GDModBlocks.GOLDEN_NETHER_BRICKS);
+        blockWithItem(GDModBlocks.CHISELED_GOLDEN_NETHER_BRICKS);
+        blockWithItem(GDModBlocks.CRACKED_GOLDEN_NETHER_BRICKS);
+        blockWithItem(GDModBlocks.GROOMLIGHT);
+        logBlock((RotatedPillarBlock) GDModBlocks.GOLDEN_STEM.get());
+        logBlock((RotatedPillarBlock) GDModBlocks.STRIPPED_GOLDEN_STEM.get());
+        axisBlock((RotatedPillarBlock) GDModBlocks.GOLDEN_HYPHAE.get(), blockTexture(GDModBlocks.GOLDEN_STEM.get()), blockTexture(GDModBlocks.GOLDEN_STEM.get()));
+        axisBlock((RotatedPillarBlock) GDModBlocks.STRIPPED_GOLDEN_HYPHAE.get(), blockTexture(GDModBlocks.STRIPPED_GOLDEN_STEM.get()), blockTexture(GDModBlocks.STRIPPED_GOLDEN_STEM.get()));
+        blockItem(GDModBlocks.GOLDEN_STEM);
+        blockItem(GDModBlocks.STRIPPED_GOLDEN_STEM);
+        blockItem(GDModBlocks.GOLDEN_HYPHAE);
+        blockItem(GDModBlocks.STRIPPED_GOLDEN_HYPHAE);
+        blockWithItem(GDModBlocks.GOLDEN_PLANKS);
+        slabBlock((SlabBlock) GDModBlocks.GOLDEN_NETHER_BRICK_SLAB.get(), blockTexture(GDModBlocks.GOLDEN_NETHER_BRICKS.get()), blockTexture(GDModBlocks.GOLDEN_NETHER_BRICKS.get()));
+        stairsBlock((StairBlock) GDModBlocks.GOLDEN_NETHER_BRICK_STAIRS.get(), blockTexture(GDModBlocks.GOLDEN_NETHER_BRICKS.get()));
+        fenceBlock((FenceBlock) GDModBlocks.GOLDEN_NETHER_BRICK_FENCE.get(), blockTexture(GDModBlocks.GOLDEN_NETHER_BRICKS.get()));
+        slabBlock((SlabBlock) GDModBlocks.GOLDEN_SLAB.get(), blockTexture(GDModBlocks.GOLDEN_PLANKS.get()), blockTexture(GDModBlocks.GOLDEN_PLANKS.get()));
+        stairsBlock((StairBlock) GDModBlocks.GOLDEN_STAIRS.get(), blockTexture(GDModBlocks.GOLDEN_PLANKS.get()));
+        buttonBlock((ButtonBlock) GDModBlocks.GOLDEN_BUTTON.get(), blockTexture(GDModBlocks.GOLDEN_PLANKS.get()));
+        pressurePlateBlock((PressurePlateBlock) GDModBlocks.GOLDEN_PRESSURE_PLATE.get(), blockTexture(GDModBlocks.GOLDEN_PLANKS.get()));
+        doorBlock(((DoorBlock) GDModBlocks.GOLDEN_DOOR.get()), modLoc("block/golden_door_bottom"), modLoc("block/golden_door_top"));
+        trapdoorBlockWithRenderType(((TrapDoorBlock) GDModBlocks.GOLDEN_TRAPDOOR.get()), modLoc("block/golden_trapdoor"), true, "cutout");
+        fenceBlock((FenceBlock) GDModBlocks.GOLDEN_FENCE.get(), blockTexture(GDModBlocks.GOLDEN_PLANKS.get()));
+        fenceGateBlock((FenceGateBlock) GDModBlocks.GOLDEN_FENCE_GATE.get(), blockTexture(GDModBlocks.GOLDEN_PLANKS.get()));
+        axisBlock((RotatedPillarBlock) GDModBlocks.GOLDEN_BONE_BLOCK.get(), modLoc("block/golden_bone_block_side"), modLoc("block/golden_bone_block_top"));
+        blockItem(GDModBlocks.GOLDEN_BONE_BLOCK);
+        signBlock((StandingSignBlock) GDModBlocks.GOLDEN_SIGN.get(), (WallSignBlock) GDModBlocks.GOLDEN_WALL_SIGN.get(),
+                blockTexture(GDModBlocks.GOLDEN_PLANKS.get()));
+        HangingSignBlock(GDModBlocks.GOLDEN_HANGING_SIGN.get(), GDModBlocks.GOLDEN_WALL_HANGING_SIGN.get(), blockTexture(GDModBlocks.GOLDEN_PLANKS.get()));
+        blockItem(GDModBlocks.GOLDEN_NETHER_BRICK_SLAB);
+        blockItem(GDModBlocks.GOLDEN_SLAB);
+        blockItem(GDModBlocks.GOLDEN_NETHER_BRICK_STAIRS);
+        blockItem(GDModBlocks.GOLDEN_STAIRS);
+        blockItem(GDModBlocks.GOLDEN_PRESSURE_PLATE);
+        blockItem(GDModBlocks.GOLDEN_FENCE_GATE);
+        simpleBlockItem(GDModBlocks.GOLDEN_TRAPDOOR.get(), models().withExistingParent("goldelight:golden_trapdoor","minecraft:block/template_orientable_trapdoor_bottom").texture("texture","goldelight:block/golden_trapdoor"));
 
         //Farmer's Delight
 
@@ -158,6 +194,9 @@ public class ModBlockStates extends BlockStateProvider {
         feastBlock((FeastBlock) GDModBlocks.GOLDEN_RICE_ROLL_MEDLEY_BLOCK.get());
 
         blockWithItem(GDModBlocks.GOLDEN_SOIL);
+    }
+    private void blockItem(RegistryObject<Block> block) {
+        simpleBlockItem(block.get(), new ModelFile.UncheckedModelFile(GolDelight.MOD_ID + ":block/" + ForgeRegistries.BLOCKS.getKey(block.get()).getPath()));
     }
 
     private void blockWithItem(RegistryObject<Block> blockRegistryObject) {
@@ -242,5 +281,22 @@ public class ModBlockStates extends BlockStateProvider {
                             .rotationY(((int) state.getValue(FeastBlock.FACING).toYRot() + 180) % 360)
                             .build();
                 });
+    }
+    public void HangingSignBlock(Block signBlock, Block wallSignBlock, ResourceLocation texture) {
+        ModelFile sign = models().sign(name(signBlock), texture);
+        hangingSignBlock(signBlock, wallSignBlock, sign);
+    }
+
+    public void hangingSignBlock(Block signBlock, Block wallSignBlock, ModelFile sign) {
+        simpleBlock(signBlock, sign);
+        simpleBlock(wallSignBlock, sign);
+    }
+
+    private String name(Block block) {
+        return key(block).getPath();
+    }
+
+    private ResourceLocation key(Block block) {
+        return ForgeRegistries.BLOCKS.getKey(block);
     }
 }

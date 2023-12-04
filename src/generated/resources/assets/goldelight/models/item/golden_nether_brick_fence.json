@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/fence_inventory",
+  "textures": {
+    "texture": "goldelight:block/golden_nether_bricks"
+  }
+}

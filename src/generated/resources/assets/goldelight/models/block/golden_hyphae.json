@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "goldelight:block/golden_stem",
+    "side": "goldelight:block/golden_stem"
+  }
+}

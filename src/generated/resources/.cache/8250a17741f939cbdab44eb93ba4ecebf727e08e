@@ -1,4 +1,4 @@
-// 1.20.1	2023-12-01T17:16:24.758451	Tags for minecraft:block mod id goldelight
+// 1.20.1	2023-12-04T19:58:43.6203425	Tags for minecraft:block mod id goldelight
 8584df75c3a4c3e2a02ad01dd437b5103a2252c8 data/farmersdelight/tags/blocks/compost_activators.json
 0f30f62c6c8689d15db405cf5b98b0277c6af698 data/farmersdelight/tags/blocks/mushroom_colony_growable_on.json
 0bf20b47bb9b0cc3c2a5f4e397a22824c8c157d8 data/farmersdelight/tags/blocks/unaffected_by_rich_soil.json
@@ -6,15 +6,30 @@ a2c4935651de21bc3233a881b56117d4ee9c7100 data/forge/tags/blocks/mineable/knife.j
 eb085c5adc57d19d9fe3d38ec706971f48931a24 data/goldelight/tags/blocks/golden_compost_activators.json
 26c49ca79f11ccad55ce8f437d166ff246863f7f data/goldelight/tags/blocks/golden_crops.json
 e0e24b649a2917c14e4302744a92f25a473ef87c data/goldelight/tags/blocks/golden_mushroom_grow_block.json
+968fd89b4656dc7a09632afab540f7c4348914d6 data/goldelight/tags/blocks/golden_stems.json
 c870c5f3f27c7e9022ac425d57839016bb62c6dc data/minecraft/tags/blocks/candle_cakes.json
 b068d520fc6567b96da6355934e6a7390659b5a4 data/minecraft/tags/blocks/cave_vines.json
+f151dc955f056ec3791ceebb2fa500439e7072f4 data/minecraft/tags/blocks/ceiling_hanging_signs.json
 c7793753c1ee68201b0af7a99dcd54a53117fa16 data/minecraft/tags/blocks/climbable.json
 2dc23a27b756aa2551575597eb1e6a663cd6efd9 data/minecraft/tags/blocks/crops.json
 0f30f62c6c8689d15db405cf5b98b0277c6af698 data/minecraft/tags/blocks/dirt.json
+a78a0119dce752a30a04e9013be1eda89982740c data/minecraft/tags/blocks/fences.json
+484ab2aa9fcf8fffbf6c506738c8d687de5d045e data/minecraft/tags/blocks/fence_gates.json
+eac0f3d692dac9bdbe8c3d529a1eb06e42123723 data/minecraft/tags/blocks/logs.json
 c83645062a355280b91282cecfa39d3216d3c0b9 data/minecraft/tags/blocks/mineable/axe.json
 f562da540e585966197f6810067229d44150e9d5 data/minecraft/tags/blocks/mineable/hoe.json
 944cc927d07f67d38d872222026b891d390854f3 data/minecraft/tags/blocks/mushroom_grow_block.json
+30b7f5ff737c0f859f437debf8b5e94eeafb1580 data/minecraft/tags/blocks/standing_signs.json
+e8a0976a7be886f0e6368d7b74f8348bce7d872d data/minecraft/tags/blocks/wall_hanging_signs.json
+b5a4ac21c120584f824eaf62dac1b991f7f68b41 data/minecraft/tags/blocks/wall_signs.json
 780d7252be00a882c9463fd3cde1171a634d7984 data/minecraft/tags/blocks/wart_blocks.json
+477d76c2d9aad7d69fcd48d78accf927276a3119 data/minecraft/tags/blocks/wooden_buttons.json
+303447ad383215da070792b350ca0fe000f4c7e5 data/minecraft/tags/blocks/wooden_doors.json
+8705d30fe837ec74f550fe9e1691941e4e7ff5ba data/minecraft/tags/blocks/wooden_fences.json
+a13fda69d7b8d7df67db23fb712298826f80eddb data/minecraft/tags/blocks/wooden_pressure_plates.json
+106a908ef73c399167b50d03a1050299c6e0e7c6 data/minecraft/tags/blocks/wooden_slabs.json
+5282ae39874f7e8ffa1ffb016ef2e59423f5510c data/minecraft/tags/blocks/wooden_stairs.json
+7b4aa8b27f6708637fc61a40266b919ba32ba8fc data/minecraft/tags/blocks/wooden_trapdoors.json
 e135297bf43fd97b7c1ff5941720c515fa246e2f data/sereneseasons/tags/blocks/autumn_crops.json
 c40e0502d423e903ddc87dbd3556a6f6e72cea79 data/sereneseasons/tags/blocks/spring_crops.json
 b792aca45bafa81ec51ee8ed7e6f49e29aa89bf1 data/sereneseasons/tags/blocks/summer_crops.json

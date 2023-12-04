@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "goldelight:block/cracked_golden_nether_bricks"
+  }
+}
