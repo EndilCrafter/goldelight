@@ -23,6 +23,7 @@ public class GDModPoiTypes {
     private static Set<BlockState> getBlockStates(Block pBlock) {
         return ImmutableSet.copyOf(pBlock.getStateDefinition().getPossibleStates());
     }
+
     public static void register(IEventBus eventBus) {
         POI.register(eventBus);
     }

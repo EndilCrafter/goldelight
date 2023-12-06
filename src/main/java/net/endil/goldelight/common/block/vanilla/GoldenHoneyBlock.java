@@ -22,16 +22,37 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class GoldenHoneyBlock extends HalfTransparentBlock {
+    protected static final VoxelShape SHAPE = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 15.0D, 15.0D);
     private static final double SLIDE_STARTS_WHEN_VERTICAL_SPEED_IS_AT_LEAST = 0.13D;
     private static final double MIN_FALL_SPEED_TO_BE_CONSIDERED_SLIDING = 0.08D;
     private static final double THROTTLE_SLIDE_SPEED_TO = 0.05D;
     private static final int SLIDE_ADVANCEMENT_CHECK_INTERVAL = 20;
-    protected static final VoxelShape SHAPE = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 15.0D, 15.0D);
+
     public GoldenHoneyBlock(Properties pProperties) {
         super(pProperties);
     }
+
     private static boolean doesEntityDoHoneyBlockSlideEffects(Entity pEntity) {
         return pEntity instanceof LivingEntity || pEntity instanceof AbstractMinecart || pEntity instanceof PrimedTnt || pEntity instanceof Boat;
+    }
+
+    public static void showSlideParticles(Entity pEntity) {
+        showParticles(pEntity, 5);
+    }
+
+    public static void showJumpParticles(Entity pEntity) {
+        showParticles(pEntity, 10);
+    }
+
+    private static void showParticles(Entity pEntity, int pParticleCount) {
+        if (pEntity.level().isClientSide) {
+            BlockState blockstate = GDModBlocks.GOLDEN_HONEY_BLOCK.get().defaultBlockState();
+
+            for (int i = 0; i < pParticleCount; ++i) {
+                pEntity.level().addParticle(new BlockParticleOption(ParticleTypes.BLOCK, blockstate), pEntity.getX(), pEntity.getY(), pEntity.getZ(), 0.0D, 0.0D, 0.0D);
+            }
+
+        }
     }
 
     public VoxelShape getCollisionShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
@@ -41,7 +62,7 @@ public class GoldenHoneyBlock extends HalfTransparentBlock {
     public void fallOn(Level pLevel, BlockState pState, BlockPos pPos, Entity pEntity, float pFallDistance) {
         pEntity.playSound(SoundEvents.HONEY_BLOCK_SLIDE, 1.0F, 1.0F);
         if (!pLevel.isClientSide) {
-            pLevel.broadcastEntityEvent(pEntity, (byte)54);
+            pLevel.broadcastEntityEvent(pEntity, (byte) 54);
         }
 
         if (pEntity.causeFallDamage(pFallDistance, 0.2F, pLevel.damageSources().fall())) {
@@ -63,21 +84,21 @@ public class GoldenHoneyBlock extends HalfTransparentBlock {
     private boolean isSlidingDown(BlockPos pPos, Entity pEntity) {
         if (pEntity.onGround()) {
             return false;
-        } else if (pEntity.getY() > (double)pPos.getY() + 0.9375D - 1.0E-7D) {
+        } else if (pEntity.getY() > (double) pPos.getY() + 0.9375D - 1.0E-7D) {
             return false;
         } else if (pEntity.getDeltaMovement().y >= -0.08D) {
             return false;
         } else {
-            double d0 = Math.abs((double)pPos.getX() + 0.5D - pEntity.getX());
-            double d1 = Math.abs((double)pPos.getZ() + 0.5D - pEntity.getZ());
-            double d2 = 0.4375D + (double)(pEntity.getBbWidth() / 2.0F);
+            double d0 = Math.abs((double) pPos.getX() + 0.5D - pEntity.getX());
+            double d1 = Math.abs((double) pPos.getZ() + 0.5D - pEntity.getZ());
+            double d2 = 0.4375D + (double) (pEntity.getBbWidth() / 2.0F);
             return d0 + 1.0E-7D > d2 || d1 + 1.0E-7D > d2;
         }
     }
 
     private void maybeDoSlideAchievement(Entity pEntity, BlockPos pPos) {
         if (pEntity instanceof ServerPlayer && pEntity.level().getGameTime() % 20L == 0L) {
-            CriteriaTriggers.HONEY_BLOCK_SLIDE.trigger((ServerPlayer)pEntity, pEntity.level().getBlockState(pPos));
+            CriteriaTriggers.HONEY_BLOCK_SLIDE.trigger((ServerPlayer) pEntity, pEntity.level().getBlockState(pPos));
         }
 
     }
@@ -101,27 +122,9 @@ public class GoldenHoneyBlock extends HalfTransparentBlock {
             }
 
             if (!pLevel.isClientSide && pLevel.random.nextInt(5) == 0) {
-                pLevel.broadcastEntityEvent(pEntity, (byte)53);
+                pLevel.broadcastEntityEvent(pEntity, (byte) 53);
             }
         }
 
-    }
-    public static void showSlideParticles(Entity pEntity) {
-        showParticles(pEntity, 5);
-    }
-
-    public static void showJumpParticles(Entity pEntity) {
-        showParticles(pEntity, 10);
-    }
-
-    private static void showParticles(Entity pEntity, int pParticleCount) {
-        if (pEntity.level().isClientSide) {
-            BlockState blockstate = GDModBlocks.GOLDEN_HONEY_BLOCK.get().defaultBlockState();
-
-            for(int i = 0; i < pParticleCount; ++i) {
-                pEntity.level().addParticle(new BlockParticleOption(ParticleTypes.BLOCK, blockstate), pEntity.getX(), pEntity.getY(), pEntity.getZ(), 0.0D, 0.0D, 0.0D);
-            }
-
-        }
     }
 }

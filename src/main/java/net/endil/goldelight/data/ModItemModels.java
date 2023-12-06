@@ -201,6 +201,7 @@ public class ModItemModels extends ItemModelProvider {
         this.withExistingParent(ForgeRegistries.BLOCKS.getKey(block.get()).getPath(), mcLoc("block/fence_inventory"))
                 .texture("texture", new ResourceLocation(GolDelight.MOD_ID, "block/" + ForgeRegistries.BLOCKS.getKey(base.get()).getPath()));
     }
+
     private void WallModel(RegistryObject<Block> block, RegistryObject<Block> base) {
         this.withExistingParent(ForgeRegistries.BLOCKS.getKey(block.get()).getPath(), mcLoc("block/wall_inventory"))
                 .texture("wall", new ResourceLocation(GolDelight.MOD_ID, "block/" + ForgeRegistries.BLOCKS.getKey(base.get()).getPath()));

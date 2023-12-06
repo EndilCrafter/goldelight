@@ -123,8 +123,12 @@ public class GDModBlocks {
 
     public static final RegistryObject<Block> GOLDEN_MUSHROOM = registerBlock("golden_mushroom",
             () -> new GoldenMushroomBlock(BlockBehaviour.Properties.copy(Blocks.RED_MUSHROOM).randomTicks().mapColor(MapColor.GOLD)));
+    public static final RegistryObject<Block> GOLDEN_MUSHROOM_COLONY = BLOCKS.register("golden_mushroom_colony",
+            () -> new MushroomColonyBlock(BlockBehaviour.Properties.copy(GDModBlocks.GOLDEN_MUSHROOM.get()), () -> GDModBlocks.GOLDEN_MUSHROOM.get().asItem()));
     public static final RegistryObject<Block> GOLDEN_FUNGUS = registerBlock("golden_fungus",
             () -> new GoldenFungusBlock(BlockBehaviour.Properties.copy(Blocks.WARPED_FUNGUS).randomTicks().mapColor(MapColor.GOLD)));
+    public static final RegistryObject<Block> GOLDEN_FUNGUS_COLONY = BLOCKS.register("golden_fungus_colony",
+            () -> new MushroomColonyBlock(BlockBehaviour.Properties.copy(GDModBlocks.GOLDEN_FUNGUS.get()), () -> GDModBlocks.GOLDEN_FUNGUS.get().asItem()));
     public static final RegistryObject<Block> GOLDEN_MUSHROOM_BLOCK = registerBlock("golden_mushroom_block",
             () -> new HugeMushroomBlock(BlockBehaviour.Properties.copy(Blocks.RED_MUSHROOM_BLOCK).mapColor(MapColor.GOLD)));
     public static final RegistryObject<Block> GOLDEN_MUSHROOM_STEM = registerBlock("golden_mushroom_stem",
@@ -165,7 +169,6 @@ public class GDModBlocks {
             () -> new GoldenHoneyBlock(BlockBehaviour.Properties.copy(Blocks.HONEY_BLOCK).mapColor(MapColor.GOLD)));
     public static final RegistryObject<Block> GOLDEN_HONEYCOMB_BLOCK = registerBlock("golden_honeycomb_block",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.HONEYCOMB_BLOCK).mapColor(MapColor.GOLD)));
-
     public static final RegistryObject<Block> GROOMLIGHT = registerBlock("groomlight",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.SHROOMLIGHT).mapColor(MapColor.GOLD)));
     public static final RegistryObject<Block> GOLDEN_STEM = registerBlock("golden_stem",
@@ -221,27 +224,17 @@ public class GDModBlocks {
             () -> new Block(BlockBehaviour.Properties.copy(ModBlocks.ONION_CRATE.get()).mapColor(MapColor.GOLD)));
     public static final RegistryObject<Block> GOLDEN_RICE_BALE = registerBlock("golden_rice_bale",
             () -> new RiceBaleBlock(BlockBehaviour.Properties.copy(ModBlocks.RICE_BALE.get()).mapColor(MapColor.GOLD)));
-
-
     //FD: Composting
     public static final RegistryObject<Block> GOLDEN_RICE_BAG = registerBlock("golden_rice_bag",
             () -> new Block(BlockBehaviour.Properties.copy(ModBlocks.RICE_BAG.get()).mapColor(MapColor.GOLD)));
     public static final RegistryObject<Block> GOLDEN_SOIL = registerBlock("golden_soil",
             () -> new GoldenSoilBlock(BlockBehaviour.Properties.copy(ModBlocks.RICH_SOIL.get()).mapColor(MapColor.GOLD)));
-
     public static final RegistryObject<Block> GOLDEN_SOIL_FARMLAND = registerBlock("golden_soil_farmland",
             () -> new GoldenSoilFarmlandBlock(BlockBehaviour.Properties.copy(ModBlocks.RICH_SOIL_FARMLAND.get()).mapColor(MapColor.GOLD)));
-
     public static final RegistryObject<Block> GOLDEN_COMPOST = registerBlock("golden_compost",
             () -> new GoldenCompostBlock(BlockBehaviour.Properties.copy(ModBlocks.ORGANIC_COMPOST.get()).mapColor(MapColor.GOLD)));
-    public static final RegistryObject<Block> GOLDEN_MUSHROOM_COLONY = BLOCKS.register("golden_mushroom_colony",
-            () -> new MushroomColonyBlock(BlockBehaviour.Properties.copy(GDModBlocks.GOLDEN_MUSHROOM.get()), () -> GDModBlocks.GOLDEN_MUSHROOM.get().asItem()));
-    public static final RegistryObject<Block> GOLDEN_FUNGUS_COLONY = BLOCKS.register("golden_fungus_colony",
-            () -> new MushroomColonyBlock(BlockBehaviour.Properties.copy(GDModBlocks.GOLDEN_FUNGUS.get()), () -> GDModBlocks.GOLDEN_FUNGUS.get().asItem()));
 
     //FD: Pastries
-
-
     public static final RegistryObject<Block> GOLDEN_APPLE_PIE = BLOCKS.register("golden_apple_pie",
             () -> new PieBlock(BlockBehaviour.Properties.copy(ModBlocks.APPLE_PIE.get()).noLootTable(), GDModItems.GOLDEN_APPLE_PIE_SLICE));
 

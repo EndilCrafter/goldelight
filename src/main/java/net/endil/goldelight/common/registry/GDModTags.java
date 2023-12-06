@@ -14,16 +14,20 @@ import net.minecraft.world.level.block.Block;
 public class GDModTags {
     public static class PoiTypes {
         public static final TagKey<PoiType> GOLDEN_BEE_HOME = tag("golden_bee_home");
+
         private static TagKey<PoiType> tag(String pName) {
             return TagKey.create(Registries.POINT_OF_INTEREST_TYPE, new ResourceLocation(GolDelight.MOD_ID, pName));
         }
     }
-    public static class EntityTypes{
+
+    public static class EntityTypes {
         public static final TagKey<EntityType<?>> GOLDEN_BEEHIVE_INHABITORS = tag("golden_beehive_inhabitors");
+
         private static TagKey<EntityType<?>> tag(String pName) {
             return TagKey.create(Registries.ENTITY_TYPE, new ResourceLocation(GolDelight.MOD_ID, pName));
         }
     }
+
     public static class Blocks {
         public static final TagKey<Block> GOLDEN_CROPS = tag("golden_crops");
         public static final TagKey<Block> GOLDEN_MUSHROOM_GROW_BLOCK = tag("golden_mushroom_grow_block");

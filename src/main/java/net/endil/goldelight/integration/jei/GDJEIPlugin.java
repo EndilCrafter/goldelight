@@ -24,6 +24,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @SuppressWarnings("unused")
 public class GDJEIPlugin implements IModPlugin {
     private static final ResourceLocation ID = new ResourceLocation(GolDelight.MOD_ID, "jei_plugin");
+
     @Override
     public void registerCategories(IRecipeCategoryRegistration registry) {
         registry.addRecipeCategories(new GoldenCookingRecipeCategory(registry.getJeiHelpers().getGuiHelper()));

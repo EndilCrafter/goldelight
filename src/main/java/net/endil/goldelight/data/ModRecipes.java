@@ -134,6 +134,48 @@ public class ModRecipes extends RecipeProvider implements IConditionBuilder {
         return ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, result, count).requires(ingredient);
     }
 
+    protected static void stairs(Consumer<FinishedRecipe> consumer, ItemLike stairs, ItemLike ingredient) {
+        stairBuilder(stairs, Ingredient.of(ingredient)).unlockedBy(getHasName(ingredient), has(ingredient)).save(consumer, new ResourceLocation(GolDelight.MOD_ID, getItemName(stairs)));
+    }
+
+    protected static void woodenFence(Consumer<FinishedRecipe> consumer, ItemLike fence, ItemLike ingredient) {
+        fenceBuilder(fence, Ingredient.of(ingredient)).unlockedBy(getHasName(ingredient), has(ingredient)).save(consumer, new ResourceLocation(GolDelight.MOD_ID, getItemName(fence)));
+    }
+
+    protected static void fence(Consumer<FinishedRecipe> consumer, ItemLike fence, ItemLike ingredient) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, fence, 6)
+                .define('W', ingredient).pattern("WWW").pattern("WWW")
+                .unlockedBy(getHasName(ingredient), has(ingredient)).save(consumer, new ResourceLocation(GolDelight.MOD_ID, getItemName(fence)));
+    }
+
+    protected static void fenceGate(Consumer<FinishedRecipe> consumer, ItemLike gate, ItemLike ingredient) {
+        fenceGateBuilder(gate, Ingredient.of(ingredient)).unlockedBy(getHasName(ingredient), has(ingredient)).save(consumer, new ResourceLocation(GolDelight.MOD_ID, getItemName(gate)));
+    }
+
+    protected static void door(Consumer<FinishedRecipe> consumer, ItemLike door, ItemLike ingredient) {
+        doorBuilder(door, Ingredient.of(ingredient)).unlockedBy(getHasName(ingredient), has(ingredient)).save(consumer, new ResourceLocation(GolDelight.MOD_ID, getItemName(door)));
+    }
+
+    protected static void trapdoor(Consumer<FinishedRecipe> consumer, ItemLike trap, ItemLike ingredient) {
+        trapdoorBuilder(trap, Ingredient.of(ingredient)).unlockedBy(getHasName(ingredient), has(ingredient)).save(consumer, new ResourceLocation(GolDelight.MOD_ID, getItemName(trap)));
+    }
+
+    protected static void button(Consumer<FinishedRecipe> consumer, ItemLike button, ItemLike ingredient) {
+        buttonBuilder(button, Ingredient.of(ingredient)).unlockedBy(getHasName(ingredient), has(ingredient)).save(consumer, new ResourceLocation(GolDelight.MOD_ID, getItemName(button)));
+    }
+
+    protected static void sign(Consumer<FinishedRecipe> consumer, ItemLike sign, ItemLike ingredient) {
+        signBuilder(sign, Ingredient.of(ingredient)).unlockedBy(getHasName(ingredient), has(ingredient)).save(consumer, new ResourceLocation(GolDelight.MOD_ID, getItemName(sign)));
+    }
+
+    protected static void stoneCutting(Consumer<FinishedRecipe> consumer, ItemLike result, ItemLike ingredient, int count) {
+        StoneCuttingBuilder(Ingredient.of(ingredient), result, count).unlockedBy(getHasName(ingredient), has(ingredient)).save(consumer, new ResourceLocation(GolDelight.MOD_ID, getItemName(result) + "_from_" + getItemName(ingredient) + "_stonecutting"));
+    }
+
+    public static SingleItemRecipeBuilder StoneCuttingBuilder(Ingredient ingredient, ItemLike result, int count) {
+        return new SingleItemRecipeBuilder(RecipeCategory.BUILDING_BLOCKS, RecipeSerializer.STONECUTTER, ingredient, result, count);
+    }
+
     @Override
     protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
         this.registerSimpleCrafting(consumer);
@@ -977,39 +1019,5 @@ public class ModRecipes extends RecipeProvider implements IConditionBuilder {
                 .define('G', Items.GOLD_INGOT)
                 .unlockedBy("has_honeycomb", InventoryChangeTrigger.TriggerInstance.hasItems(Items.HONEYCOMB))
                 .save(consumer);
-    }
-    protected static void stairs(Consumer<FinishedRecipe> consumer, ItemLike stairs, ItemLike ingredient) {
-        stairBuilder(stairs, Ingredient.of(ingredient)).unlockedBy(getHasName(ingredient), has(ingredient)).save(consumer, new ResourceLocation(GolDelight.MOD_ID, getItemName(stairs)));
-    }
-    protected static void woodenFence(Consumer<FinishedRecipe> consumer, ItemLike fence, ItemLike ingredient) {
-        fenceBuilder(fence, Ingredient.of(ingredient)).unlockedBy(getHasName(ingredient), has(ingredient)).save(consumer, new ResourceLocation(GolDelight.MOD_ID, getItemName(fence)));
-    }
-    protected static void fence(Consumer<FinishedRecipe> consumer, ItemLike fence, ItemLike ingredient) {
-        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, fence, 6)
-                .define('W', ingredient).pattern("WWW").pattern("WWW")
-                .unlockedBy(getHasName(ingredient), has(ingredient)).save(consumer, new ResourceLocation(GolDelight.MOD_ID, getItemName(fence)));
-    }
-    protected static void fenceGate(Consumer<FinishedRecipe> consumer, ItemLike gate, ItemLike ingredient) {
-        fenceGateBuilder(gate, Ingredient.of(ingredient)).unlockedBy(getHasName(ingredient), has(ingredient)).save(consumer, new ResourceLocation(GolDelight.MOD_ID, getItemName(gate)));
-    }
-    protected static void door(Consumer<FinishedRecipe> consumer, ItemLike door, ItemLike ingredient) {
-        doorBuilder(door, Ingredient.of(ingredient)).unlockedBy(getHasName(ingredient), has(ingredient)).save(consumer, new ResourceLocation(GolDelight.MOD_ID, getItemName(door)));
-    }
-
-    protected static void trapdoor(Consumer<FinishedRecipe> consumer, ItemLike trap, ItemLike ingredient) {
-        trapdoorBuilder(trap, Ingredient.of(ingredient)).unlockedBy(getHasName(ingredient), has(ingredient)).save(consumer, new ResourceLocation(GolDelight.MOD_ID, getItemName(trap)));
-    }
-
-    protected static void button(Consumer<FinishedRecipe> consumer, ItemLike button, ItemLike ingredient) {
-        buttonBuilder(button, Ingredient.of(ingredient)).unlockedBy(getHasName(ingredient), has(ingredient)).save(consumer, new ResourceLocation(GolDelight.MOD_ID, getItemName(button)));
-    }
-    protected static void sign(Consumer<FinishedRecipe> consumer, ItemLike sign, ItemLike ingredient) {
-        signBuilder(sign, Ingredient.of(ingredient)).unlockedBy(getHasName(ingredient), has(ingredient)).save(consumer, new ResourceLocation(GolDelight.MOD_ID, getItemName(sign)));
-    }
-    protected static void stoneCutting(Consumer<FinishedRecipe> consumer, ItemLike result, ItemLike ingredient, int count) {
-        StoneCuttingBuilder(Ingredient.of(ingredient), result, count).unlockedBy(getHasName(ingredient), has(ingredient)).save(consumer, new ResourceLocation(GolDelight.MOD_ID, getItemName(result) + "_from_" + getItemName(ingredient) + "_stonecutting"));
-    }
-    public static SingleItemRecipeBuilder StoneCuttingBuilder(Ingredient ingredient, ItemLike result, int count) {
-        return new SingleItemRecipeBuilder(RecipeCategory.BUILDING_BLOCKS, RecipeSerializer.STONECUTTER, ingredient, result, count);
     }
 }

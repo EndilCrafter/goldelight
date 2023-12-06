@@ -29,10 +29,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+
 @ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault
-public class GoldenCookingRecipeCategory implements IRecipeCategory<GoldenCookingPotRecipe>
-{
+public class GoldenCookingRecipeCategory implements IRecipeCategory<GoldenCookingPotRecipe> {
     protected final IDrawable heatIndicator;
     protected final IDrawable timeIcon;
     protected final IDrawable expIcon;

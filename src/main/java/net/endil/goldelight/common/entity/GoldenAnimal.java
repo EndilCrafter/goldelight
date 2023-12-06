@@ -10,9 +10,11 @@ public abstract class GoldenAnimal extends Animal {
     protected GoldenAnimal(EntityType<? extends GoldenAnimal> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
     }
+
     public int getExperienceReward() {
         return 2 + this.level().random.nextInt(4);
     }
+
     public boolean isFood(ItemStack pStack) {
         return pStack.is(GDModItems.GOLDEN_WHEAT.get());
     }

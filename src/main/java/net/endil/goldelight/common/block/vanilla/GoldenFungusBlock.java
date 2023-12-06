@@ -24,6 +24,7 @@ public class GoldenFungusBlock extends BushBlock {
     protected boolean mayPlaceOn(BlockState pState, BlockGetter pLevel, BlockPos pPos) {
         return pState.is(GDModTags.Blocks.GOLDEN_MUSHROOM_GROW_BLOCK) || super.mayPlaceOn(pState, pLevel, pPos);
     }
+
     public boolean canSurvive(BlockState pState, LevelReader pLevel, BlockPos pPos) {
         BlockPos blockpos = pPos.below();
         BlockState blockstate = pLevel.getBlockState(blockpos);

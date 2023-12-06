@@ -46,8 +46,6 @@ import net.minecraft.world.entity.ai.util.AirRandomPos;
 import net.minecraft.world.entity.ai.util.HoverRandomPos;
 import net.minecraft.world.entity.ai.village.poi.PoiManager;
 import net.minecraft.world.entity.ai.village.poi.PoiRecord;
-import net.minecraft.world.entity.animal.Animal;
-import net.minecraft.world.entity.animal.Bee;
 import net.minecraft.world.entity.animal.FlyingAnimal;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -73,6 +71,13 @@ import java.util.stream.Stream;
 public class GoldenBee extends GoldenAnimal implements NeutralMob, FlyingAnimal {
     public static final float FLAP_DEGREES_PER_TICK = 120.32113F;
     public static final int TICKS_PER_FLAP = Mth.ceil(1.4959966F);
+    public static final String TAG_CROPS_GROWN_SINCE_POLLINATION = "CropsGrownSincePollination";
+    public static final String TAG_CANNOT_ENTER_HIVE_TICKS = "CannotEnterHiveTicks";
+    public static final String TAG_TICKS_SINCE_POLLINATION = "TicksSincePollination";
+    public static final String TAG_HAS_STUNG = "HasStung";
+    public static final String TAG_HAS_NECTAR = "HasNectar";
+    public static final String TAG_FLOWER_POS = "FlowerPos";
+    public static final String TAG_HIVE_POS = "HivePos";
     private static final EntityDataAccessor<Byte> DATA_FLAGS_ID = SynchedEntityData.defineId(GoldenBee.class, EntityDataSerializers.BYTE);
     private static final EntityDataAccessor<Integer> DATA_REMAINING_ANGER_TIME = SynchedEntityData.defineId(GoldenBee.class, EntityDataSerializers.INT);
     private static final int FLAG_ROLL = 2;
@@ -89,25 +94,11 @@ public class GoldenBee extends GoldenAnimal implements NeutralMob, FlyingAnimal 
     private static final int HIVE_CLOSE_ENOUGH_DISTANCE = 2;
     private static final int PATHFIND_TO_HIVE_WHEN_CLOSER_THAN = 16;
     private static final int HIVE_SEARCH_DISTANCE = 20;
-    public static final String TAG_CROPS_GROWN_SINCE_POLLINATION = "CropsGrownSincePollination";
-    public static final String TAG_CANNOT_ENTER_HIVE_TICKS = "CannotEnterHiveTicks";
-    public static final String TAG_TICKS_SINCE_POLLINATION = "TicksSincePollination";
-    public static final String TAG_HAS_STUNG = "HasStung";
-    public static final String TAG_HAS_NECTAR = "HasNectar";
-    public static final String TAG_FLOWER_POS = "FlowerPos";
-    public static final String TAG_HIVE_POS = "HivePos";
     private static final UniformInt PERSISTENT_ANGER_TIME = TimeUtil.rangeOfSeconds(20, 39);
-    @Nullable
-    private UUID persistentAngerTarget;
-    private float rollAmount;
-    private float rollAmountO;
-    private int timeSinceSting;
-    int ticksWithoutNectarSinceExitingHive;
-    private int stayOutOfHiveCountdown;
-    private int numCropsGrownSincePollination;
     private static final int COOLDOWN_BEFORE_LOCATING_NEW_HIVE = 200;
-    int remainingCooldownBeforeLocatingNewHive;
     private static final int COOLDOWN_BEFORE_LOCATING_NEW_FLOWER = 200;
+    int ticksWithoutNectarSinceExitingHive;
+    int remainingCooldownBeforeLocatingNewHive;
     int remainingCooldownBeforeLocatingNewFlower = Mth.nextInt(this.random, 20, 60);
     @Nullable
     BlockPos savedFlowerPos;
@@ -115,6 +106,13 @@ public class GoldenBee extends GoldenAnimal implements NeutralMob, FlyingAnimal 
     BlockPos hivePos;
     GoldenBee.BeePollinateGoal beePollinateGoal;
     GoldenBee.BeeGoToHiveGoal goToHiveGoal;
+    @Nullable
+    private UUID persistentAngerTarget;
+    private float rollAmount;
+    private float rollAmountO;
+    private int timeSinceSting;
+    private int stayOutOfHiveCountdown;
+    private int numCropsGrownSincePollination;
     private GoldenBee.BeeGoToKnownFlowerGoal goToKnownFlowerGoal;
     private int underWaterTicks;
 
@@ -129,9 +127,13 @@ public class GoldenBee extends GoldenAnimal implements NeutralMob, FlyingAnimal 
         this.setPathfindingMalus(BlockPathTypes.FENCE, -1.0F);
     }
 
+    public static AttributeSupplier.Builder createAttributes() {
+        return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 10.0D).add(Attributes.FLYING_SPEED, 0.6F).add(Attributes.MOVEMENT_SPEED, 0.3F).add(Attributes.ATTACK_DAMAGE, 2.0D).add(Attributes.FOLLOW_RANGE, 48.0D);
+    }
+
     protected void defineSynchedData() {
         super.defineSynchedData();
-        this.entityData.define(DATA_FLAGS_ID, (byte)0);
+        this.entityData.define(DATA_FLAGS_ID, (byte) 0);
         this.entityData.define(DATA_REMAINING_ANGER_TIME, 0);
     }
 
@@ -202,11 +204,11 @@ public class GoldenBee extends GoldenAnimal implements NeutralMob, FlyingAnimal 
     }
 
     public boolean doHurtTarget(Entity pEntity) {
-        boolean flag = pEntity.hurt(this.damageSources().sting(this), (float)((int)this.getAttributeValue(Attributes.ATTACK_DAMAGE)));
+        boolean flag = pEntity.hurt(this.damageSources().sting(this), (float) ((int) this.getAttributeValue(Attributes.ATTACK_DAMAGE)));
         if (flag) {
             this.doEnchantDamageEffects(this, pEntity);
             if (pEntity instanceof LivingEntity) {
-                ((LivingEntity)pEntity).setStingerCount(((LivingEntity)pEntity).getStingerCount() + 1);
+                ((LivingEntity) pEntity).setStingerCount(((LivingEntity) pEntity).getStingerCount() + 1);
                 int i = 0;
                 if (this.level().getDifficulty() == Difficulty.NORMAL) {
                     i = 10;
@@ -215,7 +217,7 @@ public class GoldenBee extends GoldenAnimal implements NeutralMob, FlyingAnimal 
                 }
 
                 if (i > 0) {
-                    ((LivingEntity)pEntity).addEffect(new MobEffectInstance(MobEffects.POISON, i * 20, 2), this);
+                    ((LivingEntity) pEntity).addEffect(new MobEffectInstance(MobEffects.POISON, i * 20, 2), this);
                 }
             }
 
@@ -233,8 +235,8 @@ public class GoldenBee extends GoldenAnimal implements NeutralMob, FlyingAnimal 
     public void tick() {
         super.tick();
         if (this.hasNectar() && this.getCropsGrownSincePollination() < 10 && this.random.nextFloat() < 0.05F) {
-            for(int i = 0; i < this.random.nextInt(2) + 1; ++i) {
-                this.spawnFluidParticle(this.level(), this.getX() - (double)0.3F, this.getX() + (double)0.3F, this.getZ() - (double)0.3F, this.getZ() + (double)0.3F, this.getY(0.5D), ParticleTypes.FALLING_NECTAR);
+            for (int i = 0; i < this.random.nextInt(2) + 1; ++i) {
+                this.spawnFluidParticle(this.level(), this.getX() - (double) 0.3F, this.getX() + (double) 0.3F, this.getZ() - (double) 0.3F, this.getZ() + (double) 0.3F, this.getY(0.5D), ParticleTypes.FALLING_NECTAR);
             }
         }
 
@@ -249,7 +251,7 @@ public class GoldenBee extends GoldenAnimal implements NeutralMob, FlyingAnimal 
         Vec3 vec3 = Vec3.atBottomCenterOf(pPos);
         int i = 0;
         BlockPos blockpos = this.blockPosition();
-        int j = (int)vec3.y - blockpos.getY();
+        int j = (int) vec3.y - blockpos.getY();
         if (j > 2) {
             i = 4;
         } else if (j < -2) {
@@ -264,7 +266,7 @@ public class GoldenBee extends GoldenAnimal implements NeutralMob, FlyingAnimal 
             l = i1 / 2;
         }
 
-        Vec3 vec31 = AirRandomPos.getPosTowards(this, k, l, i, vec3, (float)Math.PI / 10F);
+        Vec3 vec31 = AirRandomPos.getPosTowards(this, k, l, i, vec3, (float) Math.PI / 10F);
         if (vec31 != null) {
             this.navigation.setMaxVisitedNodesMultiplier(0.5F);
             this.navigation.moveTo(vec31.x, vec31.y, vec31.z, 1.0D);
@@ -276,12 +278,12 @@ public class GoldenBee extends GoldenAnimal implements NeutralMob, FlyingAnimal 
         return this.savedFlowerPos;
     }
 
-    public boolean hasSavedFlowerPos() {
-        return this.savedFlowerPos != null;
-    }
-
     public void setSavedFlowerPos(BlockPos pSavedFlowerPos) {
         this.savedFlowerPos = pSavedFlowerPos;
+    }
+
+    public boolean hasSavedFlowerPos() {
+        return this.savedFlowerPos != null;
     }
 
     @VisibleForDebug
@@ -349,7 +351,7 @@ public class GoldenBee extends GoldenAnimal implements NeutralMob, FlyingAnimal 
         }
 
         if (!this.level().isClientSide) {
-            this.updatePersistentAnger((ServerLevel)this.level(), false);
+            this.updatePersistentAnger((ServerLevel) this.level(), false);
         }
 
     }
@@ -363,7 +365,7 @@ public class GoldenBee extends GoldenAnimal implements NeutralMob, FlyingAnimal 
             return false;
         } else {
             BlockEntity blockentity = this.level().getBlockEntity(this.hivePos);
-            return blockentity instanceof GoldenBeehiveBlockEntity && ((GoldenBeehiveBlockEntity)blockentity).isFireNearby();
+            return blockentity instanceof GoldenBeehiveBlockEntity && ((GoldenBeehiveBlockEntity) blockentity).isFireNearby();
         }
     }
 
@@ -391,7 +393,7 @@ public class GoldenBee extends GoldenAnimal implements NeutralMob, FlyingAnimal 
     private boolean doesHiveHaveSpace(BlockPos pHivePos) {
         BlockEntity blockentity = this.level().getBlockEntity(pHivePos);
         if (blockentity instanceof GoldenBeehiveBlockEntity) {
-            return !((GoldenBeehiveBlockEntity)blockentity).isFull();
+            return !((GoldenBeehiveBlockEntity) blockentity).isFull();
         } else {
             return false;
         }
@@ -503,19 +505,15 @@ public class GoldenBee extends GoldenAnimal implements NeutralMob, FlyingAnimal 
 
     private void setFlag(int pFlagId, boolean pValue) {
         if (pValue) {
-            this.entityData.set(DATA_FLAGS_ID, (byte)(this.entityData.get(DATA_FLAGS_ID) | pFlagId));
+            this.entityData.set(DATA_FLAGS_ID, (byte) (this.entityData.get(DATA_FLAGS_ID) | pFlagId));
         } else {
-            this.entityData.set(DATA_FLAGS_ID, (byte)(this.entityData.get(DATA_FLAGS_ID) & ~pFlagId));
+            this.entityData.set(DATA_FLAGS_ID, (byte) (this.entityData.get(DATA_FLAGS_ID) & ~pFlagId));
         }
 
     }
 
     private boolean getFlag(int pFlagId) {
         return (this.entityData.get(DATA_FLAGS_ID) & pFlagId) != 0;
-    }
-
-    public static AttributeSupplier.Builder createAttributes() {
-        return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 10.0D).add(Attributes.FLYING_SPEED, 0.6F).add(Attributes.MOVEMENT_SPEED, 0.3F).add(Attributes.ATTACK_DAMAGE, 2.0D).add(Attributes.FOLLOW_RANGE, 48.0D);
     }
 
     protected PathNavigation createNavigation(Level pLevel) {
@@ -636,6 +634,38 @@ public class GoldenBee extends GoldenAnimal implements NeutralMob, FlyingAnimal 
         return pPos.closerThan(this.blockPosition(), pDistance);
     }
 
+    static class BeeBecomeAngryTargetGoal extends NearestAttackableTargetGoal<Player> {
+        BeeBecomeAngryTargetGoal(GoldenBee pMob) {
+            super(pMob, Player.class, 10, true, false, pMob::isAngryAt);
+        }
+
+        /**
+         * Returns whether execution should begin. You can also read and cache any state necessary for execution in this
+         * method as well.
+         */
+        public boolean canUse() {
+            return this.beeCanTarget() && super.canUse();
+        }
+
+        /**
+         * Returns whether an in-progress EntityAIBase should continue executing
+         */
+        public boolean canContinueToUse() {
+            boolean flag = this.beeCanTarget();
+            if (flag && this.mob.getTarget() != null) {
+                return super.canContinueToUse();
+            } else {
+                this.targetMob = null;
+                return false;
+            }
+        }
+
+        private boolean beeCanTarget() {
+            GoldenBee bee = (GoldenBee) this.mob;
+            return bee.isAngry() && !bee.hasStung();
+        }
+    }
+
     abstract class BaseBeeGoal extends Goal {
         public abstract boolean canBeeUse();
 
@@ -678,38 +708,6 @@ public class GoldenBee extends GoldenAnimal implements NeutralMob, FlyingAnimal 
         }
     }
 
-    static class BeeBecomeAngryTargetGoal extends NearestAttackableTargetGoal<Player> {
-        BeeBecomeAngryTargetGoal(GoldenBee pMob) {
-            super(pMob, Player.class, 10, true, false, pMob::isAngryAt);
-        }
-
-        /**
-         * Returns whether execution should begin. You can also read and cache any state necessary for execution in this
-         * method as well.
-         */
-        public boolean canUse() {
-            return this.beeCanTarget() && super.canUse();
-        }
-
-        /**
-         * Returns whether an in-progress EntityAIBase should continue executing
-         */
-        public boolean canContinueToUse() {
-            boolean flag = this.beeCanTarget();
-            if (flag && this.mob.getTarget() != null) {
-                return super.canContinueToUse();
-            } else {
-                this.targetMob = null;
-                return false;
-            }
-        }
-
-        private boolean beeCanTarget() {
-            GoldenBee bee = (GoldenBee)this.mob;
-            return bee.isAngry() && !bee.hasStung();
-        }
-    }
-
     class BeeEnterHiveGoal extends GoldenBee.BaseBeeGoal {
         public boolean canBeeUse() {
             if (GoldenBee.this.hasHive() && GoldenBee.this.wantsToEnterHive() && GoldenBee.this.hivePos.closerToCenterThan(GoldenBee.this.position(), 2.0D)) {
@@ -745,12 +743,12 @@ public class GoldenBee extends GoldenAnimal implements NeutralMob, FlyingAnimal 
     @VisibleForDebug
     public class BeeGoToHiveGoal extends GoldenBee.BaseBeeGoal {
         public static final int MAX_TRAVELLING_TICKS = 600;
-        int travellingTicks = GoldenBee.this.level().random.nextInt(10);
         private static final int MAX_BLACKLISTED_TARGETS = 3;
+        private static final int TICKS_BEFORE_HIVE_DROP = 60;
         final List<BlockPos> blacklistedTargets = Lists.newArrayList();
+        int travellingTicks = GoldenBee.this.level().random.nextInt(10);
         @Nullable
         private Path lastPath;
-        private static final int TICKS_BEFORE_HIVE_DROP = 60;
         private int ticksStuck;
 
         BeeGoToHiveGoal() {
@@ -831,7 +829,7 @@ public class GoldenBee extends GoldenAnimal implements NeutralMob, FlyingAnimal 
         private void blacklistTarget(BlockPos pPos) {
             this.blacklistedTargets.add(pPos);
 
-            while(this.blacklistedTargets.size() > 3) {
+            while (this.blacklistedTargets.size() > 3) {
                 this.blacklistedTargets.remove(0);
             }
 
@@ -942,7 +940,7 @@ public class GoldenBee extends GoldenAnimal implements NeutralMob, FlyingAnimal 
          */
         public void tick() {
             if (GoldenBee.this.random.nextInt(this.adjustedTickDelay(30)) == 0) {
-                for(int i = 1; i <= 2; ++i) {
+                for (int i = 1; i <= 2; ++i) {
                     BlockPos blockpos = GoldenBee.this.blockPosition().below(i);
                     BlockState blockstate = GoldenBee.this.level().getBlockState(blockpos);
                     Block block = blockstate.getBlock();
@@ -963,14 +961,14 @@ public class GoldenBee extends GoldenAnimal implements NeutralMob, FlyingAnimal 
                                 blockstate1 = blockstate.setValue(SweetGoldenBerryBushBlock.AGE, Integer.valueOf(j + 1));
                             }
                         } else if (blockstate.is(GDModBlocks.GOLDEN_CAVE_VINES.get()) || blockstate.is(GDModBlocks.GOLDEN_CAVE_VINES_PLANT.get())) {
-                            ((BonemealableBlock)blockstate.getBlock()).performBonemeal((ServerLevel)GoldenBee.this.level(), GoldenBee.this.random, blockpos, blockstate);
+                            ((BonemealableBlock) blockstate.getBlock()).performBonemeal((ServerLevel) GoldenBee.this.level(), GoldenBee.this.random, blockpos, blockstate);
                         } else if (blockstate.is(Blocks.SWEET_BERRY_BUSH)) {
                             int j = blockstate.getValue(SweetBerryBushBlock.AGE);
                             if (j < 3) {
                                 blockstate1 = blockstate.setValue(SweetBerryBushBlock.AGE, Integer.valueOf(j + 1));
                             }
                         } else if (blockstate.is(Blocks.CAVE_VINES) || blockstate.is(Blocks.CAVE_VINES_PLANT)) {
-                            ((BonemealableBlock)blockstate.getBlock()).performBonemeal((ServerLevel)GoldenBee.this.level(), GoldenBee.this.random, blockpos, blockstate);
+                            ((BonemealableBlock) blockstate.getBlock()).performBonemeal((ServerLevel) GoldenBee.this.level(), GoldenBee.this.random, blockpos, blockstate);
                         }
 
                         if (blockstate1 != null) {
@@ -1021,7 +1019,7 @@ public class GoldenBee extends GoldenAnimal implements NeutralMob, FlyingAnimal 
             GoldenBee.this.remainingCooldownBeforeLocatingNewHive = 200;
             List<BlockPos> list = this.findNearbyHivesWithSpace();
             if (!list.isEmpty()) {
-                for(BlockPos blockpos : list) {
+                for (BlockPos blockpos : list) {
                     if (!GoldenBee.this.goToHiveGoal.isTargetBlacklisted(blockpos)) {
                         GoldenBee.this.hivePos = blockpos;
                         return;
@@ -1035,7 +1033,7 @@ public class GoldenBee extends GoldenAnimal implements NeutralMob, FlyingAnimal 
 
         private List<BlockPos> findNearbyHivesWithSpace() {
             BlockPos blockpos = GoldenBee.this.blockPosition();
-            PoiManager poimanager = ((ServerLevel)GoldenBee.this.level()).getPoiManager();
+            PoiManager poimanager = ((ServerLevel) GoldenBee.this.level()).getPoiManager();
             Stream<PoiRecord> stream = poimanager.getInRange((p_218130_) -> {
                 return p_218130_.is(GDModTags.PoiTypes.GOLDEN_BEE_HOME);
             }, blockpos, 20, PoiManager.Occupancy.ANY);
@@ -1068,6 +1066,12 @@ public class GoldenBee extends GoldenAnimal implements NeutralMob, FlyingAnimal 
         private static final int MIN_POLLINATION_TICKS = 400;
         private static final int MIN_FIND_FLOWER_RETRY_COOLDOWN = 20;
         private static final int MAX_FIND_FLOWER_RETRY_COOLDOWN = 60;
+        private static final double ARRIVAL_THRESHOLD = 0.1D;
+        private static final int POSITION_CHANGE_CHANCE = 25;
+        private static final float SPEED_MODIFIER = 0.35F;
+        private static final float HOVER_HEIGHT_WITHIN_FLOWER = 0.6F;
+        private static final float HOVER_POS_OFFSET = 0.33333334F;
+        private static final int MAX_POLLINATING_TICKS = 600;
         private final Predicate<BlockState> VALID_POLLINATION_BLOCKS = (p_28074_) -> {
             if (p_28074_.hasProperty(BlockStateProperties.WATERLOGGED) && p_28074_.getValue(BlockStateProperties.WATERLOGGED)) {
                 return false;
@@ -1081,18 +1085,12 @@ public class GoldenBee extends GoldenAnimal implements NeutralMob, FlyingAnimal 
                 return false;
             }
         };
-        private static final double ARRIVAL_THRESHOLD = 0.1D;
-        private static final int POSITION_CHANGE_CHANCE = 25;
-        private static final float SPEED_MODIFIER = 0.35F;
-        private static final float HOVER_HEIGHT_WITHIN_FLOWER = 0.6F;
-        private static final float HOVER_POS_OFFSET = 0.33333334F;
         private int successfulPollinatingTicks;
         private int lastSoundPlayedTick;
         private boolean pollinating;
         @Nullable
         private Vec3 hoverPos;
         private int pollinatingTicks;
-        private static final int MAX_POLLINATING_TICKS = 600;
 
         BeePollinateGoal() {
             this.setFlags(EnumSet.of(Goal.Flag.MOVE));
@@ -1109,7 +1107,7 @@ public class GoldenBee extends GoldenAnimal implements NeutralMob, FlyingAnimal 
                 Optional<BlockPos> optional = this.findNearbyFlower();
                 if (optional.isPresent()) {
                     GoldenBee.this.savedFlowerPos = optional.get();
-                    GoldenBee.this.navigation.moveTo((double)GoldenBee.this.savedFlowerPos.getX() + 0.5D, (double)GoldenBee.this.savedFlowerPos.getY() + 0.5D, (double)GoldenBee.this.savedFlowerPos.getZ() + 0.5D, 1.2F);
+                    GoldenBee.this.navigation.moveTo((double) GoldenBee.this.savedFlowerPos.getX() + 0.5D, (double) GoldenBee.this.savedFlowerPos.getY() + 0.5D, (double) GoldenBee.this.savedFlowerPos.getZ() + 0.5D, 1.2F);
                     return true;
                 } else {
                     GoldenBee.this.remainingCooldownBeforeLocatingNewFlower = Mth.nextInt(GoldenBee.this.random, 20, 60);
@@ -1200,7 +1198,7 @@ public class GoldenBee extends GoldenAnimal implements NeutralMob, FlyingAnimal 
                         if (flag) {
                             boolean flag2 = GoldenBee.this.random.nextInt(25) == 0;
                             if (flag2) {
-                                this.hoverPos = new Vec3(vec3.x() + (double)this.getOffset(), vec3.y(), vec3.z() + (double)this.getOffset());
+                                this.hoverPos = new Vec3(vec3.x() + (double) this.getOffset(), vec3.y(), vec3.z() + (double) this.getOffset());
                                 GoldenBee.this.navigation.stop();
                             } else {
                                 flag1 = false;
@@ -1240,10 +1238,10 @@ public class GoldenBee extends GoldenAnimal implements NeutralMob, FlyingAnimal 
             BlockPos blockpos = GoldenBee.this.blockPosition();
             BlockPos.MutableBlockPos blockpos$mutableblockpos = new BlockPos.MutableBlockPos();
 
-            for(int i = 0; (double)i <= pDistance; i = i > 0 ? -i : 1 - i) {
-                for(int j = 0; (double)j < pDistance; ++j) {
-                    for(int k = 0; k <= j; k = k > 0 ? -k : 1 - k) {
-                        for(int l = k < j && k > -j ? j : 0; l <= j; l = l > 0 ? -l : 1 - l) {
+            for (int i = 0; (double) i <= pDistance; i = i > 0 ? -i : 1 - i) {
+                for (int j = 0; (double) j < pDistance; ++j) {
+                    for (int k = 0; k <= j; k = k > 0 ? -k : 1 - k) {
+                        for (int l = k < j && k > -j ? j : 0; l <= j; l = l > 0 ? -l : 1 - l) {
                             blockpos$mutableblockpos.setWithOffset(blockpos, k, i - 1, l);
                             if (blockpos.closerThan(blockpos$mutableblockpos, pDistance) && pPredicate.test(GoldenBee.this.level().getBlockState(blockpos$mutableblockpos))) {
                                 return Optional.of(blockpos$mutableblockpos);
@@ -1301,8 +1299,8 @@ public class GoldenBee extends GoldenAnimal implements NeutralMob, FlyingAnimal 
             }
 
             int i = 8;
-            Vec3 vec32 = HoverRandomPos.getPos(GoldenBee.this, 8, 7, vec3.x, vec3.z, ((float)Math.PI / 2F), 3, 1);
-            return vec32 != null ? vec32 : AirAndWaterRandomPos.getPos(GoldenBee.this, 8, 4, -2, vec3.x, vec3.z, (float)Math.PI / 2F);
+            Vec3 vec32 = HoverRandomPos.getPos(GoldenBee.this, 8, 7, vec3.x, vec3.z, ((float) Math.PI / 2F), 3, 1);
+            return vec32 != null ? vec32 : AirAndWaterRandomPos.getPos(GoldenBee.this, 8, 4, -2, vec3.x, vec3.z, (float) Math.PI / 2F);
         }
     }
 }

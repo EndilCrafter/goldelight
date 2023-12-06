@@ -61,8 +61,6 @@ public class GoldenCookingPotBlockEntity extends SyncedBlockEntity implements Me
     public static final int CONTAINER_SLOT = 7;
     public static final int OUTPUT_SLOT = 8;
     public static final int INVENTORY_SIZE = OUTPUT_SLOT + 1;
-
-    // TODO: Consider whether to leave this as-is, or open it to datapacks for modded cases.
     public static final Map<Item, Item> INGREDIENT_REMAINDER_OVERRIDES = Map.ofEntries(
             entry(Items.POWDER_SNOW_BUCKET, Items.BUCKET),
             entry(Items.AXOLOTL_BUCKET, Items.BUCKET),

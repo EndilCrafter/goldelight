@@ -23,10 +23,15 @@ import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class GoldenCow extends GoldenAnimal{
+public class GoldenCow extends GoldenAnimal {
     public GoldenCow(EntityType<? extends GoldenCow> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
     }
+
+    public static AttributeSupplier.Builder createAttributes() {
+        return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 10.0D).add(Attributes.MOVEMENT_SPEED, 0.2F);
+    }
+
     protected void registerGoals() {
         this.goalSelector.addGoal(0, new FloatGoal(this));
         this.goalSelector.addGoal(1, new PanicGoal(this, 2.0D));
@@ -37,9 +42,7 @@ public class GoldenCow extends GoldenAnimal{
         this.goalSelector.addGoal(6, new LookAtPlayerGoal(this, Player.class, 6.0F));
         this.goalSelector.addGoal(7, new RandomLookAroundGoal(this));
     }
-    public static AttributeSupplier.Builder createAttributes() {
-        return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 10.0D).add(Attributes.MOVEMENT_SPEED, 0.2F);
-    }
+
     protected SoundEvent getAmbientSound() {
         return SoundEvents.COW_AMBIENT;
     }
@@ -55,9 +58,11 @@ public class GoldenCow extends GoldenAnimal{
     protected void playStepSound(BlockPos pPos, BlockState pBlock) {
         this.playSound(SoundEvents.COW_STEP, 0.15F, 1.0F);
     }
+
     protected float getSoundVolume() {
         return 0.4F;
     }
+
     @Override
     public @NotNull InteractionResult mobInteract(Player pPlayer, InteractionHand pHand) {
         ItemStack itemstack = pPlayer.getItemInHand(pHand);
@@ -76,6 +81,7 @@ public class GoldenCow extends GoldenAnimal{
     public AgeableMob getBreedOffspring(ServerLevel pLevel, AgeableMob pOtherParent) {
         return GDModEntityTypes.GOLDEN_COW.get().create(pLevel);
     }
+
     protected float getStandingEyeHeight(Pose pPose, EntityDimensions pSize) {
         return this.isBaby() ? pSize.height * 0.95F : 1.3F;
     }

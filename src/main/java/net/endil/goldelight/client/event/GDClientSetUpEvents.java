@@ -7,7 +7,6 @@ import net.endil.goldelight.client.entity.GoldenChickenModel;
 import net.endil.goldelight.client.entity.GoldenCowModel;
 import net.endil.goldelight.client.recipebook.GDModRecipeCategories;
 import net.endil.goldelight.common.block.entity.renderer.NetherBrickStoveRenderer;
-import net.endil.goldelight.common.entity.GoldenBee;
 import net.endil.goldelight.common.registry.GDModBlockEntityTypes;
 import net.minecraft.client.renderer.blockentity.HangingSignRenderer;
 import net.minecraft.client.renderer.blockentity.SignRenderer;
@@ -23,12 +22,14 @@ public class GDClientSetUpEvents {
     public static void onRegisterRecipeBookCategories(RegisterRecipeBookCategoriesEvent event) {
         GDModRecipeCategories.init(event);
     }
+
     @SubscribeEvent
     public static void registerLayer(EntityRenderersEvent.RegisterLayerDefinitions event) {
         event.registerLayerDefinition(GDModModelLayers.GOLDEN_COW, GoldenCowModel::createBodyLayer);
         event.registerLayerDefinition(GDModModelLayers.GOLDEN_CHICKEN, GoldenChickenModel::createBodyLayer);
         event.registerLayerDefinition(GDModModelLayers.GOLDEN_BEE, GoldenBeeModel::createBodyLayer);
     }
+
     @SubscribeEvent
     public static void registerBlockEntityRender(EntityRenderersEvent.RegisterRenderers event) {
         event.registerBlockEntityRenderer(GDModBlockEntityTypes.MOD_SIGN.get(), SignRenderer::new);

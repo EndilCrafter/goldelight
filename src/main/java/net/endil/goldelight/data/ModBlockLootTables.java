@@ -14,7 +14,6 @@ import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantments;
-import net.minecraft.world.level.block.BeehiveBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.CocoaBlock;
 import net.minecraft.world.level.storage.loot.IntRange;
@@ -43,6 +42,7 @@ public class ModBlockLootTables extends BlockLootSubProvider {
     LootItemCondition.Builder goldenCabbage = LootItemBlockStatePropertyCondition.hasBlockStateProperties(GDModBlocks.GOLDEN_CABBAGE_CROP.get()).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(GoldenCabbageBlock.AGE, 7));
     LootItemCondition.Builder goldenOnion = LootItemBlockStatePropertyCondition.hasBlockStateProperties(GDModBlocks.GOLDEN_ONION_CROP.get()).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(GoldenOnionBlock.AGE, 7));
     LootItemCondition.Builder goldenTomato = LootItemBlockStatePropertyCondition.hasBlockStateProperties(GDModBlocks.GOLDEN_TOMATO_CROP.get()).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(GoldenTomatoVineBlock.AGE, 7));
+
     protected ModBlockLootTables() {
         super(Set.of(), FeatureFlags.REGISTRY.allFlags());
     }
@@ -50,6 +50,10 @@ public class ModBlockLootTables extends BlockLootSubProvider {
     protected static LootTable.Builder createGoldenCaveVinesDrop(Block pBlock) {
         return LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(GDModItems.GOLDEN_GLOW_BERRIES.get()))
                 .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(GoldenCaveVines.BERRIES, true))));
+    }
+
+    protected static LootTable.Builder createGoldenBeeHiveDrop(Block pBlock) {
+        return LootTable.lootTable().withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).add(LootItem.lootTableItem(pBlock).when(HAS_SILK_TOUCH).apply(CopyNbtFunction.copyData(ContextNbtProvider.BLOCK_ENTITY).copy("Bees", "BlockEntityTag.Bees")).apply(CopyBlockState.copyState(pBlock).copy(GoldenBeehiveBlock.HONEY_LEVEL)).otherwise(LootItem.lootTableItem(pBlock))));
     }
 
     @Override
@@ -215,11 +219,9 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.generatedLootTables.add(block);
         this.map.put(block.getLootTable(), builder);
     }
+
     protected void dropNamedContainer(Block block) {
         add(block, this::createNameableBlockEntityTable);
-    }
-    protected static LootTable.Builder createGoldenBeeHiveDrop(Block pBlock) {
-        return LootTable.lootTable().withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).add(LootItem.lootTableItem(pBlock).when(HAS_SILK_TOUCH).apply(CopyNbtFunction.copyData(ContextNbtProvider.BLOCK_ENTITY).copy("Bees", "BlockEntityTag.Bees")).apply(CopyBlockState.copyState(pBlock).copy(GoldenBeehiveBlock.HONEY_LEVEL)).otherwise(LootItem.lootTableItem(pBlock))));
     }
 
     @Override

@@ -18,12 +18,17 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import org.joml.Matrix3f;
 import org.joml.Matrix4f;
+
 @OnlyIn(Dist.CLIENT)
 public class GoldenBeeSingerLayer<T extends LivingEntity, M extends PlayerModel<T>> extends StuckInBodyLayer<T, M> {
-    private static final ResourceLocation BEE_STINGER_LOCATION = new ResourceLocation(GolDelight.MOD_ID,"textures/entity/golden_bee/golden_bee_stinger.png");
+    private static final ResourceLocation BEE_STINGER_LOCATION = new ResourceLocation(GolDelight.MOD_ID, "textures/entity/golden_bee/golden_bee_stinger.png");
 
     public GoldenBeeSingerLayer(LivingEntityRenderer<T, M> pRenderer) {
         super(pRenderer);
+    }
+
+    private static void vertex(VertexConsumer pConsumer, Matrix4f pPose, Matrix3f pNormal, float pX, int pY, float pU, float pV, int pLightmapUV) {
+        pConsumer.vertex(pPose, pX, (float) pY, 0.0F).color(255, 255, 255, 255).uv(pU, pV).overlayCoords(OverlayTexture.NO_OVERLAY).uv2(pLightmapUV).normal(pNormal, 0.0F, 1.0F, 0.0F).endVertex();
     }
 
     protected int numStuck(T pEntity) {
@@ -58,9 +63,5 @@ public class GoldenBeeSingerLayer<T extends LivingEntity, M extends PlayerModel<
             vertex(vertexconsumer, matrix4f, matrix3f, -4.5F, 1, 0.0F, 0.0625F, pPackedLight);
         }
 
-    }
-
-    private static void vertex(VertexConsumer pConsumer, Matrix4f pPose, Matrix3f pNormal, float pX, int pY, float pU, float pV, int pLightmapUV) {
-        pConsumer.vertex(pPose, pX, (float) pY, 0.0F).color(255, 255, 255, 255).uv(pU, pV).overlayCoords(OverlayTexture.NO_OVERLAY).uv2(pLightmapUV).normal(pNormal, 0.0F, 1.0F, 0.0F).endVertex();
     }
 }

@@ -14,10 +14,8 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
-import net.minecraft.world.entity.animal.Chicken;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
@@ -26,19 +24,24 @@ import net.minecraft.world.phys.Vec3;
 
 import javax.annotation.Nullable;
 
-public class GoldenChicken extends GoldenAnimal{
+public class GoldenChicken extends GoldenAnimal {
     private static final Ingredient FOOD_ITEMS = Ingredient.of(GDModTags.Items.GOLDEN_SEEDS);
     public float flap;
     public float flapSpeed;
     public float oFlapSpeed;
     public float oFlap;
     public float flapping = 1.0F;
-    private float nextFlap = 1.0F;
     public int eggTime = this.random.nextInt(6000) + 6000;
+    private float nextFlap = 1.0F;
 
     public GoldenChicken(EntityType<? extends GoldenChicken> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
     }
+
+    public static AttributeSupplier.Builder createAttributes() {
+        return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 4.0D).add(Attributes.MOVEMENT_SPEED, 0.25D);
+    }
+
     protected void registerGoals() {
         this.goalSelector.addGoal(0, new FloatGoal(this));
         this.goalSelector.addGoal(1, new PanicGoal(this, 1.4D));
@@ -52,10 +55,6 @@ public class GoldenChicken extends GoldenAnimal{
 
     protected float getStandingEyeHeight(Pose pPose, EntityDimensions pSize) {
         return this.isBaby() ? pSize.height * 0.85F : pSize.height * 0.92F;
-    }
-
-    public static AttributeSupplier.Builder createAttributes() {
-        return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 4.0D).add(Attributes.MOVEMENT_SPEED, 0.25D);
     }
 
     public void aiStep() {

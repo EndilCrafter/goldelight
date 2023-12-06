@@ -8,6 +8,7 @@ import net.minecraft.resources.ResourceLocation;
 
 public class GoldenCowRenderer extends MobRenderer<GoldenCow, GoldenCowModel<GoldenCow>> {
     private static final ResourceLocation GOLDEN_COW_LOCATION = new ResourceLocation(GolDelight.MOD_ID, "textures/entity/golden_cow.png");
+
     public GoldenCowRenderer(EntityRendererProvider.Context p_173956_) {
         super(p_173956_, new GoldenCowModel<>(p_173956_.bakeLayer(GDModModelLayers.GOLDEN_COW)), 0.7F);
     }

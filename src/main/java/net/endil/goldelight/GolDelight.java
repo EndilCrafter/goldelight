@@ -6,11 +6,9 @@ import net.endil.goldelight.common.block.entity.GoldenBeehiveBlockEntity;
 import net.endil.goldelight.common.entity.GoldenBee;
 import net.endil.goldelight.common.registry.*;
 import net.minecraft.core.BlockPos;
-import net.minecraft.world.entity.animal.Bee;
 import net.minecraft.world.inventory.RecipeBookType;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.entity.BeehiveBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -31,10 +29,6 @@ public class GolDelight {
     public static final String MOD_ID = "goldelight";
     public static final RecipeBookType RECIPE_TYPE_GOLDEN_COOKING = RecipeBookType.create("GOLDEN_COOKING");
     private static final Logger LOGGER = LogUtils.getLogger();
-    public static void sendHiveInfo(Level pLevel, BlockPos pPos, BlockState pBlockState, GoldenBeehiveBlockEntity pHiveBlockEntity) {
-    }
-    public static void sendBeeInfo(GoldenBee pBee) {
-    }
 
     public GolDelight() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
@@ -68,6 +62,12 @@ public class GolDelight {
 
         modEventBus.addListener(this::addCreative);
         modEventBus.addListener(GDClientSetUp::init);
+    }
+
+    public static void sendHiveInfo(Level pLevel, BlockPos pPos, BlockState pBlockState, GoldenBeehiveBlockEntity pHiveBlockEntity) {
+    }
+
+    public static void sendBeeInfo(GoldenBee pBee) {
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {

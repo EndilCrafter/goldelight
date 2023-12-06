@@ -3,13 +3,11 @@ package net.endil.goldelight.client.entity;
 import com.google.common.collect.ImmutableList;
 import net.endil.goldelight.common.entity.GoldenBee;
 import net.minecraft.client.model.AgeableListModel;
-import net.minecraft.client.model.BeeModel;
 import net.minecraft.client.model.ModelUtils;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.util.Mth;
-import net.minecraft.world.entity.animal.Bee;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
@@ -91,15 +89,15 @@ public class GoldenBeeModel<T extends GoldenBee> extends AgeableListModel<T> {
             this.midLeg.xRot = 0.0F;
             this.backLeg.xRot = 0.0F;
         } else {
-            float f = pAgeInTicks * 120.32113F * ((float)Math.PI / 180F);
+            float f = pAgeInTicks * 120.32113F * ((float) Math.PI / 180F);
             this.rightWing.yRot = 0.0F;
-            this.rightWing.zRot = Mth.cos(f) * (float)Math.PI * 0.15F;
+            this.rightWing.zRot = Mth.cos(f) * (float) Math.PI * 0.15F;
             this.leftWing.xRot = this.rightWing.xRot;
             this.leftWing.yRot = this.rightWing.yRot;
             this.leftWing.zRot = -this.rightWing.zRot;
-            this.frontLeg.xRot = ((float)Math.PI / 4F);
-            this.midLeg.xRot = ((float)Math.PI / 4F);
-            this.backLeg.xRot = ((float)Math.PI / 4F);
+            this.frontLeg.xRot = ((float) Math.PI / 4F);
+            this.midLeg.xRot = ((float) Math.PI / 4F);
+            this.backLeg.xRot = ((float) Math.PI / 4F);
             this.bone.xRot = 0.0F;
             this.bone.yRot = 0.0F;
             this.bone.zRot = 0.0F;
@@ -111,11 +109,11 @@ public class GoldenBeeModel<T extends GoldenBee> extends AgeableListModel<T> {
             this.bone.zRot = 0.0F;
             if (!flag) {
                 float f1 = Mth.cos(pAgeInTicks * 0.18F);
-                this.bone.xRot = 0.1F + f1 * (float)Math.PI * 0.025F;
-                this.leftAntenna.xRot = f1 * (float)Math.PI * 0.03F;
-                this.rightAntenna.xRot = f1 * (float)Math.PI * 0.03F;
-                this.frontLeg.xRot = -f1 * (float)Math.PI * 0.1F + ((float)Math.PI / 8F);
-                this.backLeg.xRot = -f1 * (float)Math.PI * 0.05F + ((float)Math.PI / 4F);
+                this.bone.xRot = 0.1F + f1 * (float) Math.PI * 0.025F;
+                this.leftAntenna.xRot = f1 * (float) Math.PI * 0.03F;
+                this.rightAntenna.xRot = f1 * (float) Math.PI * 0.03F;
+                this.frontLeg.xRot = -f1 * (float) Math.PI * 0.1F + ((float) Math.PI / 8F);
+                this.backLeg.xRot = -f1 * (float) Math.PI * 0.05F + ((float) Math.PI / 4F);
                 this.bone.y = 19.0F - Mth.cos(pAgeInTicks * 0.18F) * 0.9F;
             }
         }

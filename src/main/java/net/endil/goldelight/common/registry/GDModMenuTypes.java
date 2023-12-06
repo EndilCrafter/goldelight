@@ -13,11 +13,12 @@ public class GDModMenuTypes {
     public static final DeferredRegister<MenuType<?>> MENU_TYPES =
             DeferredRegister.create(ForgeRegistries.MENU_TYPES, GolDelight.MOD_ID);
 
-    public static final RegistryObject<MenuType<GoldenCookingPotMenu>> GOLDEN_COOKING_POT =
-            MENU_TYPES.register("golden_cooking_pot", () -> IForgeMenuType.create(GoldenCookingPotMenu::new));
     public static void register(IEventBus eventBus) {
         MENU_TYPES.register(eventBus);
-    }
+    }    public static final RegistryObject<MenuType<GoldenCookingPotMenu>> GOLDEN_COOKING_POT =
+            MENU_TYPES.register("golden_cooking_pot", () -> IForgeMenuType.create(GoldenCookingPotMenu::new));
+
+
 
 
 }

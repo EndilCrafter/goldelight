@@ -14,7 +14,9 @@ public class GDModBlockEntityTypes {
 
     public static void register(IEventBus eventBus) {
         TILES.register(eventBus);
-    }    public static final RegistryObject<BlockEntityType<GDModSignBlockEntity>> MOD_SIGN = TILES.register("mod_sign",
+    }
+
+    public static final RegistryObject<BlockEntityType<GDModSignBlockEntity>> MOD_SIGN = TILES.register("mod_sign",
             () -> BlockEntityType.Builder.of(GDModSignBlockEntity::new, GDModBlocks.GOLDEN_SIGN.get(), GDModBlocks.GOLDEN_WALL_SIGN.get()).build(null));
 
     public static final RegistryObject<BlockEntityType<GDModHangingSignBlockEntity>> MOD_HANGING_SIGN = TILES.register("mod_hanging_sign",

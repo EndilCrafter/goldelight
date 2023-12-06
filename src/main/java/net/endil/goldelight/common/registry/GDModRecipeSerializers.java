@@ -23,6 +23,7 @@ public class GDModRecipeSerializers {
 
     public static final RegistryObject<SimpleCraftingRecipeSerializer<?>> GOLDEN_FOOD_SERVING =
             RECIPE_SERIALIZERS.register("golden_food_serving", () -> new SimpleCraftingRecipeSerializer<>(GoldenFoodServingRecipe::new));
+
     public static void register(IEventBus eventBus) {
         RECIPE_SERIALIZERS.register(eventBus);
     }

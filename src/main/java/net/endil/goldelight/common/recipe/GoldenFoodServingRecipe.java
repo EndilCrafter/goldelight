@@ -13,8 +13,7 @@ import net.minecraft.world.item.crafting.CustomRecipe;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.Level;
 
-public class GoldenFoodServingRecipe extends CustomRecipe
-{
+public class GoldenFoodServingRecipe extends CustomRecipe {
     public GoldenFoodServingRecipe(ResourceLocation id, CraftingBookCategory category) {
         super(id, category);
     }

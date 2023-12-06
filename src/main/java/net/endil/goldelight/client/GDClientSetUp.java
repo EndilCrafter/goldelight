@@ -3,7 +3,6 @@ package net.endil.goldelight.client;
 import net.endil.goldelight.client.entity.GoldenBeeRenderer;
 import net.endil.goldelight.client.entity.GoldenChickenRenderer;
 import net.endil.goldelight.client.entity.GoldenCowRenderer;
-import net.endil.goldelight.common.entity.GoldenChicken;
 import net.endil.goldelight.common.gui.GoldenCookingPotScreen;
 import net.endil.goldelight.common.registry.GDModEntityTypes;
 import net.endil.goldelight.common.registry.GDModMenuTypes;
