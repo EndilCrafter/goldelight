@@ -1,0 +1,25 @@
+{
+  "type": "goldelight:golden_cooking",
+  "container": {
+    "item": "minecraft:bowl"
+  },
+  "cookingtime": 400,
+  "experience": 0.7,
+  "ingredients": [
+    {
+      "item": "goldelight:golden_bone"
+    },
+    [
+      {
+        "item": "goldelight:golden_glow_berries"
+      },
+      {
+        "tag": "goldelight:golden_mushrooms"
+      }
+    ]
+  ],
+  "recipe_book_tab": "golden_meals",
+  "result": {
+    "item": "goldelight:golden_broth"
+  }
+}

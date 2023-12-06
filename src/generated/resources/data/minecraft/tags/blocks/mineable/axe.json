@@ -30,6 +30,25 @@
     "goldelight:golden_cabbage_crate",
     "goldelight:golden_tomato_crate",
     "goldelight:golden_onion_crate",
-    "goldelight:stuffed_golden_pumpkin_block"
+    "goldelight:stuffed_golden_pumpkin_block",
+    "goldelight:golden_stem",
+    "goldelight:golden_hyphae",
+    "goldelight:stripped_golden_stem",
+    "goldelight:stripped_golden_hyphae",
+    "goldelight:golden_planks",
+    "goldelight:golden_slab",
+    "goldelight:golden_stairs",
+    "goldelight:golden_fence",
+    "goldelight:golden_fence_gate",
+    "goldelight:golden_button",
+    "goldelight:golden_pressure_plate",
+    "goldelight:golden_door",
+    "goldelight:golden_trapdoor",
+    "goldelight:golden_cabinet",
+    "goldelight:golden_sign",
+    "goldelight:golden_wall_sign",
+    "goldelight:golden_hanging_sign",
+    "goldelight:golden_wall_hanging_sign",
+    "goldelight:golden_beehive"
   ]
 }

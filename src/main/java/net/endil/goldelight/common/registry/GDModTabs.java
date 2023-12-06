@@ -58,6 +58,12 @@ public class GDModTabs {
                         pOutput.accept(GDModItems.GOLDEN_WHEAT.get());
                         pOutput.accept(GDModItems.GOLDEN_WHEAT_SEEDS.get());
                         pOutput.accept(GDModItems.MIDAS_KNIFE.get());
+                        pOutput.accept(GDModItems.GOLDEN_LEATHER.get());
+                        pOutput.accept(GDModItems.GOLDEN_FEATHER.get());
+                        pOutput.accept(GDModItems.GOLDEN_HONEYCOMB.get());
+                        pOutput.accept(GDModItems.GOLDEN_COW_SPAWN_EGG.get());
+                        pOutput.accept(GDModItems.GOLDEN_CHICKEN_SPAWN_EGG.get());
+                        pOutput.accept(GDModItems.GOLDEN_BEE_SPAWN_EGG.get());
 
                         //GolDelight Blocks
                         pOutput.accept(GDModBlocks.GOL_D_LANTERN.get());
@@ -66,6 +72,8 @@ public class GDModTabs {
                         pOutput.accept(GDModBlocks.GOLDEN_CHORUS_FLOWER.get());
                         pOutput.accept(GDModBlocks.GOLDEN_CHORUS_PLANT.get());
                         pOutput.accept(GDModBlocks.GOLDEN_HAY_BLOCK.get());
+                        pOutput.accept(GDModBlocks.GOLDEN_HONEY_BLOCK.get());
+                        pOutput.accept(GDModBlocks.GOLDEN_HONEYCOMB_BLOCK.get());
                         pOutput.accept(GDModBlocks.GOLDEN_MELON.get());
                         pOutput.accept(GDModBlocks.GOLDEN_MUSHROOM.get());
                         pOutput.accept(GDModBlocks.GOLDEN_FUNGUS.get());
@@ -76,6 +84,7 @@ public class GDModTabs {
                         pOutput.accept(GDModBlocks.GOLDEN_NETHER_BRICK_SLAB.get());
                         pOutput.accept(GDModBlocks.GOLDEN_NETHER_BRICK_STAIRS.get());
                         pOutput.accept(GDModBlocks.GOLDEN_NETHER_BRICK_FENCE.get());
+                        pOutput.accept(GDModBlocks.GOLDEN_NETHER_BRICK_WALL.get());
                         pOutput.accept(GDModBlocks.GROOMLIGHT.get());
                         pOutput.accept(GDModBlocks.GOLDEN_STEM.get());
                         pOutput.accept(GDModBlocks.GOLDEN_HYPHAE.get());
@@ -98,10 +107,12 @@ public class GDModTabs {
                         */
                         pOutput.accept(GDModBlocks.GOLDEN_PUMPKIN.get());
                         pOutput.accept(GDModBlocks.GOLDEN_WART_BLOCK.get());
+                        pOutput.accept(GDModBlocks.GOLDEN_BEEHIVE.get());
 
                         //Farmer's Delight Items
-                        // pOutput.accept(GDModItems.GOLDEN_COOKING_POT.get());
+                        pOutput.accept(GDModItems.GOLDEN_COOKING_POT.get());
                         pOutput.accept(GDModItems.GOLDEN_MUSHROOM_COLONY.get());
+                        pOutput.accept(GDModItems.GOLDEN_FUNGUS_COLONY.get());
                         pOutput.accept(GDModItems.GOLDEN_CABBAGE.get());
                         pOutput.accept(GDModItems.GOLDEN_TOMATO.get());
                         pOutput.accept(GDModItems.GOLDEN_ONION.get());
@@ -205,6 +216,7 @@ public class GDModTabs {
                         pOutput.accept(GDModBlocks.GOLDEN_RICE_BALE.get());
                         pOutput.accept(GDModBlocks.GOLDEN_RICE_BAG.get());
                         pOutput.accept(GDModBlocks.NETHER_BRICK_STOVE.get());
+                        pOutput.accept(GDModBlocks.GOLDEN_CABINET.get());
                         pOutput.accept(GDModBlocks.GOLDEN_SOIL.get());
                         pOutput.accept(GDModBlocks.GOLDEN_SOIL_FARMLAND.get());
                         pOutput.accept(GDModBlocks.GOLDEN_COMPOST.get());

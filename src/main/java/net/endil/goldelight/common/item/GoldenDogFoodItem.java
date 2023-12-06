@@ -53,7 +53,7 @@ public class GoldenDogFoodItem extends DogFoodItem {
     @OnlyIn(Dist.CLIENT)
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltip, TooltipFlag isAdvanced) {
         if (Configuration.FOOD_EFFECT_TOOLTIP.get()) {
-            MutableComponent textWhenFeeding = TextUtils.getTranslation("tooltip.dog_food.when_feeding");
+            MutableComponent textWhenFeeding = TextUtils.getTranslation("tooltip.golden_dog_food.when_feeding");
             tooltip.add(textWhenFeeding.withStyle(ChatFormatting.GRAY));
 
             MutableComponent effectDescription;

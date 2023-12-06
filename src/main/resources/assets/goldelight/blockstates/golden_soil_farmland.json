@@ -1,12 +1,28 @@
 {
-    "variants": {
-      "moisture=0": { "model": "goldelight:block/golden_soil_farmland" },
-      "moisture=1": { "model": "goldelight:block/golden_soil_farmland" },
-      "moisture=2": { "model": "goldelight:block/golden_soil_farmland" },
-      "moisture=3": { "model": "goldelight:block/golden_soil_farmland" },
-      "moisture=4": { "model": "goldelight:block/golden_soil_farmland" },
-      "moisture=5": { "model": "goldelight:block/golden_soil_farmland" },
-      "moisture=6": { "model": "goldelight:block/golden_soil_farmland" },
-      "moisture=7": { "model": "goldelight:block/golden_soil_farmland_moist" }
+  "variants": {
+    "moisture=0": {
+      "model": "goldelight:block/golden_soil_farmland"
+    },
+    "moisture=1": {
+      "model": "goldelight:block/golden_soil_farmland"
+    },
+    "moisture=2": {
+      "model": "goldelight:block/golden_soil_farmland"
+    },
+    "moisture=3": {
+      "model": "goldelight:block/golden_soil_farmland"
+    },
+    "moisture=4": {
+      "model": "goldelight:block/golden_soil_farmland"
+    },
+    "moisture=5": {
+      "model": "goldelight:block/golden_soil_farmland"
+    },
+    "moisture=6": {
+      "model": "goldelight:block/golden_soil_farmland"
+    },
+    "moisture=7": {
+      "model": "goldelight:block/golden_soil_farmland_moist"
     }
   }
+}

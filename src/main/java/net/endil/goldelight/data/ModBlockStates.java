@@ -9,7 +9,6 @@ import net.endil.goldelight.common.registry.GDModBlocks;
 import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.ai.behavior.warden.SetRoarTarget;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -17,13 +16,10 @@ import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
-import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.event.level.PistonEvent;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
-import org.apache.logging.log4j.core.jmx.RingBufferAdmin;
 import vectorwing.farmersdelight.common.block.*;
 
 import javax.annotation.Nullable;
@@ -110,6 +106,7 @@ public class ModBlockStates extends BlockStateProvider {
         slabBlock((SlabBlock) GDModBlocks.GOLDEN_NETHER_BRICK_SLAB.get(), blockTexture(GDModBlocks.GOLDEN_NETHER_BRICKS.get()), blockTexture(GDModBlocks.GOLDEN_NETHER_BRICKS.get()));
         stairsBlock((StairBlock) GDModBlocks.GOLDEN_NETHER_BRICK_STAIRS.get(), blockTexture(GDModBlocks.GOLDEN_NETHER_BRICKS.get()));
         fenceBlock((FenceBlock) GDModBlocks.GOLDEN_NETHER_BRICK_FENCE.get(), blockTexture(GDModBlocks.GOLDEN_NETHER_BRICKS.get()));
+        wallBlock((WallBlock) GDModBlocks.GOLDEN_NETHER_BRICK_WALL.get(), blockTexture(GDModBlocks.GOLDEN_NETHER_BRICKS.get()));
         slabBlock((SlabBlock) GDModBlocks.GOLDEN_SLAB.get(), blockTexture(GDModBlocks.GOLDEN_PLANKS.get()), blockTexture(GDModBlocks.GOLDEN_PLANKS.get()));
         stairsBlock((StairBlock) GDModBlocks.GOLDEN_STAIRS.get(), blockTexture(GDModBlocks.GOLDEN_PLANKS.get()));
         buttonBlock((ButtonBlock) GDModBlocks.GOLDEN_BUTTON.get(), blockTexture(GDModBlocks.GOLDEN_PLANKS.get()));
@@ -129,8 +126,9 @@ public class ModBlockStates extends BlockStateProvider {
         blockItem(GDModBlocks.GOLDEN_STAIRS);
         blockItem(GDModBlocks.GOLDEN_PRESSURE_PLATE);
         blockItem(GDModBlocks.GOLDEN_FENCE_GATE);
-        simpleBlockItem(GDModBlocks.GOLDEN_TRAPDOOR.get(), models().withExistingParent("goldelight:golden_trapdoor","minecraft:block/template_orientable_trapdoor_bottom").texture("texture","goldelight:block/golden_trapdoor"));
-
+        simpleBlockItem(GDModBlocks.GOLDEN_TRAPDOOR.get(), models().withExistingParent("goldelight:golden_trapdoor", "minecraft:block/template_orientable_trapdoor_bottom").texture("texture", "goldelight:block/golden_trapdoor"));
+        blockItem(GDModBlocks.GOLDEN_HONEY_BLOCK);
+        blockWithItem(GDModBlocks.GOLDEN_HONEYCOMB_BLOCK);
         //Farmer's Delight
 
 
@@ -155,6 +153,7 @@ public class ModBlockStates extends BlockStateProvider {
 
 
         this.stageBlock(GDModBlocks.GOLDEN_MUSHROOM_COLONY.get(), MushroomColonyBlock.COLONY_AGE);
+        this.stageBlock(GDModBlocks.GOLDEN_FUNGUS_COLONY.get(), MushroomColonyBlock.COLONY_AGE);
         this.stageBlock(GDModBlocks.GOLDEN_RICE_CROP_PANICLES.get(), GoldenRicePaniclesBlock.RICE_AGE);
         this.customStageBlock(GDModBlocks.GOLDEN_CABBAGE_CROP.get(), resourceBlock("crop_cross"), "cross", GoldenCabbageBlock.AGE, new ArrayList<>());
         this.customStageBlock(GDModBlocks.GOLDEN_ONION_CROP.get(), mcLoc("crop"), "crop", GoldenOnionBlock.AGE, Arrays.asList(0, 0, 1, 1, 2, 2, 2, 3));
@@ -183,6 +182,9 @@ public class ModBlockStates extends BlockStateProvider {
                 resourceBlock(blockName(GDModBlocks.NETHER_BRICK_STOVE.get()) + "_bottom"),
                 resourceBlock(blockName(GDModBlocks.NETHER_BRICK_STOVE.get()) + "_top")));
 
+        this.cabinetBlock(GDModBlocks.GOLDEN_CABINET.get(), "golden");
+        blockItem(GDModBlocks.GOLDEN_CABINET);
+
         pieBlock(GDModBlocks.GOLDEN_APPLE_PIE.get());
         pieBlock(GDModBlocks.SWEET_GOLDEN_BERRY_CHEESECAKE.get());
         pieBlock(GDModBlocks.GOLDEN_CHOCOLATE_PIE.get());
@@ -195,6 +197,7 @@ public class ModBlockStates extends BlockStateProvider {
 
         blockWithItem(GDModBlocks.GOLDEN_SOIL);
     }
+
     private void blockItem(RegistryObject<Block> block) {
         simpleBlockItem(block.get(), new ModelFile.UncheckedModelFile(GolDelight.MOD_ID + ":block/" + ForgeRegistries.BLOCKS.getKey(block.get()).getPath()));
     }
@@ -282,6 +285,7 @@ public class ModBlockStates extends BlockStateProvider {
                             .build();
                 });
     }
+
     public void HangingSignBlock(Block signBlock, Block wallSignBlock, ResourceLocation texture) {
         ModelFile sign = models().sign(name(signBlock), texture);
         hangingSignBlock(signBlock, wallSignBlock, sign);
@@ -298,5 +302,15 @@ public class ModBlockStates extends BlockStateProvider {
 
     private ResourceLocation key(Block block) {
         return ForgeRegistries.BLOCKS.getKey(block);
+    }
+
+    public void cabinetBlock(Block block, String woodType) {
+        this.horizontalBlock(block, state -> {
+            String suffix = state.getValue(CabinetBlock.OPEN) ? "_open" : "";
+            return models().orientable(blockName(block) + suffix,
+                    resourceBlock(woodType + "_cabinet_side"),
+                    resourceBlock(woodType + "_cabinet_front" + suffix),
+                    resourceBlock(woodType + "_cabinet_top"));
+        });
     }
 }

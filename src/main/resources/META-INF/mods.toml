@@ -1,55 +1,55 @@
-modLoader="javafml"
+modLoader = "javafml"
 
-loaderVersion="${loader_version_range}"
+loaderVersion = "${loader_version_range}"
 
-license="${mod_license}"
+license = "${mod_license}"
 
 [[mods]]
 
-modId="goldelight"
+modId = "goldelight"
 
-version="${mod_version}"
+version = "${mod_version}"
 
-displayName="${mod_name}"
+displayName = "${mod_name}"
 
-authors="${mod_authors}"
+authors = "${mod_authors}"
 
 logoFile = "logo.png"
 
 logoBlur = false
 
-description='''${mod_description}'''
+description = '''${mod_description}'''
 
 [[dependencies.goldelight]]
 
-    modId="forge"
+modId = "forge"
 
-    mandatory=true
+mandatory = true
 
-    versionRange="${forge_version_range}"
+versionRange = "${forge_version_range}"
 
-    ordering="NONE"
+ordering = "NONE"
 
-    side="BOTH"
-
-[[dependencies.goldelight]]
-    modId="minecraft"
-    mandatory=true
-
-    versionRange="${minecraft_version_range}"
-    ordering="NONE"
-    side="BOTH"
+side = "BOTH"
 
 [[dependencies.goldelight]]
-modId="farmersdelight"
-mandatory=true
-versionRange="[1.2.3,)"
-ordering="NONE"
-side="BOTH"
+modId = "minecraft"
+mandatory = true
+
+versionRange = "${minecraft_version_range}"
+ordering = "NONE"
+side = "BOTH"
 
 [[dependencies.goldelight]]
-modId="midashunger"
-mandatory=true
-versionRange="[2.2.1,)"
-ordering="NONE"
-side="BOTH"
+modId = "farmersdelight"
+mandatory = true
+versionRange = "[1.2.3,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.goldelight]]
+modId = "midashunger"
+mandatory = true
+versionRange = "[2.2.1,)"
+ordering = "NONE"
+side = "BOTH"

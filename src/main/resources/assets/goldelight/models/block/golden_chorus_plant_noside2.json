@@ -1,26 +1,56 @@
 {
-    "ambientocclusion": false,
-    "textures": {
-        "texture": "goldelight:block/golden_chorus_plant",
-        "inside": "goldelight:block/golden_chorus_plant",
-        "particle": "goldelight:block/golden_chorus_plant"
-    },
-    "elements": [
-        {   "from": [ 4, 4, 4 ],
-            "to": [ 12, 12, 12 ],
-            "faces": {
-                "north": { "texture": "#inside" }
-            }
-        },
-        {   "from": [ 5, 5, 2 ],
-            "to": [ 11, 11, 4 ],
-            "faces": {
-                "down":  { "texture": "#texture" },
-                "up":    { "texture": "#texture" },
-                "north": { "texture": "#texture" },
-                "west":  { "texture": "#texture" },
-                "east":  { "texture": "#texture" }
-            }
+  "ambientocclusion": false,
+  "textures": {
+    "texture": "goldelight:block/golden_chorus_plant",
+    "inside": "goldelight:block/golden_chorus_plant",
+    "particle": "goldelight:block/golden_chorus_plant"
+  },
+  "elements": [
+    {
+      "from": [
+        4,
+        4,
+        4
+      ],
+      "to": [
+        12,
+        12,
+        12
+      ],
+      "faces": {
+        "north": {
+          "texture": "#inside"
         }
-    ]
+      }
+    },
+    {
+      "from": [
+        5,
+        5,
+        2
+      ],
+      "to": [
+        11,
+        11,
+        4
+      ],
+      "faces": {
+        "down": {
+          "texture": "#texture"
+        },
+        "up": {
+          "texture": "#texture"
+        },
+        "north": {
+          "texture": "#texture"
+        },
+        "west": {
+          "texture": "#texture"
+        },
+        "east": {
+          "texture": "#texture"
+        }
+      }
+    }
+  ]
 }

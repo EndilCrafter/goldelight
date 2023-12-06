@@ -28,5 +28,6 @@ public class DataGenerators {
                 new ModBlockTags(packOutput, lookupProvider, existingFileHelper));
         generator.addProvider(event.includeServer(), new ModItemTags(packOutput, lookupProvider, blockTags.contentsGetter(), existingFileHelper));
         generator.addProvider(event.includeClient(), new ModBlockStates(packOutput, existingFileHelper));
+        generator.addProvider(event.includeServer(), new ModPoiTypeTags(packOutput, lookupProvider));
     }
 }

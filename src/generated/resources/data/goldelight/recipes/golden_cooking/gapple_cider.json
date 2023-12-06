@@ -1,0 +1,20 @@
+{
+  "type": "goldelight:golden_cooking",
+  "cookingtime": 400,
+  "experience": 2.0,
+  "ingredients": [
+    {
+      "item": "minecraft:golden_apple"
+    },
+    {
+      "item": "minecraft:golden_apple"
+    },
+    {
+      "item": "goldelight:golden_sugar"
+    }
+  ],
+  "recipe_book_tab": "golden_drinks",
+  "result": {
+    "item": "goldelight:gapple_cider"
+  }
+}

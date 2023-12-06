@@ -1,16 +1,18 @@
 package net.endil.goldelight;
 
 import com.mojang.logging.LogUtils;
-import net.endil.goldelight.common.block.entity.renderer.NetherBrickStoveRenderer;
+import net.endil.goldelight.client.GDClientSetUp;
+import net.endil.goldelight.common.block.entity.GoldenBeehiveBlockEntity;
+import net.endil.goldelight.common.entity.GoldenBee;
 import net.endil.goldelight.common.registry.*;
-import net.minecraft.client.renderer.ItemBlockRenderTypes;
-import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.Sheets;
-import net.minecraft.client.renderer.blockentity.HangingSignRenderer;
-import net.minecraft.client.renderer.blockentity.SignRenderer;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.entity.animal.Bee;
+import net.minecraft.world.inventory.RecipeBookType;
 import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.entity.BeehiveBlockEntity;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
@@ -21,15 +23,18 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
-import vectorwing.farmersdelight.client.renderer.StoveRenderer;
 
 
 @Mod(GolDelight.MOD_ID)
 public class GolDelight {
 
     public static final String MOD_ID = "goldelight";
-
+    public static final RecipeBookType RECIPE_TYPE_GOLDEN_COOKING = RecipeBookType.create("GOLDEN_COOKING");
     private static final Logger LOGGER = LogUtils.getLogger();
+    public static void sendHiveInfo(Level pLevel, BlockPos pPos, BlockState pBlockState, GoldenBeehiveBlockEntity pHiveBlockEntity) {
+    }
+    public static void sendBeeInfo(GoldenBee pBee) {
+    }
 
     public GolDelight() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
@@ -41,12 +46,19 @@ public class GolDelight {
         GDModEffects.register(modEventBus);
 
         GDModBlockEntityTypes.register(modEventBus);
+        GDModEntityTypes.register(modEventBus);
 
         GDModLootModifier.register(modEventBus);
 
         GDModEnchantments.register(modEventBus);
 
-        GDModRecipes.register(modEventBus);
+        GDModRecipeSerializers.register(modEventBus);
+
+        GDModRecipeTypes.register(modEventBus);
+
+        GDModMenuTypes.register(modEventBus);
+
+        GDModPoiTypes.register(modEventBus);
 
         GDModTabs.register(modEventBus);
 
@@ -55,6 +67,7 @@ public class GolDelight {
         MinecraftForge.EVENT_BUS.register(this);
 
         modEventBus.addListener(this::addCreative);
+        modEventBus.addListener(GDClientSetUp::init);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
@@ -94,13 +107,7 @@ public class GolDelight {
     public static class ClientModEvents {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
-            Sheets.addWoodType(GDModWoodTypes.GOLDEN);
-        }
-        @SubscribeEvent
-        public static void registerBlockEntityRender(EntityRenderersEvent.RegisterRenderers event) {
-            event.registerBlockEntityRenderer(GDModBlockEntityTypes.MOD_SIGN.get(), SignRenderer::new);
-            event.registerBlockEntityRenderer(GDModBlockEntityTypes.MOD_HANGING_SIGN.get(), HangingSignRenderer::new);
-            event.registerBlockEntityRenderer(GDModBlockEntityTypes.NETHER_BRICK_STOVE.get(), NetherBrickStoveRenderer::new);
+
         }
     }
 }

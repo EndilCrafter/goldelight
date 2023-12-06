@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "S": {
+      "item": "minecraft:wooden_shovel"
+    },
+    "W": {
+      "item": "minecraft:water_bucket"
+    },
+    "b": {
+      "item": "minecraft:nether_brick"
+    },
+    "g": {
+      "tag": "forge:ingots/gold"
+    }
+  },
+  "pattern": [
+    "bSb",
+    "gWg",
+    "ggg"
+  ],
+  "result": {
+    "item": "goldelight:golden_cooking_pot"
+  },
+  "show_notification": true
+}

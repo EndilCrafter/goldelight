@@ -1,0 +1,23 @@
+{
+  "type": "goldelight:golden_cooking",
+  "cookingtime": 400,
+  "experience": 2.0,
+  "ingredients": [
+    {
+      "tag": "goldelight:golden_pasta"
+    },
+    {
+      "tag": "goldelight:cooked_golden_eggs"
+    },
+    {
+      "item": "midashunger:dried_golden_kelp"
+    },
+    {
+      "tag": "goldelight:raw_golden_pork"
+    }
+  ],
+  "recipe_book_tab": "golden_meals",
+  "result": {
+    "item": "goldelight:golden_noodle_soup"
+  }
+}

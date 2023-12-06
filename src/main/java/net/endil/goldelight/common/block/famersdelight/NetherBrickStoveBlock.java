@@ -31,8 +31,6 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.ToolActions;
 import org.jetbrains.annotations.Nullable;
 import vectorwing.farmersdelight.common.block.StoveBlock;
-import vectorwing.farmersdelight.common.block.entity.StoveBlockEntity;
-import vectorwing.farmersdelight.common.registry.ModBlockEntityTypes;
 import vectorwing.farmersdelight.common.registry.ModDamageTypes;
 import vectorwing.farmersdelight.common.registry.ModSounds;
 import vectorwing.farmersdelight.common.utility.ItemUtils;
@@ -118,11 +116,12 @@ public class NetherBrickStoveBlock extends StoveBlock {
 
         super.stepOn(level, pos, state, entity);
     }
+
     public void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean isMoving) {
         if (state.getBlock() != newState.getBlock()) {
             BlockEntity tileEntity = level.getBlockEntity(pos);
             if (tileEntity instanceof NetherBrickStoveEntity) {
-                ItemUtils.dropItems(level, pos, ((NetherBrickStoveEntity)tileEntity).getInventory());
+                ItemUtils.dropItems(level, pos, ((NetherBrickStoveEntity) tileEntity).getInventory());
             }
 
             super.onRemove(state, level, pos, newState, isMoving);
@@ -157,6 +156,7 @@ public class NetherBrickStoveBlock extends StoveBlock {
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
         return new NetherBrickStoveEntity(pos, state);
     }
+
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> blockEntityType) {
         return state.getValue(LIT) ? createTickerHelper(blockEntityType, GDModBlockEntityTypes.NETHER_BRICK_STOVE.get(), level.isClientSide ? NetherBrickStoveEntity::animationTick : NetherBrickStoveEntity::cookingTick) : null;
     }

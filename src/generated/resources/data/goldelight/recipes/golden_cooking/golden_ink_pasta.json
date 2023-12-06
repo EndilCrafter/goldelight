@@ -1,0 +1,23 @@
+{
+  "type": "goldelight:golden_cooking",
+  "cookingtime": 400,
+  "experience": 2.0,
+  "ingredients": [
+    {
+      "tag": "goldelight:raw_golden_fishes"
+    },
+    {
+      "tag": "goldelight:golden_pasta"
+    },
+    {
+      "tag": "goldelight:golden_crops/tomato"
+    },
+    {
+      "item": "goldelight:golden_ink_sac"
+    }
+  ],
+  "recipe_book_tab": "golden_meals",
+  "result": {
+    "item": "goldelight:golden_ink_pasta"
+  }
+}

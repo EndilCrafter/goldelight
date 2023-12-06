@@ -37,8 +37,47 @@ public class NetherBrickStoveEntity extends SyncedBlockEntity {
     private final int[] cookingTimes = new int[6];
     private final int[] cookingTimesTotal = new int[6];
     private final ResourceLocation[] lastRecipeIDs = new ResourceLocation[6];
+
     public NetherBrickStoveEntity(BlockPos pos, BlockState state) {
         super(GDModBlockEntityTypes.NETHER_BRICK_STOVE.get(), pos, state);
+    }
+
+    public static void cookingTick(Level level, BlockPos pos, BlockState state, NetherBrickStoveEntity stove) {
+        boolean isStoveLit = state.getValue(NetherBrickStoveBlock.LIT);
+        if (stove.isStoveBlockedAbove()) {
+            if (!ItemUtils.isInventoryEmpty(stove.inventory)) {
+                ItemUtils.dropItems(level, pos, stove.inventory);
+                stove.inventoryChanged();
+            }
+        } else if (isStoveLit) {
+            stove.cookAndOutputItems();
+        } else {
+            for (int i = 0; i < stove.inventory.getSlots(); ++i) {
+                if (stove.cookingTimes[i] > 0) {
+                    stove.cookingTimes[i] = Mth.clamp(stove.cookingTimes[i] - 2, 0, stove.cookingTimesTotal[i]);
+                }
+            }
+        }
+
+    }
+
+    public static void animationTick(Level level, BlockPos pos, BlockState state, NetherBrickStoveEntity stove) {
+        for (int i = 0; i < stove.inventory.getSlots(); ++i) {
+            if (!stove.inventory.getStackInSlot(i).isEmpty() && level.random.nextFloat() < 0.2F) {
+                Vec2 stoveItemVector = stove.getStoveItemOffset(i);
+                Direction direction = state.getValue(StoveBlock.FACING);
+                int directionIndex = direction.get2DDataValue();
+                Vec2 offset = directionIndex % 2 == 0 ? stoveItemVector : new Vec2(stoveItemVector.y, stoveItemVector.x);
+                double x = (double) pos.getX() + 0.5 - (double) ((float) direction.getStepX() * offset.x) + (double) ((float) direction.getClockWise().getStepX() * offset.x);
+                double y = (double) pos.getY() + 1.0;
+                double z = (double) pos.getZ() + 0.5 - (double) ((float) direction.getStepZ() * offset.y) + (double) ((float) direction.getClockWise().getStepZ() * offset.y);
+
+                for (int k = 0; k < 3; ++k) {
+                    level.addParticle(ParticleTypes.SMOKE, x, y, z, 0.0, 5.0E-4, 0.0);
+                }
+            }
+        }
+
     }
 
     public void load(CompoundTag compound) {
@@ -74,49 +113,11 @@ public class NetherBrickStoveEntity extends SyncedBlockEntity {
         return compound;
     }
 
-    public static void cookingTick(Level level, BlockPos pos, BlockState state, NetherBrickStoveEntity stove) {
-        boolean isStoveLit = state.getValue(NetherBrickStoveBlock.LIT);
-        if (stove.isStoveBlockedAbove()) {
-            if (!ItemUtils.isInventoryEmpty(stove.inventory)) {
-                ItemUtils.dropItems(level, pos, stove.inventory);
-                stove.inventoryChanged();
-            }
-        } else if (isStoveLit) {
-            stove.cookAndOutputItems();
-        } else {
-            for(int i = 0; i < stove.inventory.getSlots(); ++i) {
-                if (stove.cookingTimes[i] > 0) {
-                    stove.cookingTimes[i] = Mth.clamp(stove.cookingTimes[i] - 2, 0, stove.cookingTimesTotal[i]);
-                }
-            }
-        }
-
-    }
-
-    public static void animationTick(Level level, BlockPos pos, BlockState state, NetherBrickStoveEntity stove) {
-        for(int i = 0; i < stove.inventory.getSlots(); ++i) {
-            if (!stove.inventory.getStackInSlot(i).isEmpty() && level.random.nextFloat() < 0.2F) {
-                Vec2 stoveItemVector = stove.getStoveItemOffset(i);
-                Direction direction = state.getValue(StoveBlock.FACING);
-                int directionIndex = direction.get2DDataValue();
-                Vec2 offset = directionIndex % 2 == 0 ? stoveItemVector : new Vec2(stoveItemVector.y, stoveItemVector.x);
-                double x = (double)pos.getX() + 0.5 - (double)((float)direction.getStepX() * offset.x) + (double)((float)direction.getClockWise().getStepX() * offset.x);
-                double y = (double)pos.getY() + 1.0;
-                double z = (double)pos.getZ() + 0.5 - (double)((float)direction.getStepZ() * offset.y) + (double)((float)direction.getClockWise().getStepZ() * offset.y);
-
-                for(int k = 0; k < 3; ++k) {
-                    level.addParticle(ParticleTypes.SMOKE, x, y, z, 0.0, 5.0E-4, 0.0);
-                }
-            }
-        }
-
-    }
-
     private void cookAndOutputItems() {
         if (this.level != null) {
             boolean didInventoryChange = false;
 
-            for(int i = 0; i < this.inventory.getSlots(); ++i) {
+            for (int i = 0; i < this.inventory.getSlots(); ++i) {
                 ItemStack stoveStack = this.inventory.getStackInSlot(i);
                 if (!stoveStack.isEmpty()) {
                     int var10002 = this.cookingTimes[i]++;
@@ -126,7 +127,7 @@ public class NetherBrickStoveEntity extends SyncedBlockEntity {
                         if (recipe.isPresent()) {
                             ItemStack resultStack = recipe.get().getResultItem(this.level.registryAccess());
                             if (!resultStack.isEmpty()) {
-                                ItemUtils.spawnItemEntity(this.level, resultStack.copy(), (double)this.worldPosition.getX() + 0.5, (double)this.worldPosition.getY() + 1.0, (double)this.worldPosition.getZ() + 0.5, this.level.random.nextGaussian() * 0.009999999776482582, 0.10000000149011612, this.level.random.nextGaussian() * 0.009999999776482582);
+                                ItemUtils.spawnItemEntity(this.level, resultStack.copy(), (double) this.worldPosition.getX() + 0.5, (double) this.worldPosition.getY() + 1.0, (double) this.worldPosition.getZ() + 0.5, this.level.random.nextGaussian() * 0.009999999776482582, 0.10000000149011612, this.level.random.nextGaussian() * 0.009999999776482582);
                             }
                         }
 
@@ -144,7 +145,7 @@ public class NetherBrickStoveEntity extends SyncedBlockEntity {
     }
 
     public int getNextEmptySlot() {
-        for(int i = 0; i < this.inventory.getSlots(); ++i) {
+        for (int i = 0; i < this.inventory.getSlots(); ++i) {
             ItemStack slotStack = this.inventory.getStackInSlot(i);
             if (slotStack.isEmpty()) {
                 return i;
@@ -175,9 +176,9 @@ public class NetherBrickStoveEntity extends SyncedBlockEntity {
             return Optional.empty();
         } else {
             if (this.lastRecipeIDs[slot] != null) {
-                Recipe<Container> recipe = ((RecipeManagerAccessor)this.level.getRecipeManager()).getRecipeMap(RecipeType.CAMPFIRE_COOKING).get(this.lastRecipeIDs[slot]);
+                Recipe<Container> recipe = ((RecipeManagerAccessor) this.level.getRecipeManager()).getRecipeMap(RecipeType.CAMPFIRE_COOKING).get(this.lastRecipeIDs[slot]);
                 if (recipe instanceof CampfireCookingRecipe && recipe.matches(recipeWrapper, this.level)) {
-                    return Optional.of((CampfireCookingRecipe)recipe);
+                    return Optional.of((CampfireCookingRecipe) recipe);
                 }
             }
 
@@ -207,17 +208,17 @@ public class NetherBrickStoveEntity extends SyncedBlockEntity {
 
     private void addParticles() {
         if (this.level != null) {
-            for(int i = 0; i < this.inventory.getSlots(); ++i) {
+            for (int i = 0; i < this.inventory.getSlots(); ++i) {
                 if (!this.inventory.getStackInSlot(i).isEmpty() && this.level.random.nextFloat() < 0.2F) {
                     Vec2 stoveItemVector = this.getStoveItemOffset(i);
                     Direction direction = this.getBlockState().getValue(NetherBrickStoveBlock.FACING);
                     int directionIndex = direction.get2DDataValue();
                     Vec2 offset = directionIndex % 2 == 0 ? stoveItemVector : new Vec2(stoveItemVector.y, stoveItemVector.x);
-                    double x = (double)this.worldPosition.getX() + 0.5 - (double)((float)direction.getStepX() * offset.x) + (double)((float)direction.getClockWise().getStepX() * offset.x);
-                    double y = (double)this.worldPosition.getY() + 1.0;
-                    double z = (double)this.worldPosition.getZ() + 0.5 - (double)((float)direction.getStepZ() * offset.y) + (double)((float)direction.getClockWise().getStepZ() * offset.y);
+                    double x = (double) this.worldPosition.getX() + 0.5 - (double) ((float) direction.getStepX() * offset.x) + (double) ((float) direction.getClockWise().getStepX() * offset.x);
+                    double y = (double) this.worldPosition.getY() + 1.0;
+                    double z = (double) this.worldPosition.getZ() + 0.5 - (double) ((float) direction.getStepZ() * offset.y) + (double) ((float) direction.getClockWise().getStepZ() * offset.y);
 
-                    for(int k = 0; k < 3; ++k) {
+                    for (int k = 0; k < 3; ++k) {
                         this.level.addParticle(ParticleTypes.SMOKE, x, y, z, 0.0, 5.0E-4, 0.0);
                     }
                 }

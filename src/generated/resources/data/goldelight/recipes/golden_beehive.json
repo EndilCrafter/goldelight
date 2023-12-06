@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "G": {
+      "item": "minecraft:gold_ingot"
+    },
+    "H": {
+      "item": "minecraft:honeycomb"
+    },
+    "P": {
+      "item": "goldelight:golden_planks"
+    }
+  },
+  "pattern": [
+    "PPP",
+    "HGH",
+    "PPP"
+  ],
+  "result": {
+    "item": "goldelight:golden_beehive"
+  },
+  "show_notification": true
+}

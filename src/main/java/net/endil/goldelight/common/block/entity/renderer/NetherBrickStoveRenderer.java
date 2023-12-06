@@ -14,8 +14,6 @@ import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.phys.Vec2;
 import net.minecraftforge.items.ItemStackHandler;
-import vectorwing.farmersdelight.common.block.StoveBlock;
-import vectorwing.farmersdelight.common.block.entity.StoveBlockEntity;
 
 public class NetherBrickStoveRenderer implements BlockEntityRenderer<NetherBrickStoveEntity> {
     public NetherBrickStoveRenderer(BlockEntityRendererProvider.Context context) {
@@ -24,9 +22,9 @@ public class NetherBrickStoveRenderer implements BlockEntityRenderer<NetherBrick
     public void render(NetherBrickStoveEntity stoveEntity, float partialTicks, PoseStack poseStack, MultiBufferSource buffer, int combinedLightIn, int combinedOverlayIn) {
         Direction direction = stoveEntity.getBlockState().getValue(NetherBrickStoveBlock.FACING).getOpposite();
         ItemStackHandler inventory = stoveEntity.getInventory();
-        int posLong = (int)stoveEntity.getBlockPos().asLong();
+        int posLong = (int) stoveEntity.getBlockPos().asLong();
 
-        for(int i = 0; i < inventory.getSlots(); ++i) {
+        for (int i = 0; i < inventory.getSlots(); ++i) {
             ItemStack stoveStack = inventory.getStackInSlot(i);
             if (!stoveStack.isEmpty()) {
                 poseStack.pushPose();

@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "G": {
+      "item": "goldelight:golden_wart"
+    },
+    "N": {
+      "item": "minecraft:nether_brick"
+    }
+  },
+  "pattern": [
+    "NG",
+    "GN"
+  ],
+  "result": {
+    "item": "goldelight:golden_nether_bricks"
+  },
+  "show_notification": true
+}

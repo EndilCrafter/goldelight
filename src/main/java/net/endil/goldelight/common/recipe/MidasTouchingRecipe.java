@@ -2,7 +2,8 @@ package net.endil.goldelight.common.recipe;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import net.endil.goldelight.GolDelight;
+import net.endil.goldelight.common.registry.GDModRecipeSerializers;
+import net.endil.goldelight.common.registry.GDModRecipeTypes;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.network.FriendlyByteBuf;
@@ -56,22 +57,15 @@ public class MidasTouchingRecipe implements Recipe<SimpleContainer> {
 
     @Override
     public RecipeSerializer<?> getSerializer() {
-        return Serializer.INSTANCE;
+        return GDModRecipeSerializers.MIDAS_TOUCHING_SERIALIZER.get();
     }
 
     @Override
     public RecipeType<?> getType() {
-        return Type.INSTANCE;
-    }
-
-    public static class Type implements RecipeType<MidasTouchingRecipe> {
-        public static final Type INSTANCE = new Type();
-        public static final String ID = "midas_touching";
+        return GDModRecipeTypes.MIDAS_TOUCHING.get();
     }
 
     public static class Serializer implements RecipeSerializer<MidasTouchingRecipe> {
-        public static final Serializer INSTANCE = new Serializer();
-        public static final ResourceLocation ID = new ResourceLocation(GolDelight.MOD_ID, "midas_touching");
 
         @Override
         public MidasTouchingRecipe fromJson(ResourceLocation pRecipeId, JsonObject pSerializedRecipe) {

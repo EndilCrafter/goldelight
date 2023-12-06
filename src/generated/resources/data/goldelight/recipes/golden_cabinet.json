@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "D": {
+      "item": "goldelight:golden_trapdoor"
+    },
+    "_": {
+      "item": "goldelight:golden_slab"
+    }
+  },
+  "pattern": [
+    "___",
+    "D D",
+    "___"
+  ],
+  "result": {
+    "item": "goldelight:golden_cabinet"
+  },
+  "show_notification": true
+}

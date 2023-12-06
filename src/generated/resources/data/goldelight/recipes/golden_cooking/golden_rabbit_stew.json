@@ -1,0 +1,26 @@
+{
+  "type": "goldelight:golden_cooking",
+  "container": {
+    "item": "minecraft:bowl"
+  },
+  "cookingtime": 400,
+  "experience": 2.0,
+  "ingredients": [
+    {
+      "item": "midashunger:baked_golden_potato"
+    },
+    {
+      "item": "goldelight:golden_rabbit"
+    },
+    {
+      "item": "minecraft:golden_carrot"
+    },
+    {
+      "item": "goldelight:golden_mushroom"
+    }
+  ],
+  "recipe_book_tab": "golden_meals",
+  "result": {
+    "item": "goldelight:golden_rabbit_stew"
+  }
+}

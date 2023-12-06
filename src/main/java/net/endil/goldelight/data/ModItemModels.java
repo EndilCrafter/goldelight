@@ -60,10 +60,17 @@ public class ModItemModels extends ItemModelProvider {
         SpriteModel(GDModBlocks.GOLDEN_SIGN);
         SpriteModel(GDModBlocks.GOLDEN_HANGING_SIGN);
         FenceModel(GDModBlocks.GOLDEN_FENCE, GDModBlocks.GOLDEN_PLANKS);
+        WallModel(GDModBlocks.GOLDEN_NETHER_BRICK_WALL, GDModBlocks.GOLDEN_NETHER_BRICKS);
         FenceModel(GDModBlocks.GOLDEN_NETHER_BRICK_FENCE, GDModBlocks.GOLDEN_NETHER_BRICKS);
         ButtonModel(GDModBlocks.GOLDEN_BUTTON, GDModBlocks.GOLDEN_PLANKS);
         ItemGeneratedModel(GDModItems.GOLDEN_SIGN);
         ItemGeneratedModel(GDModItems.GOLDEN_HANGING_SIGN);
+        ItemGeneratedModel(GDModItems.GOLDEN_LEATHER);
+        ItemGeneratedModel(GDModItems.GOLDEN_FEATHER);
+        ItemGeneratedModel(GDModItems.GOLDEN_HONEYCOMB);
+        withExistingParent(GDModItems.GOLDEN_COW_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
+        withExistingParent(GDModItems.GOLDEN_CHICKEN_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
+        withExistingParent(GDModItems.GOLDEN_BEE_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
 
         //Farmer's Delight
         ItemGeneratedModel(GDModItems.GOLDEN_CABBAGE);
@@ -194,16 +201,18 @@ public class ModItemModels extends ItemModelProvider {
         this.withExistingParent(ForgeRegistries.BLOCKS.getKey(block.get()).getPath(), mcLoc("block/fence_inventory"))
                 .texture("texture", new ResourceLocation(GolDelight.MOD_ID, "block/" + ForgeRegistries.BLOCKS.getKey(base.get()).getPath()));
     }
+    private void WallModel(RegistryObject<Block> block, RegistryObject<Block> base) {
+        this.withExistingParent(ForgeRegistries.BLOCKS.getKey(block.get()).getPath(), mcLoc("block/wall_inventory"))
+                .texture("wall", new ResourceLocation(GolDelight.MOD_ID, "block/" + ForgeRegistries.BLOCKS.getKey(base.get()).getPath()));
+    }
+
     private void ButtonModel(RegistryObject<Block> block, RegistryObject<Block> base) {
         this.withExistingParent(ForgeRegistries.BLOCKS.getKey(block.get()).getPath(), mcLoc("block/button_inventory"))
                 .texture("texture", new ResourceLocation(GolDelight.MOD_ID, "block/" + ForgeRegistries.BLOCKS.getKey(base.get()).getPath()));
     }
+
     public void BuildingModel(RegistryObject<Block> block) {
         this.withExistingParent(GolDelight.MOD_ID + ":" + ForgeRegistries.BLOCKS.getKey(block.get()).getPath(),
                 modLoc("block/" + ForgeRegistries.BLOCKS.getKey(block.get()).getPath()));
-    }
-    private void TrapdoorItem(RegistryObject<Block> block) {
-        this.withExistingParent(ForgeRegistries.BLOCKS.getKey(block.get()).getPath(),
-                modLoc("block/" + ForgeRegistries.BLOCKS.getKey(block.get()).getPath() + "_bottom"));
     }
 }

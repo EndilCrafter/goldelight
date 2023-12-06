@@ -132,10 +132,26 @@ public class ModItemTags extends ItemTagsProvider {
         this.tag(ItemTags.FISHES).addTag(GDModTags.Items.GOLDEN_FISHES);
         this.tag(ItemTags.SIGNS).add(GDModBlocks.GOLDEN_SIGN.get().asItem());
         this.tag(ItemTags.HANGING_SIGNS).add(GDModBlocks.GOLDEN_HANGING_SIGN.get().asItem());
+        this.tag(ItemTags.LOGS).addTag(GDModTags.Items.GOLDEN_STEMS);
+        this.tag(ItemTags.PLANKS).add(GDModBlocks.GOLDEN_PLANKS.get().asItem());
+        this.tag(ItemTags.WOODEN_SLABS).add(GDModBlocks.GOLDEN_SLAB.get().asItem());
+        this.tag(ItemTags.WOODEN_STAIRS).add(GDModBlocks.GOLDEN_STAIRS.get().asItem());
+        this.tag(ItemTags.WOODEN_FENCES).add(GDModBlocks.GOLDEN_FENCE.get().asItem());
+        this.tag(ItemTags.FENCE_GATES).add(GDModBlocks.GOLDEN_FENCE_GATE.get().asItem());
+        this.tag(ItemTags.WOODEN_BUTTONS).add(GDModBlocks.GOLDEN_BUTTON.get().asItem());
+        this.tag(ItemTags.WOODEN_PRESSURE_PLATES).add(GDModBlocks.GOLDEN_PRESSURE_PLATE.get().asItem());
+        this.tag(ItemTags.WOODEN_DOORS).add(GDModBlocks.GOLDEN_DOOR.get().asItem());
+        this.tag(ItemTags.WOODEN_TRAPDOORS).add(GDModBlocks.GOLDEN_TRAPDOOR.get().asItem());
+        this.tag(ItemTags.SLABS).add(GDModBlocks.GOLDEN_NETHER_BRICK_SLAB.get().asItem());
+        this.tag(ItemTags.STAIRS).add(GDModBlocks.GOLDEN_NETHER_BRICK_STAIRS.get().asItem());
+        this.tag(ItemTags.FENCES).add(GDModBlocks.GOLDEN_NETHER_BRICK_FENCE.get().asItem());
+        this.tag(ItemTags.WALLS).add(GDModBlocks.GOLDEN_NETHER_BRICK_WALL.get().asItem());
+        this.tag(ItemTags.WART_BLOCKS).add(GDModBlocks.GOLDEN_WART_BLOCK.get().asItem());
     }
 
     private void registerFDModTags() {
         this.tag(ModTags.KNIVES).add(GDModItems.MIDAS_KNIFE.get());
+        this.tag(ModTags.CABINETS).add(GDModBlocks.GOLDEN_CABINET.get().asItem());
         this.tag(ModTags.WOLF_PREY).addTag(GDModTags.Items.GOLDEN_WOLF_PREY);
         this.tag(ForgeTags.BERRIES).addTag(GDModTags.Items.GOLDEN_BERRIES);
         this.tag(ForgeTags.BREAD).addTag(GDModTags.Items.GOLDEN_BREAD);
@@ -145,7 +161,7 @@ public class ModItemTags extends ItemTagsProvider {
         this.tag(ForgeTags.COOKED_CHICKEN).addTag(GDModTags.Items.COOKED_GOLDEN_CHICKEN);
         this.tag(ForgeTags.COOKED_PORK).addTag(GDModTags.Items.COOKED_GOLDEN_PORK);
         this.tag(ForgeTags.COOKED_MUTTON).addTag(GDModTags.Items.COOKED_GOLDEN_MUTTON);
-        this.tag(ForgeTags.EGGS).addTag(GDModTags.Items.COOKED_GOLDEN_EGGS);
+        this.tag(ForgeTags.EGGS).addTag(GDModTags.Items.GOLDEN_EGGS);
         this.tag(ForgeTags.COOKED_FISHES).addTag(GDModTags.Items.COOKED_GOLDEN_FISHES);
         this.tag(ForgeTags.COOKED_FISHES_COD).addTag(GDModTags.Items.COOKED_GOLDEN_FISHES_COD);
         this.tag(ForgeTags.COOKED_FISHES_SALMON).addTag(GDModTags.Items.COOKED_GOLDEN_FISHES_SALMON);
@@ -189,6 +205,7 @@ public class ModItemTags extends ItemTagsProvider {
         this.tag(Tags.Items.BONES).add(GDModItems.GOLDEN_BONE.get());
         this.tag(Tags.Items.CROPS).addTag(GDModTags.Items.GOLDEN_CROPS);
         this.tag(ForgeTags.TOOLS_KNIVES).add(GDModItems.MIDAS_KNIFE.get());
+        this.tag(Tags.Items.EGGS).add(GDModItems.GOLDEN_EGG.get(), ItemRegistry.GOLDEN_TURTLE_EGG.get());
     }
 
     private void registerCompatTags() {
@@ -225,23 +242,23 @@ public class ModItemTags extends ItemTagsProvider {
                         GDModItems.GOLDEN_TOMATO.get());
 
         this.tag(GDCompatTags.SERENE_SEASONS_SPRING_CROPS)
-                .add(GDModBlocks.GOLDEN_MUSHROOM.get().asItem(), GDModItems.GOLDEN_WART.get(), ItemRegistry.DRIED_GOLDEN_KELP.get(),
+                .add(GDModBlocks.GOLDEN_MUSHROOM.get().asItem(), GDModItems.GOLDEN_WART.get(), ItemRegistry.GOLDEN_KELP.get(),
                         GDModItems.GOLDEN_GLOW_BERRIES.get(), ItemRegistry.SWEET_GOLDEN_BERRIES.get(), Items.GOLDEN_CARROT,
                         GDModItems.GOLDEN_POTATO.get(), GDModItems.GOLDEN_ONION.get());
 
         this.tag(GDCompatTags.SERENE_SEASONS_SUMMER_CROPS)
-                .add(GDModBlocks.GOLDEN_MUSHROOM.get().asItem(), GDModItems.GOLDEN_WART.get(), ItemRegistry.DRIED_GOLDEN_KELP.get(),
+                .add(GDModBlocks.GOLDEN_MUSHROOM.get().asItem(), GDModItems.GOLDEN_WART.get(), ItemRegistry.GOLDEN_KELP.get(),
                         GDModItems.GOLDEN_GLOW_BERRIES.get(), ItemRegistry.SWEET_GOLDEN_BERRIES.get(), GDModItems.GOLDEN_SUGAR_CANE.get(),
                         GDModItems.GOLDEN_WHEAT_SEEDS.get(), GDModItems.GOLDEN_MELON_SEEDS.get(), GDModItems.GOLDEN_COCOA_BEANS.get(),
                         GDModItems.GOLDEN_TOMATO_SEEDS.get(), GDModItems.GOLDEN_RICE.get());
 
-        this.tag(GDCompatTags.SERENE_SEASONS_AUTUMN_CROPS).add(GDModBlocks.GOLDEN_MUSHROOM.get().asItem(), GDModItems.GOLDEN_WART.get(), ItemRegistry.DRIED_GOLDEN_KELP.get(),
+        this.tag(GDCompatTags.SERENE_SEASONS_AUTUMN_CROPS).add(GDModBlocks.GOLDEN_MUSHROOM.get().asItem(), GDModItems.GOLDEN_WART.get(), ItemRegistry.GOLDEN_KELP.get(),
                 GDModItems.GOLDEN_GLOW_BERRIES.get(), ItemRegistry.SWEET_GOLDEN_BERRIES.get(), GDModItems.GOLDEN_WHEAT_SEEDS.get(),
                 GDModItems.GOLDEN_PUMPKIN_SEEDS.get(), ItemRegistry.GOLDEN_BEETROOT_SEEDS.get(), Items.GOLDEN_CARROT,
                 GDModItems.GOLDEN_CABBAGE_SEEDS.get(), GDModItems.GOLDEN_ONION.get(), GDModItems.GOLDEN_RICE.get());
 
         this.tag(GDCompatTags.SERENE_SEASONS_WINTER_CROPS)
-                .add(GDModBlocks.GOLDEN_MUSHROOM.get().asItem(), GDModItems.GOLDEN_WART.get(), ItemRegistry.DRIED_GOLDEN_KELP.get(),
+                .add(GDModBlocks.GOLDEN_MUSHROOM.get().asItem(), GDModItems.GOLDEN_WART.get(), ItemRegistry.GOLDEN_KELP.get(),
                         GDModItems.GOLDEN_GLOW_BERRIES.get(), GDModItems.GOLDEN_CABBAGE_SEEDS.get());
     }
 }

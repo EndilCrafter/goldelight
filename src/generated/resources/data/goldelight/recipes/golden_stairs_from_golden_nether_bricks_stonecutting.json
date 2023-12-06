@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "goldelight:golden_nether_bricks"
+  },
+  "result": "goldelight:golden_stairs"
+}

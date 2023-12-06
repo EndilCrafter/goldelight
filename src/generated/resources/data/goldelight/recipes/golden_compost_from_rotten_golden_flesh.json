@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "farmersdelight:organic_compost"
+    },
+    {
+      "item": "goldelight:rotten_golden_flesh"
+    },
+    {
+      "item": "goldelight:rotten_golden_flesh"
+    },
+    {
+      "item": "farmersdelight:straw"
+    },
+    {
+      "item": "farmersdelight:straw"
+    },
+    {
+      "item": "goldelight:golden_meal"
+    },
+    {
+      "item": "goldelight:golden_meal"
+    },
+    {
+      "item": "goldelight:golden_meal"
+    },
+    {
+      "item": "goldelight:golden_meal"
+    }
+  ],
+  "result": {
+    "item": "goldelight:golden_compost"
+  }
+}

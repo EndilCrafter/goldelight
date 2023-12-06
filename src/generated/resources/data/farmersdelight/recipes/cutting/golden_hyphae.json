@@ -1,0 +1,19 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "goldelight:golden_hyphae"
+    }
+  ],
+  "result": [
+    {
+      "item": "goldelight:stripped_golden_hyphae"
+    },
+    {
+      "item": "farmersdelight:tree_bark"
+    }
+  ],
+  "tool": {
+    "tag": "forge:tools/knives"
+  }
+}

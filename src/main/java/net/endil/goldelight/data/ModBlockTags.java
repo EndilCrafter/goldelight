@@ -8,6 +8,7 @@ import net.endil.goldelight.common.registry.GDModTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
@@ -42,10 +43,26 @@ public class ModBlockTags extends BlockTagsProvider {
                         GDModBlocks.GOLDEN_SUGAR_CANE.get(), BlockRegistry.SWEET_GOLDEN_BERRY_BUSH.get(), GDModBlocks.GOLDEN_WHEAT.get(),
                         GDModBlocks.GOLDEN_CARROT_CRATE.get(), GDModBlocks.GOLDEN_POTATO_CRATE.get(), GDModBlocks.GOLDEN_BEETROOT_CRATE.get(),
                         GDModBlocks.GOLDEN_CABBAGE_CRATE.get(), GDModBlocks.GOLDEN_TOMATO_CRATE.get(), GDModBlocks.GOLDEN_ONION_CRATE.get(),
-                        GDModBlocks.STUFFED_GOLDEN_PUMPKIN_BLOCK.get());
+                        GDModBlocks.STUFFED_GOLDEN_PUMPKIN_BLOCK.get(), GDModBlocks.GOLDEN_STEM.get(), GDModBlocks.GOLDEN_HYPHAE.get(),
+                        GDModBlocks.STRIPPED_GOLDEN_STEM.get(), GDModBlocks.STRIPPED_GOLDEN_HYPHAE.get(), GDModBlocks.GOLDEN_PLANKS.get(),
+                        GDModBlocks.GOLDEN_SLAB.get(), GDModBlocks.GOLDEN_STAIRS.get(), GDModBlocks.GOLDEN_FENCE.get(),
+                        GDModBlocks.GOLDEN_FENCE_GATE.get(), GDModBlocks.GOLDEN_BUTTON.get(), GDModBlocks.GOLDEN_PRESSURE_PLATE.get(),
+                        GDModBlocks.GOLDEN_DOOR.get(), GDModBlocks.GOLDEN_TRAPDOOR.get(), GDModBlocks.GOLDEN_CABINET.get(),
+                        GDModBlocks.GOLDEN_SIGN.get(), GDModBlocks.GOLDEN_WALL_SIGN.get(), GDModBlocks.GOLDEN_HANGING_SIGN.get(),
+                        GDModBlocks.GOLDEN_WALL_HANGING_SIGN.get(), GDModBlocks.GOLDEN_BEEHIVE.get());
+
+        this.tag(BlockTags.MINEABLE_WITH_PICKAXE)
+                .add(GDModBlocks.GOLDEN_NETHER_BRICKS.get(), GDModBlocks.CHISELED_GOLDEN_NETHER_BRICKS.get(), GDModBlocks.CRACKED_GOLDEN_NETHER_BRICKS.get(),
+                        GDModBlocks.GOLDEN_NETHER_BRICK_SLAB.get(), GDModBlocks.GOLDEN_NETHER_BRICK_STAIRS.get(), GDModBlocks.GOLDEN_NETHER_BRICK_FENCE.get(),
+                        GDModBlocks.GOLDEN_NETHER_BRICK_WALL.get(), GDModBlocks.GOLDEN_BONE_BLOCK.get(), GDModBlocks.NETHER_BRICK_STOVE.get(),
+                        GDModBlocks.GOLDEN_COOKING_POT.get());
+
+        this.tag(BlockTags.MINEABLE_WITH_SHOVEL)
+                .add(GDModBlocks.GOLDEN_COMPOST.get(), GDModBlocks.GOLDEN_SOIL.get(), GDModBlocks.GOLDEN_SOIL_FARMLAND.get());
 
         this.tag(BlockTags.MINEABLE_WITH_HOE)
-                .add(GDModBlocks.GOLDEN_WART_BLOCK.get(), GDModBlocks.GOLDEN_HAY_BLOCK.get(), BlockRegistry.DRIED_GOLDEN_KELP_BLOCK.get(), GDModBlocks.GOLDEN_RICE_BALE.get());
+                .add(GDModBlocks.GOLDEN_WART_BLOCK.get(), GDModBlocks.GOLDEN_HAY_BLOCK.get(), BlockRegistry.DRIED_GOLDEN_KELP_BLOCK.get(),
+                        GDModBlocks.GOLDEN_RICE_BALE.get(), GDModBlocks.GROOMLIGHT.get());
 
         this.tag(ForgeTags.MINEABLE_WITH_KNIFE)
                 .add(GDModBlocks.GOLDEN_CAKE.get(), GDModBlocks.GOLDEN_APPLE_PIE.get(), GDModBlocks.SWEET_GOLDEN_BERRY_CHEESECAKE.get(),
@@ -86,18 +103,24 @@ public class ModBlockTags extends BlockTagsProvider {
         this.tag(BlockTags.WOODEN_SLABS).add(GDModBlocks.GOLDEN_SLAB.get());
         this.tag(BlockTags.WOODEN_PRESSURE_PLATES).add(GDModBlocks.GOLDEN_PRESSURE_PLATE.get());
         this.tag(BlockTags.WOODEN_TRAPDOORS).add(GDModBlocks.GOLDEN_TRAPDOOR.get());
+        this.tag(BlockTags.PLANKS).add(GDModBlocks.GOLDEN_PLANKS.get());
         this.tag(BlockTags.LOGS).addTag(GDModTags.Blocks.GOLDEN_STEMS);
+        this.tag(BlockTags.SLABS).add(GDModBlocks.GOLDEN_NETHER_BRICK_SLAB.get());
+        this.tag(BlockTags.STAIRS).add(GDModBlocks.GOLDEN_NETHER_BRICK_STAIRS.get());
         this.tag(BlockTags.FENCES).add(GDModBlocks.GOLDEN_NETHER_BRICK_FENCE.get());
+        this.tag(BlockTags.WALLS).add(GDModBlocks.GOLDEN_NETHER_BRICK_WALL.get());
         this.tag(BlockTags.STANDING_SIGNS).add(GDModBlocks.GOLDEN_SIGN.get());
         this.tag(BlockTags.WALL_SIGNS).add(GDModBlocks.GOLDEN_WALL_SIGN.get());
         this.tag(BlockTags.CEILING_HANGING_SIGNS).add(GDModBlocks.GOLDEN_HANGING_SIGN.get());
         this.tag(BlockTags.WALL_HANGING_SIGNS).add(GDModBlocks.GOLDEN_WALL_HANGING_SIGN.get());
+        this.tag(BlockTags.SNOW_LAYER_CAN_SURVIVE_ON).add(GDModBlocks.GOLDEN_HONEY_BLOCK.get());
     }
 
     private void registerFDTags() {
         this.tag(ModTags.COMPOST_ACTIVATORS).addTag(GDModTags.Blocks.GOLDEN_COMPOST_ACTIVATORS);
-        this.tag(ModTags.UNAFFECTED_BY_RICH_SOIL).add(GDModBlocks.GOLDEN_MUSHROOM_COLONY.get());
+        this.tag(ModTags.UNAFFECTED_BY_RICH_SOIL).add(GDModBlocks.GOLDEN_MUSHROOM_COLONY.get(), GDModBlocks.GOLDEN_FUNGUS_COLONY.get());
         this.tag(ModTags.MUSHROOM_COLONY_GROWABLE_ON).add(GDModBlocks.GOLDEN_SOIL.get());
+        this.tag(ModTags.HEAT_SOURCES).add(GDModBlocks.NETHER_BRICK_STOVE.get());
     }
 
     private void registerGDModTags() {
@@ -107,11 +130,16 @@ public class ModBlockTags extends BlockTagsProvider {
                         GDModBlocks.GOLDEN_CABBAGE_CROP.get(), GDModBlocks.GOLDEN_ONION_CROP.get(), GDModBlocks.GOLDEN_RICE_CROP_PANICLES.get(),
                         GDModBlocks.BUDDING_GOLDEN_TOMATO_CROP.get(), GDModBlocks.GOLDEN_TOMATO_CROP.get());
         this.tag(GDModTags.Blocks.GOLDEN_COMPOST_ACTIVATORS)
-                .add(GDModBlocks.GOLDEN_MUSHROOM.get(), GDModBlocks.GOLDEN_MUSHROOM_COLONY.get(),
+                .add(GDModBlocks.GOLDEN_MUSHROOM.get(), GDModBlocks.GOLDEN_MUSHROOM_COLONY.get(), GDModBlocks.GOLDEN_FUNGUS.get(), GDModBlocks.GOLDEN_FUNGUS_COLONY.get(),
                         GDModBlocks.GOLDEN_SOIL.get(), GDModBlocks.GOLDEN_SOIL_FARMLAND.get(), GDModBlocks.GOLDEN_COMPOST.get());
         this.tag(GDModTags.Blocks.GOLDEN_MUSHROOM_GROW_BLOCK).add(GDModBlocks.GOLDEN_SOIL.get(), GDModBlocks.GOLDEN_COMPOST.get());
         this.tag(GDModTags.Blocks.GOLDEN_STEMS).add(GDModBlocks.GOLDEN_STEM.get(), GDModBlocks.GOLDEN_HYPHAE.get(),
                 GDModBlocks.STRIPPED_GOLDEN_STEM.get(), GDModBlocks.STRIPPED_GOLDEN_HYPHAE.get());
+        this.tag(GDModTags.Blocks.SOUL_HEAT_SOURCES).addTag(GDModTags.Blocks.TRAY_SOUL_HEAT_SOURCES);
+        this.tag(GDModTags.Blocks.TRAY_SOUL_HEAT_SOURCES).add(Blocks.SOUL_CAMPFIRE).add(GDModBlocks.NETHER_BRICK_STOVE.get());
+        this.tag(GDModTags.Blocks.GOLDEN_BEEHIVES).add(GDModBlocks.GOLDEN_BEEHIVE.get());
+        this.tag(GDModTags.Blocks.GOLDEN_BEE_GROWABLES).addTag(GDModTags.Blocks.GOLDEN_CROPS).addTag(BlockTags.BEE_GROWABLES)
+                .add(BlockRegistry.SWEET_GOLDEN_BERRY_BUSH.get(), GDModBlocks.GOLDEN_CAVE_VINES.get(), GDModBlocks.GOLDEN_CAVE_VINES_PLANT.get());
     }
 
     private void registerCompatTags() {

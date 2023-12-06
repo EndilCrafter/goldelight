@@ -48,6 +48,10 @@ public class GoldenSoilBlock extends RichSoilBlock {
                 level.setBlockAndUpdate(pos.above(), GDModBlocks.GOLDEN_MUSHROOM_COLONY.get().defaultBlockState());
                 return;
             }
+            if (aboveBlock == GDModBlocks.GOLDEN_FUNGUS.get()) {
+                level.setBlockAndUpdate(pos.above(), GDModBlocks.GOLDEN_FUNGUS_COLONY.get().defaultBlockState());
+                return;
+            }
 
             if (Configuration.RICH_SOIL_BOOST_CHANCE.get() == 0.0) {
                 return;

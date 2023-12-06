@@ -4,7 +4,7 @@ import com.google.common.base.Suppliers;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
-import net.endil.goldelight.common.recipe.MidasTouchingRecipe;
+import net.endil.goldelight.common.registry.GDModRecipeTypes;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.storage.loot.LootContext;
@@ -24,7 +24,7 @@ public class GDMidasTouchingModifier extends LootModifier {
     }
 
     private static ItemStack midas(ItemStack stack, LootContext context) {
-        return context.getLevel().getRecipeManager().getRecipeFor(MidasTouchingRecipe.Type.INSTANCE, new SimpleContainer(stack), context.getLevel())
+        return context.getLevel().getRecipeManager().getRecipeFor(GDModRecipeTypes.MIDAS_TOUCHING.get(), new SimpleContainer(stack), context.getLevel())
                 .map(midasTouchingRecipe -> midasTouchingRecipe.getResultItem(context.getLevel().registryAccess()))
                 .filter(itemStack -> !itemStack.isEmpty())
                 .map(itemStack -> ItemHandlerHelper.copyStackWithSize(itemStack, stack.getCount() * itemStack.getCount()))

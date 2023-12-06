@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "item": "minecraft:soul_campfire"
+    },
+    "N": {
+      "item": "minecraft:nether_bricks"
+    },
+    "i": {
+      "tag": "forge:ingots/iron"
+    }
+  },
+  "pattern": [
+    "iii",
+    "N N",
+    "NCN"
+  ],
+  "result": {
+    "item": "goldelight:nether_brick_stove"
+  },
+  "show_notification": true
+}

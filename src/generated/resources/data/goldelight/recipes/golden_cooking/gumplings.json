@@ -1,0 +1,35 @@
+{
+  "type": "goldelight:golden_cooking",
+  "cookingtime": 400,
+  "experience": 2.0,
+  "ingredients": [
+    {
+      "tag": "goldelight:golden_dough"
+    },
+    {
+      "tag": "goldelight:golden_crops/cabbage"
+    },
+    {
+      "tag": "goldelight:golden_crops/onion"
+    },
+    [
+      {
+        "tag": "goldelight:raw_golden_chicken"
+      },
+      {
+        "tag": "goldelight:raw_golden_pork"
+      },
+      {
+        "tag": "goldelight:raw_golden_beef"
+      },
+      {
+        "item": "goldelight:golden_mushroom"
+      }
+    ]
+  ],
+  "recipe_book_tab": "golden_misc",
+  "result": {
+    "count": 2,
+    "item": "goldelight:gumplings"
+  }
+}

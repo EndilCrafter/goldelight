@@ -1,10 +1,11 @@
-// 1.20.1	2023-12-04T19:58:43.6253377	Tags for minecraft:item mod id goldelight
+// 1.20.1	2023-12-06T14:03:02.2367721	Tags for minecraft:item mod id goldelight
 e1654010e1267ee9932a44b56fe3d70d05282e0f data/diet/tags/items/fruits.json
 0127eb845e986e02bfa20d20c47133979d9516f5 data/diet/tags/items/grains.json
 6494309212f7f0b7d71a07e375f8b750078e6451 data/diet/tags/items/proteins.json
 d8633bedb2ec61932ceb099df7cc02f8c437f749 data/diet/tags/items/special_food.json
 9eaedc2bac9fb89798ca057269376db9b03b415a data/diet/tags/items/sugars.json
 52a36c945ddeb40b61762cc963e04acd4c5d3623 data/diet/tags/items/vegetables.json
+519916c0a9f2701d4a2a91fd0410535281ae2ed0 data/farmersdelight/tags/items/cabinets.json
 73b6e4ffc8a2fe7adcada9d4642e8f0df814bc6f data/farmersdelight/tags/items/tools/knives.json
 b19f6c3554df986d235490e7d8830dc1e21dced2 data/farmersdelight/tags/items/wolf_prey.json
 7695e5ca8676732063b113254974e01636cef796 data/forge/tags/items/berries.json
@@ -26,7 +27,7 @@ d5177e2432bcfe5af9e94298f1bd29f773fde05f data/forge/tags/items/crops/rice.json
 f8081fd372fbbf028262213b3829c00d0613b8d4 data/forge/tags/items/crops/tomato.json
 235c5e058a585e0a2223014b82b6fb9eea2f075c data/forge/tags/items/dough.json
 bb90b28457c01de40b16391faf384cdb796c03d0 data/forge/tags/items/dough/wheat.json
-79d40ea04ed53f3bce03bf3ebe3c413d0f4de58b data/forge/tags/items/eggs.json
+11f2d6bcd6733b8b8d5e60ba901f0d9d51b64336 data/forge/tags/items/eggs.json
 5c06ec22fe08ffedf0095abaac1708e1128550c9 data/forge/tags/items/grain.json
 6506f744e36a53237b063a81df00deb18ea52494 data/forge/tags/items/grain/rice.json
 c938f6f4ae5c6dcd6f6799e1e4b419f81b7482e0 data/forge/tags/items/grain/wheat.json
@@ -119,13 +120,28 @@ b87a9abab31c1428d28340d39077776310e12ed0 data/goldelight/tags/items/raw_golden_f
 4cbb86d0189db57d8164aa1ff33b3f81e0101018 data/goldelight/tags/items/raw_golden_fishes/tropical_fish.json
 07083707101f1a6a96363d2ab6e828d1ed805f39 data/goldelight/tags/items/raw_golden_mutton.json
 effc47353cae3861824afb8d2c2c7a2a0283e3e9 data/goldelight/tags/items/raw_golden_pork.json
+a78a0119dce752a30a04e9013be1eda89982740c data/minecraft/tags/items/fences.json
+484ab2aa9fcf8fffbf6c506738c8d687de5d045e data/minecraft/tags/items/fence_gates.json
 ce0bdbab138ccbecb0eeee3f4e156f17b8976ac9 data/minecraft/tags/items/fishes.json
 cd1d9d25cd71695deefb5bd5ee0904f62f084cc5 data/minecraft/tags/items/fox_food.json
 f151dc955f056ec3791ceebb2fa500439e7072f4 data/minecraft/tags/items/hanging_signs.json
+eac0f3d692dac9bdbe8c3d529a1eb06e42123723 data/minecraft/tags/items/logs.json
 ec0702cb85b79448b6621e8410414d5628dd04c6 data/minecraft/tags/items/piglin_food.json
 2dc23a27b756aa2551575597eb1e6a663cd6efd9 data/minecraft/tags/items/piglin_loved.json
+649371f218e689fb8f0745dbbaf1c9d8fcd519e8 data/minecraft/tags/items/planks.json
 30b7f5ff737c0f859f437debf8b5e94eeafb1580 data/minecraft/tags/items/signs.json
-cbb807fcf9c795ac9ff925d14697b8b25353a27a data/sereneseasons/tags/items/autumn_crops.json
-ffd22286166c954f1eec7670d4754f08754b3559 data/sereneseasons/tags/items/spring_crops.json
-9fd7a8916a9c8727286873893c09b9f527da62d4 data/sereneseasons/tags/items/summer_crops.json
-d6d1435a6128406aa81432dc068e29ec50d44313 data/sereneseasons/tags/items/winter_crops.json
+e0c51f4bcfbcc7c55a2524afedac9167d3aee901 data/minecraft/tags/items/slabs.json
+abea3c2a7f42b569e1513cfd89a1767268678494 data/minecraft/tags/items/stairs.json
+34afc4e3c01aeb3f4a2f40f754a368297dd44b21 data/minecraft/tags/items/walls.json
+780d7252be00a882c9463fd3cde1171a634d7984 data/minecraft/tags/items/wart_blocks.json
+477d76c2d9aad7d69fcd48d78accf927276a3119 data/minecraft/tags/items/wooden_buttons.json
+303447ad383215da070792b350ca0fe000f4c7e5 data/minecraft/tags/items/wooden_doors.json
+8705d30fe837ec74f550fe9e1691941e4e7ff5ba data/minecraft/tags/items/wooden_fences.json
+a13fda69d7b8d7df67db23fb712298826f80eddb data/minecraft/tags/items/wooden_pressure_plates.json
+106a908ef73c399167b50d03a1050299c6e0e7c6 data/minecraft/tags/items/wooden_slabs.json
+5282ae39874f7e8ffa1ffb016ef2e59423f5510c data/minecraft/tags/items/wooden_stairs.json
+7b4aa8b27f6708637fc61a40266b919ba32ba8fc data/minecraft/tags/items/wooden_trapdoors.json
+f109af7762ad5d80fdf7389ac5943f3ded0a9416 data/sereneseasons/tags/items/autumn_crops.json
+76f09dca56930221090622ca5704620e52919d39 data/sereneseasons/tags/items/spring_crops.json
+b9e1d96f7c4e6eb8c5f82b850e89a79e50aa8fda data/sereneseasons/tags/items/summer_crops.json
+9d9406c209839637d9d5fb4a0d1934435e16ab03 data/sereneseasons/tags/items/winter_crops.json

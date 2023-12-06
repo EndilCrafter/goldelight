@@ -1,12 +1,17 @@
-// 1.20.1	2023-12-04T19:58:43.6203425	Tags for minecraft:block mod id goldelight
+// 1.20.1	2023-12-06T19:08:20.3010356	Tags for minecraft:block mod id goldelight
 8584df75c3a4c3e2a02ad01dd437b5103a2252c8 data/farmersdelight/tags/blocks/compost_activators.json
+6936447d91f80b0f61e639d59cfcc94f5c7a50d1 data/farmersdelight/tags/blocks/heat_sources.json
 0f30f62c6c8689d15db405cf5b98b0277c6af698 data/farmersdelight/tags/blocks/mushroom_colony_growable_on.json
-0bf20b47bb9b0cc3c2a5f4e397a22824c8c157d8 data/farmersdelight/tags/blocks/unaffected_by_rich_soil.json
+9bcc87f2373233b45781efe7a6c8b28e14c02536 data/farmersdelight/tags/blocks/unaffected_by_rich_soil.json
 a2c4935651de21bc3233a881b56117d4ee9c7100 data/forge/tags/blocks/mineable/knife.json
-eb085c5adc57d19d9fe3d38ec706971f48931a24 data/goldelight/tags/blocks/golden_compost_activators.json
+9a1f5b606f0be77c0b0375cfef383a638bbeb558 data/goldelight/tags/blocks/golden_beehives.json
+b63c043172ca708aec8cf6ce2beb318c5d9e6308 data/goldelight/tags/blocks/golden_bee_growables.json
+39f0148a3bb2ff085caa7630ef5a35d0d7c7e207 data/goldelight/tags/blocks/golden_compost_activators.json
 26c49ca79f11ccad55ce8f437d166ff246863f7f data/goldelight/tags/blocks/golden_crops.json
 e0e24b649a2917c14e4302744a92f25a473ef87c data/goldelight/tags/blocks/golden_mushroom_grow_block.json
 968fd89b4656dc7a09632afab540f7c4348914d6 data/goldelight/tags/blocks/golden_stems.json
+0a90f357b4e1b108cc0b6c25389d77fd997b33a0 data/goldelight/tags/blocks/soul_heat_sources.json
+29afcfc7784fd43db180c3069ebc925861f683a7 data/goldelight/tags/blocks/tray_soul_heat_sources.json
 c870c5f3f27c7e9022ac425d57839016bb62c6dc data/minecraft/tags/blocks/candle_cakes.json
 b068d520fc6567b96da6355934e6a7390659b5a4 data/minecraft/tags/blocks/cave_vines.json
 f151dc955f056ec3791ceebb2fa500439e7072f4 data/minecraft/tags/blocks/ceiling_hanging_signs.json
@@ -16,10 +21,17 @@ c7793753c1ee68201b0af7a99dcd54a53117fa16 data/minecraft/tags/blocks/climbable.js
 a78a0119dce752a30a04e9013be1eda89982740c data/minecraft/tags/blocks/fences.json
 484ab2aa9fcf8fffbf6c506738c8d687de5d045e data/minecraft/tags/blocks/fence_gates.json
 eac0f3d692dac9bdbe8c3d529a1eb06e42123723 data/minecraft/tags/blocks/logs.json
-c83645062a355280b91282cecfa39d3216d3c0b9 data/minecraft/tags/blocks/mineable/axe.json
-f562da540e585966197f6810067229d44150e9d5 data/minecraft/tags/blocks/mineable/hoe.json
+afaf82ab2c359027eb5c6438f7245312325ff474 data/minecraft/tags/blocks/mineable/axe.json
+c87b0a649b2863f79a97f06ca791caa3ab9490e6 data/minecraft/tags/blocks/mineable/hoe.json
+9bd7e17092d29965cce7bb16f5b13d96d84a6d42 data/minecraft/tags/blocks/mineable/pickaxe.json
+e4e88170dc2032a2583b84f855cf2de9f970da23 data/minecraft/tags/blocks/mineable/shovel.json
 944cc927d07f67d38d872222026b891d390854f3 data/minecraft/tags/blocks/mushroom_grow_block.json
+649371f218e689fb8f0745dbbaf1c9d8fcd519e8 data/minecraft/tags/blocks/planks.json
+e0c51f4bcfbcc7c55a2524afedac9167d3aee901 data/minecraft/tags/blocks/slabs.json
+2c5e8d0f3dc5d82441816b37d498f7fbe0734654 data/minecraft/tags/blocks/snow_layer_can_survive_on.json
+abea3c2a7f42b569e1513cfd89a1767268678494 data/minecraft/tags/blocks/stairs.json
 30b7f5ff737c0f859f437debf8b5e94eeafb1580 data/minecraft/tags/blocks/standing_signs.json
+34afc4e3c01aeb3f4a2f40f754a368297dd44b21 data/minecraft/tags/blocks/walls.json
 e8a0976a7be886f0e6368d7b74f8348bce7d872d data/minecraft/tags/blocks/wall_hanging_signs.json
 b5a4ac21c120584f824eaf62dac1b991f7f68b41 data/minecraft/tags/blocks/wall_signs.json
 780d7252be00a882c9463fd3cde1171a634d7984 data/minecraft/tags/blocks/wart_blocks.json

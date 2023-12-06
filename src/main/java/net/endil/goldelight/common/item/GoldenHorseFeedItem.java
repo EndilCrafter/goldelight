@@ -50,7 +50,7 @@ public class GoldenHorseFeedItem extends HorseFeedItem {
 
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltip, TooltipFlag isAdvanced) {
         if (Configuration.FOOD_EFFECT_TOOLTIP.get()) {
-            MutableComponent textWhenFeeding = TextUtils.getTranslation("tooltip.horse_feed.when_feeding");
+            MutableComponent textWhenFeeding = TextUtils.getTranslation("tooltip.golden_horse_feed.when_feeding");
             tooltip.add(textWhenFeeding.withStyle(ChatFormatting.GRAY));
 
             MutableComponent effectDescription;

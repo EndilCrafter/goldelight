@@ -8,6 +8,7 @@ import net.endil.goldelight.common.item.GoldenMelonJuiceItem;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.food.Foods;
 import net.minecraft.world.item.*;
+import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -87,6 +88,18 @@ public class GDModItems {
             () -> new SignItem(basicItem().stacksTo(16), GDModBlocks.GOLDEN_SIGN.get(), GDModBlocks.GOLDEN_WALL_SIGN.get()));
     public static final RegistryObject<Item> GOLDEN_HANGING_SIGN = ITEMS.register("golden_hanging_sign",
             () -> new HangingSignItem(GDModBlocks.GOLDEN_HANGING_SIGN.get(), GDModBlocks.GOLDEN_WALL_HANGING_SIGN.get(), basicItem().stacksTo(16)));
+    public static final RegistryObject<Item> GOLDEN_LEATHER = ITEMS.register("golden_leather",
+            () -> new Item(basicItem()));
+    public static final RegistryObject<Item> GOLDEN_FEATHER = ITEMS.register("golden_feather",
+            () -> new Item(basicItem()));
+    public static final RegistryObject<Item> GOLDEN_HONEYCOMB = ITEMS.register("golden_honeycomb",
+            () -> new HoneycombItem(basicItem()));
+    public static final RegistryObject<Item> GOLDEN_COW_SPAWN_EGG = ITEMS.register("golden_cow_spawn_egg",
+            () -> new ForgeSpawnEggItem(GDModEntityTypes.GOLDEN_COW, 2552550, 10592673, basicItem()));
+    public static final RegistryObject<Item> GOLDEN_CHICKEN_SPAWN_EGG = ITEMS.register("golden_chicken_spawn_egg",
+            () -> new ForgeSpawnEggItem(GDModEntityTypes.GOLDEN_CHICKEN, 2552550, 16711680, basicItem()));
+    public static final RegistryObject<Item> GOLDEN_BEE_SPAWN_EGG = ITEMS.register("golden_bee_spawn_egg",
+            () -> new ForgeSpawnEggItem(GDModEntityTypes.GOLDEN_BEE, 2552550, 4400155, basicItem()));
 
     //Vanilla Changes + Original
     public static final RegistryObject<Item> GOLDEN_APPLE = VANILLA_ITEMS.register("golden_apple",
@@ -99,6 +112,9 @@ public class GDModItems {
     //Farmer's Delight
     public static final RegistryObject<Item> GOLDEN_MUSHROOM_COLONY = ITEMS.register("golden_mushroom_colony",
             () -> new MushroomColonyItem(GDModBlocks.GOLDEN_MUSHROOM_COLONY.get(), basicItem()));
+    public static final RegistryObject<Item> GOLDEN_FUNGUS_COLONY = ITEMS.register("golden_fungus_colony",
+            () -> new MushroomColonyItem(GDModBlocks.GOLDEN_FUNGUS_COLONY.get(), basicItem()));
+
     public static final RegistryObject<Item> GOLDEN_COOKING_POT = ITEMS.register("golden_cooking_pot",
             () -> new BlockItem(GDModBlocks.GOLDEN_COOKING_POT.get(), basicItem().stacksTo(1)));
     public static final RegistryObject<Item> GOLDEN_CABBAGE = ITEMS.register("golden_cabbage",

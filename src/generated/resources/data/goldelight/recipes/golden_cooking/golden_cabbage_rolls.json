@@ -1,0 +1,17 @@
+{
+  "type": "goldelight:golden_cooking",
+  "cookingtime": 200,
+  "experience": 0.7,
+  "ingredients": [
+    {
+      "tag": "goldelight:golden_crops/cabbage"
+    },
+    {
+      "tag": "goldelight:golden_cabbage_rolls_ingredients"
+    }
+  ],
+  "recipe_book_tab": "golden_misc",
+  "result": {
+    "item": "goldelight:golden_cabbage_rolls"
+  }
+}

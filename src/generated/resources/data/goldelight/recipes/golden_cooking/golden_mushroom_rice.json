@@ -1,0 +1,28 @@
+{
+  "type": "goldelight:golden_cooking",
+  "cookingtime": 400,
+  "experience": 2.0,
+  "ingredients": [
+    {
+      "tag": "goldelight:golden_mushrooms"
+    },
+    {
+      "item": "goldelight:golden_mushroom"
+    },
+    {
+      "tag": "goldelight:golden_crops/rice"
+    },
+    [
+      {
+        "item": "minecraft:golden_carrot"
+      },
+      {
+        "item": "goldelight:golden_potato"
+      }
+    ]
+  ],
+  "recipe_book_tab": "golden_meals",
+  "result": {
+    "item": "goldelight:golden_mushroom_rice"
+  }
+}

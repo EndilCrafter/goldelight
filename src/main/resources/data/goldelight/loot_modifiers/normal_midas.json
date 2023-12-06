@@ -1,33 +1,33 @@
 {
   "type": "goldelight:midas_touching",
   "conditions": [
-        {
-          "condition": "minecraft:inverted",
-          "term": {
-            "condition": "minecraft:entity_properties",
-            "entity": "killer",
-            "predicate": {
-              "equipment": {
-                "mainhand": {
-                  "items": [
-                    "goldelight:midas_knife"
-                  ]
-                }
-              }
+    {
+      "condition": "minecraft:inverted",
+      "term": {
+        "condition": "minecraft:entity_properties",
+        "entity": "killer",
+        "predicate": {
+          "equipment": {
+            "mainhand": {
+              "items": [
+                "goldelight:midas_knife"
+              ]
             }
           }
-        },
-        {
-          "condition": "minecraft:entity_properties",
-          "entity": "killer",
-          "predicate": {
-            "equipment": {
-              "mainhand": {
-                "tag": "farmersdelight:tools/knives"
-              }
-            }
+        }
+      }
+    },
+    {
+      "condition": "minecraft:entity_properties",
+      "entity": "killer",
+      "predicate": {
+        "equipment": {
+          "mainhand": {
+            "tag": "farmersdelight:tools/knives"
           }
-        },
+        }
+      }
+    },
     {
       "condition": "minecraft:entity_properties",
       "entity": "killer",

@@ -1,0 +1,10 @@
+{
+  "parent": "minecraft:block/orientable_with_bottom",
+  "textures": {
+    "bottom": "goldelight:block/golden_beehive_end",
+    "front": "goldelight:block/golden_beehive_front",
+    "particle": "goldelight:block/golden_beehive_side",
+    "side": "goldelight:block/golden_beehive_side",
+    "top": "goldelight:block/golden_beehive_end"
+  }
+}

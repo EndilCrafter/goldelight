@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "goldelight:block/golden_cabinet_front_open",
+    "side": "goldelight:block/golden_cabinet_side",
+    "top": "goldelight:block/golden_cabinet_top"
+  }
+}

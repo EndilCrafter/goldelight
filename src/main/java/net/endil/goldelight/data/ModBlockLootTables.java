@@ -4,10 +4,7 @@ import accieo.midas.hunger.registry.ItemRegistry;
 import net.endil.goldelight.common.block.famersdelight.GoldenCabbageBlock;
 import net.endil.goldelight.common.block.famersdelight.GoldenOnionBlock;
 import net.endil.goldelight.common.block.famersdelight.GoldenTomatoVineBlock;
-import net.endil.goldelight.common.block.vanilla.GoldenCarrotBlock;
-import net.endil.goldelight.common.block.vanilla.GoldenPotatoBlock;
-import net.endil.goldelight.common.block.vanilla.GoldenWartBlock;
-import net.endil.goldelight.common.block.vanilla.GoldenWheatBlock;
+import net.endil.goldelight.common.block.vanilla.*;
 import net.endil.goldelight.common.event.GoldenCaveVines;
 import net.endil.goldelight.common.registry.GDModBlocks;
 import net.endil.goldelight.common.registry.GDModItems;
@@ -17,6 +14,7 @@ import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantments;
+import net.minecraft.world.level.block.BeehiveBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.CocoaBlock;
 import net.minecraft.world.level.storage.loot.IntRange;
@@ -24,22 +22,27 @@ import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
-import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
-import net.minecraft.world.level.storage.loot.functions.LimitCount;
-import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
+import net.minecraft.world.level.storage.loot.functions.*;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemEntityPropertyCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCondition;
+import net.minecraft.world.level.storage.loot.providers.nbt.ContextNbtProvider;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
+import vectorwing.farmersdelight.common.loot.function.CopyMealFunction;
 
 import java.util.HashSet;
 import java.util.Set;
 
 public class ModBlockLootTables extends BlockLootSubProvider {
     private final Set<Block> generatedLootTables = new HashSet<>();
-
+    LootItemCondition.Builder goldenWheat = LootItemBlockStatePropertyCondition.hasBlockStateProperties(GDModBlocks.GOLDEN_WHEAT.get()).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(GoldenWheatBlock.AGE, 7));
+    LootItemCondition.Builder goldenCarrot = LootItemBlockStatePropertyCondition.hasBlockStateProperties(GDModBlocks.GOLDEN_CARROTS.get()).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(GoldenCarrotBlock.AGE, 7));
+    LootItemCondition.Builder goldenPotato = LootItemBlockStatePropertyCondition.hasBlockStateProperties(GDModBlocks.GOLDEN_POTATOES.get()).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(GoldenPotatoBlock.AGE, 7));
+    LootItemCondition.Builder goldenCabbage = LootItemBlockStatePropertyCondition.hasBlockStateProperties(GDModBlocks.GOLDEN_CABBAGE_CROP.get()).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(GoldenCabbageBlock.AGE, 7));
+    LootItemCondition.Builder goldenOnion = LootItemBlockStatePropertyCondition.hasBlockStateProperties(GDModBlocks.GOLDEN_ONION_CROP.get()).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(GoldenOnionBlock.AGE, 7));
+    LootItemCondition.Builder goldenTomato = LootItemBlockStatePropertyCondition.hasBlockStateProperties(GDModBlocks.GOLDEN_TOMATO_CROP.get()).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(GoldenTomatoVineBlock.AGE, 7));
     protected ModBlockLootTables() {
         super(Set.of(), FeatureFlags.REGISTRY.allFlags());
     }
@@ -48,12 +51,6 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         return LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(GDModItems.GOLDEN_GLOW_BERRIES.get()))
                 .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(GoldenCaveVines.BERRIES, true))));
     }
-    LootItemCondition.Builder goldenWheat = LootItemBlockStatePropertyCondition.hasBlockStateProperties(GDModBlocks.GOLDEN_WHEAT.get()).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(GoldenWheatBlock.AGE, 7));
-    LootItemCondition.Builder goldenCarrot = LootItemBlockStatePropertyCondition.hasBlockStateProperties(GDModBlocks.GOLDEN_CARROTS.get()).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(GoldenCarrotBlock.AGE, 7));
-    LootItemCondition.Builder goldenPotato = LootItemBlockStatePropertyCondition.hasBlockStateProperties(GDModBlocks.GOLDEN_POTATOES.get()).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(GoldenPotatoBlock.AGE, 7));
-    LootItemCondition.Builder goldenCabbage = LootItemBlockStatePropertyCondition.hasBlockStateProperties(GDModBlocks.GOLDEN_CABBAGE_CROP.get()).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(GoldenCabbageBlock.AGE, 7));
-    LootItemCondition.Builder goldenOnion = LootItemBlockStatePropertyCondition.hasBlockStateProperties(GDModBlocks.GOLDEN_ONION_CROP.get()).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(GoldenOnionBlock.AGE, 7));
-    LootItemCondition.Builder goldenTomato = LootItemBlockStatePropertyCondition.hasBlockStateProperties(GDModBlocks.GOLDEN_TOMATO_CROP.get()).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(GoldenTomatoVineBlock.AGE, 7));
 
     @Override
     protected void generate() {
@@ -78,6 +75,7 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropWhenSilkTouch(GDModBlocks.GOLDEN_MUSHROOM_STEM.get());
         this.dropSelf(GDModBlocks.GOLDEN_NETHER_BRICKS.get());
         this.dropSelf(GDModBlocks.GOLDEN_NETHER_BRICK_FENCE.get());
+        this.dropSelf(GDModBlocks.GOLDEN_NETHER_BRICK_WALL.get());
         this.add(GDModBlocks.GOLDEN_NETHER_BRICK_SLAB.get(), block -> createSlabItemTable(GDModBlocks.GOLDEN_NETHER_BRICK_SLAB.get()));
         this.dropSelf(GDModBlocks.GOLDEN_NETHER_BRICK_STAIRS.get());
         this.dropSelf(GDModBlocks.GOLDEN_PLANKS.get());
@@ -93,6 +91,10 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(GDModBlocks.GOLDEN_WART_BLOCK.get());
         this.dropOther(GDModBlocks.GOLDEN_WALL_SIGN.get(), GDModBlocks.GOLDEN_SIGN.get());
         this.dropOther(GDModBlocks.GOLDEN_WALL_HANGING_SIGN.get(), GDModBlocks.GOLDEN_HANGING_SIGN.get());
+        this.dropSelf(GDModBlocks.GOLDEN_HONEY_BLOCK.get());
+        this.dropSelf(GDModBlocks.GOLDEN_HONEYCOMB_BLOCK.get());
+        this.add(GDModBlocks.GOLDEN_BEEHIVE.get(),
+                block -> createGoldenBeeHiveDrop(GDModBlocks.GOLDEN_BEEHIVE.get()));
     }
 
     private void registerMinecraftCrops() {
@@ -167,6 +169,8 @@ public class ModBlockLootTables extends BlockLootSubProvider {
     }
 
     private void registerFD() {
+        this.add(GDModBlocks.GOLDEN_COOKING_POT.get(), (block) -> LootTable.lootTable().withPool(this.applyExplosionCondition(block, LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).add(LootItem.lootTableItem(block)
+                .apply(CopyNameFunction.copyName(CopyNameFunction.NameSource.BLOCK_ENTITY)).apply(CopyMealFunction.builder())))));
         this.dropSelf(GDModBlocks.GOLDEN_CARROT_CRATE.get());
         this.dropSelf(GDModBlocks.GOLDEN_POTATO_CRATE.get());
         this.dropSelf(GDModBlocks.GOLDEN_BEETROOT_CRATE.get());
@@ -196,6 +200,7 @@ public class ModBlockLootTables extends BlockLootSubProvider {
                         LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(GDModItems.GOLDEN_RICE.get())))));
 
         this.dropSelf(GDModBlocks.NETHER_BRICK_STOVE.get());
+        this.dropNamedContainer(GDModBlocks.GOLDEN_CABINET.get());
     }
 
     protected LootTable.Builder createCropBlock(Block pBlock, Item pItem) {
@@ -209,6 +214,12 @@ public class ModBlockLootTables extends BlockLootSubProvider {
     protected void add(Block block, LootTable.Builder builder) {
         this.generatedLootTables.add(block);
         this.map.put(block.getLootTable(), builder);
+    }
+    protected void dropNamedContainer(Block block) {
+        add(block, this::createNameableBlockEntityTable);
+    }
+    protected static LootTable.Builder createGoldenBeeHiveDrop(Block pBlock) {
+        return LootTable.lootTable().withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).add(LootItem.lootTableItem(pBlock).when(HAS_SILK_TOUCH).apply(CopyNbtFunction.copyData(ContextNbtProvider.BLOCK_ENTITY).copy("Bees", "BlockEntityTag.Bees")).apply(CopyBlockState.copyState(pBlock).copy(GoldenBeehiveBlock.HONEY_LEVEL)).otherwise(LootItem.lootTableItem(pBlock))));
     }
 
     @Override

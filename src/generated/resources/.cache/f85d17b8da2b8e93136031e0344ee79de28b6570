@@ -1,4 +1,4 @@
-// 1.20.1	2023-12-04T19:58:43.6373361	Item Models: goldelight
+// 1.20.1	2023-12-06T17:42:16.0769061	Item Models: goldelight
 145cc865b480ab4781a0b4fd6f1364c3f717c94e assets/goldelight/models/item/cooked_golden_bacon.json
 e557c62049575ae6fa74ca5321c34db7a65a2ea5 assets/goldelight/models/item/cooked_golden_chicken_cuts.json
 d6aff333abb86e79edeb4a88379e1197c50165c5 assets/goldelight/models/item/cooked_golden_cod_slice.json
@@ -18,6 +18,7 @@ f32d8d736f2cdb5bfc113713efda89f4a047d6b8 assets/goldelight/models/item/golden_ba
 453b7674f641044b50c0a748514a71d5a03c66ca assets/goldelight/models/item/golden_beef.json
 0b4c5fb423184556ec84a48225f2d24ed94337f7 assets/goldelight/models/item/golden_beef_patty.json
 9160ef870c9881dd070ef9ba7f43145bbfd2b843 assets/goldelight/models/item/golden_beef_stew.json
+63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/goldelight/models/item/golden_bee_spawn_egg.json
 b7c8783fbad2d2a078bd5c9ad45258d7fc519a93 assets/goldelight/models/item/golden_bone.json
 b56b703d562d600a485047a1c4e1e7751b2774f6 assets/goldelight/models/item/golden_bread.json
 8d4c97d7d082da5ced04a0ea344d9792b6b80df6 assets/goldelight/models/item/golden_broth.json
@@ -32,6 +33,7 @@ bd773397e6568f19465b2afafcb3fcf68a9125cf assets/goldelight/models/item/golden_ca
 9663e2775fb7e4eefba057a56ac98c3ba2d86a57 assets/goldelight/models/item/golden_chicken_cuts.json
 348811f7494b35f63da9863ad2ade43f2963ecaa assets/goldelight/models/item/golden_chicken_sandwich.json
 e8f530873515b9cba00faf870e0f0407562e4455 assets/goldelight/models/item/golden_chicken_soup.json
+63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/goldelight/models/item/golden_chicken_spawn_egg.json
 35946fcfd69001141a741f9cb98c7238f79433ce assets/goldelight/models/item/golden_chocolate_pie.json
 301ac443e821c2105cededdac285263aa1fa4685 assets/goldelight/models/item/golden_chocolate_pie_slice.json
 19796119e3970118b8d110340636d6ed3766fef9 assets/goldelight/models/item/golden_cocoa_beans.json
@@ -39,10 +41,12 @@ e48043a2484b69c0c6a8877cc0cdb84c3a922a92 assets/goldelight/models/item/golden_co
 68964044e09d0fabb30c8df309f0533cec6e9188 assets/goldelight/models/item/golden_cod_roll.json
 7d8781f9a966c1b906ebc11ac38dba52e8f2a33b assets/goldelight/models/item/golden_cod_slice.json
 4f3996f493facdac917cbe05a2bd36bec6956974 assets/goldelight/models/item/golden_cookie.json
+63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/goldelight/models/item/golden_cow_spawn_egg.json
 f2348bbda8156ab3467225ec24d58574ed4be8a8 assets/goldelight/models/item/golden_dog_food.json
 70c24bf67d0e2bc1c278c6f984be731534d22982 assets/goldelight/models/item/golden_door.json
 6c0b77d7a3e99c914a2c9d9792b8c4eadf2cbf6c assets/goldelight/models/item/golden_egg.json
 2e22a6d149fb3aa95896060eb030a77930c11a2c assets/goldelight/models/item/golden_egg_sandwich.json
+466852f0fdba1f6e247e15d07e5c6824842cace3 assets/goldelight/models/item/golden_feather.json
 36662f0bb9be84698945dfa630671723def44338 assets/goldelight/models/item/golden_fence.json
 ba3b3fb92b4c59f11a94e438c4726c8ff20b8b55 assets/goldelight/models/item/golden_fish_stew.json
 ef8abc8b4cc14fc7666be0a422e4038b9dcce9a6 assets/goldelight/models/item/golden_fruit_salad.json
@@ -54,6 +58,7 @@ dc6eaae1fab1068c4de204d8f3af344e21be5d4e assets/goldelight/models/item/golden_gl
 a6dc1e21b53ed4ba2f8070b440c526f1481d3587 assets/goldelight/models/item/golden_ham.json
 f6345b41fbc85523dee1ac9f881de384388b8537 assets/goldelight/models/item/golden_hamburger.json
 9e443b7250075e646fd63b72264e45c5779250db assets/goldelight/models/item/golden_hanging_sign.json
+3cc712353d8599a26b58583a47b0acc6668b684e assets/goldelight/models/item/golden_honeycomb.json
 1be6094741f8d204e8e144135cd73ab15e5810b0 assets/goldelight/models/item/golden_honey_bottle.json
 939a08fa6b4af116f4e63d87b73dc61ab700a979 assets/goldelight/models/item/golden_honey_cookie.json
 f1e76f843f06674060fe3242acae7c77ff8a3f43 assets/goldelight/models/item/golden_horse_feed.json
@@ -62,6 +67,7 @@ fdac3f4ab093d7a54c7797cad00d72a79b6ff05f assets/goldelight/models/item/golden_ho
 27a1737c3f6f23a1a55500ee17a2d6549a3fbe1b assets/goldelight/models/item/golden_ink_sac.json
 4ec24ee3da8bc462976d4c56b765114a4a3fd7fb assets/goldelight/models/item/golden_kelp_roll.json
 5c1726d8d30e807172dc7103a40e6ed312779e98 assets/goldelight/models/item/golden_kelp_roll_slice.json
+60644d0eb3a581aea101acdb53177de8dbf78c1e assets/goldelight/models/item/golden_leather.json
 0b4fb93fd5e8498829f61e90daa1fbf0ea03f8a8 assets/goldelight/models/item/golden_meal.json
 431f4a2193d1ce08ba9189d8351658fc87a1a5bb assets/goldelight/models/item/golden_melon_juice.json
 f64444cfbaa78f23835ea2919515535f63c9b6e2 assets/goldelight/models/item/golden_melon_seeds.json
@@ -74,6 +80,7 @@ ac9f8c71c77ad4b81712acf7b3aaa92ed5060b81 assets/goldelight/models/item/golden_mi
 427d518a0842513cbb68d1ffc32952c2473abf8b assets/goldelight/models/item/golden_mutton.json
 72460c692fe45f280c3a9eabf9c1bcd95d3116b7 assets/goldelight/models/item/golden_mutton_chops.json
 8cbcb2b9707d4581eb010251138b7bf9434ed82f assets/goldelight/models/item/golden_nether_brick_fence.json
+6d3bb78dd774d72e02805ed06f83c3c2bb50e08c assets/goldelight/models/item/golden_nether_brick_wall.json
 6da86cd3b8fb036b6a4ac277c82137c96d0149ac assets/goldelight/models/item/golden_nether_salad.json
 4ee5c2486a7b2c606cd0c9bee72f9e13fdb7c3a6 assets/goldelight/models/item/golden_noodle_soup.json
 842e0a835e9d35a1c4fd1d87da87b2f4619aeab8 assets/goldelight/models/item/golden_onion.json

@@ -1,19 +1,39 @@
 package net.endil.goldelight.common.registry;
 
 import net.endil.goldelight.GolDelight;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.ai.village.poi.PoiType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 
 public class GDModTags {
+    public static class PoiTypes {
+        public static final TagKey<PoiType> GOLDEN_BEE_HOME = tag("golden_bee_home");
+        private static TagKey<PoiType> tag(String pName) {
+            return TagKey.create(Registries.POINT_OF_INTEREST_TYPE, new ResourceLocation(GolDelight.MOD_ID, pName));
+        }
+    }
+    public static class EntityTypes{
+        public static final TagKey<EntityType<?>> GOLDEN_BEEHIVE_INHABITORS = tag("golden_beehive_inhabitors");
+        private static TagKey<EntityType<?>> tag(String pName) {
+            return TagKey.create(Registries.ENTITY_TYPE, new ResourceLocation(GolDelight.MOD_ID, pName));
+        }
+    }
     public static class Blocks {
         public static final TagKey<Block> GOLDEN_CROPS = tag("golden_crops");
         public static final TagKey<Block> GOLDEN_MUSHROOM_GROW_BLOCK = tag("golden_mushroom_grow_block");
         public static final TagKey<Block> GOLDEN_COMPOST_ACTIVATORS = tag("golden_compost_activators");
         public static final TagKey<Block> GOLDEN_STEMS = tag("golden_stems");
+        public static final TagKey<Block> SOUL_HEAT_SOURCES = tag("soul_heat_sources");
+        public static final TagKey<Block> TRAY_SOUL_HEAT_SOURCES = tag("tray_soul_heat_sources");
+        public static final TagKey<Block> GOLDEN_BEEHIVES = tag("golden_beehives");
+        public static final TagKey<Block> GOLDEN_BEE_GROWABLES = tag("golden_bee_growables");
+
         private static TagKey<Block> tag(String name) {
             return BlockTags.create(new ResourceLocation(GolDelight.MOD_ID, name));
         }
