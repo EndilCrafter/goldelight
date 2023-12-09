@@ -216,7 +216,6 @@ public class ModRecipes extends RecipeProvider implements IConditionBuilder {
         Golden(consumer, GDModItems.GOLDEN_WART.get(), Items.NETHER_WART);
         Golden(consumer, GDModItems.GOLDEN_WHEAT_SEEDS.get(), Items.WHEAT_SEEDS);
         Golden(consumer, ItemRegistry.GOLDEN_BEETROOT_SEEDS.get(), Items.BEETROOT_SEEDS);
-        Golden(consumer, ItemRegistry.GOLDEN_TURTLE_EGG.get(), Items.TURTLE_EGG);
 
         Golden(consumer, GDModBlocks.GOLDEN_CACTUS.get(), Items.CACTUS);
         Golden(consumer, GDModBlocks.GOLDEN_CHORUS_FLOWER.get(), Items.CHORUS_FLOWER);
