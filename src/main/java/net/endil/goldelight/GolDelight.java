@@ -23,6 +23,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
 
+//I used Farmer's Delight Code as Reference.
 
 @Mod(GolDelight.MOD_ID)
 public class GolDelight {
