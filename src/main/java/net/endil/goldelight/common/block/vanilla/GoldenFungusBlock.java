@@ -49,16 +49,18 @@ public class GoldenFungusBlock extends BushBlock implements BonemealableBlock {
             return pLevel.getRawBrightness(pPos, 0) < 13 && blockstate.canSustainPlant(pLevel, blockpos, net.minecraft.core.Direction.UP, this);
         }
     }
+
     private Optional<? extends Holder<ConfiguredFeature<?, ?>>> getFeature(LevelReader pLevel) {
         return pLevel.registryAccess().registryOrThrow(Registries.CONFIGURED_FEATURE).getHolder(this.feature);
     }
+
     public boolean isValidBonemealTarget(LevelReader pLevel, BlockPos pPos, BlockState pState, boolean pIsClient) {
         BlockState blockstate = pLevel.getBlockState(pPos.below());
         return blockstate.is(this.requiredBlock);
     }
 
     public boolean isBonemealSuccess(Level pLevel, RandomSource pRandom, BlockPos pPos, BlockState pState) {
-        return (double)pRandom.nextFloat() < 0.4D;
+        return (double) pRandom.nextFloat() < 0.4D;
     }
 
     public void performBonemeal(ServerLevel pLevel, RandomSource pRandom, BlockPos pPos, BlockState pState) {

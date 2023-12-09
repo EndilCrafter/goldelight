@@ -11,8 +11,6 @@ import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.alchemy.PotionBrewing;
-import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.Level;
@@ -23,7 +21,6 @@ import net.minecraftforge.common.brewing.BrewingRecipe;
 import net.minecraftforge.common.brewing.BrewingRecipeRegistry;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.util.ObfuscationReflectionHelper;
-import vectorwing.farmersdelight.common.registry.ModItems;
 
 import static net.minecraft.world.level.block.ComposterBlock.COMPOSTABLES;
 
@@ -37,6 +34,7 @@ public class GDCommonSetup {
             registerBrewingRecipes();
         });
     }
+
     public static void registerDispenserBehaviors() {
         DispenserBlock.registerBehavior(GDModItems.GOLDEN_EGG.get(), new AbstractProjectileDispenseBehavior() {
             @Override
@@ -51,9 +49,11 @@ public class GDCommonSetup {
             }
         });
     }
+
     public static void registerStackSizeOverrides() {
         ObfuscationReflectionHelper.setPrivateValue(Item.class, ItemRegistry.GOLDEN_BEETROOT_SOUP.get(), 16, "f_41370_");
     }
+
     public static void registerCompostables() {
         //Minecraft
         add(0.6F, ItemRegistry.GOLDEN_BEETROOT_SEEDS.get());
@@ -118,15 +118,18 @@ public class GDCommonSetup {
         add(1.0F, GDModItems.GOLDEN_MUSHROOM_COLONY.get());
         add(1.0F, GDModItems.GOLDEN_FUNGUS_COLONY.get());
     }
+
     private static void add(float pChance, ItemLike pItem) {
         COMPOSTABLES.put(pItem.asItem(), pChance);
     }
+
     public static void registerPottedFlowers() {
         ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(GDModBlocks.GOLDEN_CACTUS.getId(), GDModBlocks.POTTED_GOLDEN_CACTUS);
         ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(GDModBlocks.GOLDEN_MUSHROOM.getId(), GDModBlocks.POTTED_GOLDEN_MUSHROOM);
         ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(GDModBlocks.GOLDEN_FUNGUS.getId(), GDModBlocks.POTTED_GOLDEN_FUNGUS);
     }
+
     public static void registerBrewingRecipes() {
-        BrewingRecipeRegistry.addRecipe(new BrewingRecipe(Ingredient.of(Items.DRAGON_BREATH),Ingredient.of(GDModItems.ANCIENT_GOLD_DUST.get()), new ItemStack(GDModItems.MIDAS_POTION.get())));
+        BrewingRecipeRegistry.addRecipe(new BrewingRecipe(Ingredient.of(Items.DRAGON_BREATH), Ingredient.of(GDModItems.ANCIENT_GOLD_DUST.get()), new ItemStack(GDModItems.MIDAS_POTION.get())));
     }
 }

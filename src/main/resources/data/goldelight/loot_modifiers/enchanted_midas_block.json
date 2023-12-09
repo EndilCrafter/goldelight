@@ -1,0 +1,218 @@
+{
+  "type": "goldelight:midas_touching",
+  "conditions": [
+    {
+      "condition": "minecraft:match_tool",
+      "predicate": {
+        "items": [
+          "goldelight:midas_knife"
+        ],
+        "enchantments": [
+          {
+            "enchantment": "goldelight:midas_touch"
+          }
+        ]
+      }
+    },
+    {
+      "condition": "minecraft:any_of",
+      "terms": [
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "minecraft:oak_leaves",
+          "properties": {}
+        },
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "minecraft:dark_oak_leaves",
+          "properties": {}
+        },
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "minecraft:brown_mushroom_block",
+          "properties": {}
+        },
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "minecraft:red_mushroom_block",
+          "properties": {}
+        },
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "minecraft:grass",
+          "properties": {}
+        },
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "minecraft:fern",
+          "properties": {}
+        },
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "minecraft:tall_grass",
+          "properties": {}
+        },
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "minecraft:large_fern",
+          "properties": {}
+        },
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "minecraft:chorus_plant",
+          "properties": {}
+        },
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "minecraft:wheat",
+          "properties": {
+            "age": "7"
+          }
+        },
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "minecraft:cocoa",
+          "properties": {
+            "age": "2"
+          }
+        },
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "minecraft:attached_pumpkin_stem",
+          "properties": {}
+        },
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "minecraft:pumpkin_stem",
+          "properties": {
+            "age": "7"
+          }
+        },
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "minecraft:attached_melon_stem",
+          "properties": {}
+        },
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "minecraft:melon_stem",
+          "properties": {
+            "age": "7"
+          }
+        },
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "minecraft:beetroots",
+          "properties": {
+            "age": "3"
+          }
+        },
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "minecraft:cave_vines",
+          "properties": {
+            "berries": "true"
+          }
+        },
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "minecraft:cave_vines_plant",
+          "properties": {
+            "berries": "true"
+          }
+        },
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "minecraft:sweet_berry_bush",
+          "properties": {
+            "age": "3"
+          }
+        },
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "minecraft:nether_wart",
+          "properties": {
+            "age": "3"
+          }
+        },
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "minecraft:carrots",
+          "properties": {
+            "age": "7"
+          }
+        },
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "minecraft:potatoes",
+          "properties": {
+            "age": "7"
+          }
+        },
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "farmersdelight:wild_cabbages",
+          "properties": {}
+        },
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "farmersdelight:wild_onions",
+          "properties": {}
+        },
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "farmersdelight:wild_tomatoes",
+          "properties": {}
+        },
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "farmersdelight:wild_carrots",
+          "properties": {}
+        },
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "farmersdelight:wild_potatoes",
+          "properties": {}
+        },
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "farmersdelight:wild_beetroots",
+          "properties": {}
+        },
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "farmersdelight:wild_rice",
+          "properties": {}
+        },
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "farmersdelight:onions",
+          "properties": {
+            "age": "7"
+          }
+        },
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "farmersdelight:rice_panicles",
+          "properties": {
+            "age": "3"
+          }
+        },
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "farmersdelight:cabbages",
+          "properties": {
+            "age": "7"
+          }
+        },
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "farmersdelight:tomatoes",
+          "properties": {
+            "age": "3"
+          }
+        }
+      ]
+    }
+  ]
+}

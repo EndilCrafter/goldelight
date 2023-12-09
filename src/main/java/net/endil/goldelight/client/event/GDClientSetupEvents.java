@@ -40,6 +40,7 @@ public class GDClientSetupEvents {
         event.registerBlockEntityRenderer(GDModBlockEntityTypes.MOD_HANGING_SIGN.get(), HangingSignRenderer::new);
         event.registerBlockEntityRenderer(GDModBlockEntityTypes.NETHER_BRICK_STOVE.get(), NetherBrickStoveRenderer::new);
     }
+
     @SubscribeEvent
     public static void onEntityRendererRegister(EntityRenderersEvent.RegisterRenderers event) {
         event.registerEntityRenderer(GDModEntityTypes.GOLDEN_EGG.get(), ThrownItemRenderer::new);
@@ -48,6 +49,7 @@ public class GDClientSetupEvents {
         event.registerEntityRenderer(GDModEntityTypes.GOLDEN_CHICKEN.get(), GoldenChickenRenderer::new);
         event.registerEntityRenderer(GDModEntityTypes.GOLDEN_BEE.get(), GoldenBeeRenderer::new);
     }
+
     @SubscribeEvent(priority = EventPriority.LOWEST)
     public static void registerParticles(RegisterParticleProvidersEvent event) {
         Minecraft.getInstance().particleEngine.register(GDModParticles.GOLDEN_GLINT.get(), GoldenGlintParticle.GoldenGlintProvider::new);

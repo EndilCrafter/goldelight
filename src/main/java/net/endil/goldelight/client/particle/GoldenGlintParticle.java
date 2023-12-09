@@ -4,7 +4,6 @@ import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.particle.*;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.util.Mth;
-import net.minecraft.util.RandomSource;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import org.jetbrains.annotations.Nullable;
@@ -12,6 +11,7 @@ import org.jetbrains.annotations.Nullable;
 @OnlyIn(Dist.CLIENT)
 public class GoldenGlintParticle extends TextureSheetParticle {
     private final SpriteSet sprites;
+
     protected GoldenGlintParticle(ClientLevel pLevel, double pX, double pY, double pZ, double pXSpeed, double pYSpeed, double pZSpeed, SpriteSet pSprites) {
         super(pLevel, pX, pY, pZ, pXSpeed, pYSpeed, pZSpeed);
         this.friction = 0.96F;
@@ -26,13 +26,14 @@ public class GoldenGlintParticle extends TextureSheetParticle {
     public ParticleRenderType getRenderType() {
         return ParticleRenderType.PARTICLE_SHEET_TRANSLUCENT;
     }
+
     public int getLightColor(float pPartialTick) {
-        float f = ((float)this.age + pPartialTick) / (float)this.lifetime;
+        float f = ((float) this.age + pPartialTick) / (float) this.lifetime;
         f = Mth.clamp(f, 0.0F, 1.0F);
         int i = super.getLightColor(pPartialTick);
         int j = i & 255;
         int k = i >> 16 & 255;
-        j += (int)(f * 15.0F * 16.0F);
+        j += (int) (f * 15.0F * 16.0F);
         if (j > 240) {
             j = 240;
         }
@@ -44,6 +45,7 @@ public class GoldenGlintParticle extends TextureSheetParticle {
         super.tick();
         this.setSpriteFromAge(this.sprites);
     }
+
     @OnlyIn(Dist.CLIENT)
     public static class GoldenGlintProvider implements ParticleProvider<SimpleParticleType> {
         private final SpriteSet sprite;

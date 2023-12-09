@@ -31,6 +31,7 @@ public class GDModConfiguredFeatures {
     public static ResourceKey<ConfiguredFeature<?, ?>> registerKey(String name) {
         return ResourceKey.create(Registries.CONFIGURED_FEATURE, new ResourceLocation(GolDelight.MOD_ID, name));
     }
+
     public static <FC extends FeatureConfiguration, F extends Feature<FC>> void register(BootstapContext<ConfiguredFeature<?, ?>> context, ResourceKey<ConfiguredFeature<?, ?>> key, F feature, FC config) {
         context.register(key, new ConfiguredFeature<>(feature, config));
     }

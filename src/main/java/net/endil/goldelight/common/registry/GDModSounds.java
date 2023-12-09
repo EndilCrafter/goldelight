@@ -23,6 +23,7 @@ public class GDModSounds {
 
     //Golden Mutation
     public static final RegistryObject<SoundEvent> ENTITY_CONVERT_TO_GOLD;
+
     static {
         BLOCK_ANCIENT_GOLD_BLOCK_BREAK = registerSound("block.ancient_gold_block.break");
         BLOCK_ANCIENT_GOLD_BLOCK_STEP = registerSound("block.ancient_gold_block.step");
@@ -31,6 +32,7 @@ public class GDModSounds {
         BLOCK_ANCIENT_GOLD_BLOCK_FALL = registerSound("block.ancient_gold_block.fall");
         ENTITY_CONVERT_TO_GOLD = registerSound("entity.convert_to_gold");
     }
+
     static {
         ANCIENT_GOLD_BLOCK = new ForgeSoundType(1.0F, 1.0F,
                 GDModSounds.BLOCK_ANCIENT_GOLD_BLOCK_BREAK, GDModSounds.BLOCK_ANCIENT_GOLD_BLOCK_STEP, GDModSounds.BLOCK_ANCIENT_GOLD_BLOCK_PLACE, GDModSounds.BLOCK_ANCIENT_GOLD_BLOCK_HIT, GDModSounds.BLOCK_ANCIENT_GOLD_BLOCK_FALL);
@@ -39,6 +41,7 @@ public class GDModSounds {
     private static RegistryObject<SoundEvent> registerSound(String name) {
         return SOUNDS.register(name, () -> SoundEvent.createVariableRangeEvent(new ResourceLocation(GolDelight.MOD_ID, name)));
     }
+
     public static void register(IEventBus eventBus) {
         SOUNDS.register(eventBus);
     }

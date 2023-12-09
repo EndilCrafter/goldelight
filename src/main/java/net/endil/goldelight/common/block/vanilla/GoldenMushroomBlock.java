@@ -46,6 +46,7 @@ public class GoldenMushroomBlock extends BushBlock implements BonemealableBlock 
             return pLevel.getRawBrightness(pPos, 0) < 13 && blockstate.canSustainPlant(pLevel, blockpos, net.minecraft.core.Direction.UP, this);
         }
     }
+
     public boolean growMushroom(ServerLevel pLevel, BlockPos pPos, BlockState pState, RandomSource pRandom) {
         Optional<? extends Holder<ConfiguredFeature<?, ?>>> optional = pLevel.registryAccess().registryOrThrow(Registries.CONFIGURED_FEATURE).getHolder(this.feature);
         if (optional.isEmpty()) {
@@ -62,12 +63,13 @@ public class GoldenMushroomBlock extends BushBlock implements BonemealableBlock 
             }
         }
     }
+
     public boolean isValidBonemealTarget(LevelReader pLevel, BlockPos pPos, BlockState pState, boolean pIsClient) {
         return true;
     }
 
     public boolean isBonemealSuccess(Level pLevel, RandomSource pRandom, BlockPos pPos, BlockState pState) {
-        return (double)pRandom.nextFloat() < 0.4D;
+        return (double) pRandom.nextFloat() < 0.4D;
     }
 
     public void performBonemeal(ServerLevel pLevel, RandomSource pRandom, BlockPos pPos, BlockState pState) {

@@ -32,7 +32,7 @@ public class GoldenHoneyBlock extends HalfTransparentBlock {
         super(pProperties);
     }
 
-    private static boolean doesEntityDoHoneyBlockSlideEffects(Entity pEntity) {
+    private static boolean doesEntityDoGoldenHoneyBlockSlideEffects(Entity pEntity) {
         return pEntity instanceof LivingEntity || pEntity instanceof AbstractMinecart || pEntity instanceof PrimedTnt || pEntity instanceof Boat;
     }
 
@@ -116,7 +116,7 @@ public class GoldenHoneyBlock extends HalfTransparentBlock {
     }
 
     private void maybeDoSlideEffects(Level pLevel, Entity pEntity) {
-        if (doesEntityDoHoneyBlockSlideEffects(pEntity)) {
+        if (doesEntityDoGoldenHoneyBlockSlideEffects(pEntity)) {
             if (pLevel.random.nextInt(5) == 0) {
                 pEntity.playSound(SoundEvents.HONEY_BLOCK_SLIDE, 1.0F, 1.0F);
             }

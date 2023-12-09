@@ -128,17 +128,20 @@ public class GDModBlocks {
     public static final RegistryObject<Block> GOLDEN_COOKING_POT;
     public static final RegistryObject<Block> GOLDEN_CABINET;
     public static final RegistryObject<Block> ANCIENT_GOLD_BLOCK;
-    public static final RegistryObject<Block> POTTED_GOLDEN_CACTUS = BLOCKS.register("potted_golden_cactus",
-            () -> new FlowerPotBlock(() -> ((FlowerPotBlock) Blocks.FLOWER_POT), GDModBlocks.GOLDEN_CACTUS,
-                    BlockBehaviour.Properties.copy(Blocks.POTTED_CACTUS)));
-    public static final RegistryObject<Block> POTTED_GOLDEN_MUSHROOM = BLOCKS.register("potted_golden_mushroom",
-            () -> new FlowerPotBlock(() -> ((FlowerPotBlock) Blocks.FLOWER_POT), GDModBlocks.GOLDEN_MUSHROOM,
-                    BlockBehaviour.Properties.copy(Blocks.POTTED_RED_MUSHROOM)));
-    public static final RegistryObject<Block> POTTED_GOLDEN_FUNGUS = BLOCKS.register("potted_golden_fungus",
-            () -> new FlowerPotBlock(() -> ((FlowerPotBlock) Blocks.FLOWER_POT), GDModBlocks.GOLDEN_FUNGUS,
-                    BlockBehaviour.Properties.copy(Blocks.POTTED_WARPED_FUNGUS)));
+    public static final RegistryObject<Block> POTTED_GOLDEN_CACTUS;
+    public static final RegistryObject<Block> POTTED_GOLDEN_MUSHROOM;
+    public static final RegistryObject<Block> POTTED_GOLDEN_FUNGUS;
 
     static {
+        POTTED_GOLDEN_CACTUS = BLOCKS.register("potted_golden_cactus",
+                () -> new FlowerPotBlock(() -> ((FlowerPotBlock) Blocks.FLOWER_POT), GDModBlocks.GOLDEN_CACTUS,
+                        BlockBehaviour.Properties.copy(Blocks.POTTED_CACTUS)));
+        POTTED_GOLDEN_MUSHROOM = BLOCKS.register("potted_golden_mushroom",
+                () -> new FlowerPotBlock(() -> ((FlowerPotBlock) Blocks.FLOWER_POT), GDModBlocks.GOLDEN_MUSHROOM,
+                        BlockBehaviour.Properties.copy(Blocks.POTTED_RED_MUSHROOM)));
+        POTTED_GOLDEN_FUNGUS = BLOCKS.register("potted_golden_fungus",
+                () -> new FlowerPotBlock(() -> ((FlowerPotBlock) Blocks.FLOWER_POT), GDModBlocks.GOLDEN_FUNGUS,
+                        BlockBehaviour.Properties.copy(Blocks.POTTED_WARPED_FUNGUS)));
         ANCIENT_GOLD_BLOCK = BLOCKS.register("ancient_gold_block",
                 () -> new Block(BlockBehaviour.Properties.copy(Blocks.NETHERITE_BLOCK).mapColor(MapColor.GOLD).sound(GDModSounds.ANCIENT_GOLD_BLOCK)));
         GOLDEN_PLANKS = registerBlock("golden_planks",

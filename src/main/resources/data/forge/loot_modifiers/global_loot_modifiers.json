@@ -2,8 +2,11 @@
   "replace": false,
   "entries": [
     "goldelight:normal_midas",
+    "goldelight:normal_midas_block",
     "goldelight:midas",
+    "goldelight:midas_block",
     "goldelight:enchanted_midas",
+    "goldelight:enchanted_midas_block",
     "goldelight:scavenging_golden_feather",
     "goldelight:scavenging_golden_leather",
     "goldelight:straw_from_mature_golden_rice",

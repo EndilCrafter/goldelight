@@ -54,7 +54,8 @@ public class GDModFoods {
     public static final FoodProperties GOLDEN_ONION = new FoodProperties.Builder()
             .nutrition(4).saturationMod(0.5f).build();
     public static final FoodProperties GAPPLE_CIDER = (new FoodProperties.Builder()).alwaysEat()
-            .effect(() -> new MobEffectInstance(MobEffects.ABSORPTION, 1700, 1), 1.0F)
+            .effect(() -> new MobEffectInstance(MobEffects.ABSORPTION, 2700, 1), 1.0F)
+            .effect(() -> new MobEffectInstance(MobEffects.REGENERATION, 500, 0), 1.0F)
             .effect(() -> new MobEffectInstance(MobEffects.DIG_SPEED, 750), 1.0F).build();
     public static final FoodProperties GOLDEN_HOT_COCOA = new FoodProperties.Builder().alwaysEat()
             .effect(() -> new MobEffectInstance(GDModEffects.MILDNESS.get(), 3600, 0), 1.0F).build();

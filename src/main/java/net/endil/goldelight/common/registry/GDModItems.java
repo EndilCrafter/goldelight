@@ -337,7 +337,7 @@ public class GDModItems {
         GOLDEN_TOMATO_SAUCE = ITEMS.register("golden_tomato_sauce",
                 () -> new ConsumableItem(foodItem(GDModFoods.GOLDEN_TOMATO_SAUCE).craftRemainder(Items.BOWL)));
         GOLDEN_MELON_JUICE = ITEMS.register("golden_melon_juice",
-                () -> new GoldenMelonJuiceItem(drinkItem()));
+                () -> new GoldenMelonJuiceItem(drinkItem().food(GDModFoods.GOLDEN_MELON_JUICE)));
         GAPPLE_CIDER = ITEMS.register("gapple_cider",
                 () -> new DrinkableItem(drinkItem().food(GDModFoods.GAPPLE_CIDER), true, false));
         GOLDEN_HOT_COCOA = ITEMS.register("golden_hot_cocoa",

@@ -15,10 +15,10 @@ public class GDModMenuTypes {
 
     public static void register(IEventBus eventBus) {
         MENU_TYPES.register(eventBus);
-    }    public static final RegistryObject<MenuType<GoldenCookingPotMenu>> GOLDEN_COOKING_POT =
+    }
+
+    public static final RegistryObject<MenuType<GoldenCookingPotMenu>> GOLDEN_COOKING_POT =
             MENU_TYPES.register("golden_cooking_pot", () -> IForgeMenuType.create(GoldenCookingPotMenu::new));
-
-
 
 
 }

@@ -3,7 +3,9 @@ package net.endil.goldelight.data;
 import accieo.midas.hunger.registry.ItemRegistry;
 import net.endil.goldelight.GDTextUtils;
 import net.endil.goldelight.GolDelight;
-import net.endil.goldelight.common.registry.*;
+import net.endil.goldelight.common.registry.GDModBlocks;
+import net.endil.goldelight.common.registry.GDModEffects;
+import net.endil.goldelight.common.registry.GDModItems;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementRewards;
 import net.minecraft.advancements.FrameType;
@@ -11,19 +13,20 @@ import net.minecraft.advancements.RequirementsStrategy;
 import net.minecraft.advancements.critereon.*;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.DamageTypeTags;
-import net.minecraft.tags.EntityTypeTags;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
-import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.common.data.ForgeAdvancementProvider;
 
 import java.util.function.Consumer;
 
 public class GDAdvancementGenerator implements ForgeAdvancementProvider.AdvancementGenerator {
+    protected static Advancement.Builder getAdvancement(Advancement parent, ItemLike display, String name, FrameType frame, boolean showToast, boolean announceToChat, boolean hidden) {
+        return Advancement.Builder.advancement().parent(parent).display(display,
+                GDTextUtils.getTranslation("advancement." + name),
+                GDTextUtils.getTranslation("advancement." + name + ".desc"),
+                null, frame, showToast, announceToChat, hidden);
+    }
+
     @Override
     public void generate(HolderLookup.Provider registries, Consumer<Advancement> consumer, ExistingFileHelper existingFileHelper) {
         Advancement goDelight = Advancement.Builder.advancement()
@@ -49,8 +52,8 @@ public class GDAdvancementGenerator implements ForgeAdvancementProvider.Advancem
                 .save(consumer, getNameId("main/get_gd_seed"));
 
         Advancement isThisBeDecomposed = getAdvancement(cropsOfTheGold, GDModBlocks.GOLDEN_COMPOST.get(), "place_golden_compost", FrameType.TASK, true, false, false)
-            .addCriterion("place_golden_compost", ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(GDModBlocks.GOLDEN_COMPOST.get()))
-                    .save(consumer, getNameId("main/place_golden_compost"));
+                .addCriterion("place_golden_compost", ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(GDModBlocks.GOLDEN_COMPOST.get()))
+                .save(consumer, getNameId("main/place_golden_compost"));
 
         Advancement kingMushroom = getAdvancement(isThisBeDecomposed, GDModItems.GOLDEN_MUSHROOM_COLONY.get(), "get_golden_mushroom_colony", FrameType.TASK, true, false, false)
                 .addCriterion("golden_mushroom_colony", InventoryChangeTrigger.TriggerInstance.hasItems(GDModItems.GOLDEN_MUSHROOM_COLONY.get()))
@@ -78,7 +81,7 @@ public class GDAdvancementGenerator implements ForgeAdvancementProvider.Advancem
                 .addCriterion("drink_golden_hot_cocoa", EffectsChangedTrigger.TriggerInstance.hasEffects(MobEffectsPredicate.effects().and(GDModEffects.MILDNESS.get())))
                 .save(consumer, getNameId("main/drink_golden_hot_cocoa"));
 
-        Advancement doNotNeedDoctorsAnymore = getAdvancement(theColdNeverBotheredMeAnyway, GDModItems.GOLDEN_SHEPHERDS_PIE_BLOCK.get(), "eat_golden_shepherds_pie", FrameType.GOAL, true, false ,false)
+        Advancement doNotNeedDoctorsAnymore = getAdvancement(theColdNeverBotheredMeAnyway, GDModItems.GOLDEN_SHEPHERDS_PIE_BLOCK.get(), "eat_golden_shepherds_pie", FrameType.GOAL, true, false, false)
                 .addCriterion("eat_golden_shepherds_pie", EffectsChangedTrigger.TriggerInstance.hasEffects(MobEffectsPredicate.effects().and(GDModEffects.IMMUNITY.get())))
                 .save(consumer, getNameId("main/eat_golden_shepherds_pie"));
 
@@ -130,12 +133,6 @@ public class GDAdvancementGenerator implements ForgeAdvancementProvider.Advancem
                 .addCriterion("midas_knife", InventoryChangeTrigger.TriggerInstance.hasItems(GDModItems.MIDAS_KNIFE.get()))
                 .rewards(AdvancementRewards.Builder.experience(200))
                 .save(consumer, getNameId("main/get_midas_knife"));
-    }
-    protected static Advancement.Builder getAdvancement(Advancement parent, ItemLike display, String name, FrameType frame, boolean showToast, boolean announceToChat, boolean hidden) {
-        return Advancement.Builder.advancement().parent(parent).display(display,
-                GDTextUtils.getTranslation("advancement." + name),
-                GDTextUtils.getTranslation("advancement." + name + ".desc"),
-                null, frame, showToast, announceToChat, hidden);
     }
 
     private String getNameId(String id) {

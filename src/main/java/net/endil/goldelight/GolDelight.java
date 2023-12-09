@@ -178,6 +178,7 @@ public class GolDelight {
             event.accept(GDModItems.ANCIENT_GOLD_DUST);
             event.accept(GDModItems.ANCIENT_GOLD_INGOT);
             event.accept(GDModItems.ANCIENT_GOLD_NUGGET);
+            event.accept(GDModItems.ANCIENT_GOLD_UPGRADE_SMITHING_TEMPLATE);
         }
         if (event.getTabKey() == CreativeModeTabs.SPAWN_EGGS) {
             event.accept(GDModItems.GOLDEN_COW_SPAWN_EGG);
