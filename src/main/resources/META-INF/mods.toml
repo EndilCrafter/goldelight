@@ -28,7 +28,7 @@ mandatory = true
 
 versionRange = "${forge_version_range}"
 
-ordering = "NONE"
+ordering = "AFTER"
 
 side = "BOTH"
 
@@ -37,19 +37,19 @@ modId = "minecraft"
 mandatory = true
 
 versionRange = "${minecraft_version_range}"
-ordering = "NONE"
+ordering = "AFTER"
 side = "BOTH"
 
 [[dependencies.goldelight]]
 modId = "farmersdelight"
 mandatory = true
 versionRange = "[1.2.3,)"
-ordering = "NONE"
+ordering = "AFTER"
 side = "BOTH"
 
 [[dependencies.goldelight]]
 modId = "midashunger"
 mandatory = true
 versionRange = "[2.2.1,)"
-ordering = "NONE"
+ordering = "AFTER"
 side = "BOTH"
