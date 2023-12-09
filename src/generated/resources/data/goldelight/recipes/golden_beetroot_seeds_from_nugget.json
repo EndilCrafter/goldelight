@@ -1,19 +1,21 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "GGG",
-    "GXG",
-    "GGG"
-  ],
+  "category": "misc",
   "key": {
+    "#": {
+      "item": "minecraft:beetroot_seeds"
+    },
     "G": {
       "item": "minecraft:gold_nugget"
-    },
-    "X": {
-      "item": "minecraft:beetroot_seeds"
     }
   },
+  "pattern": [
+    "GGG",
+    "G#G",
+    "GGG"
+  ],
   "result": {
     "item": "midashunger:golden_beetroot_seeds"
-  }
+  },
+  "show_notification": true
 }

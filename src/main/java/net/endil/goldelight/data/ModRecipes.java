@@ -215,6 +215,8 @@ public class ModRecipes extends RecipeProvider implements IConditionBuilder {
         Golden(consumer, GDModItems.GOLDEN_TROPICAL_FISH.get(), Items.TROPICAL_FISH);
         Golden(consumer, GDModItems.GOLDEN_WART.get(), Items.NETHER_WART);
         Golden(consumer, GDModItems.GOLDEN_WHEAT_SEEDS.get(), Items.WHEAT_SEEDS);
+        Golden(consumer, ItemRegistry.GOLDEN_BEETROOT_SEEDS.get(), Items.BEETROOT_SEEDS);
+        Golden(consumer, ItemRegistry.GOLDEN_TURTLE_EGG.get(), Items.TURTLE_EGG);
 
         Golden(consumer, GDModBlocks.GOLDEN_CACTUS.get(), Items.CACTUS);
         Golden(consumer, GDModBlocks.GOLDEN_CHORUS_FLOWER.get(), Items.CHORUS_FLOWER);
@@ -386,6 +388,12 @@ public class ModRecipes extends RecipeProvider implements IConditionBuilder {
     }
 
     private void registerFoodCrafting(Consumer<FinishedRecipe> consumer) {
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ItemRegistry.GOLDEN_PUMPKIN_PIE.get())
+                .requires(GDModBlocks.GOLDEN_PUMPKIN.get())
+                .requires(GDModItems.GOLDEN_SUGAR.get())
+                .requires(GDModItems.GOLDEN_EGG.get())
+                .unlockedBy("has_golden_pumpkin", InventoryChangeTrigger.TriggerInstance.hasItems(GDModBlocks.GOLDEN_PUMPKIN.get()))
+                .save(consumer, new ResourceLocation(GolDelight.MOD_ID, "golden_pumpkin_pie"));
         ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, GDModItems.GOLDEN_BREAD.get())
                 .pattern("www").define('w', GDModItems.GOLDEN_WHEAT.get())
                 .unlockedBy("has_golden_wheat", InventoryChangeTrigger.TriggerInstance.hasItems(GDModItems.GOLDEN_WHEAT.get()))

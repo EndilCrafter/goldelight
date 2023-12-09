@@ -1,19 +1,21 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "###",
-    "#X#",
-    "###"
-  ],
+  "category": "misc",
   "key": {
     "#": {
-      "item": "minecraft:gold_nugget"
-    },
-    "X": {
       "item": "minecraft:turtle_egg"
+    },
+    "G": {
+      "item": "minecraft:gold_nugget"
     }
   },
+  "pattern": [
+    "GGG",
+    "G#G",
+    "GGG"
+  ],
   "result": {
     "item": "midashunger:golden_turtle_egg"
-  }
+  },
+  "show_notification": true
 }
