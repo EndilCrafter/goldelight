@@ -1,0 +1,37 @@
+{
+  "parent": "goldelight:main/place_golden_compost",
+  "criteria": {
+    "place_golden_soil": {
+      "conditions": {
+        "location": [
+          {
+            "block": "goldelight:golden_soil",
+            "condition": "minecraft:block_state_property"
+          }
+        ]
+      },
+      "trigger": "minecraft:placed_block"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": {
+      "translate": "goldelight.advancement.place_golden_soil.desc"
+    },
+    "frame": "goal",
+    "hidden": false,
+    "icon": {
+      "item": "goldelight:golden_soil"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "goldelight.advancement.place_golden_soil"
+    }
+  },
+  "requirements": [
+    [
+      "place_golden_soil"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

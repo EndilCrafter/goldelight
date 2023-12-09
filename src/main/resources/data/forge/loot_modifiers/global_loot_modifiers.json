@@ -3,6 +3,14 @@
   "entries": [
     "goldelight:normal_midas",
     "goldelight:midas",
-    "goldelight:enchanted_midas"
+    "goldelight:enchanted_midas",
+    "goldelight:scavenging_golden_feather",
+    "goldelight:scavenging_golden_leather",
+    "goldelight:straw_from_mature_golden_rice",
+    "goldelight:straw_from_mature_golden_wheat",
+    "goldelight:add_loot_desert_pyramid",
+    "goldelight:add_loot_ocean_ruin_cold",
+    "goldelight:add_loot_ocean_ruin_warm",
+    "goldelight:add_loot_piglin_bartering"
   ]
 }

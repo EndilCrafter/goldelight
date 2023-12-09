@@ -1,0 +1,36 @@
+{
+  "parent": "goldelight:main/place_golden_cooking_pot",
+  "criteria": {
+    "give_golden_dog_food": {
+      "conditions": {
+        "item": {
+          "items": [
+            "goldelight:golden_dog_food"
+          ]
+        }
+      },
+      "trigger": "minecraft:player_interacted_with_entity"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": {
+      "translate": "goldelight.advancement.give_golden_dog_food.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "goldelight:golden_dog_food"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "goldelight.advancement.give_golden_dog_food"
+    }
+  },
+  "requirements": [
+    [
+      "give_golden_dog_food"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -64,6 +64,11 @@ public class GDModTabs {
                         pOutput.accept(GDModItems.GOLDEN_COW_SPAWN_EGG.get());
                         pOutput.accept(GDModItems.GOLDEN_CHICKEN_SPAWN_EGG.get());
                         pOutput.accept(GDModItems.GOLDEN_BEE_SPAWN_EGG.get());
+                        pOutput.accept(GDModItems.ANCIENT_GOLD_DUST.get());
+                        pOutput.accept(GDModItems.ANCIENT_GOLD_INGOT.get());
+                        pOutput.accept(GDModItems.ANCIENT_GOLD_NUGGET.get());
+                        pOutput.accept(GDModItems.MIDAS_POTION.get());
+                        pOutput.accept(GDModItems.ANCIENT_GOLD_UPGRADE_SMITHING_TEMPLATE.get());
 
                         //GolDelight Blocks
                         pOutput.accept(GDModBlocks.GOL_D_LANTERN.get());
@@ -101,14 +106,12 @@ public class GDModTabs {
                         pOutput.accept(GDModBlocks.GOLDEN_TRAPDOOR.get());
                         pOutput.accept(GDModBlocks.GOLDEN_SIGN.get());
                         pOutput.accept(GDModBlocks.GOLDEN_HANGING_SIGN.get());
-                        /*
-                         pOutput.accept(GDModBlocks.GOLDEN_MUSHROOM_BLOCK.get());
-                         pOutput.accept(GDModBlocks.GOLDEN_MUSHROOM_STEM.get());
-                        */
+                        pOutput.accept(GDModBlocks.GOLDEN_MUSHROOM_BLOCK.get());
+                        pOutput.accept(GDModBlocks.GOLDEN_MUSHROOM_STEM.get());
                         pOutput.accept(GDModBlocks.GOLDEN_PUMPKIN.get());
                         pOutput.accept(GDModBlocks.GOLDEN_WART_BLOCK.get());
                         pOutput.accept(GDModBlocks.GOLDEN_BEEHIVE.get());
-
+                        pOutput.accept(GDModItems.ANCIENT_GOLD_BLOCK.get());
                         //Farmer's Delight Items
                         pOutput.accept(GDModItems.GOLDEN_COOKING_POT.get());
                         pOutput.accept(GDModItems.GOLDEN_MUSHROOM_COLONY.get());

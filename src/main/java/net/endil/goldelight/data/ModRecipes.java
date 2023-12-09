@@ -11,6 +11,7 @@ import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.AbstractCookingRecipe;
@@ -22,6 +23,7 @@ import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 import vectorwing.farmersdelight.common.registry.ModItems;
 import vectorwing.farmersdelight.common.tag.ForgeTags;
+import vectorwing.farmersdelight.data.ItemTags;
 import vectorwing.farmersdelight.data.builder.CuttingBoardRecipeBuilder;
 
 import javax.annotation.Nullable;
@@ -176,6 +178,12 @@ public class ModRecipes extends RecipeProvider implements IConditionBuilder {
         return new SingleItemRecipeBuilder(RecipeCategory.BUILDING_BLOCKS, RecipeSerializer.STONECUTTER, ingredient, result, count);
     }
 
+    protected static void ancientGoldSmithing(Consumer<FinishedRecipe> consumer, Item netherite, RecipeCategory category, Item ancientGold) {
+        SmithingTransformRecipeBuilder.smithing(Ingredient.of(GDModItems.ANCIENT_GOLD_UPGRADE_SMITHING_TEMPLATE.get()),
+                        Ingredient.of(netherite), Ingredient.of(GDModItems.ANCIENT_GOLD_INGOT.get()), category, ancientGold).unlocks("has_ancient_gold_ingot", has(GDModItems.ANCIENT_GOLD_INGOT.get()))
+                .save(consumer, new ResourceLocation(GolDelight.MOD_ID, getItemName(ancientGold) + "_smithing"));
+    }
+
     @Override
     protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
         this.registerSimpleCrafting(consumer);
@@ -193,12 +201,9 @@ public class ModRecipes extends RecipeProvider implements IConditionBuilder {
         Golden(consumer, GDModItems.GOLDEN_CHICKEN.get(), Items.CHICKEN);
         Golden(consumer, GDModItems.GOLDEN_COCOA_BEANS.get(), Items.COCOA_BEANS);
         Golden(consumer, GDModItems.GOLDEN_COD.get(), Items.COD);
-        Golden(consumer, GDModItems.GOLDEN_EGG.get(), Items.EGG);
         Golden(consumer, GDModItems.GOLDEN_GLOW_BERRIES.get(), Items.GLOW_BERRIES);
-        Golden(consumer, GDModItems.GOLDEN_HONEY_BOTTLE.get(), Items.HONEY_BOTTLE);
         Golden(consumer, GDModItems.GOLDEN_INK_SAC.get(), Items.INK_SAC);
         Golden(consumer, GDModItems.GOLDEN_MELON_SEEDS.get(), Items.MELON_SEEDS);
-        Golden(consumer, GDModItems.GOLDEN_MILK_BUCKET.get(), Items.MILK_BUCKET);
         Golden(consumer, GDModItems.GOLDEN_MUTTON.get(), Items.MUTTON);
         Golden(consumer, GDModItems.GOLDEN_PORKCHOP.get(), Items.PORKCHOP);
         Golden(consumer, GDModItems.GOLDEN_POTATO.get(), Items.POTATO);
@@ -269,6 +274,29 @@ public class ModRecipes extends RecipeProvider implements IConditionBuilder {
                 .requires(GDModBlocks.GOLDEN_HONEY_BLOCK.get())
                 .unlockedBy("has_golden_honey_block", InventoryChangeTrigger.TriggerInstance.hasItems(GDModBlocks.GOLDEN_HONEY_BLOCK.get()))
                 .save(consumer, new ResourceLocation(GolDelight.MOD_ID, "golden_honey_bottle_from_block"));
+        Storage(consumer, GDModItems.ANCIENT_GOLD_NUGGET.get(), GDModItems.ANCIENT_GOLD_INGOT.get());
+        Storage(consumer, GDModItems.ANCIENT_GOLD_INGOT.get(), GDModBlocks.ANCIENT_GOLD_BLOCK.get());
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, GDModItems.ANCIENT_GOLD_INGOT.get())
+                .requires(GDModItems.ANCIENT_GOLD_DUST.get())
+                .requires(GDModItems.ANCIENT_GOLD_DUST.get())
+                .requires(GDModItems.ANCIENT_GOLD_DUST.get())
+                .requires(GDModItems.ANCIENT_GOLD_DUST.get())
+                .requires(Items.NETHERITE_SCRAP)
+                .requires(Items.NETHERITE_SCRAP)
+                .requires(Items.GOLD_INGOT)
+                .requires(Items.GOLD_INGOT)
+                .unlockedBy("has_ancient_gold_dust", InventoryChangeTrigger.TriggerInstance.hasItems(GDModItems.ANCIENT_GOLD_DUST.get()))
+                .save(consumer, new ResourceLocation(GolDelight.MOD_ID, "ancient_golden_ingot_from_dust"));
+        ancientGoldSmithing(consumer, ModItems.NETHERITE_KNIFE.get(), RecipeCategory.TOOLS, GDModItems.MIDAS_KNIFE.get());
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, GDModItems.ANCIENT_GOLD_UPGRADE_SMITHING_TEMPLATE.get(), 2)
+                .pattern("GTG")
+                .pattern("GDG")
+                .pattern("GGG")
+                .define('G', Items.GOLD_INGOT)
+                .define('T', GDModItems.ANCIENT_GOLD_UPGRADE_SMITHING_TEMPLATE.get())
+                .define('D', GDModItems.ANCIENT_GOLD_DUST.get())
+                .unlockedBy("has_ancient_gold_upgrade_smithing_template", InventoryChangeTrigger.TriggerInstance.hasItems(GDModItems.ANCIENT_GOLD_UPGRADE_SMITHING_TEMPLATE.get()))
+                .save(consumer);
     }
 
     private void registerSmelting(Consumer<FinishedRecipe> consumer) {
@@ -344,14 +372,18 @@ public class ModRecipes extends RecipeProvider implements IConditionBuilder {
                 .build(consumer);
         CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(GDModBlocks.GOLDEN_FUNGUS_COLONY.get()), Ingredient.of(ForgeTags.TOOLS_KNIVES), GDModBlocks.GOLDEN_FUNGUS.get(), 5)
                 .build(consumer);
-        CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(GDModBlocks.GOLDEN_STEM.get()), Ingredient.of(ForgeTags.TOOLS_KNIVES), GDModBlocks.STRIPPED_GOLDEN_STEM.get(), 1).addResult(ModItems.TREE_BARK.get())
+        CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(GDModBlocks.GOLDEN_STEM.get()), Ingredient.of(ForgeTags.TOOLS_AXES), GDModBlocks.STRIPPED_GOLDEN_STEM.get(), 1).addResult(ModItems.TREE_BARK.get())
                 .build(consumer);
-        CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(GDModBlocks.GOLDEN_HYPHAE.get()), Ingredient.of(ForgeTags.TOOLS_KNIVES), GDModBlocks.STRIPPED_GOLDEN_HYPHAE.get(), 1).addResult(ModItems.TREE_BARK.get())
+        CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(GDModBlocks.GOLDEN_HYPHAE.get()), Ingredient.of(ForgeTags.TOOLS_AXES), GDModBlocks.STRIPPED_GOLDEN_HYPHAE.get(), 1).addResult(ModItems.TREE_BARK.get())
                 .build(consumer);
         CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(GDModItems.GOLDEN_RICE_PANICLE.get()), Ingredient.of(ForgeTags.TOOLS_KNIVES), GDModItems.GOLDEN_RICE.get(), 1).addResult(ModItems.STRAW.get())
                 .build(consumer);
         CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(GDModItems.GOLDEN_CABBAGE.get()), Ingredient.of(ForgeTags.TOOLS_KNIVES), GDModItems.GOLDEN_CABBAGE_LEAF.get(), 2)
                 .build(consumer);
+        CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(GDModBlocks.GOLDEN_HANGING_SIGN.get()), Ingredient.of(ForgeTags.TOOLS_AXES), GDModBlocks.GOLDEN_PLANKS.get()).build(consumer);
+        CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(GDModBlocks.GOLDEN_TRAPDOOR.get()), Ingredient.of(ForgeTags.TOOLS_AXES), GDModBlocks.GOLDEN_PLANKS.get()).build(consumer);
+        CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(GDModBlocks.GOLDEN_SIGN.get()), Ingredient.of(ForgeTags.TOOLS_AXES), GDModBlocks.GOLDEN_PLANKS.get()).build(consumer);
+        CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(GDModBlocks.GOLDEN_DOOR.get()), Ingredient.of(ForgeTags.TOOLS_AXES), GDModBlocks.GOLDEN_PLANKS.get()).build(consumer);
     }
 
     private void registerFoodCrafting(Consumer<FinishedRecipe> consumer) {

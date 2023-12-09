@@ -129,6 +129,11 @@ public class ModBlockStates extends BlockStateProvider {
         simpleBlockItem(GDModBlocks.GOLDEN_TRAPDOOR.get(), models().withExistingParent("goldelight:golden_trapdoor", "minecraft:block/template_orientable_trapdoor_bottom").texture("texture", "goldelight:block/golden_trapdoor"));
         blockItem(GDModBlocks.GOLDEN_HONEY_BLOCK);
         blockWithItem(GDModBlocks.GOLDEN_HONEYCOMB_BLOCK);
+        simpleBlock(GDModBlocks.POTTED_GOLDEN_MUSHROOM.get(), models().singleTexture("potted_golden_mushroom", new ResourceLocation("flower_pot_cross"), "plant",
+                blockTexture(GDModBlocks.GOLDEN_MUSHROOM.get())).renderType("cutout"));
+        simpleBlock(GDModBlocks.POTTED_GOLDEN_FUNGUS.get(), models().singleTexture("potted_golden_fungus", new ResourceLocation("flower_pot_cross"), "plant",
+                blockTexture(GDModBlocks.GOLDEN_FUNGUS.get())).renderType("cutout"));
+
         //Farmer's Delight
 
 
@@ -196,6 +201,7 @@ public class ModBlockStates extends BlockStateProvider {
         feastBlock((FeastBlock) GDModBlocks.GOLDEN_RICE_ROLL_MEDLEY_BLOCK.get());
 
         blockWithItem(GDModBlocks.GOLDEN_SOIL);
+        blockWithItem(GDModBlocks.ANCIENT_GOLD_BLOCK);
     }
 
     private void blockItem(RegistryObject<Block> block) {

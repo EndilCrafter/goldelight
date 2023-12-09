@@ -48,7 +48,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:bone_meal"
+          "name": "goldelight:golden_meal"
         }
       ],
       "conditions": [

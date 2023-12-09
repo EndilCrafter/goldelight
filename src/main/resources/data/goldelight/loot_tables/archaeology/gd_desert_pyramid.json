@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:empty",
+          "weight": 50
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 3,
+          "name": "goldelight:ancient_gold_upgrade_smithing_template"
+        }
+      ]
+    }
+  ],
+  "random_sequence": "goldelight:archaeology/gd_desert_pyramid"
+}

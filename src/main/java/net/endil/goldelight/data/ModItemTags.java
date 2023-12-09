@@ -147,6 +147,7 @@ public class ModItemTags extends ItemTagsProvider {
         this.tag(ItemTags.FENCES).add(GDModBlocks.GOLDEN_NETHER_BRICK_FENCE.get().asItem());
         this.tag(ItemTags.WALLS).add(GDModBlocks.GOLDEN_NETHER_BRICK_WALL.get().asItem());
         this.tag(ItemTags.WART_BLOCKS).add(GDModBlocks.GOLDEN_WART_BLOCK.get().asItem());
+        this.tag(ItemTags.BEACON_PAYMENT_ITEMS).add(GDModItems.ANCIENT_GOLD_INGOT.get());
     }
 
     private void registerFDModTags() {

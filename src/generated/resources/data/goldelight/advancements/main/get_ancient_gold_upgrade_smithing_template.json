@@ -1,0 +1,38 @@
+{
+  "parent": "goldelight:main/get_ancient_gold_dust",
+  "criteria": {
+    "ancient_gold_upgrade_smithing_template": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "goldelight:ancient_gold_upgrade_smithing_template"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": {
+      "translate": "goldelight.advancement.get_ancient_gold_upgrade_smithing_template.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "goldelight:ancient_gold_upgrade_smithing_template"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "goldelight.advancement.get_ancient_gold_upgrade_smithing_template"
+    }
+  },
+  "requirements": [
+    [
+      "ancient_gold_upgrade_smithing_template"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

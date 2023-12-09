@@ -1,0 +1,129 @@
+{
+  "parent": "goldelight:main/root",
+  "criteria": {
+    "golden_beetroot_seeds": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "midashunger:golden_beetroot_seeds"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "golden_cabbage_seeds": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "goldelight:golden_cabbage_seeds"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "golden_melon_seeds": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "goldelight:golden_melon_seeds"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "golden_onion": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "goldelight:golden_onion"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "golden_pumpkin_seeds": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "goldelight:golden_pumpkin_seeds"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "golden_rice": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "goldelight:golden_rice"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "golden_tomato_seeds": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "goldelight:golden_tomato_seeds"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "golden_wheat_seeds": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "goldelight:golden_wheat_seeds"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": {
+      "translate": "goldelight.advancement.get_gd_seed.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "goldelight:golden_wheat_seeds"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "goldelight.advancement.get_gd_seed"
+    }
+  },
+  "requirements": [
+    [
+      "golden_cabbage_seeds",
+      "golden_tomato_seeds",
+      "golden_onion",
+      "golden_rice",
+      "golden_wheat_seeds",
+      "golden_melon_seeds",
+      "golden_pumpkin_seeds",
+      "golden_beetroot_seeds"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

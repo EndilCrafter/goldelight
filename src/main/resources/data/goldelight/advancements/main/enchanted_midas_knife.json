@@ -1,0 +1,43 @@
+{
+  "display": {
+    "icon": {
+      "item": "goldelight:ancient_gold_ingot"
+    },
+    "title": {
+      "translate": "goldelight.advancement.enchanted_midas_knife"
+    },
+    "description": {
+      "translate": "goldelight.advancement.enchanted_midas_knife.desc"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "parent": "goldelight:main/get_midas_knife",
+  "criteria": {
+    "enchanted_midas_knife": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "goldelight:midas_knife"
+            ],
+            "enchantments": [
+              {
+                "enchantment": "goldelight:midas_touch"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "enchanted_midas_knife"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

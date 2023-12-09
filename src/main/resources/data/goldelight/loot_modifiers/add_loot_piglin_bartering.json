@@ -1,0 +1,11 @@
+{
+  "type": "goldelight:add_loot_table",
+  "conditions":
+  [
+    {
+      "condition": "forge:loot_table_id",
+      "loot_table_id": "minecraft:gameplay/piglin_bartering"
+    }
+  ],
+  "lootTable": "goldelight:gameplay/gd_piglin_bartering"
+}

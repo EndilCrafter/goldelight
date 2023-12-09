@@ -1,0 +1,39 @@
+{
+  "display": {
+    "icon": {
+      "item": "goldelight:rotten_golden_tomato"
+    },
+    "title": {
+      "translate": "goldelight.advancement.killed_raider_with_rotten_golden_tomato"
+    },
+    "description": {
+      "translate": "goldelight.advancement.killed_raider_with_rotten_golden_tomato.desc"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "parent": "goldelight:main/get_gd_seed",
+  "criteria": {
+    "killed_raider_with_rotten_golden_tomato": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": {
+          "type": "#minecraft:raiders"
+        },
+        "killing_blow": {
+          "direct_entity": {
+            "type": "goldelight:rotten_golden_tomato"
+          }
+        }
+      }
+    }
+  },
+  "requirements": [
+    [
+      "killed_raider_with_rotten_golden_tomato"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

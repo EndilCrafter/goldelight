@@ -1,0 +1,16 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "goldelight:golden_hanging_sign"
+    }
+  ],
+  "result": [
+    {
+      "item": "goldelight:golden_planks"
+    }
+  ],
+  "tool": {
+    "tag": "forge:tools/axes"
+  }
+}

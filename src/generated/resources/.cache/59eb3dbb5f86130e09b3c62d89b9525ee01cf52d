@@ -1,4 +1,5 @@
-// 1.20.1	2023-12-06T18:26:31.9217404	Loot Tables
+// 1.20.1	2023-12-08T11:55:36.2925334	Loot Tables
+d24aa1878b0428b6413be5f798d04f58a83aa8d3 data/goldelight/loot_tables/blocks/ancient_gold_block.json
 5b825b80bf98c5a6e72c23fd47983d2daa0f2aa6 data/goldelight/loot_tables/blocks/attached_golden_melon_stem.json
 3d6f9e5a61005dd3005332ea6c71b93a181ab8f7 data/goldelight/loot_tables/blocks/attached_golden_pumpkin_stem.json
 f092bcf28fea0d78a1cf229177901c226411dd3b data/goldelight/loot_tables/blocks/black_candle_golden_cake.json
@@ -82,6 +83,9 @@ e35bca6e10f473a0525d0248645ba2d6b9b022e5 data/goldelight/loot_tables/blocks/ligh
 52b0462ffbcc90f0936dad794b0a5eddbd03012c data/goldelight/loot_tables/blocks/nether_brick_stove.json
 d3bd9864954c8f51de93c1edc5d357474ca2f3b9 data/goldelight/loot_tables/blocks/orange_candle_golden_cake.json
 467f645f871b5e23f35c749010372aba6d4797d7 data/goldelight/loot_tables/blocks/pink_candle_golden_cake.json
+73da353f880391424535afbc4da945826ba4f5ff data/goldelight/loot_tables/blocks/potted_golden_cactus.json
+ea55e8ea521704c485be1e90f8cc9f78e07fcc93 data/goldelight/loot_tables/blocks/potted_golden_fungus.json
+bf1566ae5dd14b733ec6b33fbfa03a7a93c45aac data/goldelight/loot_tables/blocks/potted_golden_mushroom.json
 6bd6edd04f680d7a94b5b7a3e73239225c2445c0 data/goldelight/loot_tables/blocks/purple_candle_golden_cake.json
 ba0a208d2e7d1ec20f061300a2c6bda100bbb220 data/goldelight/loot_tables/blocks/red_candle_golden_cake.json
 7db9517597b549aac2cd2ebea1acb0053219140c data/goldelight/loot_tables/blocks/stripped_golden_hyphae.json

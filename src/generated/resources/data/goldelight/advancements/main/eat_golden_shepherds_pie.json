@@ -1,0 +1,34 @@
+{
+  "parent": "goldelight:main/drink_golden_hot_cocoa",
+  "criteria": {
+    "eat_golden_shepherds_pie": {
+      "conditions": {
+        "effects": {
+          "goldelight:immunity": {}
+        }
+      },
+      "trigger": "minecraft:effects_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": {
+      "translate": "goldelight.advancement.eat_golden_shepherds_pie.desc"
+    },
+    "frame": "goal",
+    "hidden": false,
+    "icon": {
+      "item": "goldelight:golden_shepherds_pie_block"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "goldelight.advancement.eat_golden_shepherds_pie"
+    }
+  },
+  "requirements": [
+    [
+      "eat_golden_shepherds_pie"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

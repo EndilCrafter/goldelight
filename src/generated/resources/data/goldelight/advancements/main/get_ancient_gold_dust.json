@@ -1,0 +1,38 @@
+{
+  "parent": "goldelight:main/root",
+  "criteria": {
+    "ancient_gold_dust": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "goldelight:ancient_gold_dust"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": {
+      "translate": "goldelight.advancement.get_ancient_gold_dust.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "goldelight:ancient_gold_dust"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "goldelight.advancement.get_ancient_gold_dust"
+    }
+  },
+  "requirements": [
+    [
+      "ancient_gold_dust"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

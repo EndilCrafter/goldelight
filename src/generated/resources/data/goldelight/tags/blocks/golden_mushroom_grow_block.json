@@ -1,6 +1,8 @@
 {
   "values": [
     "goldelight:golden_soil",
-    "goldelight:golden_compost"
+    "goldelight:golden_compost",
+    "farmersdelight:organic_compost",
+    "farmersdelight:rich_soil"
   ]
 }

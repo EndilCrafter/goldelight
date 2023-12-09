@@ -1,4 +1,4 @@
-// 1.20.1	2023-12-06T14:03:02.2367721	Tags for minecraft:item mod id goldelight
+// 1.20.1	2023-12-07T15:54:14.4202715	Tags for minecraft:item mod id goldelight
 e1654010e1267ee9932a44b56fe3d70d05282e0f data/diet/tags/items/fruits.json
 0127eb845e986e02bfa20d20c47133979d9516f5 data/diet/tags/items/grains.json
 6494309212f7f0b7d71a07e375f8b750078e6451 data/diet/tags/items/proteins.json
@@ -120,6 +120,7 @@ b87a9abab31c1428d28340d39077776310e12ed0 data/goldelight/tags/items/raw_golden_f
 4cbb86d0189db57d8164aa1ff33b3f81e0101018 data/goldelight/tags/items/raw_golden_fishes/tropical_fish.json
 07083707101f1a6a96363d2ab6e828d1ed805f39 data/goldelight/tags/items/raw_golden_mutton.json
 effc47353cae3861824afb8d2c2c7a2a0283e3e9 data/goldelight/tags/items/raw_golden_pork.json
+a1cbf6c045af5d20021acae8fe2cafef1d9b69d2 data/minecraft/tags/items/beacon_payment_items.json
 a78a0119dce752a30a04e9013be1eda89982740c data/minecraft/tags/items/fences.json
 484ab2aa9fcf8fffbf6c506738c8d687de5d045e data/minecraft/tags/items/fence_gates.json
 ce0bdbab138ccbecb0eeee3f4e156f17b8976ac9 data/minecraft/tags/items/fishes.json

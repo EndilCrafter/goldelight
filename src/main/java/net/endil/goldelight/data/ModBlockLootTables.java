@@ -99,6 +99,14 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(GDModBlocks.GOLDEN_HONEYCOMB_BLOCK.get());
         this.add(GDModBlocks.GOLDEN_BEEHIVE.get(),
                 block -> createGoldenBeeHiveDrop(GDModBlocks.GOLDEN_BEEHIVE.get()));
+        this.dropSelf(GDModBlocks.ANCIENT_GOLD_BLOCK.get());
+        this.add(GDModBlocks.POTTED_GOLDEN_CACTUS.get(),
+                block -> createPotFlowerItemTable(GDModBlocks.GOLDEN_CACTUS.get()));
+        this.add(GDModBlocks.POTTED_GOLDEN_MUSHROOM.get(),
+                block -> createPotFlowerItemTable(GDModBlocks.GOLDEN_MUSHROOM.get()));
+        this.add(GDModBlocks.POTTED_GOLDEN_FUNGUS.get(),
+                block -> createPotFlowerItemTable(GDModBlocks.GOLDEN_FUNGUS.get()));
+
     }
 
     private void registerMinecraftCrops() {

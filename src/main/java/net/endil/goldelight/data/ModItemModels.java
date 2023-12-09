@@ -71,6 +71,11 @@ public class ModItemModels extends ItemModelProvider {
         withExistingParent(GDModItems.GOLDEN_COW_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
         withExistingParent(GDModItems.GOLDEN_CHICKEN_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
         withExistingParent(GDModItems.GOLDEN_BEE_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
+        ItemGeneratedModel(GDModItems.ANCIENT_GOLD_DUST);
+        ItemGeneratedModel(GDModItems.ANCIENT_GOLD_INGOT);
+        ItemGeneratedModel(GDModItems.ANCIENT_GOLD_NUGGET);
+        ItemGeneratedModel(GDModItems.MIDAS_POTION);
+        ItemGeneratedModel(GDModItems.ANCIENT_GOLD_UPGRADE_SMITHING_TEMPLATE);
 
         //Farmer's Delight
         ItemGeneratedModel(GDModItems.GOLDEN_CABBAGE);

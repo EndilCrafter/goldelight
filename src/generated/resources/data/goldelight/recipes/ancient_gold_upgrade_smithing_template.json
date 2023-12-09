@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "D": {
+      "item": "goldelight:ancient_gold_dust"
+    },
+    "G": {
+      "item": "minecraft:gold_ingot"
+    },
+    "T": {
+      "item": "goldelight:ancient_gold_upgrade_smithing_template"
+    }
+  },
+  "pattern": [
+    "GTG",
+    "GDG",
+    "GGG"
+  ],
+  "result": {
+    "count": 2,
+    "item": "goldelight:ancient_gold_upgrade_smithing_template"
+  },
+  "show_notification": true
+}

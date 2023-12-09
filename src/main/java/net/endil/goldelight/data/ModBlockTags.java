@@ -9,9 +9,11 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
+import vectorwing.farmersdelight.common.registry.ModBlocks;
 import vectorwing.farmersdelight.common.tag.ForgeTags;
 import vectorwing.farmersdelight.common.tag.ModTags;
 
@@ -55,7 +57,7 @@ public class ModBlockTags extends BlockTagsProvider {
                 .add(GDModBlocks.GOLDEN_NETHER_BRICKS.get(), GDModBlocks.CHISELED_GOLDEN_NETHER_BRICKS.get(), GDModBlocks.CRACKED_GOLDEN_NETHER_BRICKS.get(),
                         GDModBlocks.GOLDEN_NETHER_BRICK_SLAB.get(), GDModBlocks.GOLDEN_NETHER_BRICK_STAIRS.get(), GDModBlocks.GOLDEN_NETHER_BRICK_FENCE.get(),
                         GDModBlocks.GOLDEN_NETHER_BRICK_WALL.get(), GDModBlocks.GOLDEN_BONE_BLOCK.get(), GDModBlocks.NETHER_BRICK_STOVE.get(),
-                        GDModBlocks.GOLDEN_COOKING_POT.get());
+                        GDModBlocks.GOLDEN_COOKING_POT.get(), GDModBlocks.ANCIENT_GOLD_BLOCK.get());
 
         this.tag(BlockTags.MINEABLE_WITH_SHOVEL)
                 .add(GDModBlocks.GOLDEN_COMPOST.get(), GDModBlocks.GOLDEN_SOIL.get(), GDModBlocks.GOLDEN_SOIL_FARMLAND.get());
@@ -68,6 +70,7 @@ public class ModBlockTags extends BlockTagsProvider {
                 .add(GDModBlocks.GOLDEN_CAKE.get(), GDModBlocks.GOLDEN_APPLE_PIE.get(), GDModBlocks.SWEET_GOLDEN_BERRY_CHEESECAKE.get(),
                         GDModBlocks.GOLDEN_CHOCOLATE_PIE.get(), GDModBlocks.GOLDEN_ROAST_CHICKEN_BLOCK.get(), GDModBlocks.GOLDEN_GLAZED_HAM_BLOCK.get(),
                         GDModBlocks.GOLDEN_SHEPHERDS_PIE_BLOCK.get(), GDModBlocks.GOLDEN_RICE_ROLL_MEDLEY_BLOCK.get());
+        this.tag(Tags.Blocks.NEEDS_NETHERITE_TOOL).add(GDModBlocks.ANCIENT_GOLD_BLOCK.get());
     }
 
     private void registerMinecraftTags() {
@@ -114,6 +117,9 @@ public class ModBlockTags extends BlockTagsProvider {
         this.tag(BlockTags.CEILING_HANGING_SIGNS).add(GDModBlocks.GOLDEN_HANGING_SIGN.get());
         this.tag(BlockTags.WALL_HANGING_SIGNS).add(GDModBlocks.GOLDEN_WALL_HANGING_SIGN.get());
         this.tag(BlockTags.SNOW_LAYER_CAN_SURVIVE_ON).add(GDModBlocks.GOLDEN_HONEY_BLOCK.get());
+        this.tag(BlockTags.DRAGON_IMMUNE).add(GDModBlocks.ANCIENT_GOLD_BLOCK.get());
+        this.tag(BlockTags.WITHER_IMMUNE).add(GDModBlocks.ANCIENT_GOLD_BLOCK.get());
+        this.tag(BlockTags.BEACON_BASE_BLOCKS).add(GDModBlocks.ANCIENT_GOLD_BLOCK.get());
     }
 
     private void registerFDTags() {
@@ -132,7 +138,7 @@ public class ModBlockTags extends BlockTagsProvider {
         this.tag(GDModTags.Blocks.GOLDEN_COMPOST_ACTIVATORS)
                 .add(GDModBlocks.GOLDEN_MUSHROOM.get(), GDModBlocks.GOLDEN_MUSHROOM_COLONY.get(), GDModBlocks.GOLDEN_FUNGUS.get(), GDModBlocks.GOLDEN_FUNGUS_COLONY.get(),
                         GDModBlocks.GOLDEN_SOIL.get(), GDModBlocks.GOLDEN_SOIL_FARMLAND.get(), GDModBlocks.GOLDEN_COMPOST.get());
-        this.tag(GDModTags.Blocks.GOLDEN_MUSHROOM_GROW_BLOCK).add(GDModBlocks.GOLDEN_SOIL.get(), GDModBlocks.GOLDEN_COMPOST.get());
+        this.tag(GDModTags.Blocks.GOLDEN_MUSHROOM_GROW_BLOCK).add(GDModBlocks.GOLDEN_SOIL.get(), GDModBlocks.GOLDEN_COMPOST.get(), ModBlocks.ORGANIC_COMPOST.get(), ModBlocks.RICH_SOIL.get());
         this.tag(GDModTags.Blocks.GOLDEN_STEMS).add(GDModBlocks.GOLDEN_STEM.get(), GDModBlocks.GOLDEN_HYPHAE.get(),
                 GDModBlocks.STRIPPED_GOLDEN_STEM.get(), GDModBlocks.STRIPPED_GOLDEN_HYPHAE.get());
         this.tag(GDModTags.Blocks.SOUL_HEAT_SOURCES).addTag(GDModTags.Blocks.TRAY_SOUL_HEAT_SOURCES);

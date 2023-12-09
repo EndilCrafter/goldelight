@@ -1,0 +1,34 @@
+{
+  "parent": "goldelight:main/place_golden_cooking_pot",
+  "criteria": {
+    "drink_golden_hot_cocoa": {
+      "conditions": {
+        "effects": {
+          "goldelight:mildness": {}
+        }
+      },
+      "trigger": "minecraft:effects_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": {
+      "translate": "goldelight.advancement.drink_golden_hot_cocoa.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "goldelight:golden_hot_cocoa"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "goldelight.advancement.drink_golden_hot_cocoa"
+    }
+  },
+  "requirements": [
+    [
+      "drink_golden_hot_cocoa"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

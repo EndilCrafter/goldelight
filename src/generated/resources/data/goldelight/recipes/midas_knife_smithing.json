@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "goldelight:ancient_gold_ingot"
+  },
+  "base": {
+    "item": "farmersdelight:netherite_knife"
+  },
+  "result": {
+    "item": "goldelight:midas_knife"
+  },
+  "template": {
+    "item": "goldelight:ancient_gold_upgrade_smithing_template"
+  }
+}

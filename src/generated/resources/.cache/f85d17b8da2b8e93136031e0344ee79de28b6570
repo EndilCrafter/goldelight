@@ -1,4 +1,8 @@
-// 1.20.1	2023-12-06T17:42:16.0769061	Item Models: goldelight
+// 1.20.1	2023-12-07T19:10:11.0749905	Item Models: goldelight
+169f38b3e7805f2128f95000c4ea513b80254dce assets/goldelight/models/item/ancient_gold_dust.json
+a1fd9fb2697de3c9ef2a9b41e47aa18095709d17 assets/goldelight/models/item/ancient_gold_ingot.json
+67df8c200fdc704d4f9452396ce92d8d1d97755a assets/goldelight/models/item/ancient_gold_nugget.json
+8b317da4c4a678df8852308f79508f6101af2828 assets/goldelight/models/item/ancient_gold_upgrade_smithing_template.json
 145cc865b480ab4781a0b4fd6f1364c3f717c94e assets/goldelight/models/item/cooked_golden_bacon.json
 e557c62049575ae6fa74ca5321c34db7a65a2ea5 assets/goldelight/models/item/cooked_golden_chicken_cuts.json
 d6aff333abb86e79edeb4a88379e1197c50165c5 assets/goldelight/models/item/cooked_golden_cod_slice.json
@@ -125,6 +129,7 @@ ad869964e8d5a29d75432993a3406ddc786023c1 assets/goldelight/models/item/golden_wr
 dc14b023dcb0dc8f6f9e18d00d8ce9a26b6394e8 assets/goldelight/models/item/grilled_golden_salmon.json
 ed4b0c24e446c528d66810a263c488511aaf23e5 assets/goldelight/models/item/gumplings.json
 de3feac32e932c352164560e70d33cf42986bf84 assets/goldelight/models/item/midas_knife.json
+67b02c103b530fd51f80ba53c1bfb627a72a3d6d assets/goldelight/models/item/midas_potion.json
 fe716b30fae9553c0ba50b74dcd508b1cfa8aa55 assets/goldelight/models/item/minced_golden_beef.json
 9be316ce89a6807b08328fdb4f54b709d1b7bef8 assets/goldelight/models/item/mixed_golden_salad.json
 cda90b71957acbbf6fadff788fdfb6fde69d9c6d assets/goldelight/models/item/raw_golden_pasta.json

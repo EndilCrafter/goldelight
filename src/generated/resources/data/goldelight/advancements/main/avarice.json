@@ -1,0 +1,325 @@
+{
+  "parent": "goldelight:main/eat_golden_shepherds_pie",
+  "criteria": {
+    "fried_golden_rice": {
+      "conditions": {
+        "item": {
+          "items": [
+            "goldelight:fried_golden_rice"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "golden_": {
+      "conditions": {
+        "item": {
+          "items": [
+            "goldelight:golden_mushroom_rice"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "golden_bacon_and_eggs": {
+      "conditions": {
+        "item": {
+          "items": [
+            "goldelight:golden_bacon_and_eggs"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "golden_baked_cod_stew": {
+      "conditions": {
+        "item": {
+          "items": [
+            "goldelight:golden_baked_cod_stew"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "golden_beef_stew": {
+      "conditions": {
+        "item": {
+          "items": [
+            "goldelight:golden_beef_stew"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "golden_chicken_soup": {
+      "conditions": {
+        "item": {
+          "items": [
+            "goldelight:golden_chicken_soup"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "golden_fish_stew": {
+      "conditions": {
+        "item": {
+          "items": [
+            "goldelight:golden_fish_stew"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "golden_glazed_ham": {
+      "conditions": {
+        "item": {
+          "items": [
+            "goldelight:golden_glazed_ham"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "golden_ink_pasta": {
+      "conditions": {
+        "item": {
+          "items": [
+            "goldelight:golden_ink_pasta"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "golden_noodle_soup": {
+      "conditions": {
+        "item": {
+          "items": [
+            "goldelight:golden_noodle_soup"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "golden_pasta_with_meatballs": {
+      "conditions": {
+        "item": {
+          "items": [
+            "goldelight:golden_pasta_with_meatballs"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "golden_pasta_with_mutton_chop": {
+      "conditions": {
+        "item": {
+          "items": [
+            "goldelight:golden_pasta_with_mutton_chop"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "golden_pumpkin_soup": {
+      "conditions": {
+        "item": {
+          "items": [
+            "goldelight:golden_pumpkin_soup"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "golden_ratatouille": {
+      "conditions": {
+        "item": {
+          "items": [
+            "goldelight:golden_ratatouille"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "golden_roast_chicken": {
+      "conditions": {
+        "item": {
+          "items": [
+            "goldelight:golden_roast_chicken"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "golden_shepherds_pie": {
+      "conditions": {
+        "item": {
+          "items": [
+            "goldelight:golden_shepherds_pie"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "golden_steak_and_potatoes": {
+      "conditions": {
+        "item": {
+          "items": [
+            "goldelight:golden_steak_and_potatoes"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "golden_vegetable_noodles": {
+      "conditions": {
+        "item": {
+          "items": [
+            "goldelight:golden_vegetable_noodles"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "golden_vegetable_soup": {
+      "conditions": {
+        "item": {
+          "items": [
+            "goldelight:golden_vegetable_soup"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "grilled_golden_salmon": {
+      "conditions": {
+        "item": {
+          "items": [
+            "goldelight:grilled_golden_salmon"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "mixed_golden_salad": {
+      "conditions": {
+        "item": {
+          "items": [
+            "goldelight:mixed_golden_salad"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "roasted_golden_chops": {
+      "conditions": {
+        "item": {
+          "items": [
+            "goldelight:roasted_golden_chops"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "stuffed_golden_pumpkin": {
+      "conditions": {
+        "item": {
+          "items": [
+            "goldelight:stuffed_golden_pumpkin"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": {
+      "translate": "goldelight.advancement.avarice.desc"
+    },
+    "frame": "challenge",
+    "hidden": false,
+    "icon": {
+      "item": "goldelight:golden_glazed_ham"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "goldelight.advancement.avarice"
+    }
+  },
+  "requirements": [
+    [
+      "mixed_golden_salad"
+    ],
+    [
+      "golden_beef_stew"
+    ],
+    [
+      "golden_chicken_soup"
+    ],
+    [
+      "golden_vegetable_soup"
+    ],
+    [
+      "golden_fish_stew"
+    ],
+    [
+      "fried_golden_rice"
+    ],
+    [
+      "golden_pumpkin_soup"
+    ],
+    [
+      "golden_baked_cod_stew"
+    ],
+    [
+      "golden_noodle_soup"
+    ],
+    [
+      "golden_pasta_with_meatballs"
+    ],
+    [
+      "golden_pasta_with_mutton_chop"
+    ],
+    [
+      "roasted_golden_chops"
+    ],
+    [
+      "golden_vegetable_noodles"
+    ],
+    [
+      "golden_steak_and_potatoes"
+    ],
+    [
+      "golden_ratatouille"
+    ],
+    [
+      "golden_ink_pasta"
+    ],
+    [
+      "grilled_golden_salmon"
+    ],
+    [
+      "golden_roast_chicken"
+    ],
+    [
+      "stuffed_golden_pumpkin"
+    ],
+    [
+      "golden_glazed_ham"
+    ],
+    [
+      "golden_shepherds_pie"
+    ],
+    [
+      "golden_bacon_and_eggs"
+    ],
+    [
+      "golden_"
+    ]
+  ],
+  "rewards": {
+    "experience": 400
+  },
+  "sends_telemetry_event": true
+}

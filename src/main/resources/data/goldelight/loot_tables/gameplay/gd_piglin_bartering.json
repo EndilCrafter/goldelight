@@ -1,0 +1,27 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:empty",
+          "weight": 50
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 2,
+          "name": "minecraft:enchanted_book",
+          "functions": [
+            {
+              "function": "minecraft:enchant_randomly",
+              "enchantments": [
+                "goldelight:midas_touch"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "random_sequence": "goldelight:gameplay/gd_piglin_bartering"
+}

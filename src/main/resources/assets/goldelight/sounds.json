@@ -1,0 +1,38 @@
+{
+  "block.ancient_gold_block.break": {
+    "subtitle": "subtitles.block.generic.break",
+    "sounds": [
+      "goldelight:block.ancient_gold_block.break"
+    ]
+  },
+  "block.ancient_gold_block.step": {
+    "subtitle": "subtitles.block.generic.footsteps",
+    "sounds": [
+      "goldelight:block.ancient_gold_block.step"
+    ]
+  },
+  "block.ancient_gold_block.place": {
+    "subtitle": "subtitles.block.generic.place",
+    "sounds": [
+      "goldelight:block.ancient_gold_block.place"
+    ]
+  },
+  "block.ancient_gold_block.hit": {
+    "subtitle": "subtitles.block.generic.hit",
+    "sounds": [
+      "goldelight:block.ancient_gold_block.hit"
+    ]
+  },
+  "block.ancient_gold_block.fall": {
+    "subtitle": "subtitles.entity.generic.big_fall",
+    "sounds": [
+      "goldelight:block.ancient_gold_block.fall"
+    ]
+  },
+  "entity.convert_to_gold": {
+    "subtitle": "goldelight.subtitles.entity.convert_to_gold",
+    "sounds": [
+      "goldelight:entity.convert_to_gold"
+    ]
+  }
+}

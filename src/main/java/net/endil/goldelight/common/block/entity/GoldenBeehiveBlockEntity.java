@@ -62,7 +62,7 @@ public class GoldenBeehiveBlockEntity extends BlockEntity {
             removeIgnoredBeeTags(compoundtag);
             compoundtag.put("HivePos", NbtUtils.writeBlockPos(pPos));
             compoundtag.putBoolean("NoGravity", true);
-            Direction direction = pState.getValue(BeehiveBlock.FACING);
+            Direction direction = pState.getValue(GoldenBeehiveBlock.FACING);
             BlockPos blockpos = pPos.relative(direction);
             boolean flag = !pLevel.getBlockState(blockpos).getCollisionShape(pLevel, blockpos).isEmpty();
             if (flag && pReleaseStatus != GoldenBeehiveBlockEntity.BeeReleaseStatus.EMERGENCY) {

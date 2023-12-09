@@ -10,11 +10,13 @@ import net.endil.goldelight.GolDelight;
 import net.endil.goldelight.common.block.entity.container.GoldenCookingPotMenu;
 import net.endil.goldelight.common.gui.GoldenCookingPotScreen;
 import net.endil.goldelight.common.registry.GDModBlocks;
+import net.endil.goldelight.common.registry.GDModEnchantments;
 import net.endil.goldelight.common.registry.GDModItems;
 import net.endil.goldelight.common.registry.GDModMenuTypes;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 

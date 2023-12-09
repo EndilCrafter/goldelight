@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:huge_fungus",
+  "config": {
+    "decor_state": {
+      "Name": "goldelight:groomlight"
+    },
+    "hat_state": {
+      "Name": "goldelight:golden_wart_block"
+    },
+    "planted": true,
+    "replaceable_blocks": {
+      "type": "minecraft:matching_blocks",
+      "blocks": "goldelight:golden_fungus"
+    },
+    "stem_state": {
+      "Name": "goldelight:golden_stem",
+      "Properties": {
+        "axis": "y"
+      }
+    },
+    "valid_base_block": {
+      "Name": "farmersdelight:rich_soil"
+    }
+  }
+}

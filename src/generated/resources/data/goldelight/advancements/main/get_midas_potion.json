@@ -1,0 +1,38 @@
+{
+  "parent": "goldelight:main/get_ancient_gold_dust",
+  "criteria": {
+    "midas_potion": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "goldelight:midas_potion"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": {
+      "translate": "goldelight.advancement.get_midas_potion.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "goldelight:midas_potion"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "goldelight.advancement.get_midas_potion"
+    }
+  },
+  "requirements": [
+    [
+      "midas_potion"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

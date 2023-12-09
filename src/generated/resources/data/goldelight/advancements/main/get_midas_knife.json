@@ -1,0 +1,42 @@
+{
+  "parent": "goldelight:main/get_ancient_gold_upgrade_smithing_template",
+  "criteria": {
+    "midas_knife": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "goldelight:midas_knife"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": {
+      "translate": "goldelight.advancement.get_midas_knife.desc"
+    },
+    "frame": "challenge",
+    "hidden": false,
+    "icon": {
+      "item": "goldelight:midas_knife",
+      "nbt": "{Damage:0}"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "goldelight.advancement.get_midas_knife"
+    }
+  },
+  "requirements": [
+    [
+      "midas_knife"
+    ]
+  ],
+  "rewards": {
+    "experience": 200
+  },
+  "sends_telemetry_event": true
+}

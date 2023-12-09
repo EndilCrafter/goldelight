@@ -1,0 +1,113 @@
+{
+  "parent": "goldelight:main/get_gd_seed",
+  "criteria": {
+    "golden_beetroot_crate": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "goldelight:golden_beetroot_crate"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "golden_cabbage_crate": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "goldelight:golden_cabbage_crate"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "golden_carrot_crate": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "goldelight:golden_carrot_crate"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "golden_onion_crate": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "goldelight:golden_onion_crate"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "golden_potato_crate": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "goldelight:golden_potato_crate"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "golden_tomato_crate": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "goldelight:golden_tomato_crate"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": {
+      "translate": "goldelight.advancement.get_all_gd_crates.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "goldelight:golden_carrot_crate"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "goldelight.advancement.get_all_gd_crates"
+    }
+  },
+  "requirements": [
+    [
+      "golden_carrot_crate"
+    ],
+    [
+      "golden_potato_crate"
+    ],
+    [
+      "golden_beetroot_crate"
+    ],
+    [
+      "golden_cabbage_crate"
+    ],
+    [
+      "golden_tomato_crate"
+    ],
+    [
+      "golden_onion_crate"
+    ]
+  ],
+  "sends_telemetry_event": true
+}
