@@ -37,9 +37,13 @@ public class GDModTags {
         public static final TagKey<Block> TRAY_SOUL_HEAT_SOURCES = tag("tray_soul_heat_sources");
         public static final TagKey<Block> GOLDEN_BEEHIVES = tag("golden_beehives");
         public static final TagKey<Block> GOLDEN_BEE_GROWABLES = tag("golden_bee_growables");
+        public static final TagKey<Block> STORAGE_BLOCKS_ANCIENT_GOLD = forgeTag("storage_blocks/ancient_gold");
 
         private static TagKey<Block> tag(String name) {
             return BlockTags.create(new ResourceLocation(GolDelight.MOD_ID, name));
+        }
+        private static TagKey<Block> forgeTag(String path) {
+            return BlockTags.create(new ResourceLocation("forge", path));
         }
     }
 
@@ -65,6 +69,8 @@ public class GDModTags {
         public static final TagKey<Item> GOLDEN_SEEDS_MELON = tag("golden_seeds/melon");
         public static final TagKey<Item> GOLDEN_SEEDS_PUMPKIN = tag("golden_seeds/pumpkin");
         public static final TagKey<Item> GOLDEN_SEEDS_WHEAT = tag("golden_seeds/wheat");
+        public static final TagKey<Item> STORAGE_BLOCKS_ANCIENT_GOLD = forgeTag("storage_blocks/ancient_gold");
+        public static final TagKey<Item> INGOTS_ANCIENT_GOLD = forgeTag("ingots/ancient_gold");
 
         //Farmer's Delight
         public static final TagKey<Item> GOLDEN_WOLF_PREY = tag("golden_wolf_prey");
@@ -121,5 +127,9 @@ public class GDModTags {
         private static TagKey<Item> tag(String name) {
             return ItemTags.create(new ResourceLocation(GolDelight.MOD_ID, name));
         }
+        private static TagKey<Item> forgeTag(String path) {
+            return ItemTags.create(new ResourceLocation("forge", path));
+        }
+
     }
 }

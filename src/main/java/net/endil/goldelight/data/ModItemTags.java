@@ -207,6 +207,9 @@ public class ModItemTags extends ItemTagsProvider {
         this.tag(Tags.Items.CROPS).addTag(GDModTags.Items.GOLDEN_CROPS);
         this.tag(ForgeTags.TOOLS_KNIVES).add(GDModItems.MIDAS_KNIFE.get());
         this.tag(Tags.Items.EGGS).add(GDModItems.GOLDEN_EGG.get(), ItemRegistry.GOLDEN_TURTLE_EGG.get());
+        this.tag(GDModTags.Items.STORAGE_BLOCKS_ANCIENT_GOLD).add(GDModItems.ANCIENT_GOLD_BLOCK.get());
+        this.tag(GDModTags.Items.INGOTS_ANCIENT_GOLD).add(GDModItems.ANCIENT_GOLD_INGOT.get());
+        this.tag(Tags.Items.INGOTS).add(GDModItems.ANCIENT_GOLD_INGOT.get());
     }
 
     private void registerCompatTags() {

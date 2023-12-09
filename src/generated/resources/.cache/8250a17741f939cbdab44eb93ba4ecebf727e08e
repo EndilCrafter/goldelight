@@ -1,10 +1,12 @@
-// 1.20.1	2023-12-08T15:43:55.1230902	Tags for minecraft:block mod id goldelight
+// 1.20.1	2023-12-10T08:09:07.0283634	Tags for minecraft:block mod id goldelight
 8584df75c3a4c3e2a02ad01dd437b5103a2252c8 data/farmersdelight/tags/blocks/compost_activators.json
 6936447d91f80b0f61e639d59cfcc94f5c7a50d1 data/farmersdelight/tags/blocks/heat_sources.json
 0f30f62c6c8689d15db405cf5b98b0277c6af698 data/farmersdelight/tags/blocks/mushroom_colony_growable_on.json
 9bcc87f2373233b45781efe7a6c8b28e14c02536 data/farmersdelight/tags/blocks/unaffected_by_rich_soil.json
 a2c4935651de21bc3233a881b56117d4ee9c7100 data/forge/tags/blocks/mineable/knife.json
 a7e22ccea656749fd8d27db7a5ba7c11d9fa8504 data/forge/tags/blocks/needs_netherite_tool.json
+a7e22ccea656749fd8d27db7a5ba7c11d9fa8504 data/forge/tags/blocks/storage_blocks.json
+a7e22ccea656749fd8d27db7a5ba7c11d9fa8504 data/forge/tags/blocks/storage_blocks/ancient_gold.json
 9a1f5b606f0be77c0b0375cfef383a638bbeb558 data/goldelight/tags/blocks/golden_beehives.json
 b63c043172ca708aec8cf6ce2beb318c5d9e6308 data/goldelight/tags/blocks/golden_bee_growables.json
 39f0148a3bb2ff085caa7630ef5a35d0d7c7e207 data/goldelight/tags/blocks/golden_compost_activators.json

@@ -31,6 +31,7 @@ public class ModBlockTags extends BlockTagsProvider {
         this.registerFDTags();
         this.registerGDModTags();
         this.registerCompatTags();
+        this.registerForgeTags();
     }
 
     private void registerMineable() {
@@ -146,6 +147,7 @@ public class ModBlockTags extends BlockTagsProvider {
         this.tag(GDModTags.Blocks.GOLDEN_BEEHIVES).add(GDModBlocks.GOLDEN_BEEHIVE.get());
         this.tag(GDModTags.Blocks.GOLDEN_BEE_GROWABLES).addTag(GDModTags.Blocks.GOLDEN_CROPS).addTag(BlockTags.BEE_GROWABLES)
                 .add(BlockRegistry.SWEET_GOLDEN_BERRY_BUSH.get(), GDModBlocks.GOLDEN_CAVE_VINES.get(), GDModBlocks.GOLDEN_CAVE_VINES_PLANT.get());
+        this.tag(GDModTags.Blocks.STORAGE_BLOCKS_ANCIENT_GOLD).add(GDModBlocks.ANCIENT_GOLD_BLOCK.get());
     }
 
     private void registerCompatTags() {
@@ -179,5 +181,8 @@ public class ModBlockTags extends BlockTagsProvider {
         this.tag(GDCompatTags.SERENE_SEASONS_UNBREAKABLE_FERTILE_CROPS)
                 .add(GDModBlocks.GOLDEN_SUGAR_CANE.get(), GDModBlocks.GOLDEN_CACTUS.get(), GDModBlocks.GOLDEN_MUSHROOM.get(),
                         GDModBlocks.GOLDEN_FUNGUS.get(), GDModBlocks.GOLDEN_ONION_CROP.get());
+    }
+    private void registerForgeTags() {
+        this.tag(Tags.Blocks.STORAGE_BLOCKS).add(GDModBlocks.ANCIENT_GOLD_BLOCK.get());
     }
 }

@@ -1,4 +1,4 @@
-// 1.20.1	2023-12-07T15:54:14.4202715	Tags for minecraft:item mod id goldelight
+// 1.20.1	2023-12-10T08:09:07.0323659	Tags for minecraft:item mod id goldelight
 e1654010e1267ee9932a44b56fe3d70d05282e0f data/diet/tags/items/fruits.json
 0127eb845e986e02bfa20d20c47133979d9516f5 data/diet/tags/items/grains.json
 6494309212f7f0b7d71a07e375f8b750078e6451 data/diet/tags/items/proteins.json
@@ -31,6 +31,8 @@ bb90b28457c01de40b16391faf384cdb796c03d0 data/forge/tags/items/dough/wheat.json
 5c06ec22fe08ffedf0095abaac1708e1128550c9 data/forge/tags/items/grain.json
 6506f744e36a53237b063a81df00deb18ea52494 data/forge/tags/items/grain/rice.json
 c938f6f4ae5c6dcd6f6799e1e4b419f81b7482e0 data/forge/tags/items/grain/wheat.json
+a1cbf6c045af5d20021acae8fe2cafef1d9b69d2 data/forge/tags/items/ingots.json
+a1cbf6c045af5d20021acae8fe2cafef1d9b69d2 data/forge/tags/items/ingots/ancient_gold.json
 2f8c5643e30ee7c2fca974f8f1ebc906b5773da7 data/forge/tags/items/milk.json
 591a326faa9fca5b1899bcf4c45a17754314888f data/forge/tags/items/milk/milk.json
 abcf122d31a9e5a004a478609b092fb7d240b538 data/forge/tags/items/milk/milk_bottle.json
@@ -50,6 +52,7 @@ d3721863a4b472a2eaee94d2ba50678d0ff59abc data/forge/tags/items/raw_pork.json
 0b52224aa2e10878a8b5bfe032a3cba242749b95 data/forge/tags/items/seeds/cabbage.json
 e0ebbc44317f07912bc4613b69023fa6a02b6517 data/forge/tags/items/seeds/rice.json
 2fddf640608762ada3aa207cee3ae9951c3e4ac1 data/forge/tags/items/seeds/tomato.json
+a7e22ccea656749fd8d27db7a5ba7c11d9fa8504 data/forge/tags/items/storage_blocks/ancient_gold.json
 73b6e4ffc8a2fe7adcada9d4642e8f0df814bc6f data/forge/tags/items/tools/knives.json
 b4b1f9a14d93da6025e28ab8eb9aa8d40a7d6ff3 data/forge/tags/items/vegetables.json
 3f61a08b65de772af19d946d3b4de49a616cb8e6 data/forge/tags/items/vegetables/beetroot.json
