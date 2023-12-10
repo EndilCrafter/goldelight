@@ -11,7 +11,7 @@
       "condition": "block_state_property",
       "block": "goldelight:golden_wheat",
       "properties": {
-        "age": "3"
+        "age": "7"
       }
     }
   ],
