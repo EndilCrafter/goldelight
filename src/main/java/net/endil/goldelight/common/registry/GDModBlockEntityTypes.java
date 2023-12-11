@@ -27,6 +27,10 @@ public class GDModBlockEntityTypes {
 
     public static final RegistryObject<BlockEntityType<GoldenCookingPotBlockEntity>> GOLDEN_COOKING_POT = TILES.register("golden_cooking_pot",
             () -> BlockEntityType.Builder.of(GoldenCookingPotBlockEntity::new, GDModBlocks.GOLDEN_COOKING_POT.get()).build(null));
+
+    public static final RegistryObject<BlockEntityType<GoldenCuttingBoardBlockEntity>> GOLDEN_CUTTING_BOARD = TILES.register("golden_cutting_board",
+            () -> BlockEntityType.Builder.of(GoldenCuttingBoardBlockEntity::new, GDModBlocks.GOLDEN_CUTTING_BOARD.get()).build(null));
+
     public static final RegistryObject<BlockEntityType<GoldenBeehiveBlockEntity>> GOLDEN_BEEHIVE = TILES.register("golden_beehive",
             () -> BlockEntityType.Builder.of(GoldenBeehiveBlockEntity::new, GDModBlocks.GOLDEN_BEEHIVE.get()).build(null));
 

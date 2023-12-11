@@ -21,6 +21,7 @@ import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
+import net.minecraftforge.registries.ForgeRegistries;
 import vectorwing.farmersdelight.common.registry.ModItems;
 import vectorwing.farmersdelight.common.tag.ForgeTags;
 import vectorwing.farmersdelight.data.builder.CuttingBoardRecipeBuilder;
@@ -183,6 +184,14 @@ public class ModRecipes extends RecipeProvider implements IConditionBuilder {
                 .save(consumer, new ResourceLocation(GolDelight.MOD_ID, getItemName(ancientGold) + "_smithing"));
     }
 
+    protected static void midasCutting(Consumer<FinishedRecipe> consumer, Ingredient ingredient, ItemLike mainResult, int count) {
+        GoldenCuttingBoardRecipeBuilder.goldenCuttingRecipe(ingredient, Ingredient.of(GDModItems.MIDAS_KNIFE.get()), mainResult, count).build(consumer, new ResourceLocation(GolDelight.MOD_ID, "midas_cutting/" + ForgeRegistries.ITEMS.getKey(mainResult.asItem()).getPath()));
+    }
+    protected static void midasCuttingWithSub(Consumer<FinishedRecipe> consumer, Ingredient ingredient, ItemLike mainResult, int main, ItemLike subResult) {
+        GoldenCuttingBoardRecipeBuilder.goldenCuttingRecipe(ingredient, Ingredient.of(GDModItems.MIDAS_KNIFE.get()), mainResult, main).addResult(subResult, 1)
+                .build(consumer, new ResourceLocation(GolDelight.MOD_ID, "midas_cutting/" + ForgeRegistries.ITEMS.getKey(mainResult.asItem()).getPath()));
+    }
+
     @Override
     protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
         this.registerSimpleCrafting(consumer);
@@ -191,6 +200,8 @@ public class ModRecipes extends RecipeProvider implements IConditionBuilder {
         this.registerFoodCrafting(consumer);
         this.registerCooking(consumer);
         this.registerBuilding(consumer);
+        this.registerGoldenCutting(consumer);
+        this.registerMidasCutting(consumer);
         SpecialRecipeBuilder.special(GDModRecipeSerializers.GOLDEN_FOOD_SERVING.get()).save(consumer, "golden_food_serving");
     }
 
@@ -297,6 +308,13 @@ public class ModRecipes extends RecipeProvider implements IConditionBuilder {
                 .define('D', GDModItems.ANCIENT_GOLD_DUST.get())
                 .unlockedBy("has_ancient_gold_upgrade_smithing_template", InventoryChangeTrigger.TriggerInstance.hasItems(GDModItems.ANCIENT_GOLD_UPGRADE_SMITHING_TEMPLATE.get()))
                 .save(consumer);
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, GDModBlocks.GOLDEN_CUTTING_BOARD.get())
+                .pattern("NII")
+                .pattern("NII")
+                .define('N', Items.GOLD_NUGGET)
+                .define('I', Items.GOLD_INGOT)
+                .unlockedBy("has_gold_ingot", InventoryChangeTrigger.TriggerInstance.hasItems(Items.GOLD_INGOT))
+                .save(consumer);
     }
 
     private void registerSmelting(Consumer<FinishedRecipe> consumer) {
@@ -320,70 +338,70 @@ public class ModRecipes extends RecipeProvider implements IConditionBuilder {
     }
 
     private void registerCutting(Consumer<FinishedRecipe> consumer) {
-        CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(GDModItems.GOLDEN_BEEF.get()), Ingredient.of(ForgeTags.TOOLS_KNIVES), GDModItems.MINCED_GOLDEN_BEEF.get(), 2)
-                .build(consumer);
-        CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(GDModItems.GOLDEN_PORKCHOP.get()), Ingredient.of(ForgeTags.TOOLS_KNIVES), GDModItems.GOLDEN_BACON.get(), 2)
-                .build(consumer);
-        CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(GDModItems.GOLDEN_CHICKEN.get()), Ingredient.of(ForgeTags.TOOLS_KNIVES), GDModItems.GOLDEN_CHICKEN_CUTS.get(), 2)
-                .addResult(GDModItems.GOLDEN_MEAL.get())
-                .build(consumer);
-        CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(ItemRegistry.COOKED_GOLDEN_CHICKEN.get()), Ingredient.of(ForgeTags.TOOLS_KNIVES), GDModItems.COOKED_GOLDEN_CHICKEN_CUTS.get(), 2)
-                .addResult(GDModItems.GOLDEN_MEAL.get())
-                .build(consumer);
-        CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(GDModItems.GOLDEN_COD.get()), Ingredient.of(ForgeTags.TOOLS_KNIVES), GDModItems.GOLDEN_COD_SLICE.get(), 2)
-                .addResult(GDModItems.GOLDEN_MEAL.get())
-                .build(consumer);
-        CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(ItemRegistry.COOKED_GOLDEN_COD.get()), Ingredient.of(ForgeTags.TOOLS_KNIVES), GDModItems.COOKED_GOLDEN_COD_SLICE.get(), 2)
-                .addResult(GDModItems.GOLDEN_MEAL.get())
-                .build(consumer);
-        CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(GDModItems.GOLDEN_SALMON.get()), Ingredient.of(ForgeTags.TOOLS_KNIVES), GDModItems.GOLDEN_SALMON_SLICE.get(), 2)
-                .addResult(GDModItems.GOLDEN_MEAL.get())
-                .build(consumer);
-        CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(ItemRegistry.COOKED_GOLDEN_SALMON.get()), Ingredient.of(ForgeTags.TOOLS_KNIVES), GDModItems.COOKED_GOLDEN_SALMON_SLICE.get(), 2)
-                .addResult(GDModItems.GOLDEN_MEAL.get())
-                .build(consumer);
-        CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(GDModItems.GOLDEN_HAM.get()), Ingredient.of(ForgeTags.TOOLS_KNIVES), GDModItems.GOLDEN_PORKCHOP.get(), 2)
-                .addResult(GDModItems.GOLDEN_BONE.get())
-                .build(consumer);
-        CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(GDModItems.SMOKED_GOLDEN_HAM.get()), Ingredient.of(ForgeTags.TOOLS_KNIVES), ItemRegistry.COOKED_GOLDEN_PORKCHOP.get(), 2)
-                .addResult(GDModItems.GOLDEN_MEAL.get())
-                .build(consumer);
-        CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(GDModItems.GOLDEN_MUTTON.get()), Ingredient.of(ForgeTags.TOOLS_KNIVES), GDModItems.GOLDEN_MUTTON_CHOPS.get(), 2)
-                .build(consumer);
-        CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(ItemRegistry.COOKED_GOLDEN_MUTTON.get()), Ingredient.of(ForgeTags.TOOLS_KNIVES), GDModItems.COOKED_GOLDEN_MUTTON_CHOPS.get(), 2)
-                .build(consumer);
-        CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(GDModItems.GOLDEN_CAKE.get()), Ingredient.of(ForgeTags.TOOLS_KNIVES), GDModItems.GOLDEN_CAKE_SLICE.get(), 7)
-                .build(consumer);
-        CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(GDModItems.GOLDEN_APPLE_PIE.get()), Ingredient.of(ForgeTags.TOOLS_KNIVES), GDModItems.GOLDEN_APPLE_PIE_SLICE.get(), 4)
-                .build(consumer);
-        CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(GDModItems.SWEET_GOLDEN_BERRY_CHEESECAKE.get()), Ingredient.of(ForgeTags.TOOLS_KNIVES), GDModItems.SWEET_GOLDEN_BERRY_CHEESECAKE_SLICE.get(), 4)
-                .build(consumer);
-        CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(GDModItems.GOLDEN_CHOCOLATE_PIE.get()), Ingredient.of(ForgeTags.TOOLS_KNIVES), GDModItems.GOLDEN_CHOCOLATE_PIE_SLICE.get(), 4)
-                .build(consumer);
-        CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(GDModBlocks.GOLDEN_MELON.get()), Ingredient.of(ForgeTags.TOOLS_KNIVES), GDModItems.GOLDEN_MELON_SLICE.get(), 9)
-                .build(consumer);
-        CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(GDModBlocks.GOLDEN_PUMPKIN.get()), Ingredient.of(ForgeTags.TOOLS_KNIVES), GDModItems.GOLDEN_PUMPKIN_SLICE.get(), 4)
-                .build(consumer);
-        CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(GDModItems.GOLDEN_WHEAT_DOUGH.get()), Ingredient.of(ForgeTags.TOOLS_KNIVES), GDModItems.RAW_GOLDEN_PASTA.get(), 1)
-                .build(consumer);
-        CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(GDModItems.GOLDEN_KELP_ROLL.get()), Ingredient.of(ForgeTags.TOOLS_KNIVES), GDModItems.GOLDEN_KELP_ROLL_SLICE.get(), 3)
-                .build(consumer);
-        CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(GDModBlocks.GOLDEN_MUSHROOM_COLONY.get()), Ingredient.of(ForgeTags.TOOLS_KNIVES), GDModBlocks.GOLDEN_MUSHROOM.get(), 5)
-                .build(consumer);
-        CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(GDModBlocks.GOLDEN_FUNGUS_COLONY.get()), Ingredient.of(ForgeTags.TOOLS_KNIVES), GDModBlocks.GOLDEN_FUNGUS.get(), 5)
-                .build(consumer);
         CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(GDModBlocks.GOLDEN_STEM.get()), Ingredient.of(ForgeTags.TOOLS_AXES), GDModBlocks.STRIPPED_GOLDEN_STEM.get(), 1).addResult(ModItems.TREE_BARK.get())
                 .build(consumer);
         CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(GDModBlocks.GOLDEN_HYPHAE.get()), Ingredient.of(ForgeTags.TOOLS_AXES), GDModBlocks.STRIPPED_GOLDEN_HYPHAE.get(), 1).addResult(ModItems.TREE_BARK.get())
-                .build(consumer);
-        CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(GDModItems.GOLDEN_RICE_PANICLE.get()), Ingredient.of(ForgeTags.TOOLS_KNIVES), GDModItems.GOLDEN_RICE.get(), 1).addResult(ModItems.STRAW.get())
-                .build(consumer);
-        CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(GDModItems.GOLDEN_CABBAGE.get()), Ingredient.of(ForgeTags.TOOLS_KNIVES), GDModItems.GOLDEN_CABBAGE_LEAF.get(), 2)
                 .build(consumer);
         CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(GDModBlocks.GOLDEN_HANGING_SIGN.get()), Ingredient.of(ForgeTags.TOOLS_AXES), GDModBlocks.GOLDEN_PLANKS.get()).build(consumer);
         CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(GDModBlocks.GOLDEN_TRAPDOOR.get()), Ingredient.of(ForgeTags.TOOLS_AXES), GDModBlocks.GOLDEN_PLANKS.get()).build(consumer);
         CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(GDModBlocks.GOLDEN_SIGN.get()), Ingredient.of(ForgeTags.TOOLS_AXES), GDModBlocks.GOLDEN_PLANKS.get()).build(consumer);
         CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(GDModBlocks.GOLDEN_DOOR.get()), Ingredient.of(ForgeTags.TOOLS_AXES), GDModBlocks.GOLDEN_PLANKS.get()).build(consumer);
+    }
+
+    private void registerGoldenCutting(Consumer<FinishedRecipe> consumer) {
+        GoldenCuttingBoardRecipeBuilder.goldenCuttingRecipe(Ingredient.of(GDModItems.GOLDEN_BEEF.get()), Ingredient.of(GDModTags.Items.NORMAL_KNIVES), GDModItems.MINCED_GOLDEN_BEEF.get(), 2).build(consumer);
+        GoldenCuttingBoardRecipeBuilder.goldenCuttingRecipe(Ingredient.of(GDModItems.GOLDEN_PORKCHOP.get()), Ingredient.of(GDModTags.Items.NORMAL_KNIVES), GDModItems.GOLDEN_BACON.get(), 2).build(consumer);
+        GoldenCuttingBoardRecipeBuilder.goldenCuttingRecipe(Ingredient.of(GDModItems.GOLDEN_CHICKEN.get()), Ingredient.of(GDModTags.Items.NORMAL_KNIVES), GDModItems.GOLDEN_CHICKEN_CUTS.get(), 2)
+                .addResult(GDModItems.GOLDEN_MEAL.get()).build(consumer);
+        GoldenCuttingBoardRecipeBuilder.goldenCuttingRecipe(Ingredient.of(ItemRegistry.COOKED_GOLDEN_CHICKEN.get()), Ingredient.of(GDModTags.Items.NORMAL_KNIVES), GDModItems.COOKED_GOLDEN_CHICKEN_CUTS.get(), 2)
+                .addResult(GDModItems.GOLDEN_MEAL.get()).build(consumer);
+         GoldenCuttingBoardRecipeBuilder.goldenCuttingRecipe(Ingredient.of(GDModItems.GOLDEN_COD.get()), Ingredient.of(GDModTags.Items.NORMAL_KNIVES), GDModItems.GOLDEN_COD_SLICE.get(), 2)
+                .addResult(GDModItems.GOLDEN_MEAL.get()).build(consumer);
+        GoldenCuttingBoardRecipeBuilder.goldenCuttingRecipe(Ingredient.of(ItemRegistry.COOKED_GOLDEN_COD.get()), Ingredient.of(GDModTags.Items.NORMAL_KNIVES), GDModItems.COOKED_GOLDEN_COD_SLICE.get(), 2)
+                .addResult(GDModItems.GOLDEN_MEAL.get()).build(consumer);
+         GoldenCuttingBoardRecipeBuilder.goldenCuttingRecipe(Ingredient.of(GDModItems.GOLDEN_SALMON.get()), Ingredient.of(GDModTags.Items.NORMAL_KNIVES), GDModItems.GOLDEN_SALMON_SLICE.get(), 2)
+                .addResult(GDModItems.GOLDEN_MEAL.get()).build(consumer);
+        GoldenCuttingBoardRecipeBuilder.goldenCuttingRecipe(Ingredient.of(ItemRegistry.COOKED_GOLDEN_SALMON.get()), Ingredient.of(GDModTags.Items.NORMAL_KNIVES), GDModItems.COOKED_GOLDEN_SALMON_SLICE.get(), 2)
+                .addResult(GDModItems.GOLDEN_MEAL.get()).build(consumer);
+        GoldenCuttingBoardRecipeBuilder.goldenCuttingRecipe(Ingredient.of(GDModItems.GOLDEN_HAM.get()), Ingredient.of(GDModTags.Items.NORMAL_KNIVES), GDModItems.GOLDEN_PORKCHOP.get(), 2)
+                .addResult(GDModItems.GOLDEN_BONE.get()).build(consumer);
+        GoldenCuttingBoardRecipeBuilder.goldenCuttingRecipe(Ingredient.of(GDModItems.SMOKED_GOLDEN_HAM.get()), Ingredient.of(GDModTags.Items.NORMAL_KNIVES), ItemRegistry.COOKED_GOLDEN_PORKCHOP.get(), 2)
+                .addResult(GDModItems.GOLDEN_BONE.get()).build(consumer);
+        GoldenCuttingBoardRecipeBuilder.goldenCuttingRecipe(Ingredient.of(GDModItems.GOLDEN_MUTTON.get()), Ingredient.of(GDModTags.Items.NORMAL_KNIVES), GDModItems.GOLDEN_MUTTON_CHOPS.get(), 2).build(consumer);
+        GoldenCuttingBoardRecipeBuilder.goldenCuttingRecipe(Ingredient.of(ItemRegistry.COOKED_GOLDEN_MUTTON.get()), Ingredient.of(GDModTags.Items.NORMAL_KNIVES), GDModItems.COOKED_GOLDEN_MUTTON_CHOPS.get(), 2).build(consumer);
+        GoldenCuttingBoardRecipeBuilder.goldenCuttingRecipe(Ingredient.of(GDModItems.GOLDEN_CAKE.get()), Ingredient.of(ForgeTags.TOOLS_KNIVES), GDModItems.GOLDEN_CAKE_SLICE.get(), 7).build(consumer);
+        GoldenCuttingBoardRecipeBuilder.goldenCuttingRecipe(Ingredient.of(GDModItems.GOLDEN_APPLE_PIE.get()), Ingredient.of(ForgeTags.TOOLS_KNIVES), GDModItems.GOLDEN_APPLE_PIE_SLICE.get(), 4).build(consumer);
+        GoldenCuttingBoardRecipeBuilder.goldenCuttingRecipe(Ingredient.of(GDModItems.SWEET_GOLDEN_BERRY_CHEESECAKE.get()), Ingredient.of(ForgeTags.TOOLS_KNIVES), GDModItems.SWEET_GOLDEN_BERRY_CHEESECAKE_SLICE.get(), 4).build(consumer);
+        GoldenCuttingBoardRecipeBuilder.goldenCuttingRecipe(Ingredient.of(GDModItems.GOLDEN_CHOCOLATE_PIE.get()), Ingredient.of(ForgeTags.TOOLS_KNIVES), GDModItems.GOLDEN_CHOCOLATE_PIE_SLICE.get(), 4).build(consumer);
+        GoldenCuttingBoardRecipeBuilder.goldenCuttingRecipe(Ingredient.of(GDModBlocks.GOLDEN_MELON.get()), Ingredient.of(ForgeTags.TOOLS_KNIVES), GDModItems.GOLDEN_MELON_SLICE.get(), 9).build(consumer);
+        GoldenCuttingBoardRecipeBuilder.goldenCuttingRecipe(Ingredient.of(GDModBlocks.GOLDEN_PUMPKIN.get()), Ingredient.of(ForgeTags.TOOLS_KNIVES), GDModItems.GOLDEN_PUMPKIN_SLICE.get(), 4).build(consumer);
+        GoldenCuttingBoardRecipeBuilder.goldenCuttingRecipe(Ingredient.of(GDModItems.GOLDEN_WHEAT_DOUGH.get()), Ingredient.of(GDModTags.Items.NORMAL_KNIVES), GDModItems.RAW_GOLDEN_PASTA.get()).build(consumer);
+        GoldenCuttingBoardRecipeBuilder.goldenCuttingRecipe(Ingredient.of(GDModItems.GOLDEN_KELP_ROLL.get()), Ingredient.of(GDModTags.Items.NORMAL_KNIVES), GDModItems.GOLDEN_KELP_ROLL_SLICE.get(), 3).build(consumer);
+        GoldenCuttingBoardRecipeBuilder.goldenCuttingRecipe(Ingredient.of(GDModItems.GOLDEN_MUSHROOM_COLONY.get()), Ingredient.of(GDModTags.Items.NORMAL_KNIVES), GDModBlocks.GOLDEN_MUSHROOM.get(), 5).build(consumer);
+        GoldenCuttingBoardRecipeBuilder.goldenCuttingRecipe(Ingredient.of(GDModItems.GOLDEN_FUNGUS_COLONY.get()), Ingredient.of(GDModTags.Items.NORMAL_KNIVES), GDModBlocks.GOLDEN_FUNGUS.get(), 5).build(consumer);
+        GoldenCuttingBoardRecipeBuilder.goldenCuttingRecipe(Ingredient.of(GDModItems.GOLDEN_RICE_PANICLE.get()), Ingredient.of(GDModTags.Items.NORMAL_KNIVES), GDModItems.GOLDEN_RICE.get())
+                .addResult(ModItems.STRAW.get()).build(consumer);
+        GoldenCuttingBoardRecipeBuilder.goldenCuttingRecipe(Ingredient.of(GDModItems.GOLDEN_CABBAGE.get()), Ingredient.of(ForgeTags.TOOLS_KNIVES), GDModItems.GOLDEN_CABBAGE_LEAF.get(), 2).build(consumer);
+    }
+
+    private void registerMidasCutting(Consumer<FinishedRecipe> consumer) {
+        midasCutting(consumer, Ingredient.of(GDModItems.GOLDEN_BEEF.get()), GDModItems.MINCED_GOLDEN_BEEF.get(), 3);
+        midasCutting(consumer, Ingredient.of(GDModItems.GOLDEN_PORKCHOP.get()), GDModItems.GOLDEN_BACON.get(), 3);
+        midasCuttingWithSub(consumer, Ingredient.of(GDModItems.GOLDEN_CHICKEN.get()), GDModItems.GOLDEN_CHICKEN_CUTS.get(), 3, GDModItems.GOLDEN_MEAL.get());
+        midasCuttingWithSub(consumer, Ingredient.of(ItemRegistry.COOKED_GOLDEN_CHICKEN.get()), GDModItems.COOKED_GOLDEN_CHICKEN_CUTS.get(), 3, GDModItems.GOLDEN_MEAL.get());
+        midasCuttingWithSub(consumer, Ingredient.of(GDModItems.GOLDEN_COD.get()), GDModItems.GOLDEN_COD_SLICE.get(), 3, GDModItems.GOLDEN_MEAL.get());
+        midasCuttingWithSub(consumer, Ingredient.of(ItemRegistry.COOKED_GOLDEN_COD.get()), GDModItems.COOKED_GOLDEN_COD_SLICE.get(), 3, GDModItems.GOLDEN_MEAL.get());
+        midasCuttingWithSub(consumer, Ingredient.of(GDModItems.GOLDEN_SALMON.get()), GDModItems.GOLDEN_SALMON_SLICE.get(), 3, GDModItems.GOLDEN_MEAL.get());
+        midasCuttingWithSub(consumer, Ingredient.of(ItemRegistry.COOKED_GOLDEN_SALMON.get()), GDModItems.COOKED_GOLDEN_SALMON_SLICE.get(), 3, GDModItems.GOLDEN_MEAL.get());
+        midasCuttingWithSub(consumer, Ingredient.of(GDModItems.GOLDEN_HAM.get()), GDModItems.GOLDEN_PORKCHOP.get(), 3, GDModItems.GOLDEN_BONE.get());
+        midasCuttingWithSub(consumer, Ingredient.of(GDModItems.SMOKED_GOLDEN_HAM.get()), ItemRegistry.COOKED_GOLDEN_PORKCHOP.get(), 3, GDModItems.GOLDEN_BONE.get());
+        midasCutting(consumer, Ingredient.of(GDModItems.GOLDEN_MUTTON.get()), GDModItems.GOLDEN_MUTTON_CHOPS.get(), 3);
+        midasCutting(consumer, Ingredient.of(ItemRegistry.COOKED_GOLDEN_MUTTON.get()), GDModItems.COOKED_GOLDEN_MUTTON_CHOPS.get(), 3);
+        midasCutting(consumer, Ingredient.of(GDModItems.GOLDEN_WHEAT_DOUGH.get()), GDModItems.RAW_GOLDEN_PASTA.get(), 2);
+        midasCutting(consumer, Ingredient.of(GDModItems.GOLDEN_KELP_ROLL.get()), GDModItems.GOLDEN_KELP_ROLL_SLICE.get(), 5);
+        midasCutting(consumer, Ingredient.of(GDModItems.GOLDEN_MUSHROOM_COLONY.get()), GDModBlocks.GOLDEN_MUSHROOM.get(), 8);
+        midasCutting(consumer, Ingredient.of(GDModItems.GOLDEN_FUNGUS_COLONY.get()), GDModBlocks.GOLDEN_FUNGUS.get(), 8);
+        midasCuttingWithSub(consumer, Ingredient.of(GDModItems.GOLDEN_RICE_PANICLE.get()), GDModItems.GOLDEN_RICE.get(), 2, ModItems.STRAW.get());
     }
 
     private void registerFoodCrafting(Consumer<FinishedRecipe> consumer) {

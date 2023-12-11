@@ -32,6 +32,7 @@
   "block.goldelight.golden_cocoa": "金のカカオ",
   "block.goldelight.golden_compost": "黄金コンポスト",
   "block.goldelight.golden_cooking_pot": "金の鍋",
+  "block.goldelight.golden_cutting_board": "金のまな板",
   "block.goldelight.golden_door": "艶めくドア",
   "block.goldelight.golden_fence": "艶めくフェンス",
   "block.goldelight.golden_fence_gate": "艶めくフェンスゲート",
@@ -166,6 +167,7 @@
   "goldelight.jei.goldecomposition.fluid": "水に隣接していると加速する",
   "goldelight.jei.goldecomposition.light": "日光が当たっていると加速する",
   "goldelight.jei.golden_cooking": "金の料理",
+  "goldelight.jei.golden_cutting": "金のまな板",
   "goldelight.jei.info.midas_knife": "このナイフで倒したエンティティが時々金のアイテムをドロップするようになります。",
   "goldelight.subtitles.entity.convert_to_gold": "金に変化する",
   "goldelight.tooltip.golden_cooking_pot.empty": "空",
@@ -304,5 +306,6 @@
   "item.goldelight.sweet_golden_berry_cheesecake_slice": "切り分けた金のスイートベリーチーズケーキ",
   "item.goldelight.sweet_golden_berry_cookie": "金のスイートベリークッキー",
   "itemgroup.goldelight": "GolDelight",
+  "trim_material.goldelight.ancient_gold": "古代の金製装飾",
   "upgrade.goldelight.ancient_gold_upgrade": "古代の金強化"
 }

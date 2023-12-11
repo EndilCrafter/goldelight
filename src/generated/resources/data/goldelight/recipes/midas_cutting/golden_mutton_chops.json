@@ -1,0 +1,17 @@
+{
+  "type": "goldelight:golden_cutting",
+  "ingredients": [
+    {
+      "item": "goldelight:golden_mutton"
+    }
+  ],
+  "result": [
+    {
+      "count": 3,
+      "item": "goldelight:golden_mutton_chops"
+    }
+  ],
+  "tool": {
+    "item": "goldelight:midas_knife"
+  }
+}

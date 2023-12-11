@@ -1,0 +1,9 @@
+{
+  "remove": [
+    "goldelight:midas_knife"
+  ],
+  "values": [
+    "#forge:tools/knives",
+    "#farmersdelight:tools/knives"
+  ]
+}

@@ -1,4 +1,4 @@
-// 1.20.1	2023-12-10T08:09:07.0283634	Tags for minecraft:block mod id goldelight
+// 1.20.1	2023-12-11T06:38:09.9067442	Tags for minecraft:block mod id goldelight
 8584df75c3a4c3e2a02ad01dd437b5103a2252c8 data/farmersdelight/tags/blocks/compost_activators.json
 6936447d91f80b0f61e639d59cfcc94f5c7a50d1 data/farmersdelight/tags/blocks/heat_sources.json
 0f30f62c6c8689d15db405cf5b98b0277c6af698 data/farmersdelight/tags/blocks/mushroom_colony_growable_on.json
@@ -28,7 +28,7 @@ a78a0119dce752a30a04e9013be1eda89982740c data/minecraft/tags/blocks/fences.json
 eac0f3d692dac9bdbe8c3d529a1eb06e42123723 data/minecraft/tags/blocks/logs.json
 afaf82ab2c359027eb5c6438f7245312325ff474 data/minecraft/tags/blocks/mineable/axe.json
 c87b0a649b2863f79a97f06ca791caa3ab9490e6 data/minecraft/tags/blocks/mineable/hoe.json
-8b0d7ad3799bfa45fc1ed224cc286579b2aeacf8 data/minecraft/tags/blocks/mineable/pickaxe.json
+4ae3d06fbd2c6d006358a39f1e5b6de575548bcf data/minecraft/tags/blocks/mineable/pickaxe.json
 e4e88170dc2032a2583b84f855cf2de9f970da23 data/minecraft/tags/blocks/mineable/shovel.json
 944cc927d07f67d38d872222026b891d390854f3 data/minecraft/tags/blocks/mushroom_grow_block.json
 649371f218e689fb8f0745dbbaf1c9d8fcd519e8 data/minecraft/tags/blocks/planks.json

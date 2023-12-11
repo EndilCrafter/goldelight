@@ -2,6 +2,7 @@ package net.endil.goldelight.common.registry;
 
 import net.endil.goldelight.GolDelight;
 import net.endil.goldelight.common.recipe.GoldenCookingPotRecipe;
+import net.endil.goldelight.common.recipe.GoldenCuttingBoardRecipe;
 import net.endil.goldelight.common.recipe.GoldenFoodServingRecipe;
 import net.endil.goldelight.common.recipe.MidasTouchingRecipe;
 import net.minecraft.world.item.crafting.RecipeSerializer;
@@ -20,6 +21,9 @@ public class GDModRecipeSerializers {
 
     public static final RegistryObject<RecipeSerializer<?>> GOLDEN_COOKING_SERIALIZER =
             RECIPE_SERIALIZERS.register("golden_cooking", GoldenCookingPotRecipe.Serializer::new);
+
+    public static final RegistryObject<RecipeSerializer<?>> GOLDEN_CUTTING_SERIALIZER =
+            RECIPE_SERIALIZERS.register("golden_cutting", GoldenCuttingBoardRecipe.Serializer::new);
 
     public static final RegistryObject<SimpleCraftingRecipeSerializer<?>> GOLDEN_FOOD_SERVING =
             RECIPE_SERIALIZERS.register("golden_food_serving", () -> new SimpleCraftingRecipeSerializer<>(GoldenFoodServingRecipe::new));

@@ -1,0 +1,17 @@
+{
+  "type": "goldelight:golden_cutting",
+  "ingredients": [
+    {
+      "item": "goldelight:golden_porkchop"
+    }
+  ],
+  "result": [
+    {
+      "count": 2,
+      "item": "goldelight:golden_bacon"
+    }
+  ],
+  "tool": {
+    "tag": "goldelight:normal_knives"
+  }
+}

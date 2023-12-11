@@ -194,6 +194,7 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(GDModBlocks.GOLDEN_COMPOST.get());
         this.dropSelf(GDModBlocks.GOLDEN_SOIL.get());
         this.dropOther(GDModBlocks.GOLDEN_SOIL_FARMLAND.get(), GDModBlocks.GOLDEN_SOIL.get());
+        this.dropSelf(GDModBlocks.GOLDEN_CUTTING_BOARD.get());
 
         this.add(GDModBlocks.GOLDEN_CABBAGE_CROP.get(),
                 block -> createCropDrops(GDModBlocks.GOLDEN_CABBAGE_CROP.get(), GDModItems.GOLDEN_CABBAGE.get(), GDModItems.GOLDEN_CABBAGE_SEEDS.get(), goldenCabbage));

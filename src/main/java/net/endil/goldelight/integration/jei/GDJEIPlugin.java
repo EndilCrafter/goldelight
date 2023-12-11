@@ -29,6 +29,7 @@ public class GDJEIPlugin implements IModPlugin {
     @Override
     public void registerCategories(IRecipeCategoryRegistration registry) {
         registry.addRecipeCategories(new GoldenCookingRecipeCategory(registry.getJeiHelpers().getGuiHelper()));
+        registry.addRecipeCategories(new GoldenCuttingRecipeCategory(registry.getJeiHelpers().getGuiHelper()));
         registry.addRecipeCategories(new GolDecompositionRecipeCategory(registry.getJeiHelpers().getGuiHelper()));
     }
 
@@ -36,6 +37,7 @@ public class GDJEIPlugin implements IModPlugin {
     public void registerRecipes(IRecipeRegistration registration) {
         GDRecipes modRecipes = new GDRecipes();
         registration.addRecipes(GDRecipeTypes.GOLDEN_COOKING, modRecipes.getGoldenCookingPotRecipes());
+        registration.addRecipes(GDRecipeTypes.GOLDEN_CUTTING, modRecipes.getGoldenCuttingBoardRecipes());
         registration.addRecipes(GDRecipeTypes.GOLDECOMPOSITION, ImmutableList.of(new GolDecompositionDummy()));
         registration.addIngredientInfo(new ItemStack(GDModItems.MIDAS_KNIFE.get()), VanillaTypes.ITEM_STACK, GDTextUtils.getTranslation("jei.info.midas_knife"));
     }
@@ -43,6 +45,7 @@ public class GDJEIPlugin implements IModPlugin {
     @Override
     public void registerRecipeCatalysts(IRecipeCatalystRegistration registration) {
         registration.addRecipeCatalyst(new ItemStack(GDModItems.GOLDEN_COOKING_POT.get()), GDRecipeTypes.GOLDEN_COOKING);
+        registration.addRecipeCatalyst(new ItemStack(GDModBlocks.GOLDEN_CUTTING_BOARD.get()), GDRecipeTypes.GOLDEN_CUTTING);
         registration.addRecipeCatalyst(new ItemStack(GDModBlocks.NETHER_BRICK_STOVE.get()), RecipeTypes.CAMPFIRE_COOKING);
         registration.addRecipeCatalyst(new ItemStack(GDModBlocks.GOLDEN_COMPOST.get()), GDRecipeTypes.GOLDECOMPOSITION);
     }

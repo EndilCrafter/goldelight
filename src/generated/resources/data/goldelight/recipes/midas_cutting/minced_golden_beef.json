@@ -1,0 +1,17 @@
+{
+  "type": "goldelight:golden_cutting",
+  "ingredients": [
+    {
+      "item": "goldelight:golden_beef"
+    }
+  ],
+  "result": [
+    {
+      "count": 3,
+      "item": "goldelight:minced_golden_beef"
+    }
+  ],
+  "tool": {
+    "item": "goldelight:midas_knife"
+  }
+}

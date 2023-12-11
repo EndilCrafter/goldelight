@@ -1,0 +1,19 @@
+{
+  "type": "goldelight:golden_cutting",
+  "ingredients": [
+    {
+      "item": "goldelight:golden_rice_panicle"
+    }
+  ],
+  "result": [
+    {
+      "item": "goldelight:golden_rice"
+    },
+    {
+      "item": "farmersdelight:straw"
+    }
+  ],
+  "tool": {
+    "tag": "goldelight:normal_knives"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "type": "goldelight:golden_cutting",
+  "ingredients": [
+    {
+      "item": "goldelight:golden_ham"
+    }
+  ],
+  "result": [
+    {
+      "count": 3,
+      "item": "goldelight:golden_porkchop"
+    },
+    {
+      "item": "goldelight:golden_bone"
+    }
+  ],
+  "tool": {
+    "item": "goldelight:midas_knife"
+  }
+}

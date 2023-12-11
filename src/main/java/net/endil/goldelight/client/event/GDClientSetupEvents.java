@@ -4,6 +4,7 @@ import net.endil.goldelight.GolDelight;
 import net.endil.goldelight.client.entity.*;
 import net.endil.goldelight.client.particle.GoldenGlintParticle;
 import net.endil.goldelight.client.recipebook.GDModRecipeCategories;
+import net.endil.goldelight.common.block.entity.renderer.GoldenCuttingBoardRenderer;
 import net.endil.goldelight.common.block.entity.renderer.NetherBrickStoveRenderer;
 import net.endil.goldelight.common.registry.GDModBlockEntityTypes;
 import net.endil.goldelight.common.registry.GDModEntityTypes;
@@ -39,6 +40,7 @@ public class GDClientSetupEvents {
         event.registerBlockEntityRenderer(GDModBlockEntityTypes.MOD_SIGN.get(), SignRenderer::new);
         event.registerBlockEntityRenderer(GDModBlockEntityTypes.MOD_HANGING_SIGN.get(), HangingSignRenderer::new);
         event.registerBlockEntityRenderer(GDModBlockEntityTypes.NETHER_BRICK_STOVE.get(), NetherBrickStoveRenderer::new);
+        event.registerBlockEntityRenderer(GDModBlockEntityTypes.GOLDEN_CUTTING_BOARD.get(), GoldenCuttingBoardRenderer::new);
     }
 
     @SubscribeEvent

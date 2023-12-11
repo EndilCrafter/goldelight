@@ -1,0 +1,17 @@
+{
+  "type": "goldelight:golden_cutting",
+  "ingredients": [
+    {
+      "item": "goldelight:golden_fungus_colony"
+    }
+  ],
+  "result": [
+    {
+      "count": 5,
+      "item": "goldelight:golden_fungus"
+    }
+  ],
+  "tool": {
+    "tag": "goldelight:normal_knives"
+  }
+}

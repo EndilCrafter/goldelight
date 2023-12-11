@@ -1,0 +1,20 @@
+{
+  "type": "goldelight:golden_cutting",
+  "ingredients": [
+    {
+      "item": "midashunger:cooked_golden_cod"
+    }
+  ],
+  "result": [
+    {
+      "count": 3,
+      "item": "goldelight:cooked_golden_cod_slice"
+    },
+    {
+      "item": "goldelight:golden_meal"
+    }
+  ],
+  "tool": {
+    "item": "goldelight:midas_knife"
+  }
+}

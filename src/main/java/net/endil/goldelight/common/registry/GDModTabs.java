@@ -223,6 +223,7 @@ public class GDModTabs {
                         pOutput.accept(GDModBlocks.GOLDEN_SOIL.get());
                         pOutput.accept(GDModBlocks.GOLDEN_SOIL_FARMLAND.get());
                         pOutput.accept(GDModBlocks.GOLDEN_COMPOST.get());
+                        pOutput.accept(GDModBlocks.GOLDEN_CUTTING_BOARD.get());
 
 
                         //MidasHunger

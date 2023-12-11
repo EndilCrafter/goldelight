@@ -49,7 +49,7 @@ public class GDModTags {
 
     public static class Items {
         //Original
-        public static final TagKey<Item> MIDAS_TOUCHABLE = tag("midas_touchable");
+        public static final TagKey<Item> NORMAL_KNIVES = tag("normal_knives");
 
         //Minecraft
         public static final TagKey<Item> GOLDEN_FISHES = tag("golden_fishes");

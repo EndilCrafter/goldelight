@@ -1,0 +1,20 @@
+{
+  "type": "goldelight:golden_cutting",
+  "ingredients": [
+    {
+      "item": "goldelight:golden_chicken"
+    }
+  ],
+  "result": [
+    {
+      "count": 3,
+      "item": "goldelight:golden_chicken_cuts"
+    },
+    {
+      "item": "goldelight:golden_meal"
+    }
+  ],
+  "tool": {
+    "item": "goldelight:midas_knife"
+  }
+}

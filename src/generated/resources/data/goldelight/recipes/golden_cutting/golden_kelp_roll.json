@@ -1,0 +1,17 @@
+{
+  "type": "goldelight:golden_cutting",
+  "ingredients": [
+    {
+      "item": "goldelight:golden_kelp_roll"
+    }
+  ],
+  "result": [
+    {
+      "count": 3,
+      "item": "goldelight:golden_kelp_roll_slice"
+    }
+  ],
+  "tool": {
+    "tag": "goldelight:normal_knives"
+  }
+}

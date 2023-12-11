@@ -67,6 +67,7 @@ public class ModItemTags extends ItemTagsProvider {
                 .addTag(GDModTags.Items.RAW_GOLDEN_PORK).addTag(GDModTags.Items.RAW_GOLDEN_FISHES).addTag(GDModTags.Items.RAW_GOLDEN_CHICKEN)
                 .addTag(GDModTags.Items.RAW_GOLDEN_BEEF).addTag(GDModTags.Items.RAW_GOLDEN_MUTTON).addTag(GDModTags.Items.GOLDEN_EGGS).addTag(GDModTags.Items.GOLDEN_MUSHROOMS)
                 .add(Items.GOLDEN_CARROT, GDModItems.GOLDEN_POTATO.get(), ItemRegistry.GOLDEN_BEETROOT.get());
+        this.tag(GDModTags.Items.NORMAL_KNIVES).addTag(ForgeTags.TOOLS_KNIVES).addTag(ModTags.KNIVES).remove(GDModItems.MIDAS_KNIFE.get());
         //Forge by Farmer's Delight
         this.tag(GDModTags.Items.GOLDEN_BERRIES).add(ItemRegistry.SWEET_GOLDEN_BERRIES.get(), GDModItems.GOLDEN_GLOW_BERRIES.get());
         this.tag(GDModTags.Items.GOLDEN_BREAD).addTag(GDModTags.Items.GOLDEN_BREAD_WHEAT);
@@ -120,6 +121,7 @@ public class ModItemTags extends ItemTagsProvider {
     }
 
     private void registerMinecraftTags() {
+        this.tag(ItemTags.TRIM_MATERIALS).add(GDModItems.ANCIENT_GOLD_INGOT.get());
         this.tag(ItemTags.PIGLIN_LOVED)
                 .addTag(GDModTags.Items.GOLDEN_CROPS);
         this.tag(ItemTags.PIGLIN_FOOD)

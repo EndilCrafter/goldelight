@@ -1,4 +1,4 @@
-// 1.20.1	2023-12-08T11:55:36.298534	Block States: goldelight
+// 1.20.1	2023-12-11T06:38:09.915286	Block States: goldelight
 f4709d3ca3cabceca8b64257afe63a90489bc2ea assets/goldelight/blockstates/ancient_gold_block.json
 75b8aa1b36746e1e3c260d1da0136dbe5c003dd0 assets/goldelight/blockstates/budding_golden_tomatoes.json
 8a38a9a75c1b464bab24d417233cfda834599a69 assets/goldelight/blockstates/chiseled_golden_nether_bricks.json
@@ -13,6 +13,7 @@ c3b887db2b3b0e6efa5f319bf8e112188694abe3 assets/goldelight/blockstates/golden_ca
 7710054993a647293352eacf9c0b9d94ae16cd58 assets/goldelight/blockstates/golden_carrot_crate.json
 d971d33c23245268861e8a3b470a7e6b83eabc1f assets/goldelight/blockstates/golden_carved_pumpkin.json
 dd057ee8ee69a23f51e10b3dced5e9430e9bb93d assets/goldelight/blockstates/golden_chocolate_pie.json
+82a9affc80a386833994ef872a97ee70fdef5a74 assets/goldelight/blockstates/golden_cutting_board.json
 bd98db5d4e360785305bc61295a0b4ecf3cac614 assets/goldelight/blockstates/golden_door.json
 94d7d83363f67018f84160eca2e0da3b29fecf04 assets/goldelight/blockstates/golden_fence.json
 09acc05fb81a14c66eaec65cb49a61ab54900c10 assets/goldelight/blockstates/golden_fence_gate.json

@@ -32,6 +32,7 @@
   "block.goldelight.golden_cocoa": "Golden Cocoa",
   "block.goldelight.golden_compost": "Golden Compost",
   "block.goldelight.golden_cooking_pot": "Golden Cooking Pot",
+  "block.goldelight.golden_cutting_board": "Golden Cutting Board",
   "block.goldelight.golden_door": "Golden Door",
   "block.goldelight.golden_fence": "Golden Fence",
   "block.goldelight.golden_fence_gate": "Golden Fence Gate",
@@ -166,6 +167,7 @@
   "goldelight.jei.goldecomposition.fluid": "Sped up by adjacent water",
   "goldelight.jei.goldecomposition.light": "Sped up by sunlight",
   "goldelight.jei.golden_cooking": "Golden Cooking",
+  "goldelight.jei.golden_cutting": "Golden Cutting Board",
   "goldelight.jei.info.midas_knife": "Entities killed by this knife sometimes drop golden items instead of normal one.",
   "goldelight.subtitles.entity.convert_to_gold": "Converts to Gold",
   "goldelight.tooltip.golden_cooking_pot.empty": "Empty",
@@ -304,5 +306,6 @@
   "item.goldelight.sweet_golden_berry_cheesecake_slice": "Sweet Golden Berry Cheesecake Slice",
   "item.goldelight.sweet_golden_berry_cookie": "Sweet Golden Berry Cookie",
   "itemgroup.goldelight": "GolDelight",
+  "trim_material.goldelight.ancient_gold": "Ancient Gold Material",
   "upgrade.goldelight.ancient_gold_upgrade": "Ancient Gold Upgrade"
 }

@@ -131,8 +131,11 @@ public class GDModBlocks {
     public static final RegistryObject<Block> POTTED_GOLDEN_CACTUS;
     public static final RegistryObject<Block> POTTED_GOLDEN_MUSHROOM;
     public static final RegistryObject<Block> POTTED_GOLDEN_FUNGUS;
+    public static final RegistryObject<Block> GOLDEN_CUTTING_BOARD;
 
     static {
+        GOLDEN_CUTTING_BOARD = registerBlock("golden_cutting_board",
+                () -> new GoldenCuttingBoardBlock(BlockBehaviour.Properties.copy(Blocks.GOLD_BLOCK).strength(2.0f)));
         POTTED_GOLDEN_CACTUS = BLOCKS.register("potted_golden_cactus",
                 () -> new FlowerPotBlock(() -> ((FlowerPotBlock) Blocks.FLOWER_POT), GDModBlocks.GOLDEN_CACTUS,
                         BlockBehaviour.Properties.copy(Blocks.POTTED_CACTUS)));

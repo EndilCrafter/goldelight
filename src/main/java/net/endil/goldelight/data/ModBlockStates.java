@@ -156,6 +156,9 @@ public class ModBlockStates extends BlockStateProvider {
                 .texture("side", resourceBlock(blockName(GDModBlocks.GOLDEN_RICE_BALE.get()) + "_side"))
                 .texture("bottom", resourceBlock(blockName(GDModBlocks.GOLDEN_RICE_BALE.get()) + "_bottom")));
 
+        this.customHorizontalBlock(GDModBlocks.GOLDEN_CUTTING_BOARD.get(),
+                $ -> existingModel(GDModBlocks.GOLDEN_CUTTING_BOARD.get()), BasketBlock.WATERLOGGED);
+
 
         this.stageBlock(GDModBlocks.GOLDEN_MUSHROOM_COLONY.get(), MushroomColonyBlock.COLONY_AGE);
         this.stageBlock(GDModBlocks.GOLDEN_FUNGUS_COLONY.get(), MushroomColonyBlock.COLONY_AGE);
@@ -318,5 +321,13 @@ public class ModBlockStates extends BlockStateProvider {
                     resourceBlock(woodType + "_cabinet_front" + suffix),
                     resourceBlock(woodType + "_cabinet_top"));
         });
+    }
+
+    public void customHorizontalBlock(Block block, Function<BlockState, ModelFile> modelFunc, Property<?>... ignored) {
+        getVariantBuilder(block)
+                .forAllStatesExcept(state -> ConfiguredModel.builder()
+                        .modelFile(modelFunc.apply(state))
+                        .rotationY(((int) state.getValue(BlockStateProperties.HORIZONTAL_FACING).toYRot() + 180) % 360)
+                        .build(), ignored);
     }
 }

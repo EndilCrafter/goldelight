@@ -1,0 +1,17 @@
+{
+  "type": "goldelight:golden_cutting",
+  "ingredients": [
+    {
+      "item": "goldelight:golden_wheat_dough"
+    }
+  ],
+  "result": [
+    {
+      "count": 2,
+      "item": "goldelight:raw_golden_pasta"
+    }
+  ],
+  "tool": {
+    "item": "goldelight:midas_knife"
+  }
+}

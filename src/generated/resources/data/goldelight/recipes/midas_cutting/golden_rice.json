@@ -1,0 +1,20 @@
+{
+  "type": "goldelight:golden_cutting",
+  "ingredients": [
+    {
+      "item": "goldelight:golden_rice_panicle"
+    }
+  ],
+  "result": [
+    {
+      "count": 2,
+      "item": "goldelight:golden_rice"
+    },
+    {
+      "item": "farmersdelight:straw"
+    }
+  ],
+  "tool": {
+    "item": "goldelight:midas_knife"
+  }
+}

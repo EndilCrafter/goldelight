@@ -1,0 +1,17 @@
+{
+  "type": "goldelight:golden_cutting",
+  "ingredients": [
+    {
+      "item": "goldelight:golden_cake"
+    }
+  ],
+  "result": [
+    {
+      "count": 7,
+      "item": "goldelight:golden_cake_slice"
+    }
+  ],
+  "tool": {
+    "tag": "forge:tools/knives"
+  }
+}

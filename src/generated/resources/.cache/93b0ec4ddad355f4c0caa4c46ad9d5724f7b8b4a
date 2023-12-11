@@ -1,4 +1,4 @@
-// 1.20.1	2023-12-10T08:09:07.0323659	Tags for minecraft:item mod id goldelight
+// 1.20.1	2023-12-11T09:07:09.1567313	Tags for minecraft:item mod id goldelight
 e1654010e1267ee9932a44b56fe3d70d05282e0f data/diet/tags/items/fruits.json
 0127eb845e986e02bfa20d20c47133979d9516f5 data/diet/tags/items/grains.json
 6494309212f7f0b7d71a07e375f8b750078e6451 data/diet/tags/items/proteins.json
@@ -114,6 +114,7 @@ cd5800ed49fc5b0c8ea29ea2ef55dc7b98f3808b data/goldelight/tags/items/golden_veget
 efc6d1d6181ab356fcd913a013a442829f419afd data/goldelight/tags/items/golden_vegetables/potato.json
 e1143866704ab1a6d3414e7e3f861eacb38bc086 data/goldelight/tags/items/golden_vegetables/tomato.json
 1a0c30c739d1cd3cff0cda0f02118ef78caf9794 data/goldelight/tags/items/golden_wolf_prey.json
+9ca2b28a71f0645f778538399922250728096d2e data/goldelight/tags/items/normal_knives.json
 3623115efef734048f63214f5725addcc3acebf5 data/goldelight/tags/items/raw_golden_bacon.json
 56454d53a3f7b69147da8658abcff956b05d2e71 data/goldelight/tags/items/raw_golden_beef.json
 cb4aaeaa9d8d2a540406f5ee7cff344368941e6a data/goldelight/tags/items/raw_golden_chicken.json
@@ -136,6 +137,7 @@ ec0702cb85b79448b6621e8410414d5628dd04c6 data/minecraft/tags/items/piglin_food.j
 30b7f5ff737c0f859f437debf8b5e94eeafb1580 data/minecraft/tags/items/signs.json
 e0c51f4bcfbcc7c55a2524afedac9167d3aee901 data/minecraft/tags/items/slabs.json
 abea3c2a7f42b569e1513cfd89a1767268678494 data/minecraft/tags/items/stairs.json
+a1cbf6c045af5d20021acae8fe2cafef1d9b69d2 data/minecraft/tags/items/trim_materials.json
 34afc4e3c01aeb3f4a2f40f754a368297dd44b21 data/minecraft/tags/items/walls.json
 780d7252be00a882c9463fd3cde1171a634d7984 data/minecraft/tags/items/wart_blocks.json
 477d76c2d9aad7d69fcd48d78accf927276a3119 data/minecraft/tags/items/wooden_buttons.json

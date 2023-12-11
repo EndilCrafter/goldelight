@@ -1,0 +1,17 @@
+{
+  "type": "goldelight:golden_cutting",
+  "ingredients": [
+    {
+      "item": "goldelight:golden_mushroom_colony"
+    }
+  ],
+  "result": [
+    {
+      "count": 8,
+      "item": "goldelight:golden_mushroom"
+    }
+  ],
+  "tool": {
+    "item": "goldelight:midas_knife"
+  }
+}

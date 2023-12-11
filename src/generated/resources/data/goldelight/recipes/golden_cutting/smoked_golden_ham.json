@@ -1,0 +1,20 @@
+{
+  "type": "goldelight:golden_cutting",
+  "ingredients": [
+    {
+      "item": "goldelight:smoked_golden_ham"
+    }
+  ],
+  "result": [
+    {
+      "count": 2,
+      "item": "midashunger:cooked_golden_porkchop"
+    },
+    {
+      "item": "goldelight:golden_bone"
+    }
+  ],
+  "tool": {
+    "tag": "goldelight:normal_knives"
+  }
+}

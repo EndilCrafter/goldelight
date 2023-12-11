@@ -58,7 +58,7 @@ public class ModBlockTags extends BlockTagsProvider {
                 .add(GDModBlocks.GOLDEN_NETHER_BRICKS.get(), GDModBlocks.CHISELED_GOLDEN_NETHER_BRICKS.get(), GDModBlocks.CRACKED_GOLDEN_NETHER_BRICKS.get(),
                         GDModBlocks.GOLDEN_NETHER_BRICK_SLAB.get(), GDModBlocks.GOLDEN_NETHER_BRICK_STAIRS.get(), GDModBlocks.GOLDEN_NETHER_BRICK_FENCE.get(),
                         GDModBlocks.GOLDEN_NETHER_BRICK_WALL.get(), GDModBlocks.GOLDEN_BONE_BLOCK.get(), GDModBlocks.NETHER_BRICK_STOVE.get(),
-                        GDModBlocks.GOLDEN_COOKING_POT.get(), GDModBlocks.ANCIENT_GOLD_BLOCK.get());
+                        GDModBlocks.GOLDEN_COOKING_POT.get(), GDModBlocks.ANCIENT_GOLD_BLOCK.get(), GDModBlocks.GOLDEN_CUTTING_BOARD.get());
 
         this.tag(BlockTags.MINEABLE_WITH_SHOVEL)
                 .add(GDModBlocks.GOLDEN_COMPOST.get(), GDModBlocks.GOLDEN_SOIL.get(), GDModBlocks.GOLDEN_SOIL_FARMLAND.get());
