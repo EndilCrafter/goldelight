@@ -1,0 +1,12 @@
+{
+  "asset_name": "ancient_gold",
+  "description": {
+    "translate": "trim_material.goldelight.ancient_gold",
+    "color": "#DBA213"
+  },
+  "ingredient": "goldelight:ancient_gold_ingot",
+  "item_model_index": 0.6,
+  "override_armor_materials": {
+    "gold": "ancient_gold_darker"
+  }
+}
