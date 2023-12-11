@@ -12,8 +12,8 @@
     "goldelight:straw_from_mature_golden_rice",
     "goldelight:straw_from_mature_golden_wheat",
     "goldelight:add_loot_desert_pyramid",
-    "goldelight:add_loot_ocean_ruin_cold",
-    "goldelight:add_loot_ocean_ruin_warm",
+    "goldelight:add_loot_buried_treasure",
+    "goldelight:add_loot_underwater_ruin_big",
     "goldelight:add_loot_piglin_bartering"
   ]
 }

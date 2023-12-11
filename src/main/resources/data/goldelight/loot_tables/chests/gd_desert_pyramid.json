@@ -5,15 +5,14 @@
       "entries": [
         {
           "type": "minecraft:empty",
-          "weight": 50
+          "weight": 85
         },
         {
           "type": "minecraft:item",
-          "weight": 3,
+          "weight": 15,
           "name": "goldelight:ancient_gold_upgrade_smithing_template"
         }
       ]
     }
-  ],
-  "random_sequence": "goldelight:archaeology/gd_desert_pyramid"
+  ]
 }

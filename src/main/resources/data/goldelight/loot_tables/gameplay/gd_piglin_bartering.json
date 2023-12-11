@@ -5,11 +5,11 @@
       "entries": [
         {
           "type": "minecraft:empty",
-          "weight": 50
+          "weight": 90
         },
         {
           "type": "minecraft:item",
-          "weight": 2,
+          "weight": 10,
           "name": "minecraft:enchanted_book",
           "functions": [
             {
@@ -22,6 +22,5 @@
         }
       ]
     }
-  ],
-  "random_sequence": "goldelight:gameplay/gd_piglin_bartering"
+  ]
 }
