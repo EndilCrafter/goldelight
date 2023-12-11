@@ -259,7 +259,10 @@ public class ModRecipes extends RecipeProvider implements IConditionBuilder {
         SimpleConversion(consumer, GDModItems.GOLDEN_RICE.get(), GDModItems.GOLDEN_RICE_PANICLE.get());
         CropToSeeds(consumer, GDModItems.GOLDEN_TOMATO_SEEDS.get(), GDModItems.GOLDEN_TOMATO.get());
         CropToSeeds(consumer, GDModItems.GOLDEN_TOMATO_SEEDS.get(), GDModItems.ROTTEN_GOLDEN_TOMATO.get());
-        Conversion(consumer, GDModItems.GOLDEN_HONEY_BOTTLE.get(), GDModItems.GOLDEN_SUGAR.get(), 3);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, GDModItems.GOLDEN_SUGAR.get(), 3)
+                        .requires(GDModItems.GOLDEN_HONEY_BOTTLE.get())
+                                .unlockedBy("has_golden_honey_bottle", InventoryChangeTrigger.TriggerInstance.hasItems(GDModItems.GOLDEN_HONEY_BOTTLE.get()))
+                                        .save(consumer, new ResourceLocation(GolDelight.MOD_ID, "golden_sugar_from_honey_bottle"));
 
         ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, GDModBlocks.GOLDEN_MUSHROOM.get())
                 .pattern("ggg").pattern("gmg").pattern("ggg")
