@@ -1,0 +1,36 @@
+{
+  "parent": "goldelight:main/give_golden_dog_food",
+  "criteria": {
+    "give_golden_horse_feed": {
+      "conditions": {
+        "item": {
+          "items": [
+            "goldelight:golden_horse_feed"
+          ]
+        }
+      },
+      "trigger": "minecraft:player_interacted_with_entity"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": {
+      "translate": "goldelight.advancement.give_golden_horse_feed.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "goldelight:golden_horse_feed"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "goldelight.advancement.give_golden_horse_feed"
+    }
+  },
+  "requirements": [
+    [
+      "give_golden_horse_feed"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -116,6 +116,10 @@ public class GDAdvancementGenerator implements ForgeAdvancementProvider.Advancem
                 .addCriterion("give_golden_dog_food", PlayerInteractTrigger.TriggerInstance.itemUsedOnEntity(ItemPredicate.Builder.item().of(GDModItems.GOLDEN_DOG_FOOD.get()), ContextAwarePredicate.ANY))
                 .save(consumer, getNameId("main/give_golden_dog_food"));
 
+        Advancement muchFasterThanSalamander = getAdvancement(mightyFriend, GDModItems.GOLDEN_HORSE_FEED.get(), "give_golden_horse_feed", FrameType.TASK, true, false, false)
+                .addCriterion("give_golden_horse_feed", PlayerInteractTrigger.TriggerInstance.itemUsedOnEntity(ItemPredicate.Builder.item().of(GDModItems.GOLDEN_HORSE_FEED.get()), ContextAwarePredicate.ANY))
+                .save(consumer, getNameId("main/give_golden_horse_feed"));
+
         //Midas
         Advancement cursedDebris = getAdvancement(goDelight, GDModItems.ANCIENT_GOLD_DUST.get(), "get_ancient_gold_dust", FrameType.TASK, true, false, false)
                 .addCriterion("ancient_gold_dust", InventoryChangeTrigger.TriggerInstance.hasItems(GDModItems.ANCIENT_GOLD_DUST.get()))
