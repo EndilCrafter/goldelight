@@ -143,6 +143,7 @@ dependencies {
     // compileOnly fg.deobf("mezz.jei:jei-${mc_version}-forge-api:${jei_version}")
     // runtimeOnly fg.deobf("mezz.jei:jei-${mc_version}-forge:${jei_version}")
     implementation fg.deobf("curse.maven:farmers-delight-398521:${farmersdelight_version}")
+    runtimeOnly(fg.deobf("curse.maven:nethers-delight-496394:4736227"))
 
     implementation fg.deobf("curse.maven:midas-hunger-436224:${midashunger_version}")
 
