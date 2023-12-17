@@ -306,7 +306,7 @@ public class GDModBlocks {
         GOLDEN_HAY_BLOCK = registerBlock("golden_hay_block",
                 () -> new GoldenHayBlock(BlockBehaviour.Properties.copy(Blocks.HAY_BLOCK).mapColor(MapColor.COLOR_YELLOW)));
         GOLDEN_COCOA = BLOCKS.register("golden_cocoa",
-                () -> new CocoaBlock(BlockBehaviour.Properties.copy(Blocks.COCOA).mapColor(MapColor.COLOR_YELLOW)));
+                () -> new GoldenCocoaBlock(BlockBehaviour.Properties.copy(Blocks.COCOA).mapColor(MapColor.COLOR_YELLOW)));
         GOLDEN_CHORUS_FLOWER = registerBlock("golden_chorus_flower",
                 () -> new GoldenChorusFlowerBlock((GoldenChorusPlantBlock) GDModBlocks.GOLDEN_CHORUS_PLANT.get(), BlockBehaviour.Properties.copy(Blocks.CHORUS_FLOWER).mapColor(MapColor.COLOR_YELLOW)));
         GOLDEN_CAVE_VINES_PLANT = BLOCKS.register("golden_cave_vines_plant",
