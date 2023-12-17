@@ -253,7 +253,7 @@ public class GDModBlocks {
                 () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.STRIPPED_CRIMSON_STEM).mapColor(MapColor.GOLD)));
         GOLDEN_HYPHAE = registerBlock("golden_hyphae",
                 () -> new GoldenStemBlock(BlockBehaviour.Properties.copy(Blocks.CRIMSON_HYPHAE).mapColor(MapColor.GOLD)));
-        GOLDEN_STEM = registerBlock("golden_stem.json",
+        GOLDEN_STEM = registerBlock("golden_stem",
                 () -> new GoldenStemBlock(BlockBehaviour.Properties.copy(Blocks.CRIMSON_STEM).mapColor(MapColor.GOLD)));
         GROOMLIGHT = registerBlock("groomlight",
                 () -> new Block(BlockBehaviour.Properties.copy(Blocks.SHROOMLIGHT).mapColor(MapColor.GOLD)));
