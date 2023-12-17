@@ -1,0 +1,37 @@
+{
+  "bookshelf:load_conditions": [
+    {
+      "type": "bookshelf:item_exists",
+      "values": [
+        "goldelight:golden_melon_seeds",
+        "goldelight:golden_melon"
+      ]
+    }
+  ],
+  "type": "botanypots:crop",
+  "seed": {
+    "item": "goldelight:golden_melon_seeds"
+  },
+  "categories": [
+    "dirt",
+    "farmland"
+  ],
+  "growthTicks": 1200,
+  "display": {
+    "block": "goldelight:golden_melon"
+  },
+  "drops": [
+    {
+      "chance": 1.00,
+      "output": {
+        "item": "goldelight:golden_melon"
+      }
+    },
+    {
+      "chance": 0.05,
+      "output": {
+        "item": "goldelight:golden_melon_seeds"
+      }
+    }
+  ]
+}

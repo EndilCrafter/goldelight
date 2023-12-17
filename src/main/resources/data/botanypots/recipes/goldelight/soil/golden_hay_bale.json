@@ -1,0 +1,13 @@
+{
+  "type": "botanypots:soil",
+  "input": {
+    "item": "goldelight:golden_hay_block"
+  },
+  "display": {
+    "block": "goldelight:golden_hay_block"
+  },
+  "categories": [
+    "mulch"
+  ],
+  "growthModifier": 1.05
+}

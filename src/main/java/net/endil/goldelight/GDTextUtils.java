@@ -21,17 +21,9 @@ import java.util.Map;
 
 public class GDTextUtils {
     private static final MutableComponent NO_EFFECTS = Component.translatable("effect.none").withStyle(ChatFormatting.GRAY);
-
-    /**
-     * Syntactic sugar for custom translation keys. Always prefixed with the mod's ID in lang files (e.g. farmersdelight.your.key.here).
-     */
     public static MutableComponent getTranslation(String key, Object... args) {
         return Component.translatable(GolDelight.MOD_ID + "." + key, args);
     }
-
-    /**
-     * An alternate version of PotionUtils.addPotionTooltip, that obtains the item's food-property potion effects instead.
-     */
     @OnlyIn(Dist.CLIENT)
     public static void addFoodEffectTooltip(ItemStack itemIn, List<Component> lores, float durationFactor) {
         FoodProperties foodStats = itemIn.getItem().getFoodProperties();

@@ -1,0 +1,32 @@
+{
+  "bookshelf:load_conditions": [
+    {
+      "type": "bookshelf:item_exists",
+      "values": [
+        "midashunger:golden_kelp"
+      ]
+    }
+  ],
+  "type": "botanypots:crop",
+  "seed": {
+    "item": "midashunger:golden_kelp"
+  },
+  "categories": [
+    "water"
+  ],
+  "growthTicks": 1200,
+  "display": {
+    "block": "midashunger:golden_kelp",
+    "properties": {
+      "age": 25
+    }
+  },
+  "drops": [
+    {
+      "chance": 1.00,
+      "output": {
+        "item": "midashunger:golden_kelp"
+      }
+    }
+  ]
+}

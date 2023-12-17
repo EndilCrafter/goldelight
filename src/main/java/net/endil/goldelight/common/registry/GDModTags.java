@@ -42,6 +42,7 @@ public class GDModTags {
         private static TagKey<Block> tag(String name) {
             return BlockTags.create(new ResourceLocation(GolDelight.MOD_ID, name));
         }
+
         private static TagKey<Block> forgeTag(String path) {
             return BlockTags.create(new ResourceLocation("forge", path));
         }
@@ -127,6 +128,7 @@ public class GDModTags {
         private static TagKey<Item> tag(String name) {
             return ItemTags.create(new ResourceLocation(GolDelight.MOD_ID, name));
         }
+
         private static TagKey<Item> forgeTag(String path) {
             return ItemTags.create(new ResourceLocation("forge", path));
         }

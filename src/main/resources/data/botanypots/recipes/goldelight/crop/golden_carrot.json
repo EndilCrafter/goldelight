@@ -1,0 +1,33 @@
+{
+  "type": "botanypots:crop",
+  "seed": {
+    "item": "minecraft:golden_carrot"
+  },
+  "categories": [
+    "dirt",
+    "farmland"
+  ],
+  "growthTicks": 1200,
+  "display": {
+    "type": "botanypots:aging",
+    "block": "goldelight:golden_carrots"
+  },
+  "drops": [
+    {
+      "chance": 1.00,
+      "output": {
+        "item": "minecraft:golden_carrot"
+      },
+      "minRolls": 1,
+      "maxRolls": 2
+    },
+    {
+      "chance": 0.15,
+      "output": {
+        "item": "minecraft:golden_carrot"
+      },
+      "minRolls": 1,
+      "maxRolls": 2
+    }
+  ]
+}

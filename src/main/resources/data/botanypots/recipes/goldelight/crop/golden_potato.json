@@ -1,0 +1,41 @@
+{
+  "bookshelf:load_conditions": [
+    {
+      "type": "bookshelf:item_exists",
+      "values": [
+        "goldelight:golden_potato"
+      ]
+    }
+  ],
+  "type": "botanypots:crop",
+  "seed": {
+    "item": "goldelight:golden_potato"
+  },
+  "categories": [
+    "dirt",
+    "farmland"
+  ],
+  "growthTicks": 1200,
+  "display": {
+    "type": "botanypots:aging",
+    "block": "goldelight:golden_potatoes"
+  },
+  "drops": [
+    {
+      "chance": 1.00,
+      "output": {
+        "item": "goldelight:golden_potato"
+      },
+      "minRolls": 1,
+      "maxRolls": 2
+    },
+    {
+      "chance": 0.15,
+      "output": {
+        "item": "goldelight:golden_potato"
+      },
+      "minRolls": 1,
+      "maxRolls": 2
+    }
+  ]
+}

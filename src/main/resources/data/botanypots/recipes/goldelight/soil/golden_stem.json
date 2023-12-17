@@ -1,0 +1,22 @@
+{
+  "type": "botanypots:soil",
+  "input": [
+    {
+      "item": "goldelight:golden_stem"
+    },
+    {
+      "item": "goldelight:golden_hyphae"
+    }
+  ],
+  "display": {
+    "block": "goldelight:golden_hyphae"
+  },
+  "categories": [
+    "wood",
+    "log",
+    "mushroom",
+    "jungle",
+    "jungle_wood"
+  ],
+  "growthModifier": 1
+}

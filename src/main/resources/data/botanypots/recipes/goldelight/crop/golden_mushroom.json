@@ -1,0 +1,31 @@
+{
+  "bookshelf:load_conditions": [
+    {
+      "type": "bookshelf:item_exists",
+      "values": [
+        "goldelight:golden_mushroom"
+      ]
+    }
+  ],
+  "type": "botanypots:crop",
+  "seed": {
+    "item": "goldelight:golden_mushroom"
+  },
+  "categories": [
+    "stone",
+    "mushroom",
+    "mulch"
+  ],
+  "growthTicks": 1200,
+  "display": {
+    "block": "goldelight:golden_mushroom"
+  },
+  "drops": [
+    {
+      "chance": 1.00,
+      "output": {
+        "item": "goldelight:golden_mushroom"
+      }
+    }
+  ]
+}

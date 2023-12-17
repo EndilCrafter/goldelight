@@ -1,0 +1,13 @@
+{
+  "type": "botanypots:soil",
+  "input": {
+    "item": "goldelight:golden_bone_block"
+  },
+  "display": {
+    "block": "goldelight:golden_bone_block"
+  },
+  "categories": [
+    "bone"
+  ],
+  "growthModifier": 1
+}

@@ -1,0 +1,61 @@
+{
+  "bookshelf:load_conditions": [
+    {
+      "type": "bookshelf:item_exists",
+      "values": [
+        "goldelight:golden_glow_berries"
+      ]
+    }
+  ],
+  "type": "botanypots:crop",
+  "seed": {
+    "item": "goldelight:golden_glow_berries"
+  },
+  "categories": [
+    "dirt",
+    "stone"
+  ],
+  "growthTicks": 1200,
+  "lightLevel": 14,
+  "display": {
+    "type": "botanypots:transitional",
+    "phases": [
+      {
+        "block": "goldelight:golden_cave_vines",
+        "rotation": "X_180",
+        "properties": {
+          "age": 25
+        }
+      },
+      {
+        "block": "goldelight:golden_cave_vines",
+        "rotation": "X_180",
+        "properties": {
+          "age": 25
+        }
+      },
+      {
+        "block": "goldelight:golden_cave_vines",
+        "rotation": "X_180",
+        "properties": {
+          "age": 25,
+          "berries": true
+        }
+      }
+    ]
+  },
+  "drops": [
+    {
+      "chance": 1.00,
+      "output": {
+        "item": "goldelight:golden_glow_berries"
+      }
+    },
+    {
+      "chance": 0.05,
+      "output": {
+        "item": "goldelight:golden_glow_berries"
+      }
+    }
+  ]
+}

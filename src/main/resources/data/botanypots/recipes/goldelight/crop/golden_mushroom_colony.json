@@ -1,0 +1,40 @@
+{
+  "bookshelf:load_conditions": [
+    {
+      "type": "bookshelf:item_exists",
+      "values": [
+        "goldelight:golden_mushroom_colony"
+      ]
+    }
+  ],
+  "type": "botanypots:crop",
+  "seed": {
+    "item": "goldelight:golden_mushroom_colony"
+  },
+  "categories": [
+    "mushroom"
+  ],
+  "growthTicks": 1400,
+  "display": {
+    "type": "botanypots:aging",
+    "block": "goldelight:golden_mushroom_colony"
+  },
+  "drops": [
+    {
+      "chance": 1.00,
+      "output": {
+        "item": "goldelight:golden_mushroom"
+      },
+      "minRolls": 1,
+      "maxRolls": 3
+    },
+    {
+      "chance": 0.05,
+      "output": {
+        "item": "goldelight:golden_mushroom"
+      },
+      "minRolls": 1,
+      "maxRolls": 2
+    }
+  ]
+}

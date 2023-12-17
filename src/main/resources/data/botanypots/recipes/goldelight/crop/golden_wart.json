@@ -1,0 +1,32 @@
+{
+  "bookshelf:load_conditions": [
+    {
+      "type": "bookshelf:item_exists",
+      "values": [
+        "goldelight:golden_wart"
+      ]
+    }
+  ],
+  "type": "botanypots:crop",
+  "seed": {
+    "item": "goldelight:golden_wart"
+  },
+  "categories": [
+    "soul_sand"
+  ],
+  "growthTicks": 1200,
+  "display": {
+    "type": "botanypots:aging",
+    "block": "goldelight:golden_wart"
+  },
+  "drops": [
+    {
+      "chance": 1.00,
+      "output": {
+        "item": "goldelight:golden_wart"
+      },
+      "minRolls": 1,
+      "maxRolls": 2
+    }
+  ]
+}

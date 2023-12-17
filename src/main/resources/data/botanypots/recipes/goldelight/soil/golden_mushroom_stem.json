@@ -1,0 +1,13 @@
+{
+  "type": "botanypots:soil",
+  "input": {
+    "item": "goldelight:golden_mushroom_stem"
+  },
+  "display": {
+    "block": "goldelight:golden_mushroom_stem"
+  },
+  "categories": [
+    "mushroom"
+  ],
+  "growthModifier": 0.95
+}

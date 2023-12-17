@@ -1,0 +1,27 @@
+{
+  "bookshelf:load_conditions": [
+    {
+      "type": "bookshelf:item_exists",
+      "values": [
+        "goldelight:golden_soil",
+        "goldelight:golden_soil_farmland"
+      ]
+    }
+  ],
+  "type": "botanypots:pot_interaction",
+  "held_ingredient": {
+    "tag": "minecraft:hoes"
+  },
+  "soil_ingredient": [
+    {
+      "item": "goldelight:golden_soil"
+    }
+  ],
+  "soil_output": {
+    "item": "goldelight:golden_soil_farmland"
+  },
+  "sound": {
+    "sound": "minecraft:item.hoe.till",
+    "category": "blocks"
+  }
+}

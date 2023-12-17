@@ -1,0 +1,37 @@
+{
+  "bookshelf:load_conditions": [
+    {
+      "type": "bookshelf:item_exists",
+      "values": [
+        "goldelight:golden_pumpkin_seeds",
+        "goldelight:golden_pumpkin"
+      ]
+    }
+  ],
+  "type": "botanypots:crop",
+  "seed": {
+    "item": "goldelight:golden_pumpkin_seeds"
+  },
+  "categories": [
+    "dirt",
+    "farmland"
+  ],
+  "growthTicks": 1200,
+  "display": {
+    "block": "goldelight:golden_pumpkin"
+  },
+  "drops": [
+    {
+      "chance": 1.00,
+      "output": {
+        "item": "goldelight:golden_pumpkin"
+      }
+    },
+    {
+      "chance": 0.05,
+      "output": {
+        "item": "goldelight:golden_pumpkin_seeds"
+      }
+    }
+  ]
+}

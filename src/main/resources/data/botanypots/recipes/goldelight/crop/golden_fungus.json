@@ -1,0 +1,53 @@
+{
+  "bookshelf:load_conditions": [
+    {
+      "type": "bookshelf:item_exists",
+      "values": [
+        "goldelight:golden_fungus",
+        "goldelight:golden_stem",
+        "goldelight:golden_wart_block",
+        "goldelight:groomlight"
+      ]
+    }
+  ],
+  "type": "botanypots:crop",
+  "seed": {
+    "item": "goldelight:golden_fungus"
+  },
+  "categories": [
+    "stone",
+    "mushroom",
+    "mulch",
+    "crimson_nylium"
+  ],
+  "growthTicks": 1200,
+  "display": {
+    "block": "goldelight:golden_fungus"
+  },
+  "drops": [
+    {
+      "chance": 1.00,
+      "output": {
+        "item": "goldelight:golden_fungus"
+      }
+    },
+    {
+      "chance": 1.00,
+      "output": {
+        "item": "goldelight:golden_stem"
+      }
+    },
+    {
+      "chance": 0.25,
+      "output": {
+        "item": "goldelight:golden_wart_block"
+      }
+    },
+    {
+      "chance": 0.05,
+      "output": {
+        "item": "goldelight:groomlight"
+      }
+    }
+  ]
+}

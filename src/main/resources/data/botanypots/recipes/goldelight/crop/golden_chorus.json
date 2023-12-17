@@ -1,0 +1,53 @@
+{
+  "bookshelf:load_conditions": [
+    {
+      "type": "bookshelf:item_exists",
+      "values": [
+        "goldelight:golden_chorus_fruit",
+        "goldelight:golden_chorus_flower",
+        "goldelight:golden_chorus_plant"
+      ]
+    }
+  ],
+  "type": "botanypots:crop",
+  "seed": [
+    {
+      "item": "goldelight:golden_chorus_fruit"
+    },
+    {
+      "item": "goldelight:golden_chorus_flower"
+    }
+  ],
+  "categories": [
+    "end_stone"
+  ],
+  "growthTicks": 1200,
+  "display": {
+    "type": "botanypots:transitional",
+    "phases": [
+      {
+        "block": "goldelight:golden_chorus_plant"
+      },
+      {
+        "block": "goldelight:golden_chorus_plant"
+      },
+      {
+        "block": "goldelight:golden_chorus_flower"
+      }
+    ]
+  },
+  "drops": [
+    {
+      "chance": 1.00,
+      "output": {
+        "item": "goldelight:golden_chorus_fruit"
+      }
+    },
+    {
+      "chance": 0.05,
+      "output": {
+        "item": "goldelight:golden_chorus_flower"
+      }
+    }
+  ]
+}

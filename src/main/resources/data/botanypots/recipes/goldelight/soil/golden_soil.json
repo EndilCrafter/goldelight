@@ -1,0 +1,25 @@
+{
+  "bookshelf:load_conditions": [
+    {
+      "type": "bookshelf:item_exists",
+      "values": [
+        "goldelight:golden_soil"
+      ]
+    }
+  ],
+  "type": "botanypots:soil",
+  "input": {
+    "item": "goldelight:golden_soil"
+  },
+  "display": {
+    "block": "goldelight:golden_soil"
+  },
+  "categories": [
+    "dirt",
+    "grass",
+    "podzol",
+    "mushroom",
+    "soul_sand"
+  ],
+  "growthModifier": 1.25
+}

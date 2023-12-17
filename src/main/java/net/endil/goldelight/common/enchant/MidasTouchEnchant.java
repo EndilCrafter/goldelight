@@ -23,9 +23,11 @@ public class MidasTouchEnchant extends Enchantment {
     public boolean isTreasureOnly() {
         return true;
     }
+
     public boolean isTradeable() {
         return false;
     }
+
     public boolean isDiscoverable() {
         return false;
     }

@@ -1,0 +1,41 @@
+{
+  "bookshelf:load_conditions": [
+    {
+      "type": "bookshelf:item_exists",
+      "values": [
+        "goldelight:golden_rice",
+        "goldelight:golden_rice_panicle"
+      ]
+    }
+  ],
+  "type": "botanypots:crop",
+  "seed": {
+    "item": "goldelight:golden_rice"
+  },
+  "categories": [
+    "water"
+  ],
+  "growthTicks": 1200,
+  "display": {
+    "type": "botanypots:aging",
+    "block": "goldelight:golden_rice"
+  },
+  "drops": [
+    {
+      "chance": 1.00,
+      "output": {
+        "item": "goldelight:golden_rice_panicle"
+      },
+      "minRolls": 1,
+      "maxRolls": 1
+    },
+    {
+      "chance": 0.05,
+      "output": {
+        "item": "goldelight:golden_rice_panicle"
+      },
+      "minRolls": 1,
+      "maxRolls": 2
+    }
+  ]
+}

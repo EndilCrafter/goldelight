@@ -20,7 +20,7 @@ public class GoldenCuttingBoardRenderer implements BlockEntityRenderer<GoldenCut
     public void render(GoldenCuttingBoardBlockEntity goldenCuttingBoardBlockEntity, float partialTicks, PoseStack poseStack, MultiBufferSource buffer, int combinedLight, int combinedOverlay) {
         Direction direction = goldenCuttingBoardBlockEntity.getBlockState().getValue(CuttingBoardBlock.FACING).getOpposite();
         ItemStack boardStack = goldenCuttingBoardBlockEntity.getStoredItem();
-        int posLong = (int)goldenCuttingBoardBlockEntity.getBlockPos().asLong();
+        int posLong = (int) goldenCuttingBoardBlockEntity.getBlockPos().asLong();
         if (!boardStack.isEmpty()) {
             poseStack.pushPose();
             ItemRenderer itemRenderer = Minecraft.getInstance().getItemRenderer();

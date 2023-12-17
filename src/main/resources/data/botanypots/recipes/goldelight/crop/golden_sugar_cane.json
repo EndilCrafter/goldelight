@@ -1,0 +1,35 @@
+{
+  "bookshelf:load_conditions": [
+    {
+      "type": "bookshelf:item_exists",
+      "values": [
+        "goldelight:golden_sugar_cane"
+      ]
+    }
+  ],
+  "type": "botanypots:crop",
+  "seed": {
+    "item": "goldelight:golden_sugar_cane"
+  },
+  "categories": [
+    "sand",
+    "dirt"
+  ],
+  "growthTicks": 1200,
+  "display": [
+    {
+      "block": "goldelight:golden_sugar_cane"
+    },
+    {
+      "block": "goldelight:golden_sugar_cane"
+    }
+  ],
+  "drops": [
+    {
+      "chance": 1.00,
+      "output": {
+        "item": "goldelight:golden_sugar_cane"
+      }
+    }
+  ]
+}

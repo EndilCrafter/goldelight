@@ -1,0 +1,8 @@
+{
+  "type": "botanypots:fertilizer",
+  "ingredient": {
+    "item": "goldelight:golden_meal"
+  },
+  "min_growth": 600,
+  "max_growth": 825
+}
