@@ -1,43 +1,39 @@
 package net.endil.goldelight.common.recipe;
 
-import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import net.endil.goldelight.common.registry.GDModRecipeSerializers;
 import net.endil.goldelight.common.registry.GDModRecipeTypes;
-import net.minecraft.core.NonNullList;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
-import net.minecraft.world.SimpleContainer;
+import net.minecraft.world.Container;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
 
-public class MidasTouchingRecipe implements Recipe<SimpleContainer> {
-    private final NonNullList<Ingredient> inputItems;
-    private final ItemStack output;
-    private final ResourceLocation id;
+public class MidasTouchingRecipe implements Recipe<Container> {
+    protected final ResourceLocation id;
+    protected final Ingredient ingredient;
+    protected final ItemStack result;
 
-    public MidasTouchingRecipe(NonNullList<Ingredient> inputItems, ItemStack output, ResourceLocation id) {
-        this.inputItems = inputItems;
-        this.output = output;
+    public MidasTouchingRecipe(Ingredient ingredient, ItemStack result, ResourceLocation id) {
+        this.ingredient = ingredient;
+        this.result = result;
         this.id = id;
     }
 
 
     @Override
-    public boolean matches(SimpleContainer pContainer, Level pLevel) {
-        if (pLevel.isClientSide()) {
-            return false;
-        }
-        return inputItems.get(0).test(pContainer.getItem(0));
+    public boolean matches(Container container, Level level) {
+        return this.ingredient.test(container.getItem(0));
     }
 
     @Override
-    public ItemStack assemble(SimpleContainer pContainer, RegistryAccess pRegistryAccess) {
-        return output.copy();
+    public ItemStack assemble(Container pContainer, RegistryAccess pRegistryAccess) {
+        return this.result.copy();
     }
 
     @Override
@@ -47,7 +43,7 @@ public class MidasTouchingRecipe implements Recipe<SimpleContainer> {
 
     @Override
     public ItemStack getResultItem(RegistryAccess pRegistryAccess) {
-        return output.copy();
+        return this.result;
     }
 
     @Override
@@ -68,40 +64,24 @@ public class MidasTouchingRecipe implements Recipe<SimpleContainer> {
     public static class Serializer implements RecipeSerializer<MidasTouchingRecipe> {
 
         @Override
-        public MidasTouchingRecipe fromJson(ResourceLocation pRecipeId, JsonObject pSerializedRecipe) {
-            ItemStack output = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(pSerializedRecipe, "result"));
-
-            JsonArray ingredients = GsonHelper.getAsJsonArray(pSerializedRecipe, "ingredients");
-            NonNullList<Ingredient> inputs = NonNullList.withSize(1, Ingredient.EMPTY);
-
-            for (int i = 0; i < inputs.size(); i++) {
-                inputs.set(i, Ingredient.fromJson(ingredients.get(i)));
-            }
-
-            return new MidasTouchingRecipe(inputs, output, pRecipeId);
+        public MidasTouchingRecipe fromJson(ResourceLocation id, JsonObject json) {
+            ItemStack result = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(json, "result"));
+            JsonElement jsonelement = GsonHelper.isArrayNode(json, "ingredient") ? GsonHelper.getAsJsonArray(json, "ingredient") : GsonHelper.getAsJsonObject(json, "ingredient");
+            Ingredient ingredient = Ingredient.fromJson(jsonelement, false);
+            return new MidasTouchingRecipe(ingredient, result, id);
         }
 
         @Override
-        public @Nullable MidasTouchingRecipe fromNetwork(ResourceLocation pRecipeId, FriendlyByteBuf pBuffer) {
-            NonNullList<Ingredient> inputs = NonNullList.withSize(pBuffer.readInt(), Ingredient.EMPTY);
-
-            for (int i = 0; i < inputs.size(); i++) {
-                inputs.set(i, Ingredient.fromNetwork(pBuffer));
-            }
-
-            ItemStack output = pBuffer.readItem();
-            return new MidasTouchingRecipe(inputs, output, pRecipeId);
+        public @Nullable MidasTouchingRecipe fromNetwork(ResourceLocation id, FriendlyByteBuf buffer) {
+            Ingredient ingredient = Ingredient.fromNetwork(buffer);
+            ItemStack result = buffer.readItem();
+            return new MidasTouchingRecipe(ingredient, result, id);
         }
 
         @Override
-        public void toNetwork(FriendlyByteBuf pBuffer, MidasTouchingRecipe pRecipe) {
-            pBuffer.writeInt(pRecipe.inputItems.size());
-
-            for (Ingredient ingredient : pRecipe.getIngredients()) {
-                ingredient.toNetwork(pBuffer);
-            }
-
-            pBuffer.writeItemStack(pRecipe.getResultItem(null), false);
+        public void toNetwork(FriendlyByteBuf buffer, MidasTouchingRecipe recipe) {
+            recipe.ingredient.toNetwork(buffer);
+            buffer.writeItem(recipe.result);
         }
     }
 }

@@ -1,0 +1,11 @@
+{
+  "type": "goldelight:midas_touching",
+  "ingredient": [
+    {
+      "item": "minecraft:beetroot"
+    }
+  ],
+  "result": {
+    "item": "midashunger:golden_beetroot"
+  }
+}

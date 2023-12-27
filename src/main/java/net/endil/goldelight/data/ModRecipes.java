@@ -187,6 +187,7 @@ public class ModRecipes extends RecipeProvider implements IConditionBuilder {
     protected static void midasCutting(Consumer<FinishedRecipe> consumer, Ingredient ingredient, ItemLike mainResult, int count) {
         GoldenCuttingBoardRecipeBuilder.goldenCuttingRecipe(ingredient, Ingredient.of(GDModItems.MIDAS_KNIFE.get()), mainResult, count).build(consumer, new ResourceLocation(GolDelight.MOD_ID, "midas_cutting/" + ForgeRegistries.ITEMS.getKey(mainResult.asItem()).getPath()));
     }
+
     protected static void midasCuttingWithSub(Consumer<FinishedRecipe> consumer, Ingredient ingredient, ItemLike mainResult, int main, ItemLike subResult) {
         GoldenCuttingBoardRecipeBuilder.goldenCuttingRecipe(ingredient, Ingredient.of(GDModItems.MIDAS_KNIFE.get()), mainResult, main).addResult(subResult, 1)
                 .build(consumer, new ResourceLocation(GolDelight.MOD_ID, "midas_cutting/" + ForgeRegistries.ITEMS.getKey(mainResult.asItem()).getPath()));
@@ -260,9 +261,9 @@ public class ModRecipes extends RecipeProvider implements IConditionBuilder {
         CropToSeeds(consumer, GDModItems.GOLDEN_TOMATO_SEEDS.get(), GDModItems.GOLDEN_TOMATO.get());
         CropToSeeds(consumer, GDModItems.GOLDEN_TOMATO_SEEDS.get(), GDModItems.ROTTEN_GOLDEN_TOMATO.get());
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, GDModItems.GOLDEN_SUGAR.get(), 3)
-                        .requires(GDModItems.GOLDEN_HONEY_BOTTLE.get())
-                                .unlockedBy("has_golden_honey_bottle", InventoryChangeTrigger.TriggerInstance.hasItems(GDModItems.GOLDEN_HONEY_BOTTLE.get()))
-                                        .save(consumer, new ResourceLocation(GolDelight.MOD_ID, "golden_sugar_from_honey_bottle"));
+                .requires(GDModItems.GOLDEN_HONEY_BOTTLE.get())
+                .unlockedBy("has_golden_honey_bottle", InventoryChangeTrigger.TriggerInstance.hasItems(GDModItems.GOLDEN_HONEY_BOTTLE.get()))
+                .save(consumer, new ResourceLocation(GolDelight.MOD_ID, "golden_sugar_from_honey_bottle"));
 
         ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, GDModBlocks.GOLDEN_MUSHROOM.get())
                 .pattern("ggg").pattern("gmg").pattern("ggg")
@@ -358,11 +359,11 @@ public class ModRecipes extends RecipeProvider implements IConditionBuilder {
                 .addResult(GDModItems.GOLDEN_MEAL.get()).build(consumer);
         GoldenCuttingBoardRecipeBuilder.goldenCuttingRecipe(Ingredient.of(ItemRegistry.COOKED_GOLDEN_CHICKEN.get()), Ingredient.of(GDModTags.Items.NORMAL_KNIVES), GDModItems.COOKED_GOLDEN_CHICKEN_CUTS.get(), 2)
                 .addResult(GDModItems.GOLDEN_MEAL.get()).build(consumer);
-         GoldenCuttingBoardRecipeBuilder.goldenCuttingRecipe(Ingredient.of(GDModItems.GOLDEN_COD.get()), Ingredient.of(GDModTags.Items.NORMAL_KNIVES), GDModItems.GOLDEN_COD_SLICE.get(), 2)
+        GoldenCuttingBoardRecipeBuilder.goldenCuttingRecipe(Ingredient.of(GDModItems.GOLDEN_COD.get()), Ingredient.of(GDModTags.Items.NORMAL_KNIVES), GDModItems.GOLDEN_COD_SLICE.get(), 2)
                 .addResult(GDModItems.GOLDEN_MEAL.get()).build(consumer);
         GoldenCuttingBoardRecipeBuilder.goldenCuttingRecipe(Ingredient.of(ItemRegistry.COOKED_GOLDEN_COD.get()), Ingredient.of(GDModTags.Items.NORMAL_KNIVES), GDModItems.COOKED_GOLDEN_COD_SLICE.get(), 2)
                 .addResult(GDModItems.GOLDEN_MEAL.get()).build(consumer);
-         GoldenCuttingBoardRecipeBuilder.goldenCuttingRecipe(Ingredient.of(GDModItems.GOLDEN_SALMON.get()), Ingredient.of(GDModTags.Items.NORMAL_KNIVES), GDModItems.GOLDEN_SALMON_SLICE.get(), 2)
+        GoldenCuttingBoardRecipeBuilder.goldenCuttingRecipe(Ingredient.of(GDModItems.GOLDEN_SALMON.get()), Ingredient.of(GDModTags.Items.NORMAL_KNIVES), GDModItems.GOLDEN_SALMON_SLICE.get(), 2)
                 .addResult(GDModItems.GOLDEN_MEAL.get()).build(consumer);
         GoldenCuttingBoardRecipeBuilder.goldenCuttingRecipe(Ingredient.of(ItemRegistry.COOKED_GOLDEN_SALMON.get()), Ingredient.of(GDModTags.Items.NORMAL_KNIVES), GDModItems.COOKED_GOLDEN_SALMON_SLICE.get(), 2)
                 .addResult(GDModItems.GOLDEN_MEAL.get()).build(consumer);

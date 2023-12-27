@@ -1,0 +1,11 @@
+{
+  "type": "goldelight:midas_touching",
+  "ingredient": [
+    {
+      "item": "farmersdelight:tomato"
+    }
+  ],
+  "result": {
+    "item": "goldelight:golden_tomato"
+  }
+}

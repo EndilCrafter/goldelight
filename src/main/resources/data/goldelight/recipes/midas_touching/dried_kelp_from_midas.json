@@ -1,0 +1,11 @@
+{
+  "type": "goldelight:midas_touching",
+  "ingredient": [
+    {
+      "item": "minecraft:dried_kelp"
+    }
+  ],
+  "result": {
+    "item": "midashunger:dried_golden_kelp"
+  }
+}

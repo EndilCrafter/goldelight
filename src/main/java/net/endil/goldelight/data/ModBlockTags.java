@@ -182,6 +182,7 @@ public class ModBlockTags extends BlockTagsProvider {
                 .add(GDModBlocks.GOLDEN_SUGAR_CANE.get(), GDModBlocks.GOLDEN_CACTUS.get(), GDModBlocks.GOLDEN_MUSHROOM.get(),
                         GDModBlocks.GOLDEN_FUNGUS.get(), GDModBlocks.GOLDEN_ONION_CROP.get());
     }
+
     private void registerForgeTags() {
         this.tag(Tags.Blocks.STORAGE_BLOCKS).add(GDModBlocks.ANCIENT_GOLD_BLOCK.get());
     }

@@ -21,9 +21,11 @@ import java.util.Map;
 
 public class GDTextUtils {
     private static final MutableComponent NO_EFFECTS = Component.translatable("effect.none").withStyle(ChatFormatting.GRAY);
+
     public static MutableComponent getTranslation(String key, Object... args) {
         return Component.translatable(GolDelight.MOD_ID + "." + key, args);
     }
+
     @OnlyIn(Dist.CLIENT)
     public static void addFoodEffectTooltip(ItemStack itemIn, List<Component> lores, float durationFactor) {
         FoodProperties foodStats = itemIn.getItem().getFoodProperties();

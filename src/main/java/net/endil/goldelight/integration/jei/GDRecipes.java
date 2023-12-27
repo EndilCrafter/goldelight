@@ -26,6 +26,7 @@ public class GDRecipes {
     public List<GoldenCookingPotRecipe> getGoldenCookingPotRecipes() {
         return recipeManager.getAllRecipesFor(GDModRecipeTypes.GOLDEN_COOKING.get()).stream().toList();
     }
+
     public List<GoldenCuttingBoardRecipe> getGoldenCuttingBoardRecipes() {
         return recipeManager.getAllRecipesFor(GDModRecipeTypes.GOLDEN_CUTTING.get()).stream().toList();
     }

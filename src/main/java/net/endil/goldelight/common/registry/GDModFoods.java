@@ -1,5 +1,6 @@
 package net.endil.goldelight.common.registry;
 
+import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
@@ -265,6 +266,38 @@ public class GDModFoods {
     public static final FoodProperties GOLDEN_APPLE = (new FoodProperties.Builder()).nutrition(4).saturationMod(1.2F)
             .effect(() -> new MobEffectInstance(MobEffects.REGENERATION, 200, 0), 1.0F)
             .effect(() -> new MobEffectInstance(MobEffects.ABSORPTION, 600, 0), 1.0F).alwaysEat().build();
+
+    //ND
+    public static final FoodProperties GOGLIN_LOIN = (new FoodProperties.Builder()).nutrition(4).saturationMod(0.3F).meat().build();
+    public static final FoodProperties GOGLIN_SIRLOIN = (new FoodProperties.Builder()).nutrition(10).saturationMod(0.8F)
+            .effect(() -> new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 900, 0), 1.0F)
+            .effect(() -> new MobEffectInstance(MobEffects.DAMAGE_BOOST, 900, 0), 1.0F)
+            .alwaysEat().meat().build();
+    public static final FoodProperties GOLDEN_STRIDER_SLICE = (new FoodProperties.Builder()).nutrition(6).saturationMod(0.7F)
+            .effect(() -> new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 600, 0), 1.0F).meat().alwaysEat().build();
+    public static final FoodProperties GRILLED_GOLDEN_STRIDER = (new FoodProperties.Builder()).nutrition(14).saturationMod(1.1F)
+            .effect(() -> new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 900, 0), 1.0F)
+            .effect(() -> new MobEffectInstance(ModEffects.NOURISHMENT.get(), 3600, 0), 1.0F).alwaysEat().build();
+    public static final FoodProperties GOLDEN_MOLDY_MEAT = (new FoodProperties.Builder()).nutrition(12).saturationMod(1.0F)
+            .effect(() -> new MobEffectInstance(MobEffects.BLINDNESS, 100, 0), 0.5F)
+            .effect(() -> new MobEffectInstance(MobEffects.CONFUSION, 100, 0), 0.5F).alwaysEat().build();
+    public static final FoodProperties GROUND_GOLDEN_STRIDER = (new FoodProperties.Builder()).nutrition(3).saturationMod(0.8F)
+            .effect(() -> new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 300, 0), 1.0F)
+            .effect(() -> new MobEffectInstance(MobEffects.POISON, 100, 0), 0.125F).alwaysEat().meat().build();
+    public static final FoodProperties GOLDEN_STRIDER_MOSS_STEW = (new FoodProperties.Builder()).nutrition(10).saturationMod(0.8F)
+            .effect(() -> new MobEffectInstance(ModEffects.COMFORT.get(), 3600, 0), 1.0F).alwaysEat().build();
+    public static final FoodProperties GOGLIN_EAR = (new FoodProperties.Builder()).nutrition(4).saturationMod(0.8F).meat().fast().build();
+    public static final FoodProperties PLATE_OF_STUFFED_GOGLIN_SNOUT = (new FoodProperties.Builder()).nutrition(20).saturationMod(1.0F)
+            .effect(() -> new MobEffectInstance(ModEffects.NOURISHMENT.get(), 7200, 0), 1.0F).alwaysEat().build();
+    public static final FoodProperties PLATE_OF_STUFFED_GOGLIN_HAM = (new FoodProperties.Builder()).nutrition(20).saturationMod(1.0F)
+            .effect(() -> new MobEffectInstance(ModEffects.NOURISHMENT.get(), 3600, 0), 1.0F).alwaysEat().build();
+    public static final FoodProperties PLATE_OF_STUFFED_GOGLIN_ROAST = (new FoodProperties.Builder()).nutrition(20).saturationMod(1.0F)
+            .effect(() -> new MobEffectInstance(ModEffects.NOURISHMENT.get(), 3600, 0), 1.0F).alwaysEat().build();
+    public static final FoodProperties GOLDELPEARL = (new FoodProperties.Builder()).nutrition(4).saturationMod(0.6F)
+            .effect(() -> new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 600, 0), 1.0F).alwaysEat().build();
+    public static final FoodProperties GOLDEN_NETHER_SKEWER = (new FoodProperties.Builder()).nutrition(8).saturationMod(0.7F).build();
+    public static final FoodProperties GOLD_GELATIN = (new FoodProperties.Builder()).nutrition(2).saturationMod(10.0F)
+            .effect(() -> new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 1800, 0), 1.0F).alwaysEat().build();
 
     private static FoodProperties.Builder rawMeat(int pNutrition) {
         return (new FoodProperties.Builder()).nutrition(pNutrition).saturationMod(0.3F).meat();

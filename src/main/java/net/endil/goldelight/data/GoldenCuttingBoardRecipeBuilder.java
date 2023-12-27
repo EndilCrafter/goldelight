@@ -22,8 +22,7 @@ import java.util.function.Consumer;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
-public class GoldenCuttingBoardRecipeBuilder
-{
+public class GoldenCuttingBoardRecipeBuilder {
     private final List<ChanceResult> results = new ArrayList<>(4);
     private final Ingredient ingredient;
     private final Ingredient tool;
@@ -90,8 +89,7 @@ public class GoldenCuttingBoardRecipeBuilder
         consumerIn.accept(new GoldenCuttingBoardRecipeBuilder.Result(id, this.ingredient, this.tool, this.results, this.soundEventID == null ? "" : this.soundEventID));
     }
 
-    public static class Result implements FinishedRecipe
-    {
+    public static class Result implements FinishedRecipe {
         private final ResourceLocation id;
         private final Ingredient ingredient;
         private final Ingredient tool;

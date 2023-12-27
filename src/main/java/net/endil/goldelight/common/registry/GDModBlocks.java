@@ -134,6 +134,14 @@ public class GDModBlocks {
     public static final RegistryObject<Block> GOLDEN_CUTTING_BOARD;
 
     static {
+        GOL_D_LANTERN = registerBlock("gol_d_lantern",
+                () -> new CarvedPumpkinBlock(BlockBehaviour.Properties.copy(Blocks.JACK_O_LANTERN)
+                        .mapColor(MapColor.COLOR_YELLOW)));
+        GOLDEN_CACTUS = registerBlock("golden_cactus",
+                () -> new GoldenCactusBlock(BlockBehaviour.Properties.copy(Blocks.CACTUS).mapColor(MapColor.COLOR_YELLOW)));
+        GOLDEN_CAKE = BLOCKS.register("golden_cake",
+                () -> new GoldenCakeBlock(BlockBehaviour.Properties.copy(Blocks.CAKE).noLootTable()
+                        .mapColor(MapColor.COLOR_YELLOW)));
         GOLDEN_CUTTING_BOARD = registerBlock("golden_cutting_board",
                 () -> new GoldenCuttingBoardBlock(BlockBehaviour.Properties.copy(Blocks.GOLD_BLOCK).strength(2.0f)));
         POTTED_GOLDEN_CACTUS = BLOCKS.register("potted_golden_cactus",
@@ -349,14 +357,6 @@ public class GDModBlocks {
                 () -> new CandleGoldenCakeBlock(Blocks.BLUE_CANDLE, BlockBehaviour.Properties.copy(GDModBlocks.CANDLE_GOLDEN_CAKE.get())));
         BLACK_CANDLE_GOLDEN_CAKE = BLOCKS.register("black_candle_golden_cake",
                 () -> new CandleGoldenCakeBlock(Blocks.BLACK_CANDLE, BlockBehaviour.Properties.copy(GDModBlocks.CANDLE_GOLDEN_CAKE.get())));
-        GOLDEN_CAKE = BLOCKS.register("golden_cake",
-                () -> new GoldenCakeBlock(BlockBehaviour.Properties.copy(Blocks.CAKE).noLootTable()
-                        .mapColor(MapColor.COLOR_YELLOW)));
-        GOLDEN_CACTUS = registerBlock("golden_cactus",
-                () -> new GoldenCactusBlock(BlockBehaviour.Properties.copy(Blocks.CACTUS).mapColor(MapColor.COLOR_YELLOW)));
-        GOL_D_LANTERN = registerBlock("gol_d_lantern",
-                () -> new CarvedPumpkinBlock(BlockBehaviour.Properties.copy(Blocks.JACK_O_LANTERN)
-                        .mapColor(MapColor.COLOR_YELLOW)));
     }
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {

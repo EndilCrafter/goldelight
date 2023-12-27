@@ -1,0 +1,11 @@
+{
+  "type": "goldelight:midas_touching",
+  "ingredient": [
+    {
+      "item": "farmersdelight:smoked_ham"
+    }
+  ],
+  "result": {
+    "item": "goldelight:smoked_golden_ham"
+  }
+}
